@@ -12,6 +12,7 @@ public class ReclamationController {
     @FXML
     private void send() throws IOException {
         System.out.println(message.getText());
+        //TODO: envoyer la réclamation
         App.setRoot("connect");
     }
 
