@@ -27,7 +27,7 @@ private void initialize() {
     pageMappings.put("Mon Profil", "profil");
     pageMappings.put("Deconnexion", "connect");
 
-    header_burger.getItems().addAll("Connexion", "Creation Annonce", "Creation Compte", "Mon Profil", "Deconnexion");
+    header_burger.getItems().addAll("Creation Annonce", "Creation Compte", "Mon Profil", "Deconnexion");
 
     header_burger.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
         try {   
