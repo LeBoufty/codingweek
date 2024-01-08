@@ -24,6 +24,7 @@ public class CreateBDD {
                         + "	mot_de_passe text NOT NULL,\n"
                         + "	email text NOT NULL UNIQUE,\n"
                         + "	argent integer NOT NULL,\n"
+                        + " code_postal text NOT NULL,\n"
                         + "	admin bool NOT NULL\n"
                         + ");";
                 conn.createStatement().execute(utilisateurs); // Ajout dans la BDD
@@ -32,6 +33,7 @@ public class CreateBDD {
                 // Création de la table "offre"
 
                 String offres = "CREATE TABLE IF NOT EXISTS offres (\n"
+                        + "     nom text NOT NULL,\n"
                         + "	id integer PRIMARY KEY AUTOINCREMENT,\n"
                         + "	id_vendeur integer NOT NULL,\n"
                         + "	prix integer NOT NULL,\n"

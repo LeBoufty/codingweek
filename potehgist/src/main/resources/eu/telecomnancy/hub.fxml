@@ -58,8 +58,8 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button mnemonicParsing="false" prefHeight="131.0" prefWidth="200.0" text="Chercher une offre" GridPane.rowIndex="1" />
-            <Button fx:id="Créerannonce" mnemonicParsing="false" prefHeight="131.0" prefWidth="200.0" text="Déposer une offre" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" prefHeight="131.0" prefWidth="241.0" text="Chercher une offre" GridPane.rowIndex="1" />
+            <Button onAction="#depot" mnemonicParsing="false" prefHeight="108.0" prefWidth="333.0" text="Déposer une offre" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
    </center>

@@ -10,10 +10,11 @@ public class API {
     private static API instance = null;
     private Connection conn;
     private DatabaseMetaData meta;
-    private static String url = "jdbc:sqlite:" + CreateBDD.BDD_NAME;
+    private static String url;
 
     private API() {
         try {
+            url = "jdbc:sqlite:"+getClass().getResource("/potehgist.db").toExternalForm();
             conn = DriverManager.getConnection(url);
             meta = conn.getMetaData();
         } catch (SQLException e) {
@@ -36,6 +37,22 @@ public class API {
     public String getUsername(int userid) throws Exception {
         ResultSet rs = conn.createStatement().executeQuery("SELECT nom FROM utilisateurs WHERE id = " + userid + ";");
         return rs.getString(1);
+    }
+
+    public void setUsername(int userid, String newname) throws Exception {
+        ResultSet rs = conn.createStatement().executeQuery("UPDATE utilisateurs SET nom= '"+newname+"' FROM utilisateurs WHERE id = " + userid + ";");
+    }
+
+    public void setemail(int userid, String newemail) throws Exception {
+        ResultSet rs = conn.createStatement().executeQuery("UPDATE utilisateurs SET email= '"+newemail+"' FROM utilisateurs WHERE id = " + userid + ";");
+    }
+
+    public void setmdp(int userid, String newmdp) throws Exception {
+        ResultSet rs = conn.createStatement().executeQuery("UPDATE utilisateurs SET mot_de_passe= '"+newmdp+"' FROM utilisateurs WHERE id = " + userid + ";");
+    }
+
+    public void setcp(int userid, String newcp) throws Exception {
+        ResultSet rs = conn.createStatement().executeQuery("UPDATE utilisateurs SET code_postal= '"+newcp+"' FROM utilisateurs WHERE id = " + userid + ";");
     }
 
     public boolean checkPassword(String username, String password) throws Exception {
@@ -64,5 +81,9 @@ public class API {
     public boolean emailPris(String email) throws Exception {
         ResultSet rs = conn.createStatement().executeQuery("SELECT COUNT(*) FROM utilisateurs WHERE email = '" + email + "';");
         return rs.getInt(1)!=0;
+    }
+
+    public void addOffre(String nom, String description, int prix, int vendeur, String categorie) throws Exception {
+        conn.createStatement().execute("INSERT INTO offres (nom, description, prix, vendeur, categorie, date_depot) VALUES ('" + nom + "', '" + description + "', " + prix + ", " + vendeur + ", '" + categorie + "', GETDATE());");
     }
 }
