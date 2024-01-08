@@ -14,6 +14,7 @@ import java.io.IOException;
 public class App extends Application {
 
     private static Scene scene;
+    private static String userid;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -29,6 +30,18 @@ public class App extends Application {
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
+    }
+
+    static void setUserid(String id) {
+        userid = id;
+    }
+
+    static String getUserid() {
+        return userid;
+    }
+
+    static boolean loggedIn() {
+        return userid != null;
     }
 
     public static void main(String[] args) {
