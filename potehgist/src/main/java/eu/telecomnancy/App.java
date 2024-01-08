@@ -1,14 +1,19 @@
 package eu.telecomnancy;
 
+import java.io.IOException;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+<<<<<<< HEAD
 import java.io.IOException;
 
 
+=======
+>>>>>>> 4d141d6a54d97f370f80c10ba8ae74e7337b1b62
 /**
  * JavaFX App test potagit
  */
@@ -19,7 +24,8 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 640, 480);
+        scene = new Scene(loadFXML("connect"), 640, 480);
+        stage.setTitle("PotehGist");
         stage.setScene(scene);
         stage.show();
     }
@@ -46,7 +52,7 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
-        launch();
+        launch(args);
     }
 
 }
