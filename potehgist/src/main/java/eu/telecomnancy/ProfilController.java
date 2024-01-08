@@ -2,6 +2,7 @@ package eu.telecomnancy;
 
 import java.io.IOException;
 
+import eu.telecomnancy.BDD_App.API;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -16,9 +17,9 @@ public class ProfilController {
     private ImageView imageView;
 
 
-    public void initialize()
+    public void initialize() throws Exception
     {
-        username.setText("test");
+        username.setText(API.getInstance().getUsername(App.getUserid()));
         Image image = new Image(getClass().getResource("assets/logo.png").toExternalForm());
         imageView.setImage(image);
     }
