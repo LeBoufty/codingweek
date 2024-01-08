@@ -51,8 +51,12 @@ public class modprofilController {
             API.getInstance().modify_code_postal(App.getUserid(), codepostal.getText());
         }
 
-        App.setRoot("modprofil");
+        App.setRoot("profil");
 
     }
     
+    @FXML
+    private void returntoprofile() throws Exception {
+        App.setRoot("profil");
+    }
 }

@@ -30,6 +30,9 @@
             <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
             <Label text="Modification du profil" GridPane.halignment="CENTER">
@@ -45,9 +48,11 @@
             <PasswordField fx:id="password1" GridPane.rowIndex="6" />
             <Label text=" Nouveau Code Postal" GridPane.rowIndex="9" />
             <TextField fx:id="codepostal" GridPane.rowIndex="10" />
-            <Button mnemonicParsing="false" onAction="#updateprofile" text="Confirmer le changement" GridPane.halignment="CENTER" GridPane.rowIndex="12" />
+            <Button mnemonicParsing="false" onAction="#updateprofile" text="Confirmer le changement" GridPane.halignment="CENTER" GridPane.rowIndex="14" />
             <Label text=" Retaper le nouveau mot de passe" GridPane.rowIndex="7" />
             <PasswordField fx:id="password2" GridPane.rowIndex="8" />
+            <Label text=" Nouvelle Image de profil" GridPane.rowIndex="11" />
+            <Button mnemonicParsing="false" onAction="#returntoprofile" text="Retour" GridPane.halignment="CENTER" GridPane.rowIndex="15" />
          </children>
       </GridPane>
    </center>
