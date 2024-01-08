@@ -3,6 +3,7 @@ package eu.telecomnancy.BDD_App;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -39,20 +40,49 @@ public class API {
         return rs.getString(1);
     }
 
-    public void setUsername(int userid, String newname) throws Exception {
-        conn.prepareStatement("UPDATE utilisateurs SET nom= '"+newname+"' FROM utilisateurs WHERE id = " + userid + ";").executeUpdate();
+    public void modifyUsername(int userid, String newname) throws Exception {
+    String query = "UPDATE utilisateurs SET nom = ? WHERE id = ?";
+    
+    try (PreparedStatement pstmt = conn.prepareStatement(query)) {
+        pstmt.setString(1, newname);
+        pstmt.setInt(2, userid);
+        
+        pstmt.executeUpdate();
+        }
     }
 
-    public void setemail(int userid, String newemail) throws Exception {
-        conn.prepareStatement("UPDATE utilisateurs SET email= '"+newemail+"' FROM utilisateurs WHERE id = " + userid + ";").execute();
+
+    public void modifyemail(int userid, String newemail) throws Exception {
+    String query = "UPDATE utilisateurs SET email = ? WHERE id = ?";
+    
+    try (PreparedStatement pstmt = conn.prepareStatement(query)) {
+        pstmt.setString(1, newemail);
+        pstmt.setInt(2, userid);
+        
+        pstmt.executeUpdate();
+        }
     }
 
-    public void setmdp(int userid, String newmdp) throws Exception {
-        conn.prepareStatement("UPDATE utilisateurs SET mot_de_passe= '"+newmdp+"' FROM utilisateurs WHERE id = " + userid + ";").execute();
+    public void modifymdp(int userid, String newmdp) throws Exception {
+    String query = "UPDATE utilisateurs SET mot_de_passe = ? WHERE id = ?";
+    
+    try (PreparedStatement pstmt = conn.prepareStatement(query)) {
+        pstmt.setString(1, newmdp);
+        pstmt.setInt(2, userid);
+        
+        pstmt.executeUpdate();
+        }
     }
 
-    public void setcp(int userid, String newcp) throws Exception {
-        conn.prepareStatement("UPDATE utilisateurs SET code_postal= '"+newcp+"' FROM utilisateurs WHERE id = " + userid + ";").execute();
+    public void modify_code_postal(int userid, String newcode) throws Exception {
+    String query = "UPDATE utilisateurs SET code_postal = ? WHERE id = ?";
+    
+    try (PreparedStatement pstmt = conn.prepareStatement(query)) {
+        pstmt.setString(1, newcode);
+        pstmt.setInt(2, userid);
+        
+        pstmt.executeUpdate();
+        }
     }
 
     public boolean checkPassword(String username, String password) throws Exception {
