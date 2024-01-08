@@ -30,23 +30,23 @@ public class API {
 
     public int getUserid(String username) throws Exception {
         ResultSet rs = conn.createStatement().executeQuery("SELECT id FROM utilisateurs WHERE nom = '" + username + "';");
-        return rs.getInt(0);
+        return rs.getInt(1);
     }
 
     public String getUsername(int userid) throws Exception {
         ResultSet rs = conn.createStatement().executeQuery("SELECT nom FROM utilisateurs WHERE id = " + userid + ";");
-        return rs.getString(0);
+        return rs.getString(1);
     }
 
     public boolean checkPassword(String username, String password) throws Exception {
         ResultSet rs = conn.createStatement().executeQuery("SELECT mot_de_passe FROM utilisateurs WHERE nom = '" + username + "';");
-        return rs.getString(0).equals(password);
+        return rs.getString(1).equals(password);
     }
 
     public int getMaxID() throws Exception {
         ResultSet rs = conn.createStatement().executeQuery("SELECT MAX(id) FROM utilisateurs;");
         try {
-            return rs.getInt(0);
+            return rs.getInt(1);
         } catch (Exception e) {
             return 0;
         }
@@ -58,11 +58,11 @@ public class API {
 
     public boolean usernamePris(String username) throws Exception {
         ResultSet rs = conn.createStatement().executeQuery("SELECT COUNT(*) FROM utilisateurs WHERE nom = '" + username + "';");
-        return rs.getInt(0)!=0;
+        return rs.getInt(1)!=0;
     }
 
     public boolean emailPris(String email) throws Exception {
         ResultSet rs = conn.createStatement().executeQuery("SELECT COUNT(*) FROM utilisateurs WHERE email = '" + email + "';");
-        return rs.getInt(0)!=0;
+        return rs.getInt(1)!=0;
     }
 }
