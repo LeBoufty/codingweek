@@ -40,19 +40,19 @@ public class API {
     }
 
     public void setUsername(int userid, String newname) throws Exception {
-        ResultSet rs = conn.createStatement().executeQuery("UPDATE utilisateurs SET nom= '"+newname+"' FROM utilisateurs WHERE id = " + userid + ";");
+        conn.prepareStatement("UPDATE utilisateurs SET nom= '"+newname+"' FROM utilisateurs WHERE id = " + userid + ";").execute();
     }
 
     public void setemail(int userid, String newemail) throws Exception {
-        ResultSet rs = conn.createStatement().executeQuery("UPDATE utilisateurs SET email= '"+newemail+"' FROM utilisateurs WHERE id = " + userid + ";");
+        conn.prepareStatement("UPDATE utilisateurs SET email= '"+newemail+"' FROM utilisateurs WHERE id = " + userid + ";").execute();
     }
 
     public void setmdp(int userid, String newmdp) throws Exception {
-        ResultSet rs = conn.createStatement().executeQuery("UPDATE utilisateurs SET mot_de_passe= '"+newmdp+"' FROM utilisateurs WHERE id = " + userid + ";");
+        conn.prepareStatement("UPDATE utilisateurs SET mot_de_passe= '"+newmdp+"' FROM utilisateurs WHERE id = " + userid + ";").execute();
     }
 
     public void setcp(int userid, String newcp) throws Exception {
-        ResultSet rs = conn.createStatement().executeQuery("UPDATE utilisateurs SET code_postal= '"+newcp+"' FROM utilisateurs WHERE id = " + userid + ";");
+        conn.prepareStatement("UPDATE utilisateurs SET code_postal= '"+newcp+"' FROM utilisateurs WHERE id = " + userid + ";").execute();
     }
 
     public boolean checkPassword(String username, String password) throws Exception {
@@ -85,5 +85,10 @@ public class API {
 
     public void addOffre(String nom, String description, int prix, int vendeur, String categorie) throws Exception {
         conn.createStatement().execute("INSERT INTO offres (nom, description, prix, vendeur, categorie, date_depot) VALUES ('" + nom + "', '" + description + "', " + prix + ", " + vendeur + ", '" + categorie + "', GETDATE());");
+    }
+
+    public boolean isAdmin(int userid) throws Exception {
+        ResultSet rs = conn.createStatement().executeQuery("SELECT admin FROM utilisateurs WHERE id = " + userid + ";");
+        return rs.getBoolean(1);
     }
 }
