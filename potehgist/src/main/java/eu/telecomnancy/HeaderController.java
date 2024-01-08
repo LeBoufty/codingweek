@@ -4,16 +4,22 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 
 public class HeaderController {
     
     @FXML
     private ChoiceBox<String> header_burger;
+    @FXML
+    private Button homeButton;
 
     @FXML
 private void initialize() {
+
+    homeButton.setOnAction(this::handleHomeButtonClick);
     // Mapping between display names and corresponding FXML files
     Map<String, String> pageMappings = new HashMap<>();
     pageMappings.put("Connexion", "connect");
@@ -31,4 +37,11 @@ private void initialize() {
     });
 }
 
+    private void handleHomeButtonClick(ActionEvent event) {
+        try {
+            App.setRoot("hub");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     }
