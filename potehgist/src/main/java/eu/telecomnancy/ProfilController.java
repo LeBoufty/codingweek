@@ -38,7 +38,7 @@ public class ProfilController {
 
     @FXML
     private void toModifProfile() throws IOException {
-        System.out.println("to ModifProfile");
+        App.setRoot("modprofil");
     }
     
 }
