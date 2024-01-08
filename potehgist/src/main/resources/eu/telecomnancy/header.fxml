@@ -15,7 +15,7 @@
       </style>
    </right>
    <left>
-    <Button fx:id="homeButton" blendMode="SRC_ATOP" cache="true" cacheShape="false" centerShape="false" contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" scaleShape="false" textAlignment="CENTER" BorderPane.alignment="CENTER">
+    <Button onAction="#homeButton" blendMode="SRC_ATOP" cache="true" cacheShape="false" centerShape="false" contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" scaleShape="false" textAlignment="CENTER" BorderPane.alignment="CENTER">
       <graphic>
          <ImageView fitHeight="25.0" pickOnBounds="true" preserveRatio="true">
             <image>
