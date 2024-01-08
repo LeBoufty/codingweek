@@ -10,7 +10,7 @@ public class API {
     private static API instance = null;
     private Connection conn;
     private DatabaseMetaData meta;
-    private static String url = "jdbc:sqlite:potehgist/" + CreateBDD.BDD_NAME;
+    private static String url = "jdbc:sqlite:" + CreateBDD.BDD_NAME;
 
     private API() {
         try {
