@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class CreateBDD {
-    
+    public static final String BDD_NAME = "potehgist.db";
     public static void createNewDatabase(String fileName) {
  
         String url = "jdbc:sqlite:potehgist/" + fileName;
@@ -41,6 +41,6 @@ public class CreateBDD {
     }
  
     public static void main(String[] args) {
-        createNewDatabase("test.db");
+        createNewDatabase(BDD_NAME);
     }
 }
