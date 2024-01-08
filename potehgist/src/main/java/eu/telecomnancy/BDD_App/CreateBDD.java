@@ -136,18 +136,27 @@ public class CreateBDD {
                 conn.createStatement().execute(notifications); // Ajout dans la BDD
                 System.out.println("[DEBUG] La table notifications a été créée.");
 
-
-                // Fermerture de la connexion
-                conn.close();
-
             }
  
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
- 
+    
+    public static void fermersql() {
+        try {
+            DriverManager.getConnection("jdbc:sqlite:potehgist/" + BDD_NAME).close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void remplitsql() {
+
+    }
+
     public static void main(String[] args) {
         createNewDatabase(BDD_NAME);
+        fermersql();
     }
 }

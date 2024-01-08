@@ -40,7 +40,7 @@ public class API {
     }
 
     public void setUsername(int userid, String newname) throws Exception {
-        conn.prepareStatement("UPDATE utilisateurs SET nom= '"+newname+"' FROM utilisateurs WHERE id = " + userid + ";").execute();
+        conn.prepareStatement("UPDATE utilisateurs SET nom= '"+newname+"' FROM utilisateurs WHERE id = " + userid + ";").executeUpdate();
     }
 
     public void setemail(int userid, String newemail) throws Exception {
