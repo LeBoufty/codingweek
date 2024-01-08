@@ -11,6 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.control.PasswordField?>
 
 <BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eu.telecomnancy.ConnectController">
    <center>
@@ -37,7 +38,7 @@
                      </cursor>
                   </TextField>
                   <Label text="Mot de passe" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-                  <TextField fx:id="password" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="200.0" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                  <PasswordField fx:id="password" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="200.0" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
                   <Button alignment="CENTER" mnemonicParsing="false" onAction="#connect" text="Connection" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
                   <Button mnemonicParsing="false" onAction="#create" text="Créer un compte" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
                   <Label alignment="CENTER" prefHeight="29.0" text="Création de Compte" textAlignment="CENTER" GridPane.halignment="CENTER">
