@@ -2,12 +2,11 @@ package eu.telecomnancy;
 
 import java.io.IOException;
 
+import eu.telecomnancy.BDD_App.API;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-
-import java.io.File;
 
 public class ProfilController {
 
@@ -18,10 +17,10 @@ public class ProfilController {
     private ImageView imageView;
 
 
-    public void initialize()
+    public void initialize() throws Exception
     {
-        username.setText("test");
-        Image image = new Image(getClass().getResource("Assets/logo.png").toExternalForm());
+        username.setText(API.getInstance().getUsername(App.getUserid()));
+        Image image = new Image(getClass().getResource("assets/imagedeprofile/"+App.getUserid()+".png").toExternalForm());
         imageView.setImage(image);
     }
 
@@ -39,7 +38,7 @@ public class ProfilController {
 
     @FXML
     private void toModifProfile() throws IOException {
-        System.out.println("to ModifProfile");
+        App.setRoot("modprofil");
     }
     
 }
