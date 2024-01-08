@@ -1,7 +1,7 @@
 package eu.telecomnancy.BDD_App;
 
 import java.sql.Connection;
-import java.sql.DatabaseMetaData;
+// import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,14 +10,15 @@ import java.sql.SQLException;
 public class API {
     private static API instance = null;
     private Connection conn;
-    private DatabaseMetaData meta;
+    //private DatabaseMetaData meta;
     private static String url;
 
     private API() {
+        CreateBDD.createNewDatabase("/tmp/potehgist.db");
         try {
-            url = "jdbc:sqlite:"+getClass().getResource("/potehgist.db").toExternalForm();
+            url = "jdbc:sqlite:/tmp/potehgist.db";
             conn = DriverManager.getConnection(url);
-            meta = conn.getMetaData();
+            // meta = conn.getMetaData();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }

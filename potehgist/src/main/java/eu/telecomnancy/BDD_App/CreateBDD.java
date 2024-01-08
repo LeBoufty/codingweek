@@ -5,11 +5,12 @@ import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+
 public class CreateBDD {
-    public static final String BDD_NAME = "potehgist.db";
+    public static final String BDD_NAME = "/tmp/potehgist.db";
     public static void createNewDatabase(String fileName) {
  
-        String url = "jdbc:sqlite:potehgist/" + fileName;
+        String url = "jdbc:sqlite:" + fileName;
  
         try (Connection conn = DriverManager.getConnection(url)) {
             if (conn != null) {
@@ -136,6 +137,8 @@ public class CreateBDD {
                 conn.createStatement().execute(notifications); // Ajout dans la BDD
                 System.out.println("[DEBUG] La table notifications a été créée.");
 
+                // fermeture de la connexion
+                conn.close();
             }
  
         } catch (SQLException e) {
@@ -143,13 +146,6 @@ public class CreateBDD {
         }
     }
     
-    public static void fermersql() {
-        try {
-            DriverManager.getConnection("jdbc:sqlite:potehgist/" + BDD_NAME).close();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
 
     public static void remplitsql() {
 
@@ -157,6 +153,5 @@ public class CreateBDD {
 
     public static void main(String[] args) {
         createNewDatabase(BDD_NAME);
-        fermersql();
     }
 }
