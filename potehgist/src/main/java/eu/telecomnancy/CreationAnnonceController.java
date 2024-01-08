@@ -17,6 +17,12 @@ public class CreationAnnonceController {
     private ChoiceBox<String> categorie;
 
     @FXML
+    private void initialize() {
+    // Initialiser les éléments de la ChoiceBox
+    categorie.getItems().addAll("Matériel", "Service");
+}
+
+    @FXML
     private javafx.scene.control.TextField Description;
 
     @FXML
