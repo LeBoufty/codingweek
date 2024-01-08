@@ -7,13 +7,4 @@
    <right>
       <ChoiceBox fx:id="header_burger" prefWidth="25.0" BorderPane.alignment="CENTER"/>
    </right>
-   <left>
-    <Button fx:id="imageButton" prefWidth="40.0" prefHeight="40.0">
-      <graphic>
-         <ImageView fitHeight="40.0" fitWidth="40.0">
-            <Image url="Assets/logo.png" />
-         </ImageView>
-      </graphic>
-   </Button>
-   </left>
 </BorderPane>
