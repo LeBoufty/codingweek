@@ -12,33 +12,29 @@
 ## Planning
 
 - 8/1/24
-
-    Création du projet.
-    Détermination des vues.
-    Création de la base de données.
-    Création du système de connexion.
-    Création du système de création de compte.
-    Création des premières vues.
+    + Création du projet.
+    + Détermination des vues.
+    + Création de la base de données.
+    + Création du système de connexion.
+    + Création du système de création de compte.
+    + Création des premières vues.
 
 - 9/1/24
-
-    Modification de profil.
-    Création du système d'offres.
-    Système de planning.
-    Système de Réclamations.
-    Avis.
-    Administration.
+    + Modification de profil.
+    + Création du système d'offres.
+    + Système de planning.
+    + Système de Réclamations.
+    + Avis.
+    + Administration.
 
 - 10/1/24
-
-    Chat.
-    Système de notifications.
-    Création du système de recherche.
+    + Chat.
+    + Système de notifications.
+    + Création du système de recherche.
 
 - 11/1/24
-
-    Débug
-    Vidéo.
+    + Débug
+    + Vidéo.
 
 ## Crédits
 
