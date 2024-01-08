@@ -27,7 +27,7 @@ public class modprofilController {
             if (API.getInstance().usernamePris(username.getText())) {
                 System.out.println("Nom d'utilisateur déjà pris");
             } else {
-                API.getInstance().setUsername(App.getUserid(), username.getText());
+                API.getInstance().modifyUsername(App.getUserid(), username.getText());
             }
         }
 
@@ -35,7 +35,7 @@ public class modprofilController {
             if (API.getInstance().emailPris(email.getText())) {
                 System.out.println("E-mail déjà pris");
             } else {
-                API.getInstance().setemail(App.getUserid(), email.getText());
+                API.getInstance().modifyemail(App.getUserid(), email.getText());
             }
         }
 
@@ -43,13 +43,16 @@ public class modprofilController {
             if (!password1.getText().equals(password2.getText())) {
                 System.out.println("Les mots de passe ne correspondent pas");
             } else {
-                API.getInstance().setmdp(App.getUserid(), password1.getText());
+                API.getInstance().modifymdp(App.getUserid(), password1.getText());
             }
         }
 
         if(!codepostal.getText().equals("")) {
-            API.getInstance().setcp(App.getUserid(), codepostal.getText());
+            API.getInstance().modify_code_postal(App.getUserid(), codepostal.getText());
         }
+
+        App.setRoot("modprofil");
+
     }
     
 }
