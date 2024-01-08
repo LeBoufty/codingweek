@@ -46,11 +46,11 @@
             <TextField fx:id="email" GridPane.rowIndex="4" />
             <Label text=" Nouveau mot de passe" GridPane.rowIndex="5" />
             <PasswordField fx:id="password1" GridPane.rowIndex="6" />
-            <Label text=" Nouveau Code Postal" GridPane.rowIndex="9" />
-            <TextField fx:id="codepostal" GridPane.rowIndex="10" />
             <Button mnemonicParsing="false" onAction="#updateprofile" text="Confirmer le changement" GridPane.halignment="CENTER" GridPane.rowIndex="14" />
             <Label text=" Retaper le nouveau mot de passe" GridPane.rowIndex="7" />
             <PasswordField fx:id="password2" GridPane.rowIndex="8" />
+            <Label text=" Nouveau Code Postal" GridPane.rowIndex="9" />
+            <TextField fx:id="codepostal" GridPane.rowIndex="10" />
             <Label text=" Nouvelle Image de profil" GridPane.rowIndex="11" />
             <Button mnemonicParsing="false" onAction="#returntoprofile" text="Retour" GridPane.halignment="CENTER" GridPane.rowIndex="15" />
          </children>
