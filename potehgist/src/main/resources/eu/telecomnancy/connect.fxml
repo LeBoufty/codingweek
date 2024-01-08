@@ -35,7 +35,7 @@
             <TextField fx:id="username" GridPane.rowIndex="1" />
             <Label text="Mot de passe" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
             <TextField fx:id="password" GridPane.rowIndex="3" />
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#connect" text="Connection" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#connect" text="Connexion" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
             <Button mnemonicParsing="false" onAction="#create" text="Créer un compte" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
          </children>
       </GridPane>
