@@ -25,9 +25,9 @@ private void initialize() {
     pageMappings.put("Connexion", "connect");
     pageMappings.put("Creation Annonce", "creationannonce");
     pageMappings.put("Creation Compte", "creationcompte");
-    pageMappings.put("Mon Profils", "profil");
+    pageMappings.put("Mon Profil", "profil");
 
-    header_burger.getItems().addAll("Connexion", "Creation Annonce", "Creation Compte", "Mon Profils");
+    header_burger.getItems().addAll("Connexion", "Creation Annonce", "Creation Compte", "Mon Profil");
 
     header_burger.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
         try {   
