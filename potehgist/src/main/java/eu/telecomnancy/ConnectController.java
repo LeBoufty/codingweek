@@ -2,6 +2,7 @@ package eu.telecomnancy;
 
 import java.io.IOException;
 
+import eu.telecomnancy.BDD_App.API;
 import javafx.fxml.FXML;
 
 public class ConnectController {
@@ -14,19 +15,26 @@ public class ConnectController {
 
     // Vu que l'username peut peut-être contenir des espaces, on devrait peut-être utiliser l'email
     @FXML
-    private void connect() throws IOException {
+    private void connect() throws Exception {
         System.out.println(username.getText()+" "+password.getText());
         // On vérifie si le couple username/password est valide
-        // Si c'est invalide on affiche un message
-        // Sinon on redirige vers le hub avec userid de défini.
+        if (valide(username.getText(), password.getText())) {
+            // Si c'est valide on récupère l'id de l'utilisateur
+            App.setUserid(getUserid(username.getText()));
+            // On redirige vers le hub
+            App.setRoot("primary"); // TODO mettre hub quand c'est fini
+        } else {
+            // Si c'est invalide on affiche un message
+            System.out.println("Mauvais couple username/password");
+        }
     }
 
-    private boolean valide(String username, String password) {
-        return true;
+    private boolean valide(String username, String password) throws Exception {
+        return API.getInstance().checkPassword(username, password);
     }
 
-    private String getUserid(String username) {
-        return "1";
+    private int getUserid(String username) throws Exception {
+        return API.getInstance().getUserid(username);
     }
 
     @FXML

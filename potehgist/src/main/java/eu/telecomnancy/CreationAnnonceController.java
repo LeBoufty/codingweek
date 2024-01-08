@@ -27,6 +27,7 @@ public class CreationAnnonceController {
 
     @FXML
     private void create() throws IOException {
+
         System.out.println(name.getText()+"\n"+prix.getText()+"\n"+categorie.getValue()+"\n"+Description.getText());
     }
     

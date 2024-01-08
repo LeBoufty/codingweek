@@ -39,7 +39,7 @@
                   </TextField>
                   <Label text="Mot de passe" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
                   <PasswordField fx:id="password" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="200.0" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#connect" text="Connection" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#connect" text="Connexion" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
                   <Button mnemonicParsing="false" onAction="#create" text="Créer un compte" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
                   <Label alignment="CENTER" prefHeight="29.0" text="Création de Compte" textAlignment="CENTER" GridPane.halignment="CENTER">
                      <font>
