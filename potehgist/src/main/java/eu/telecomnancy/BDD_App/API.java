@@ -10,10 +10,11 @@ public class API {
     private static API instance = null;
     private Connection conn;
     private DatabaseMetaData meta;
-    private static String url = "jdbc:sqlite:" + CreateBDD.BDD_NAME;
+    private static String url;
 
     private API() {
         try {
+            url = getClass().getResource("/potehgist.db").toExternalForm();
             conn = DriverManager.getConnection(url);
             meta = conn.getMetaData();
         } catch (SQLException e) {
@@ -80,5 +81,9 @@ public class API {
     public boolean emailPris(String email) throws Exception {
         ResultSet rs = conn.createStatement().executeQuery("SELECT COUNT(*) FROM utilisateurs WHERE email = '" + email + "';");
         return rs.getInt(1)!=0;
+    }
+
+    public void addOffre(String nom, String description, int prix, int vendeur, String categorie) throws Exception {
+        conn.createStatement().execute("INSERT INTO offres (nom, description, prix, vendeur, categorie, date_depot) VALUES ('" + nom + "', '" + description + "', " + prix + ", " + vendeur + ", '" + categorie + "', GETDATE());");
     }
 }

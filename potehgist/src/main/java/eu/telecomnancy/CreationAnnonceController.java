@@ -1,7 +1,6 @@
 package eu.telecomnancy;
 
-import java.io.IOException;
-
+import eu.telecomnancy.BDD_App.API;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 
@@ -23,12 +22,12 @@ public class CreationAnnonceController {
 }
 
     @FXML
-    private javafx.scene.control.TextField Description;
+    private javafx.scene.control.TextArea Description;
 
     @FXML
-    private void create() throws IOException {
-
-        System.out.println(name.getText()+"\n"+prix.getText()+"\n"+categorie.getValue()+"\n"+Description.getText());
+    private void create() throws Exception {
+        API.getInstance().addOffre(name.getText(), Description.getText(), Integer.parseInt(prix.getText()), App.getUserid(), categorie.getValue());
+        App.setRoot("hub");
     }
     
 }
