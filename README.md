@@ -18,7 +18,7 @@
     + Création du système de connexion.
     + Création du système de création de compte.
     + Création des premières vues.
-    + Système de connection et de création de compte.
+    + Système de connexion et de création de compte.
 
 - 9/1/24
     + Modification de profil.
