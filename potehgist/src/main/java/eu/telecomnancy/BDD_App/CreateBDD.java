@@ -24,6 +24,7 @@ public class CreateBDD {
                         + "	mot_de_passe text NOT NULL,\n"
                         + "	email text NOT NULL UNIQUE,\n"
                         + "	argent integer NOT NULL,\n"
+                        + " code_postal text NOT NULL,\n"
                         + "	admin bool NOT NULL\n"
                         + ");";
                 conn.createStatement().execute(utilisateurs); // Ajout dans la BDD
@@ -38,6 +39,7 @@ public class CreateBDD {
                         + " categorie text NOT NULL,\n" // service ou matériel
                         + " description text,\n"
                         + " date_depot datetime NOT NULL,\n"
+                        + " code_postal text NOT NULL,\n"
                         + "	FOREIGN KEY(id_vendeur) REFERENCES utilisateurs(id)\n"
                         + ");";
                 conn.createStatement().execute(offres); // Ajout dans la BDD
