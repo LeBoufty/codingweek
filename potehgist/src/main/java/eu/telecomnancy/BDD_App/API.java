@@ -38,6 +38,18 @@ public class API {
         return rs.getString(1);
     }
 
+    public void setUsername(int userid, String newname) throws Exception {
+        ResultSet rs = conn.createStatement().executeQuery("SET nom= "+newname+" FROM utilisateurs WHERE id = " + userid + ";");
+    }
+
+    public void setemail(int userid, String newemail) throws Exception {
+        ResultSet rs = conn.createStatement().executeQuery("SET email= "+newemail+" FROM utilisateurs WHERE id = " + userid + ";");
+    }
+
+    public void setmdp(int userid, String newmdp) throws Exception {
+        ResultSet rs = conn.createStatement().executeQuery("SET mot_de_passe= "+newmdp+" FROM utilisateurs WHERE id = " + userid + ";");
+    }
+
     public boolean checkPassword(String username, String password) throws Exception {
         ResultSet rs = conn.createStatement().executeQuery("SELECT mot_de_passe FROM utilisateurs WHERE nom = '" + username + "';");
         return rs.getString(1).equals(password);
