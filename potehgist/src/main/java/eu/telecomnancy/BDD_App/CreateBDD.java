@@ -33,13 +33,13 @@ public class CreateBDD {
                 // Création de la table "offre"
 
                 String offres = "CREATE TABLE IF NOT EXISTS offres (\n"
+                        + "     nom text NOT NULL,\n"
                         + "	id integer PRIMARY KEY AUTOINCREMENT,\n"
                         + "	id_vendeur integer NOT NULL,\n"
                         + "	prix integer NOT NULL,\n"
                         + " categorie text NOT NULL,\n" // service ou matériel
                         + " description text,\n"
                         + " date_depot datetime NOT NULL,\n"
-                        + " code_postal text NOT NULL,\n"
                         + "	FOREIGN KEY(id_vendeur) REFERENCES utilisateurs(id)\n"
                         + ");";
                 conn.createStatement().execute(offres); // Ajout dans la BDD
@@ -64,7 +64,6 @@ public class CreateBDD {
                         + "	id integer PRIMARY KEY AUTOINCREMENT,\n"
                         + "	id_offre integer NOT NULL,\n"
                         + "	id_acheteur integer NOT NULL,\n"
-                        + " nom text NOT NULL,\n"
                         + " position integer NOT NULL,\n" // position 0 = acheteur actuel
                         + "	FOREIGN KEY(id_offre) REFERENCES offres(id),\n"
                         + "	FOREIGN KEY(id_acheteur) REFERENCES utilisateurs(id)\n"
