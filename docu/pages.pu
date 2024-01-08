@@ -1,0 +1,46 @@
+@startuml "Pages"
+object Connexion
+object Inscription
+object HUB
+object Messagerie
+object Chat 
+object RechercheOffres
+object DepotOffres
+object ListeOffres
+object Offre
+object Reservation
+object HEADER
+object FOOTER
+object Profil
+object MesOffres
+object MonPlanning
+object Admin
+object Reclamation
+
+Connexion -> Inscription : ""
+Connexion -> HUB : "Connexion réussie"
+Inscription -down-> HUB : "Inscription réussie"
+HUB -down-> Messagerie : ""
+HUB -down-> RechercheOffres : ""
+HEADER -> HUB : ""
+HEADER -> Messagerie : ""
+HEADER -down-> Profil : ""
+Profil -down-> MesOffres : ""
+Profil -down-> MonPlanning : ""
+RechercheOffres -down-> DepotOffres : ""
+RechercheOffres -down-> ListeOffres : "Recherche effectuée"
+ListeOffres -down-> Offre : "Choix d'une offre"
+Offre -down-> Reservation : ""
+DepotOffres -down-> Offre : "Dépôt réalisé"
+Messagerie -down-> Chat : "Choix d'un contact"
+FOOTER -down-> Reclamation : ""
+FOOTER -down-> Admin : ""
+
+HEADER : Absent avant connexion
+FOOTER : Absent avant connexion
+HUB : + Notifications
+FOOTER : + Crédits
+Offre : + Détails
+Offre : + Long. liste d'attente
+Offre : + Planning
+@enduml
