@@ -40,6 +40,16 @@ public class API {
         return rs.getString(1);
     }
 
+    public String getemail(int userid) throws Exception {
+        ResultSet rs = conn.createStatement().executeQuery("SELECT email FROM utilisateurs WHERE id = " + userid + ";");
+        return rs.getString(1);
+    }
+
+    public String getcode_postal(int userid) throws Exception {
+        ResultSet rs = conn.createStatement().executeQuery("SELECT code_postal FROM utilisateurs WHERE id = " + userid + ";");
+        return rs.getString(1);
+    }
+
     public void modifyUsername(int userid, String newname) throws Exception {
     String query = "UPDATE utilisateurs SET nom = ? WHERE id = ?";
     
