@@ -26,3 +26,7 @@ replay_pid*
 
 # target
 */target/
+
+# Allow all files in /REALEASE directory
+#!/RELEASE/**/*
+
