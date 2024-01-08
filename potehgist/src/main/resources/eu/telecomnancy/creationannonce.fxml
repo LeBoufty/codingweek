@@ -46,4 +46,7 @@
          </children>
       </GridPane>
    </center>
+   <top>
+      <fx:include source="header.fxml" />
+   </top>
 </BorderPane>

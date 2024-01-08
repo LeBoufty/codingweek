@@ -19,7 +19,7 @@
       <graphic>
          <ImageView fitHeight="25.0" pickOnBounds="true" preserveRatio="true">
             <image>
-               <Image url="@Assets/logo.png" />
+               <Image url="@assets/logo.png" />
             </image>
             <cursor>
                <Cursor fx:constant="CLOSED_HAND" />

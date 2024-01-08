@@ -22,12 +22,11 @@ private void initialize() {
     homeButton.setOnAction(this::handleHomeButtonClick);
     // Mapping between display names and corresponding FXML files
     Map<String, String> pageMappings = new HashMap<>();
-    pageMappings.put("Connexion", "connect");
     pageMappings.put("Creation Annonce", "creationannonce");
-    pageMappings.put("Creation Compte", "creationcompte");
     pageMappings.put("Mon Profil", "profil");
+    pageMappings.put("Deconnexion", "connect");
 
-    header_burger.getItems().addAll("Connexion", "Creation Annonce", "Creation Compte", "Mon Profil");
+    header_burger.getItems().addAll("Creation Annonce", "Mon Profil", "Deconnexion");
 
     header_burger.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
         try {   
