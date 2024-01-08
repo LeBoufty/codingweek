@@ -1,7 +1,7 @@
 # *Poteh'Gist*
 
 
-![](Assets/pictureimport/SmashRebornTitre.png)
+![](docu/logo.png)
 
 ## Description
 
