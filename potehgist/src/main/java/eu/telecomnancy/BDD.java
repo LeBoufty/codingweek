@@ -1,6 +1,6 @@
 package eu.telecomnancy;
 
-import java.sql.Connection;
+import java.sql.*;
 
 
 // importation du module random
