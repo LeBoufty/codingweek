@@ -14,7 +14,7 @@ public class API {
 
     private API() {
         try {
-            url = getClass().getResource("/potehgist.db").toExternalForm();
+            url = "jdbc:sqlite:"+getClass().getResource("/potehgist.db").toExternalForm();
             conn = DriverManager.getConnection(url);
             meta = conn.getMetaData();
         } catch (SQLException e) {
