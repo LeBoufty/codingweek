@@ -39,15 +39,19 @@ public class API {
     }
 
     public void setUsername(int userid, String newname) throws Exception {
-        ResultSet rs = conn.createStatement().executeQuery("SET nom= "+newname+" FROM utilisateurs WHERE id = " + userid + ";");
+        ResultSet rs = conn.createStatement().executeQuery("SET nom= '"+newname+"' FROM utilisateurs WHERE id = " + userid + ";");
     }
 
     public void setemail(int userid, String newemail) throws Exception {
-        ResultSet rs = conn.createStatement().executeQuery("SET email= "+newemail+" FROM utilisateurs WHERE id = " + userid + ";");
+        ResultSet rs = conn.createStatement().executeQuery("SET email= '"+newemail+"' FROM utilisateurs WHERE id = " + userid + ";");
     }
 
     public void setmdp(int userid, String newmdp) throws Exception {
-        ResultSet rs = conn.createStatement().executeQuery("SET mot_de_passe= "+newmdp+" FROM utilisateurs WHERE id = " + userid + ";");
+        ResultSet rs = conn.createStatement().executeQuery("SET mot_de_passe= '"+newmdp+"' FROM utilisateurs WHERE id = " + userid + ";");
+    }
+
+    public void setcp(int userid, String newcp) throws Exception {
+        ResultSet rs = conn.createStatement().executeQuery("SET code_postal= '"+newcp+"' FROM utilisateurs WHERE id = " + userid + ";");
     }
 
     public boolean checkPassword(String username, String password) throws Exception {

@@ -46,6 +46,10 @@ public class modprofilController {
                 API.getInstance().setmdp(App.getUserid(), password1.getText());
             }
         }
+
+        if(!codepostal.getText().equals("")) {
+            API.getInstance().setcp(App.getUserid(), codepostal.getText());
+        }
     }
     
 }
