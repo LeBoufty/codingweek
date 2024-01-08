@@ -16,12 +16,22 @@ public class ProfilController {
     @FXML
     private ImageView imageView;
 
+    @FXML
+    private Label email;
+
+    @FXML
+    private Label codepostal;
 
     public void initialize() throws Exception
     {
-        username.setText(API.getInstance().getUsername(App.getUserid()));
-        Image image = new Image(getClass().getResource("assets/imagedeprofile/"+App.getUserid()+".png").toExternalForm());
-        imageView.setImage(image);
+        username.setText("Nom d'utilisateur: "+API.getInstance().getUsername(App.getUserid()));
+        email.setText("email: "+API.getInstance().getemail(App.getUserid()));
+        codepostal.setText("code postal: "+API.getInstance().getcode_postal(App.getUserid()));
+        if(getClass().getResource("assets/imagedeprofile/"+App.getUserid()+".png")!=null)
+        {   
+            Image image = new Image(getClass().getResource("assets/imagedeprofile/"+App.getUserid()+".png").toExternalForm());
+            imageView.setImage(image);
+        }
     }
 
 
