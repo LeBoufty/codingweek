@@ -20,7 +20,7 @@ public class ProfilController {
     public void initialize() throws Exception
     {
         username.setText(API.getInstance().getUsername(App.getUserid()));
-        Image image = new Image(getClass().getResource("assets/logo.png").toExternalForm());
+        Image image = new Image(getClass().getResource("assets/imagedeprofile/"+App.getUserid()+".png").toExternalForm());
         imageView.setImage(image);
     }
 
