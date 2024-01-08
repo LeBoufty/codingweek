@@ -13,7 +13,12 @@ public class ReclamationController {
     private void send() throws IOException {
         System.out.println(message.getText());
         //TODO: envoyer la réclamation
-        App.setRoot("connect");
+        try {
+            if (App.getUserid()==0){ App.setRoot("connect");}
+            else App.setRoot("hub");
+        } catch (IOException e) {
+            App.setRoot("connect");
+        }
     }
 
     @FXML
