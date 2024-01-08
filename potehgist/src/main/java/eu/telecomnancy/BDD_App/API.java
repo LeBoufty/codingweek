@@ -69,8 +69,8 @@ public class API {
         }
     }
 
-    public void addUser(String username, String password, String email) throws Exception {
-        conn.createStatement().execute("INSERT INTO utilisateurs (nom, mot_de_passe, email, argent, admin) VALUES ('" + username + "', '" + password + "', '" + email + "', 0, false);");
+    public void addUser(String username, String password, String email, String code_postal) throws Exception {
+        conn.createStatement().execute("INSERT INTO utilisateurs (nom, mot_de_passe, email, argent, admin, code_postal) VALUES ('" + username + "', '" + password + "', '" + email + "', 0, false, +'"+code_postal+"');");
     }
 
     public boolean usernamePris(String username) throws Exception {
@@ -85,5 +85,10 @@ public class API {
 
     public void addOffre(String nom, String description, int prix, int vendeur, String categorie) throws Exception {
         conn.createStatement().execute("INSERT INTO offres (nom, description, prix, vendeur, categorie, date_depot) VALUES ('" + nom + "', '" + description + "', " + prix + ", " + vendeur + ", '" + categorie + "', GETDATE());");
+    }
+
+    public boolean isAdmin(int userid) throws Exception {
+        ResultSet rs = conn.createStatement().executeQuery("SELECT admin FROM utilisateurs WHERE id = " + userid + ";");
+        return rs.getBoolean(1);
     }
 }
