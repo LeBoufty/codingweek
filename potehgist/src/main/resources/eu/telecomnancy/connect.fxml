@@ -14,19 +14,6 @@
 <VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eu.telecomnancy.ConnectController">
    
    <children>
-<<<<<<< HEAD
-      <Label text="Connection">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label text="Nom d'utilisateur" />
-      <TextField fx:id="username" />
-      <Label text="Mot de passe" />
-      <TextField fx:id="password" />
-      <Button mnemonicParsing="false" onAction="#connect" text="Connection" />
-      <Button mnemonicParsing="false" onAction="#create" text="Créer un compte" />
-=======
       <GridPane>
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -45,7 +32,6 @@
          </children>
       </GridPane>
       <Button mnemonicParsing="false" onAction="#connect" text="Connexion" />
->>>>>>> 01e95efb814a848ce3f22db8484542f9b4a3c9c0
    </children>
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
