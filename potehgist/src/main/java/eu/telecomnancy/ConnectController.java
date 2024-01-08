@@ -28,5 +28,10 @@ public class ConnectController {
     private String getUserid(String username) {
         return "1";
     }
+
+    @FXML
+    private void create() throws IOException {
+        App.setRoot("creationcompte");
+    }
     
 }
