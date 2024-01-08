@@ -70,10 +70,6 @@
       </VBox>
    </center>
    <top>
-      <ToolBar prefHeight="20.0" prefWidth="200.0" BorderPane.alignment="TOP_LEFT">
-         <items>
-            <fx:include source="header.fxml" />
-         </items>
-      </ToolBar>
+      <fx:include source="header.fxml" />
    </top>
 </BorderPane>
