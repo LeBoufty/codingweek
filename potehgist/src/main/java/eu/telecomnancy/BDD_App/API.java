@@ -86,4 +86,9 @@ public class API {
     public void addOffre(String nom, String description, int prix, int vendeur, String categorie) throws Exception {
         conn.createStatement().execute("INSERT INTO offres (nom, description, prix, vendeur, categorie, date_depot) VALUES ('" + nom + "', '" + description + "', " + prix + ", " + vendeur + ", '" + categorie + "', GETDATE());");
     }
+
+    public boolean isAdmin(int userid) throws Exception {
+        ResultSet rs = conn.createStatement().executeQuery("SELECT admin FROM utilisateurs WHERE id = " + userid + ";");
+        return rs.getBoolean(1);
+    }
 }
