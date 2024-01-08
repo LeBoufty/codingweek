@@ -16,5 +16,10 @@ public class ConnectController {
     private void connect() throws IOException {
         System.out.println(username.getText()+" "+password.getText());
     }
+
+    @FXML
+    private void create() throws IOException {
+        App.setRoot("creationcompte");
+    }
     
 }
