@@ -27,8 +27,11 @@ public class ProfilController {
         username.setText("Nom d'utilisateur: "+API.getInstance().getUsername(App.getUserid()));
         email.setText("email: "+API.getInstance().getemail(App.getUserid()));
         codepostal.setText("code postal: "+API.getInstance().getcode_postal(App.getUserid()));
-        Image image = new Image(getClass().getResource("assets/imagedeprofile/"+App.getUserid()+".png").toExternalForm());
-        imageView.setImage(image);
+        if(getClass().getResource("assets/imagedeprofile/"+App.getUserid()+".png")!=null)
+        {   
+            Image image = new Image(getClass().getResource("assets/imagedeprofile/"+App.getUserid()+".png").toExternalForm());
+            imageView.setImage(image);
+        }
     }
 
 
