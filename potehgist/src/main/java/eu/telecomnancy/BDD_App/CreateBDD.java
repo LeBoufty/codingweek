@@ -64,6 +64,7 @@ public class CreateBDD {
                         + "	id integer PRIMARY KEY AUTOINCREMENT,\n"
                         + "	id_offre integer NOT NULL,\n"
                         + "	id_acheteur integer NOT NULL,\n"
+                        + " nom text NOT NULL,\n"
                         + " position integer NOT NULL,\n" // position 0 = acheteur actuel
                         + "	FOREIGN KEY(id_offre) REFERENCES offres(id),\n"
                         + "	FOREIGN KEY(id_acheteur) REFERENCES utilisateurs(id)\n"
