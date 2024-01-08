@@ -7,8 +7,6 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-import java.io.File;
-
 public class ProfilController {
 
     @FXML
@@ -21,7 +19,7 @@ public class ProfilController {
     public void initialize()
     {
         username.setText("test");
-        Image image = new Image(getClass().getResource("Assets/logo.png").toExternalForm());
+        Image image = new Image(getClass().getResource("assets/logo.png").toExternalForm());
         imageView.setImage(image);
     }
 
