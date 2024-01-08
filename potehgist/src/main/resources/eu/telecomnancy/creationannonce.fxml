@@ -51,4 +51,7 @@
    <top>
       <fx:include source="header.fxml" />
    </top>
+   <bottom>
+      <fx:include source="footer.fxml" />
+   </bottom>
 </BorderPane>

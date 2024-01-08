@@ -63,4 +63,7 @@
          </children>
       </GridPane>
    </center>
+   <bottom>
+      <fx:include source="footer.fxml" />
+   </bottom>
 </BorderPane>
