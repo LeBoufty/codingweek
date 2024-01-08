@@ -5,9 +5,21 @@
 
 ## Description
 
-*Poteh'Gist* est la meilleur plate-forme de locations de bien et de services que vous n'avez jamai vu ! Vous pouvez y trouver tout ce que vous voulez, des voitures, des maisons, des bateaux, des avions, des hélicoptères, des fusées, des armes, des animaux, des humains, des robots, des aliens, des planètes, des étoiles, des galaxies, des univers, des multivers, des dieux, des déesses, des démons, des démones, des anges, des archanges, des archidémons, des archidémones, des archanges, des a... (copilot a été à cours de jus là dessus). Bref, vous pouvez tout trouver sur *Poteh'Gist* ! Et si vous ne trouvez pas, vous pouvez toujours le demander à notre service clientèle qui se fera un plaisir de vous aider ! Et si vous n'avez pas d'idée, vous pouvez toujours regarder les suggestions de nos autres clients ! Et si vous n'avez pas d'argent, vous pouvez toujours regarder les suggestions de nos autres clients ! Et si vous n'avez pas d'argent, vous pouvez toujours regarder les suggestions de nos autres clients ! Et si vous n'avez pas d'argent, vous pouvez toujours regarder les suggestions de nos autres clients ! Et si vous n'avez pas d'argent, vous pouvez toujours regarder les suggestions de nos autres clients ! Et si vous n'avez pas d'argent, vous pouvez toujours regarder les suggestions de nos autres clients ! Et si vous n'avez pas d'argent, vous pouvez toujours regarder les suggestions de nos autres clients ! Et si vous n'avez pas d'argent, vous pouvez toujours regarder les suggestions de nos autres clients ! Et si vous n'avez pas d'argent, vous pouvez toujours regarder les suggestions de nos autres clients ! Et si vous n'avez pas d'argent, vous pouvez toujours regarder les suggestions de nos autres clients !
+*Poteh'Gist* est la meilleur plate-forme de locations de bien et de services que vous n'avez jamais vu ! Vous pouvez y trouver tout ce que vous voulez, des voitures, des maisons, des bateaux, des avions, des hélicoptères, des fusées, des armes, des animaux, des humains, des robots, des aliens, des planètes, des étoiles, des galaxies, des univers, des multivers, des dieux, des déesses, des démons, des démones, des anges, des archanges, des archidémons, des archidémones, des archanges, des a... (copilot a été à cours de jus là dessus). Bref, vous pouvez tout trouver sur *Poteh'Gist* ! Et si vous ne trouvez pas, vous pouvez toujours le demander à notre service clientèle qui se fera un plaisir de vous aider ! Et si vous n'avez pas d'idée, vous pouvez toujours regarder les suggestions de nos autres clients ! Et si vous n'avez pas d'argent, vous pouvez toujours regarder les suggestions de nos autres clients ! Et si vous n'avez pas d'argent, vous pouvez toujours regarder les suggestions de nos autres clients ! Et si vous n'avez pas d'argent, vous pouvez toujours regarder les suggestions de nos autres clients ! Et si vous n'avez pas d'argent, vous pouvez toujours regarder les suggestions de nos autres clients ! Et si vous n'avez pas d'argent, vous pouvez toujours regarder les suggestions de nos autres clients ! Et si vous n'avez pas d'argent, vous pouvez toujours regarder les suggestions de nos autres clients ! Et si vous n'avez pas d'argent, vous pouvez toujours regarder les suggestions de nos autres clients ! Et si vous n'avez pas d'argent, vous pouvez toujours regarder les suggestions de nos autres clients ! Et si vous n'avez pas d'argent, vous pouvez toujours regarder les suggestions de nos autres clients !
 
 ## Installation
+
+### Prérequis
+
+JavaFX
+
+### Lancement
+
+#### Jour 1
+
+```bash
+java --module-path ${JAVAFX_HOME}/lib --add-modules=javafx.base,javafx.controls,javafx.fxml -jar REALEASE/codingweek-01-RELEASE_DAY_1.jar 
+```
 
 ## Planning
 
