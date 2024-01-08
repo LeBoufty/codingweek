@@ -22,7 +22,7 @@ public class ConnectController {
             // Si c'est valide on récupère l'id de l'utilisateur
             App.setUserid(getUserid(username.getText()));
             // On redirige vers le hub
-            App.setRoot("primary"); // TODO mettre hub quand c'est fini
+            App.setRoot("hub");
         } else {
             // Si c'est invalide on affiche un message
             System.out.println("Mauvais couple username/password");
