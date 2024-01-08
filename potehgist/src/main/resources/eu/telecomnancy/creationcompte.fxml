@@ -42,12 +42,12 @@
             <Label text=" Adresse Email" GridPane.rowIndex="3" />
             <TextField fx:id="email" GridPane.rowIndex="4" />
             <Label text=" Mot de passe" GridPane.rowIndex="5" />
-            <TextField fx:id="password1" GridPane.rowIndex="6" />
+            <PasswordField fx:id="password1" GridPane.rowIndex="6" />
             <Label text=" Code Postal" GridPane.rowIndex="9" />
             <TextField fx:id="codepostal" GridPane.rowIndex="10" />
             <Button mnemonicParsing="false" onAction="#create" text="Créer un compte" GridPane.halignment="CENTER" GridPane.rowIndex="12" />
             <Label text=" Retaper le mot de passe" GridPane.rowIndex="7" />
-            <TextField fx:id="password2" GridPane.rowIndex="8" />
+            <PasswordField fx:id="password2" GridPane.rowIndex="8" />
          </children>
       </GridPane>
    </center>

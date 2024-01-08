@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 public class App extends Application {
 
     private static Scene scene;
-    private static String userid;
+    private static int userid = 0;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -33,16 +33,16 @@ public class App extends Application {
         return fxmlLoader.load();
     }
 
-    static void setUserid(String id) {
+    static void setUserid(int id) {
         userid = id;
     }
 
-    static String getUserid() {
+    static int getUserid() {
         return userid;
     }
 
     static boolean loggedIn() {
-        return userid != null;
+        return userid != 0;
     }
 
     public static void main(String[] args) {
