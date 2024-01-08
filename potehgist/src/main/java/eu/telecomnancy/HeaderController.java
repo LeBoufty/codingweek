@@ -13,11 +13,12 @@ public class HeaderController {
     
     @FXML
     private ChoiceBox<String> header_burger;
+    
     @FXML
     private Button homeButton;
 
     @FXML
-private void initialize() {
+    private void initialize() {
 
     homeButton.setOnAction(this::handleHomeButtonClick);
     // Mapping between display names and corresponding FXML files
