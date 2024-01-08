@@ -54,7 +54,4 @@
          </children>
       </VBox>
    </center>
-   <top>
-      <fx:include source="header.fxml" />
-   </top>
 </BorderPane>
