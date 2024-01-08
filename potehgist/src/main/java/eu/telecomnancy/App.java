@@ -8,12 +8,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-<<<<<<< HEAD
-import java.io.IOException;
-
-
-=======
->>>>>>> 4d141d6a54d97f370f80c10ba8ae74e7337b1b62
 /**
  * JavaFX App test potagit
  */
