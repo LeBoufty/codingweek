@@ -32,9 +32,14 @@ public class API {
         return instance;
     }
 
-    public int getUserid(String username) throws Exception {
-        ResultSet rs = conn.createStatement().executeQuery("SELECT id FROM utilisateurs WHERE nom = '" + username + "';");
-        return rs.getInt(1);
+    public int getUserid(String username) {
+        ResultSet rs;
+        try {
+            rs = conn.createStatement().executeQuery("SELECT id FROM utilisateurs WHERE nom = '" + username + "';");
+            return rs.getInt(1);
+        } catch (SQLException e) {
+            return 0;
+        }
     }
 
     public String getUsername(int userid) throws Exception {
@@ -75,6 +80,28 @@ public class API {
         }
     }
 
+    public void modifyargent(int userid, int newargent) throws Exception {
+    String query = "UPDATE utilisateurs SET argent = ? WHERE id = ?";
+    
+    try (PreparedStatement pstmt = conn.prepareStatement(query)) {
+        pstmt.setInt(1, newargent);
+        pstmt.setInt(2, userid);
+        
+        pstmt.executeUpdate();
+        }
+    }
+
+    public void modifyadmin(int userid, boolean newadmin) throws Exception {
+    String query = "UPDATE utilisateurs SET admin = ? WHERE id = ?";
+    
+    try (PreparedStatement pstmt = conn.prepareStatement(query)) {
+        pstmt.setBoolean(1, newadmin);
+        pstmt.setInt(2, userid);
+        
+        pstmt.executeUpdate();
+        }
+    }
+
     public void modifymdp(int userid, String newmdp) throws Exception {
     String query = "UPDATE utilisateurs SET mot_de_passe = ? WHERE id = ?";
     
@@ -97,14 +124,19 @@ public class API {
         }
     }
 
-    public boolean checkPassword(String username, String password) throws Exception {
-        ResultSet rs = conn.createStatement().executeQuery("SELECT mot_de_passe FROM utilisateurs WHERE nom = '" + username + "';");
-        return rs.getString(1).equals(password);
+    public boolean checkPassword(String username, String password) {
+        ResultSet rs;
+        try {
+            rs = conn.createStatement().executeQuery("SELECT mot_de_passe FROM utilisateurs WHERE nom = '" + username + "';");
+            return rs.getString(1).equals(password);
+        } catch (SQLException e) {
+            return false;
+        }
     }
 
-    public int getMaxID() throws Exception {
-        ResultSet rs = conn.createStatement().executeQuery("SELECT MAX(id) FROM utilisateurs;");
+    public int getMaxID() {
         try {
+            ResultSet rs = conn.createStatement().executeQuery("SELECT MAX(id) FROM utilisateurs;");
             return rs.getInt(1);
         } catch (Exception e) {
             return 0;
@@ -170,5 +202,20 @@ public class API {
     public String getNomOffre(int offreid) throws Exception {
         ResultSet rs = conn.createStatement().executeQuery("SELECT nom FROM offres WHERE id = " + offreid + ";");
         return rs.getString(1);
+    }
+    public String[] getUserInfos(int id) {
+        try {
+            ResultSet rs = conn.createStatement().executeQuery("SELECT nom, mot_de_passe, email, argent, code_postal, admin FROM utilisateurs WHERE id = " + id + ";");
+            String[] infos = new String[6];
+            infos[0] = rs.getString(1);
+            infos[1] = rs.getString(2);
+            infos[2] = rs.getString(3);
+            infos[3] = rs.getString(4);
+            infos[4] = rs.getString(5);
+            infos[5] = rs.getString(6);
+            return infos;
+        } catch (Exception e) {
+            return null;
+        }
     }
 }

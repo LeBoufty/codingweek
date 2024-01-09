@@ -20,7 +20,7 @@ public class ConnectController {
         // On vérifie si le couple username/password est valide
         if (valide(username.getText(), password.getText())) {
             // Si c'est valide on récupère l'id de l'utilisateur
-            App.setUserid(getUserid(username.getText()));
+            App.setUser(getUserid(username.getText()));
             // On redirige vers le hub
             App.setRoot("hub");
         } else {
@@ -30,6 +30,7 @@ public class ConnectController {
     }
 
     private boolean valide(String username, String password) throws Exception {
+        password = Formater.hash(password);
         return API.getInstance().checkPassword(username, password);
     }
 

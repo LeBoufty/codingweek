@@ -22,12 +22,13 @@ public class modprofilController {
 
     @FXML
     private void updateprofile() throws Exception {
+        Utilisateur user = App.getUser();
         // Si le nom d'utilisateur ou l'e-mail est déjà pris on affiche un message
         if(!username.getText().equals("")) {
             if (API.getInstance().usernamePris(username.getText())) {
                 System.out.println("Nom d'utilisateur déjà pris");
             } else {
-                API.getInstance().modifyUsername(App.getUserid(), username.getText());
+                user.setNom(username.getText());
             }
         }
 
@@ -35,7 +36,7 @@ public class modprofilController {
             if (API.getInstance().emailPris(email.getText())) {
                 System.out.println("E-mail déjà pris");
             } else {
-                API.getInstance().modifyemail(App.getUserid(), email.getText());
+                user.setEmail(email.getText());
             }
         }
 
@@ -43,14 +44,14 @@ public class modprofilController {
             if (!password1.getText().equals(password2.getText())) {
                 System.out.println("Les mots de passe ne correspondent pas");
             } else {
-                API.getInstance().modifymdp(App.getUserid(), password1.getText());
+                user.setMot_de_passe(password1.getText());
             }
         }
 
         if(!codepostal.getText().equals("")) {
-            API.getInstance().modify_code_postal(App.getUserid(), codepostal.getText());
+            user.setCode_postal(codepostal.getText());
         }
-
+        user.save();
         App.setRoot("profil");
 
     }

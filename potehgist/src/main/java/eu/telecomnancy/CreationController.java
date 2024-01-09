@@ -30,7 +30,8 @@ public class CreationController {
                 System.out.println("Les mots de passe ne correspondent pas");
             } else {
                 // Sinon on ajoute l'utilisateur à la base de données
-                API.getInstance().addUser(username.getText(), password1.getText(), email.getText(), codepostal.getText());
+                Utilisateur user = new Utilisateur(username.getText(), password1.getText(), email.getText(), codepostal.getText());
+                user.saveAsNew();
                 // On redirige vers la page de connexion
                 App.setRoot("connect");
             }
