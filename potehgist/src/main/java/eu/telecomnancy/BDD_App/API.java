@@ -140,4 +140,8 @@ public class API {
     public void removeAdmin(int userid) throws Exception {
         conn.createStatement().execute("UPDATE utilisateurs SET admin = false WHERE id = " + userid + ";");
     }
+
+    public void addReclamation(int userid, String message) throws Exception {
+        conn.createStatement().execute("INSERT INTO reclamations (id_utilisateur, message, date) VALUES (" + userid + ", '" + message + "', strftime('%Y-%m-%d %H:%M:%S', datetime('now')) );");
+    }
 }

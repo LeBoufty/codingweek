@@ -137,6 +137,18 @@ public class CreateBDD {
                 conn.createStatement().execute(notifications); // Ajout dans la BDD
                 System.out.println("[DEBUG] La table notifications a été créée.");
 
+                // Création de la table "reclamations"
+
+                String reclamations = "CREATE TABLE IF NOT EXISTS reclamations (\n"
+                        + "	id integer PRIMARY KEY AUTOINCREMENT,\n"
+                        + "	id_utilisateur integer NOT NULL,\n"
+                        + " message text NOT NULL,\n"
+                        + " date datetime NOT NULL,\n"
+                        + "	FOREIGN KEY(id_utilisateur) REFERENCES utilisateurs(id)\n"
+                        + ");";
+                conn.createStatement().execute(reclamations); // Ajout dans la BDD
+                System.out.println("[DEBUG] La table reclamations a été créée.");
+
                 // fermeture de la connexion
                 conn.close();
             }
