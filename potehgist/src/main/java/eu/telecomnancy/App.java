@@ -17,6 +17,10 @@ public class App extends Application {
 
     private static Scene scene;
     private static Utilisateur user = new Utilisateur();
+    public static int numpagechat;
+    private static Utilisateur user2;
+
+
     private static int page_annonce = 1;
 
     @Override
@@ -47,8 +51,20 @@ public class App extends Application {
         user = new Utilisateur(id);
     }
 
+    static void setUser2(int id) {
+        user = new Utilisateur(id);
+    }
+
     static Utilisateur getUser() {
         return user;
+    }
+
+    static Utilisateur getUser2() {
+        return user2;
+    }
+
+    static int getUser2id() {
+        return user2.getId();
     }
 
     static boolean loggedIn() {

@@ -1,0 +1,186 @@
+@startuml "Classes"
+class API {
+    - {static} instance: API
+    - conn: Connection
+    - {static} url: String
+    - API()
+    + {static} getInstance(): API
+    + getUserid(username: String): int
+    + getUsername(userid: int): String
+    + getemail(userid: int): String
+    + getcode_postal(userid: int): String
+    + modifyUsername(userid: int, newname: String): void
+    + modifyemail(userid: int, newemail: String): void
+    + modifyargent(userid: int, newargent: int): void
+    + modifyadmin(userid: int, newadmin: boolean): void
+    + modifymdp(userid: int, newmdp: String): void
+    + modify_code_postal(userid: int, newcode: String): void
+    + checkpassword(username: String, password: String): boolean
+    + getMaxID(): int
+    + addUser(username: String, password: String, email: String, code_postal: String): void
+    + usernamePris(username: String): boolean
+    + emailPris(email: String): boolean
+    + addOffre(nom: String, description: String, prix: int, vendeur: int, categorie: String): void
+    + isAdmin(userid: int): boolean
+    + addAdmin(userid: int): void
+    + removeAdmin(userid: int): void
+    + addReclamation(userid: int, message: String): void
+    + getdatedebut(offreid: int): Date
+    + getdatefin(offreid: int): Date
+    + getOffresPlanning(userid: int): int[]
+    + getNomOffre(offreid: int): String
+    + getUserInfos(userid: int): String[]
+    + getOffreInfosAccueil(offreid: int): String[]
+    + getNote(offreid: int): double
+    + getUserNoteMoyenne(userid: int): double
+    + addEvaluation(notant:id, offre: int, note: int): void
+    + isEvaluable(notant: int, offre: int): boolean
+}
+
+class App {
+    - {static} scene: Scene
+    - {static} user: Utilisateur
+    - {static} page_annonce: int
+    + start(stage: Stage): void
+    + setRoot(fxml: String): void
+    + {static} loadFXML(fxml: String): Parent
+    + {static} setUser(id: int): void
+    + {static} getUser(): Utilisateur
+    + {static} loggedIn(): boolean
+    + {static} setPageAnnonce(page: int): void
+    + {static} getPageAnnonce(): int
+    + {static} main(args: String[]): void
+}
+
+class ConnectController {
+    - username: TextField
+    - password: PasswordField
+    - connect(): void
+    - vaide(username: String, password: String): boolean
+    - getUserid(username: String): int
+    - create(): void
+}
+
+class CreationAnnonceController {
+    - name: TextField
+    - description: TextArea
+    - prix: TextField
+    - categorie: ChoiceBox
+    - initialize(): void
+    - create(): void
+}
+
+class CreationController {
+    - username: TextField
+    - password1: TextField
+    - password2: TextField
+    - email: TextField
+    - codepostal: TextField
+    - create(): void
+}
+
+class FooterController {
+    - reclamation(): void
+}
+
+class HeaderController {
+    - header_burger: ChoiceBox<String>
+    - initialize(): void
+    - homeButton(): void
+}
+
+class Formater {
+    + {static} USERNAME_REGEX: String
+    + {static} MIN_PASSWORD_LENGTH: int
+    + {static} checkUsername(username: String): boolean
+    + {static} checkPassword(password: String): boolean
+    + {static} format(s: String): String
+    + {static} hash(s: String): String
+    - {static} bytesToHex(bytes: byte[]): String
+}
+
+class HubController {
+    - depot(): void
+}
+
+class modprofilController {
+    - username: TextField
+    - email: TextField
+    - codepostal: TextField
+    - password1: TextField
+    - password2: TextField
+    - updateprofile(): void
+    - returntoprofile(): void
+}
+
+class PlanningController {
+    - Offres: ChoiceBox<String>
+    - jour1: Label
+    - jour2: Label
+    - jour3: Label
+    - jour4: Label
+    - jour5: Label
+    - jour6: Label
+    - jour7: Label
+    - jour1bool: Label
+    - jour2bool: Label
+    - jour3bool: Label
+    - jour4bool: Label
+    - jour5bool: Label
+    - jour6bool: Label
+    - jour7bool: Label
+    - dates: LocalDate[]
+    - initialize(): void
+    - Description: TextArea
+    - afficherPlanning(): void
+}
+
+class ProfilController {
+    - username: Label
+    - email: Label
+    - codepostal: Label
+    - imageView: ImageView
+    - initialize(): void
+    - toMesoffres(): void
+    - toMonPlanning(): void
+    - toModifProfile(): void
+}
+
+class ReclamationController {
+    - message: TextArea
+    - send(): void
+    - connex(): void
+}
+
+class Utilisateur {
+    - id: int
+    - nom: String
+    - email: String
+    - code_postal: String
+    - argent: int
+    - admin: boolean
+    - mot_de_passe: String
+    - {static} id_max: int
+    + Utilisateur(nom: String, mot_de_passe: String, email: String, code_postal: String)
+    + Utilisateur(id: int)
+    + Utilisateur()
+    + saveAsNew(): void
+    + save(): void
+    + pay(prix:int, destinataire:int): boolean
+    + ajouterArgent(montant: int): void
+    + getId(): int
+    + getNom(): String
+    + getEmail(): String
+    + getCode_postal(): String
+    + getArgent(): int
+    + getMot_de_passe(): String
+    + isAdmin(): boolean
+    + setNom(nom: String): void
+    + setEmail(email: String): void
+    + setCode_postal(code_postal: String): void
+    + setArgent(argent: int): void
+    + setMot_de_passe(mot_de_passe: String): void
+    + setAdmin(admin: boolean): void
+
+}
+@enduml
