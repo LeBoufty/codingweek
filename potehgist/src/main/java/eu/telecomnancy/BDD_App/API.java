@@ -218,4 +218,27 @@ public class API {
             return null;
         }
     }
+
+    public String[] getOffreInfosAcceuil(int page) {
+        // Les pages donnent les annoncent 4 par 4
+        // La requète demande les dernières annonces enregistrées
+
+        try {
+            ResultSet rs = conn.createStatement().executeQuery("SELECT nom, id_vendeur, prix, categorie, description, date_depot FROM offres ORDER BY date_depot DESC LIMIT 4 OFFSET " + (page-1)*4 + ";");
+            String[] infos = new String[24];
+            int i = 0;
+            while (rs.next()) {
+                infos[i] = rs.getString(1);
+                infos[i+1] = rs.getString(2);
+                infos[i+2] = rs.getString(3);
+                infos[i+3] = rs.getString(4);
+                infos[i+4] = rs.getString(5);
+                infos[i+5] = rs.getString(6);
+                i += 6;
+            }
+            return infos;
+        } catch (Exception e) {
+            return null;
+        }
+    }
 }

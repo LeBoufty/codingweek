@@ -17,6 +17,7 @@ public class App extends Application {
 
     private static Scene scene;
     private static Utilisateur user = new Utilisateur();
+    private static int page_annonce = 1;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -52,6 +53,14 @@ public class App extends Application {
 
     static boolean loggedIn() {
         return user.getId() != 0;
+    }
+
+    public static void setPageAnnonce(int page) {
+        page_annonce = page;
+    }
+
+    public static int getPageAnnonce() {
+        return page_annonce;
     }
 
     public static void main(String[] args) {
