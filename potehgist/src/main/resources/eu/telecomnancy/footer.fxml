@@ -18,6 +18,7 @@
         </rowConstraints>
             <children>
                 <Hyperlink onAction="#reclamation" prefHeight="24.0" prefWidth="305.0" text="Nous contacter" />
+                <Hyperlink onAction="#administration" prefHeight="24.0" prefWidth="305.0" text="Admin" GridPane.columnIndex="1" />
             </children>
       </GridPane>
    </center>
