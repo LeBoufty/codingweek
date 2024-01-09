@@ -8,6 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
 
+import eu.telecomnancy.Formater;
+
 public class API {
     private static API instance = null;
     private Connection conn;
@@ -58,69 +60,69 @@ public class API {
     }
 
     public void modifyUsername(int userid, String newname) throws Exception {
-    String query = "UPDATE utilisateurs SET nom = ? WHERE id = ?";
-    
-    try (PreparedStatement pstmt = conn.prepareStatement(query)) {
-        pstmt.setString(1, newname);
-        pstmt.setInt(2, userid);
+        String query = "UPDATE utilisateurs SET nom = ? WHERE id = ?";
         
-        pstmt.executeUpdate();
+        try (PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setString(1, newname);
+            pstmt.setInt(2, userid);
+            
+            pstmt.executeUpdate();
         }
     }
 
 
     public void modifyemail(int userid, String newemail) throws Exception {
-    String query = "UPDATE utilisateurs SET email = ? WHERE id = ?";
-    
-    try (PreparedStatement pstmt = conn.prepareStatement(query)) {
-        pstmt.setString(1, newemail);
-        pstmt.setInt(2, userid);
+        String query = "UPDATE utilisateurs SET email = ? WHERE id = ?";
         
-        pstmt.executeUpdate();
+        try (PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setString(1, newemail);
+            pstmt.setInt(2, userid);
+            
+            pstmt.executeUpdate();
         }
     }
 
     public void modifyargent(int userid, int newargent) throws Exception {
-    String query = "UPDATE utilisateurs SET argent = ? WHERE id = ?";
-    
-    try (PreparedStatement pstmt = conn.prepareStatement(query)) {
-        pstmt.setInt(1, newargent);
-        pstmt.setInt(2, userid);
+        String query = "UPDATE utilisateurs SET argent = ? WHERE id = ?";
         
-        pstmt.executeUpdate();
+        try (PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setInt(1, newargent);
+            pstmt.setInt(2, userid);
+            
+            pstmt.executeUpdate();
         }
     }
 
     public void modifyadmin(int userid, boolean newadmin) throws Exception {
-    String query = "UPDATE utilisateurs SET admin = ? WHERE id = ?";
-    
-    try (PreparedStatement pstmt = conn.prepareStatement(query)) {
-        pstmt.setBoolean(1, newadmin);
-        pstmt.setInt(2, userid);
+        String query = "UPDATE utilisateurs SET admin = ? WHERE id = ?";
         
-        pstmt.executeUpdate();
+        try (PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setBoolean(1, newadmin);
+            pstmt.setInt(2, userid);
+            
+            pstmt.executeUpdate();
         }
     }
 
     public void modifymdp(int userid, String newmdp) throws Exception {
-    String query = "UPDATE utilisateurs SET mot_de_passe = ? WHERE id = ?";
-    
-    try (PreparedStatement pstmt = conn.prepareStatement(query)) {
-        pstmt.setString(1, newmdp);
-        pstmt.setInt(2, userid);
+        String query = "UPDATE utilisateurs SET mot_de_passe = ? WHERE id = ?";
         
-        pstmt.executeUpdate();
+        try (PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setString(1, newmdp);
+            pstmt.setInt(2, userid);
+            
+            pstmt.executeUpdate();
         }
     }
 
     public void modify_code_postal(int userid, String newcode) throws Exception {
-    String query = "UPDATE utilisateurs SET code_postal = ? WHERE id = ?";
-    
-    try (PreparedStatement pstmt = conn.prepareStatement(query)) {
-        pstmt.setString(1, newcode);
-        pstmt.setInt(2, userid);
+        String query = "UPDATE utilisateurs SET code_postal = ? WHERE id = ?";
         
-        pstmt.executeUpdate();
+        try (PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setString(1, newcode);
+            pstmt.setInt(2, userid);
+            
+            pstmt.executeUpdate();
         }
     }
 
