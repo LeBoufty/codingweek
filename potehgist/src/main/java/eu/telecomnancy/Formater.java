@@ -2,6 +2,7 @@ package eu.telecomnancy;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 public class Formater {
     public static final String USERNAME_REGEX = "^[a-zA-Z0-9_-]{4,32}$";
@@ -19,10 +20,15 @@ public class Formater {
         return s.replaceAll("'", "''");
     }
 
-    public static String hash(String s) throws Exception {
-        MessageDigest digest = MessageDigest.getInstance("SHA-256");
-        byte[] encodedhash = digest.digest(s.getBytes(StandardCharsets.UTF_8));
-        return bytesToHex(encodedhash);
+    public static String hash(String s) {
+        MessageDigest digest;
+        try {
+            digest = MessageDigest.getInstance("SHA-256");
+            byte[] encodedhash = digest.digest(s.getBytes(StandardCharsets.UTF_8));
+            return bytesToHex(encodedhash);
+        } catch (NoSuchAlgorithmException e) {
+            return null;
+        }
     }
 
     private static String bytesToHex(byte[] hash) {

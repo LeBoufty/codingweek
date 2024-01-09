@@ -30,6 +30,7 @@ public class ConnectController {
     }
 
     private boolean valide(String username, String password) throws Exception {
+        password = Formater.hash(password);
         return API.getInstance().checkPassword(username, password);
     }
 

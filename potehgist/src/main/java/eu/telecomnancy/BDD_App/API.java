@@ -101,9 +101,9 @@ public class API {
         return rs.getString(1).equals(password);
     }
 
-    public int getMaxID() throws Exception {
-        ResultSet rs = conn.createStatement().executeQuery("SELECT MAX(id) FROM utilisateurs;");
+    public int getMaxID() {
         try {
+            ResultSet rs = conn.createStatement().executeQuery("SELECT MAX(id) FROM utilisateurs;");
             return rs.getInt(1);
         } catch (Exception e) {
             return 0;
@@ -143,5 +143,21 @@ public class API {
 
     public void addReclamation(int userid, String message) throws Exception {
         conn.createStatement().execute("INSERT INTO reclamations (id_utilisateur, message, date) VALUES (" + userid + ", '" + message + "', strftime('%Y-%m-%d %H:%M:%S', datetime('now')) );");
+    }
+
+    public String[] getUserInfos(int id) {
+        try {
+            ResultSet rs = conn.createStatement().executeQuery("SELECT nom, mot_de_passe, email, argent, code_postal, admin FROM utilisateurs WHERE id = " + id + ";");
+            String[] infos = new String[6];
+            infos[0] = rs.getString(1);
+            infos[1] = rs.getString(2);
+            infos[2] = rs.getString(3);
+            infos[3] = rs.getString(4);
+            infos[4] = rs.getString(5);
+            infos[5] = rs.getString(6);
+            return infos;
+        } catch (Exception e) {
+            return null;
+        }
     }
 }
