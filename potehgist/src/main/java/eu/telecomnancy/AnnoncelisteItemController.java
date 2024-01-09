@@ -23,8 +23,8 @@ public class AnnoncelisteItemController{
     private Label title;
 
     public void setData(Annonce annonce){
-        //Image image = new Image(annonce.getImgSrc());
-        //img.setImage(image);
+        // Image image = new Image(annonce.getImgSrc());
+        // img.setImage(image);
 
         title.setText(annonce.getTitre());
         description.setText(annonce.getDescription());
