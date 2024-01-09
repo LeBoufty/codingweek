@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 /**
@@ -15,13 +16,24 @@ import javafx.stage.Stage;
 public class App extends Application {
 
     private static Scene scene;
-    private static int userid = 0;
+    private static Utilisateur user = new Utilisateur();
+    public static int numpagechat;
+    private static Utilisateur user2;
+
+
+    private static int page_annonce = 1;
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("connect"), 640, 480);
+        scene = new Scene(loadFXML("connect"), 720, 480);
         stage.setTitle("PotehGist");
         stage.getIcons().add(new Image(getClass().getResourceAsStream("assets/logo.png")));
+        scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+        Font.loadFont(getClass().getResource("fonts/Roboto-Light.ttf").toExternalForm(), 10);
+        Font.loadFont(getClass().getResource("fonts/Roboto-Black.ttf").toExternalForm(), 10);
+        Font.loadFont(getClass().getResource("fonts/Roboto-Bold.ttf").toExternalForm(), 10);
+        Font.loadFont(getClass().getResource("fonts/Minecrafter.ttf").toExternalForm(), 10);
+        Font.loadFont(getClass().getResource("fonts/LEMONMILK-Bold.otf").toExternalForm(), 10);
         stage.setScene(scene);
         stage.show();
     }
@@ -35,16 +47,36 @@ public class App extends Application {
         return fxmlLoader.load();
     }
 
-    static void setUserid(int id) {
-        userid = id;
+    static void setUser(int id) {
+        user = new Utilisateur(id);
     }
 
-    static int getUserid() {
-        return userid;
+    static void setUser2(int id) {
+        user = new Utilisateur(id);
+    }
+
+    static Utilisateur getUser() {
+        return user;
+    }
+
+    static Utilisateur getUser2() {
+        return user2;
+    }
+
+    static int getUser2id() {
+        return user2.getId();
     }
 
     static boolean loggedIn() {
-        return userid != 0;
+        return user.getId() != 0;
+    }
+
+    public static void setPageAnnonce(int page) {
+        page_annonce = page;
+    }
+
+    public static int getPageAnnonce() {
+        return page_annonce;
     }
 
     public static void main(String[] args) {

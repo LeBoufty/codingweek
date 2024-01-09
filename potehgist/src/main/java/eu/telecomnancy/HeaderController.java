@@ -19,9 +19,10 @@ public class HeaderController {
     Map<String, String> pageMappings = new HashMap<>();
     pageMappings.put("Creation Annonce", "creationannonce");
     pageMappings.put("Mon Profil", "profil");
+    pageMappings.put("Mes Chats", "chat");
     pageMappings.put("Deconnexion", "connect");
 
-    header_burger.getItems().addAll("Creation Annonce", "Mon Profil", "Deconnexion");
+    header_burger.getItems().addAll("Creation Annonce", "Mon Profil","Mes Chats" ,"Deconnexion");
 
     header_burger.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
         try {
