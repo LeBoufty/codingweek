@@ -52,7 +52,7 @@ public class App extends Application {
     }
 
     static void setUser2(int id) {
-        user = new Utilisateur(id);
+        user2 = new Utilisateur(id);
     }
 
     static Utilisateur getUser() {
@@ -64,6 +64,8 @@ public class App extends Application {
     }
 
     static int getUser2id() {
+        if(user2 == null)
+            return 0;
         return user2.getId();
     }
 
