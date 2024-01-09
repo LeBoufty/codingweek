@@ -100,25 +100,25 @@ public class ListeAnnonceController {
         String[] annonces = api.getOffreInfosAccueil(page);
 
         nom_annonce_1.setText(annonces[0]);
-        nom_vendeur_1.setText(annonces[1]);
+        nom_vendeur_1.setText(API.getInstance().getUsername(Integer.parseInt(annonces[1])));
         prix_1.setText(annonces[2]);
         categorie_1.setText(annonces[3]);
         description_1.setText(annonces[4]);
         // Ce sera pour date de depot
         nom_annonce_11.setText(annonces[6]);
-        nom_vendeur_11.setText(annonces[7]);
+        nom_vendeur_11.setText(API.getInstance().getUsername(Integer.parseInt(annonces[7])));
         prix_11.setText(annonces[8]);
         categorie_11.setText(annonces[9]);
         description_11.setText(annonces[10]);
         // Ce sera pour date de depot
         nom_annonce_111.setText(annonces[12]);
-        nom_vendeur_111.setText(annonces[13]);
+        nom_vendeur_111.setText(API.getInstance().getUsername(Integer.parseInt(annonces[13])));
         prix_111.setText(annonces[14]);
         categorie_111.setText(annonces[15]);
         description_111.setText(annonces[16]);
         // Ce sera pour date de depot
         nom_annonce_1111.setText(annonces[18]);
-        nom_vendeur_1111.setText(annonces[19]);
+        nom_vendeur_1111.setText(API.getInstance().getUsername(Integer.parseInt(annonces[19])));
         prix_1111.setText(annonces[20]);
         categorie_1111.setText(annonces[21]);
         description_1111.setText(annonces[22]);
