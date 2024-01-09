@@ -31,9 +31,14 @@ public class API {
         return instance;
     }
 
-    public int getUserid(String username) throws Exception {
-        ResultSet rs = conn.createStatement().executeQuery("SELECT id FROM utilisateurs WHERE nom = '" + username + "';");
-        return rs.getInt(1);
+    public int getUserid(String username) {
+        ResultSet rs;
+        try {
+            rs = conn.createStatement().executeQuery("SELECT id FROM utilisateurs WHERE nom = '" + username + "';");
+            return rs.getInt(1);
+        } catch (SQLException e) {
+            return 0;
+        }
     }
 
     public String getUsername(int userid) throws Exception {
@@ -96,9 +101,14 @@ public class API {
         }
     }
 
-    public boolean checkPassword(String username, String password) throws Exception {
-        ResultSet rs = conn.createStatement().executeQuery("SELECT mot_de_passe FROM utilisateurs WHERE nom = '" + username + "';");
-        return rs.getString(1).equals(password);
+    public boolean checkPassword(String username, String password) {
+        ResultSet rs;
+        try {
+            rs = conn.createStatement().executeQuery("SELECT mot_de_passe FROM utilisateurs WHERE nom = '" + username + "';");
+            return rs.getString(1).equals(password);
+        } catch (SQLException e) {
+            return false;
+        }
     }
 
     public int getMaxID() {

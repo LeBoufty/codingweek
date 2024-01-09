@@ -37,11 +37,25 @@ public class Utilisateur {
         }
     }
 
+    public Utilisateur() {
+        this.id = 0;
+        this.nom = "Invité";
+        this.mot_de_passe = "12345678";
+        this.email = "invite@potehgist.net";
+        this.argent = 0;
+        this.code_postal = "54000";
+        this.admin = false;
+    }
+
     public void saveAsNew() {
         try {
             API.getInstance().addUser(nom, mot_de_passe, email, code_postal);
         } catch (Exception e) {
             System.out.println("[DEBUG] Erreur lors de l'ajout de l'utilisateur");
         }
+    }
+
+    public int getId() {
+        return id;
     }
 }
