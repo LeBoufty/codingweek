@@ -61,7 +61,8 @@ public class PlanningController {
     @FXML
     private void initialize() throws Exception{
         // Initialiser les éléments de la ChoiceBox
-        int userid = App.getUserid();
+        Utilisateur user = App.getUser();
+        int userid = user.getId();
         int [] taboffres = API.getInstance().getOffresPlanning(userid);
         for (int i = 0; i < taboffres.length; i++) {
             if(taboffres[i]!=0)
@@ -92,7 +93,8 @@ public class PlanningController {
 
     @FXML
     private void afficherPlanning() throws Exception {
-        int userid = App.getUserid();
+        Utilisateur user = App.getUser();
+        int userid = user.getId();
         int [] taboffres = API.getInstance().getOffresPlanning(userid);
         Date[] DatesFormatees = new Date[7]; 
 
