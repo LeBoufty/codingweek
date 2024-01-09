@@ -41,9 +41,9 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button mnemonicParsing="false" onAction="#Previouspage" text="&lt;" GridPane.halignment="CENTER" />
-                        <Button mnemonicParsing="false" onAction="#Nextpage" text="&gt;" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
-                        <Label fx:id="page" text="1" GridPane.columnIndex="1" />
+                        <Button fx:id="boutonleft" mnemonicParsing="false" onAction="#Previouspage" text="&lt;" GridPane.halignment="CENTER" />
+                        <Button fx:id="boutonright" mnemonicParsing="false" onAction="#Nextpage" text="&gt;" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+                        <Label fx:id="page" GridPane.columnIndex="1" />
                      </children>
                   </GridPane>
                   <GridPane>
@@ -73,7 +73,7 @@
                                     <Font name="System Italic" size="13.0" />
                                  </font>
                               </Label>
-                              <Button mnemonicParsing="false" onAction="#del1" text="dl" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Button fx:id="bouton1" mnemonicParsing="false" onAction="#del1" text="dl" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                            </children>
                         </GridPane>
                      </children>
@@ -104,7 +104,7 @@
                                     <Font name="System Italic" size="13.0" />
                                  </font>
                               </Label>
-                              <Button mnemonicParsing="false" onAction="#del2" text="dl" GridPane.columnIndex="1" />
+                              <Button fx:id="bouton2" mnemonicParsing="false" onAction="#del2" text="dl" GridPane.columnIndex="1" />
                            </children>
                         </GridPane>
                      </children>
@@ -135,7 +135,7 @@
                                     <Font name="System Italic" size="13.0" />
                                  </font>
                               </Label>
-                              <Button mnemonicParsing="false" onAction="#del3" text="dl" GridPane.columnIndex="1" />
+                              <Button fx:id="bouton3" mnemonicParsing="false" onAction="#del3" text="dl" GridPane.columnIndex="1" />
                            </children>
                         </GridPane>
                      </children>
