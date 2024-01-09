@@ -218,4 +218,29 @@ public class API {
             return null;
         }
     }
+
+    public String[] getmessages(int iduser1,int iduser2)
+    {
+        try {
+            ResultSet rs = conn.createStatement().executeQuery("SELECT message FROM messages WHERE ( id_utilisateur1 = " + iduser1 + " AND id_utilisateur2 = " + iduser2 + " ) OR ( id_utilisateur1 = " + iduser2 + " AND id_utilisateur2 = " + iduser1 + " );");
+            String[] messages = new String[100];
+            int i = 0;
+            while (rs.next()) {
+                messages[i] = rs.getString(1);
+                i++;
+            }
+            return messages;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public void addmessage(int iduser1,int iduser2,String message)
+    {
+        try {
+            conn.createStatement().execute("INSERT INTO messages (id_utilisateur1,id_utilisateur2,message) VALUES (" + iduser1 + "," + iduser2 + ",'" + message + "');");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }
