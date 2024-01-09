@@ -31,6 +31,9 @@ public class AdministrationController {
     @FXML
     private TableColumn<Reclamation, LocalDateTime> dateColumn;
 
+    @FXML
+    private javafx.scene.control.TextField idrésolu;
+
     private ObservableList<Reclamation> reclamations = FXCollections.observableArrayList();
 
     public void initialize() throws Exception{
@@ -61,4 +64,11 @@ public class AdministrationController {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    private void resolu() throws Exception {
+        API.getInstance().resolu(Integer.parseInt(idrésolu.getText()));
+        App.setRoot("administration");
+    }
 }
+
