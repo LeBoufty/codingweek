@@ -73,7 +73,7 @@ public class API {
 
     public void modifyemail(int userid, String newemail) throws Exception {
         String query = "UPDATE utilisateurs SET email = ? WHERE id = ?";
-        
+        newemail = Formater.format(newemail);
         try (PreparedStatement pstmt = conn.prepareStatement(query)) {
             pstmt.setString(1, newemail);
             pstmt.setInt(2, userid);
@@ -116,6 +116,7 @@ public class API {
     }
 
     public void modify_code_postal(int userid, String newcode) throws Exception {
+        newcode = Formater.format(newcode);
         String query = "UPDATE utilisateurs SET code_postal = ? WHERE id = ?";
         
         try (PreparedStatement pstmt = conn.prepareStatement(query)) {
@@ -146,6 +147,8 @@ public class API {
     }
 
     public void addUser(String username, String password, String email, String code_postal) throws Exception {
+        email = Formater.format(email);
+        code_postal = Formater.format(code_postal);
         conn.createStatement().execute("INSERT INTO utilisateurs (nom, mot_de_passe, email, argent, admin, code_postal) VALUES ('" + username + "', '" + password + "', '" + email + "', 0, false, +'"+code_postal+"');");
     }
 
@@ -160,6 +163,8 @@ public class API {
     }
 
     public void addOffre(String nom, String description, int prix, int vendeur, String categorie) throws Exception {
+        nom = Formater.format(nom);
+        description = Formater.format(description);
         conn.createStatement().execute("INSERT INTO offres (nom, description, prix, id_vendeur, categorie, date_depot) VALUES ('" + nom + "', '" + description + "', " + prix + ", " + vendeur + ", '" + categorie + "', strftime('%Y-%m-%d %H:%M:%S', datetime('now')) );");
     }
 
@@ -177,6 +182,7 @@ public class API {
     }
 
     public void addReclamation(int userid, String message) throws Exception {
+        message = Formater.format(message);
         conn.createStatement().execute("INSERT INTO reclamations (id_utilisateur, message, date) VALUES (" + userid + ", '" + message + "', strftime('%Y-%m-%d %H:%M:%S', datetime('now')) );");
     }
 
