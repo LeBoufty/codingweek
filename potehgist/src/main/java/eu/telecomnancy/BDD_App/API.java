@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.io.File;
 import java.nio.file.Files;
+import java.util.ArrayList;
 
 import eu.telecomnancy.Formater;
 
@@ -331,6 +332,38 @@ public class API {
             conn.createStatement().execute("INSERT INTO evaluations (id_offre, id_evaluant, valeur_evaluation) VALUES (" + offre + ", " + notant + ", " + valeur + ");");
         } catch (Exception e) {
             System.out.println("[DEBUG] Erreur lors de l'ajout de l'évaluation");
+        }
+    }
+
+    public String[] getLastFiveChat(int iduser) {
+        // Renvoie les 5 derniers utilisateurs avec qui l'utilisateur a discuté
+        try {
+            ResultSet rs = conn.createStatement().executeQuery("SELECT id_utilisateur_envoie, id_utilisateur_recoit FROM messages WHERE id_utilisateur_envoie = " + iduser + " OR id_utilisateur_recoit = " + iduser + " ORDER BY date_envoi DESC;");
+            ArrayList<Integer> users = new ArrayList<Integer>();
+
+            while (rs.next()) {
+                int id1 = rs.getInt(1);
+                int id2 = rs.getInt(2);
+                if (id1 != iduser && !users.contains(id1)) {
+                    users.add(id1);
+                }
+                if (id2 != iduser && !users.contains(id2)) {
+                    users.add(id2);
+                }
+            }
+
+            String[] usernames = new String[5];
+            for (int i = 0; i < 5; i++) {
+                if (i < users.size()) {
+                    usernames[i] = getUsername(users.get(i));
+                } else {
+                    usernames[i] = "";
+                }
+            }
+            return usernames;
+
+        } catch (Exception e) {
+            return null;
         }
     }
 
