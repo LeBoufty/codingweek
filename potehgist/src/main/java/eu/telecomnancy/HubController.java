@@ -77,8 +77,6 @@ public class HubController {
 
     @FXML
     private void liste_annonce() throws IOException {
-        App.setPageAnnonce(1);
-        App.annonce_recherche.setDefault();
         App.setRoot("listeannonce");
     }
 
