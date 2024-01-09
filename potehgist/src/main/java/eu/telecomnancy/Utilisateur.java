@@ -50,12 +50,16 @@ public class Utilisateur {
     public void saveAsNew() {
         try {
             API.getInstance().addUser(nom, mot_de_passe, email, code_postal);
+            this.id = API.getInstance().getUserid(nom);
         } catch (Exception e) {
             System.out.println("[DEBUG] Erreur lors de l'ajout de l'utilisateur");
         }
     }
 
     public void save() {
+        if (id == 0) {
+            return;
+        }
         try {
             API.getInstance().modifyUsername(id, nom);
             API.getInstance().modifyemail(id, email);
