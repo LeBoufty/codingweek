@@ -132,4 +132,9 @@ public class API {
         ResultSet rs = conn.createStatement().executeQuery("SELECT admin FROM utilisateurs WHERE id = " + userid + ";");
         return rs.getBoolean(1);
     }
+
+    public void addAdmin(int userid) throws Exception {
+        conn.createStatement().execute("UPDATE utilisateurs SET admin = true WHERE id = " + userid + ";");
+    }
+    
 }
