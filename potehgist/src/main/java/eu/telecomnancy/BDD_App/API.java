@@ -136,5 +136,8 @@ public class API {
     public void addAdmin(int userid) throws Exception {
         conn.createStatement().execute("UPDATE utilisateurs SET admin = true WHERE id = " + userid + ";");
     }
-    
+
+    public void removeAdmin(int userid) throws Exception {
+        conn.createStatement().execute("UPDATE utilisateurs SET admin = false WHERE id = " + userid + ";");
+    }
 }
