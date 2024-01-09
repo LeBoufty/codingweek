@@ -25,7 +25,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("connect"), 720, 480);
+        scene = new Scene(loadFXML("connect"), 1280, 720);
         stage.setTitle("PotehGist");
         stage.getIcons().add(new Image(getClass().getResourceAsStream("assets/logo.png")));
         scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
@@ -52,7 +52,7 @@ public class App extends Application {
     }
 
     static void setUser2(int id) {
-        user = new Utilisateur(id);
+        user2 = new Utilisateur(id);
     }
 
     static Utilisateur getUser() {
@@ -64,6 +64,8 @@ public class App extends Application {
     }
 
     static int getUser2id() {
+        if(user2 == null)
+            return 0;
         return user2.getId();
     }
 

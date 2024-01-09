@@ -25,7 +25,10 @@ public class HeaderController {
     header_burger.getItems().addAll("Creation Annonce", "Mon Profil","Mes Chats" ,"Deconnexion");
 
     header_burger.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-        try {   
+        try {
+            if (newValue.equals("Deconnexion")) {
+                App.setUser(0);
+            }
             App.setRoot(pageMappings.get(newValue));
         } catch (IOException e) {
             e.printStackTrace();

@@ -227,11 +227,11 @@ public class API {
         }
     }
 
-    public String[] getmessages(int iduser1,int iduser2)
+    public String[] getmessages(int iduser1,int iduser2, int page)
     {
         try {
-            ResultSet rs = conn.createStatement().executeQuery("SELECT message FROM messages WHERE ( id_utilisateur1 = " + iduser1 + " AND id_utilisateur2 = " + iduser2 + " ) OR ( id_utilisateur1 = " + iduser2 + " AND id_utilisateur2 = " + iduser1 + " );");
-            String[] messages = new String[100];
+            ResultSet rs = conn.createStatement().executeQuery("SELECT message FROM messages WHERE ( id_utilisateur1 = " + iduser1 + " AND id_utilisateur2 = " + iduser2 + " ) OR ( id_utilisateur1 = " + iduser2 + " AND id_utilisateur2 = " + iduser1 + " ) ORDER BY date_envoi DESC LIMIT 4 OFFSET " + (page-1)*4 + ";");
+            String[] messages = new String[4];
             int i = 0;
             while (rs.next()) {
                 messages[i] = rs.getString(1);
@@ -267,10 +267,10 @@ public class API {
         }
     }
 
-    public void addmessage(int iduser1,int iduser2,String message)
+    public void addmessage(int iduser1,int iduser2,String message, Date date)
     {
         try {
-            conn.createStatement().execute("INSERT INTO messages (id_utilisateur1,id_utilisateur2,message) VALUES (" + iduser1 + "," + iduser2 + ",'" + message + "');");
+            conn.createStatement().execute("INSERT INTO messages (id_utilisateur_envoie,id_utilisateur_recoit,message,date_envoi) VALUES (" + iduser1 + "," + iduser2 + ",'" + message + "',"+ date +");");
         } catch (Exception e) {
             System.out.println(e.getMessage());
 
@@ -306,5 +306,17 @@ public class API {
         } catch (Exception e) {
             return false;
         }
+    }
+
+    public ResultSet getReclamations() throws Exception {
+        return conn.createStatement().executeQuery("SELECT * FROM reclamations WHERE resolu=false;");
+    }
+
+    public ResultSet getAllReclamations() throws Exception {
+        return conn.createStatement().executeQuery("SELECT * FROM reclamations;");
+    }
+
+    public void resolu(int id) throws Exception {
+        conn.createStatement().execute("UPDATE reclamations SET resolu = true WHERE id = " + id + ";");
     }
 }
