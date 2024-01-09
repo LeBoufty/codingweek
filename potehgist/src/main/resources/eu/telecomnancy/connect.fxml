@@ -41,10 +41,7 @@
                   <PasswordField fx:id="password" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="200.0" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
                   <Button alignment="CENTER" mnemonicParsing="false" onAction="#connect" text="Connexion" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
                   <Button mnemonicParsing="false" onAction="#create" text="Créer un compte" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
-                  <Label alignment="CENTER" prefHeight="29.0" text="Connexion" textAlignment="CENTER" GridPane.halignment="CENTER">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
+                  <Label StyleClass="title" alignment="CENTER" prefHeight="29.0" text="Connexion" textAlignment="CENTER" GridPane.halignment="CENTER">
                   </Label>
                </children>
                <cursor>
