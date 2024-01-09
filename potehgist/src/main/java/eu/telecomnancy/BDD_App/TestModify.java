@@ -1,7 +1,14 @@
 package eu.telecomnancy.BDD_App;
 
+import java.io.File;
+import java.nio.file.Files;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 
 public class TestModify {
     
@@ -9,17 +16,32 @@ public class TestModify {
         
         // Test de la modification d'un utilisateur sans l'API
         
-        try(Connection conn = DriverManager.getConnection("jdbc:sqlite:potehgist/potehgist.db")) {
+        try(Connection connection = DriverManager.getConnection("jdbc:sqlite:/tmp/potehgist.db")) {
             // Montre tout ce qu'il y a dans la table utilisateurs
-            conn.createStatement().executeQuery("SELECT * FROM utilisateurs;");
-            System.out.println("Table utilisateurs :");
-            // Ajout d'un utilisateur
-            conn.createStatement().execute("INSERT INTO utilisateurs (nom, mot_de_passe, email, argent, admin, code_postal) VALUES ('tataa', 'tataa', 'tataa', 0, false, '54000');");
-            System.out.println("Ajout de l'utilisateur tata");
-
-            conn.prepareStatement("UPDATE utilisateurs SET email ='lol' WHERE id =1").execute();
+            String insertQuery = "INSERT INTO test_images (image) VALUES (?)";
+            PreparedStatement preparedStatement = connection.prepareStatement(insertQuery);
+            File imageFile = new File("/home/toyhugs/gitlab/codingweek-01/docu/michiru.jpg");            
 
 
+
+            System.out.println(imageFile.exists());
+            // InputStream inputStream2 = new FileInputStream(imageFile);
+            byte[] imageData = Files.readAllBytes(imageFile.toPath());
+            
+            preparedStatement.setBytes(1, imageData);
+            preparedStatement.executeUpdate();
+            System.out.println("Image insérée");
+
+
+            String selectQuery = "SELECT image FROM test_images WHERE id = ?";
+            preparedStatement = connection.prepareStatement(selectQuery);
+            preparedStatement.setInt(1, 1);
+            byte[] imageBytes = preparedStatement.executeQuery().getBytes(1);
+            System.out.println(imageBytes.length);
+            // InputStream inputStream = new ByteArrayInputStream(imageBytes);
+            String outputpath = "/home/toyhugs/gitlab/codingweek-01/docu/michiru2.jpg";
+            Files.write(new File(outputpath).toPath(), imageBytes);
+            System.out.println("Image extraite");                      
             
             
         } catch (Exception e) {
