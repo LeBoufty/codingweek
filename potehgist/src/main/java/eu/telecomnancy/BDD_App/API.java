@@ -1,15 +1,15 @@
 package eu.telecomnancy.BDD_App;
 
+import java.io.File;
+import java.nio.file.Files;
 import java.sql.Connection;
 // import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Date;
-import java.io.File;
-import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.Date;
 
 import eu.telecomnancy.Formater;
 
@@ -417,6 +417,22 @@ public class API {
         }
     }
 
+    public int[] getthreeidnotif(int iduser, int page)
+    {
+        try {
+            ResultSet rs = conn.createStatement().executeQuery("SELECT id FROM notifications WHERE id_utilisateur = " + iduser + " AND vue = false ORDER BY date DESC LIMIT 4 OFFSET " + (page-1)*4 + ";");
+            int[] id = new int[4];
+            int i = 0;
+            while (rs.next()) {
+                id[i] = rs.getInt(1);
+                i++;
+            }
+            return id;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
     public String[] getthreedescriptionnotif(int iduser, int page)
     {
         try {
@@ -433,10 +449,10 @@ public class API {
         }
     }
 
-    public void mettrenotifenvu(int iduser, Date date, String message)
+    public void mettrenotifenvu(int id)
     {
         try {
-            conn.createStatement().execute("UPDATE notifications SET vue = true WHERE id_utilisateur = " + iduser + " AND date = '" + date + "' AND message = '" + message + "';");
+            conn.createStatement().execute("UPDATE notifications SET vue = true WHERE id = " + id+ " ;");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

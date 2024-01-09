@@ -45,26 +45,27 @@ public class HubController {
         page.setText(String.valueOf(App.numpageannonce));
         String[] messages = API.getInstance().getthreedescriptionnotif(App.getUser().getId(), App.numpageannonce);
         Date[] dates = API.getInstance().getthreedatesnotif(App.getUser().getId(), App.numpageannonce);
+        int[] ids = API.getInstance().getthreeidnotif(App.getUser().getId(), App.numpageannonce);
         if(messages!=null){
             if(messages[0]!=null){
                 description1.setText(messages[0]);
                 date1.setText(dates[0].toString());
-                API.getInstance().mettrenotifenvu(App.getUser().getId(), dates[0], messages[0]);
+                API.getInstance().mettrenotifenvu(ids[0]);
             }
             if(messages[1]!=null){
                 description2.setText(messages[1]);
                 date2.setText(dates[1].toString());
-                API.getInstance().mettrenotifenvu(App.getUser().getId(), dates[1], messages[1]);
+                API.getInstance().mettrenotifenvu(ids[1]);
             }
             if(messages[2]!=null){
                 description3.setText(messages[2]);
                 date3.setText(dates[2].toString());
-                API.getInstance().mettrenotifenvu(App.getUser().getId(), dates[2], messages[2]);
+                API.getInstance().mettrenotifenvu(ids[2]);
             }
             if(messages[3]!=null){
                 description4.setText(messages[3]);
                 date4.setText(dates[3].toString());
-                API.getInstance().mettrenotifenvu(App.getUser().getId(), dates[3], messages[3]);
+                API.getInstance().mettrenotifenvu(ids[3]);
             }
         }
     }
@@ -86,11 +87,12 @@ public class HubController {
         page.setText(String.valueOf(App.numpageannonce));
         String[] messages = API.getInstance().getthreedescriptionnotif(App.getUser().getId(), App.numpageannonce);
         Date[] dates = API.getInstance().getthreedatesnotif(App.getUser().getId(), App.numpageannonce);
+        int[] ids = API.getInstance().getthreeidnotif(App.getUser().getId(), App.numpageannonce);
         if(messages!=null){
         if(messages[0]!=null){
             description1.setText(messages[0]);
             date1.setText(dates[0].toString());
-            API.getInstance().mettrenotifenvu(App.getUser().getId(), dates[0], messages[0]);
+            API.getInstance().mettrenotifenvu(ids[0]);
         }
         else
         {
@@ -100,7 +102,7 @@ public class HubController {
         if(messages[1]!=null){
             description2.setText(messages[1]);
             date2.setText(dates[1].toString());
-            API.getInstance().mettrenotifenvu(App.getUser().getId(), dates[1], messages[1]);
+            API.getInstance().mettrenotifenvu(ids[1]);
         }
         else
         {
@@ -110,7 +112,7 @@ public class HubController {
         if(messages[2]!=null){
             description3.setText(messages[2]);
             date3.setText(dates[2].toString());
-            API.getInstance().mettrenotifenvu(App.getUser().getId(), dates[2], messages[2]);
+            API.getInstance().mettrenotifenvu(ids[2]);
         }
         else
         {
@@ -120,7 +122,7 @@ public class HubController {
         if(messages[3]!=null){
             description4.setText(messages[3]);
             date4.setText(dates[3].toString());
-            API.getInstance().mettrenotifenvu(App.getUser().getId(), dates[3], messages[3]);
+            API.getInstance().mettrenotifenvu(ids[3]);
         }
         else
         {
@@ -139,11 +141,12 @@ public class HubController {
             page.setText(String.valueOf(App.numpageannonce));
             String[] messages = API.getInstance().getthreedescriptionnotif(App.getUser().getId(), App.numpageannonce);
             Date[] dates = API.getInstance().getthreedatesnotif(App.getUser().getId(), App.numpageannonce);
+            int[] ids = API.getInstance().getthreeidnotif(App.getUser().getId(), App.numpageannonce);
             if(messages!=null){
             if(messages[0]!=null){
             description1.setText(messages[0]);
             date1.setText(dates[0].toString());
-            API.getInstance().mettrenotifenvu(App.getUser().getId(), dates[0], messages[0]);
+            API.getInstance().mettrenotifenvu(ids[0]);
             }
             else
             {
@@ -153,7 +156,7 @@ public class HubController {
             if(messages[1]!=null){
                 description2.setText(messages[1]);
                 date2.setText(dates[1].toString());
-                API.getInstance().mettrenotifenvu(App.getUser().getId(), dates[1], messages[1]);
+                API.getInstance().mettrenotifenvu(ids[1]);
             }
             else
             {
@@ -163,7 +166,7 @@ public class HubController {
             if(messages[2]!=null){
                 description3.setText(messages[2]);
                 date3.setText(dates[2].toString());
-                API.getInstance().mettrenotifenvu(App.getUser().getId(), dates[2], messages[2]);
+                API.getInstance().mettrenotifenvu(ids[2]);
             }
             else
             {
@@ -174,7 +177,7 @@ public class HubController {
             {
                 description4.setText(messages[3]);
                 date4.setText(dates[3].toString());
-                API.getInstance().mettrenotifenvu(App.getUser().getId(), dates[3], messages[3]);
+                API.getInstance().mettrenotifenvu(ids[3]);
             }
             else
             {

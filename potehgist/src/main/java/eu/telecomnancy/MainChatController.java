@@ -20,7 +20,12 @@ public class MainChatController {
     @FXML
     private void initialize()
     {
-        
+        String[] users = API.getInstance().getLastFiveChat(App.getUser().getId());
+        for(int i=0; i<users.length; i++){
+            if(users[i]!=""){
+                Boxnom.getItems().add(users[i]);
+            }
+        }
     }
 
     @FXML
@@ -37,8 +42,8 @@ public class MainChatController {
                 nomutilisateur.setText("");
             }
         }
-        else if(!Boxnom.getValue().equals("")){
-            App.setUser2(API.getInstance().getUserid(nomutilisateur.getText().toString()));
+        if(!Boxnom.getValue().equals("")){
+            App.setUser2(API.getInstance().getUserid(Boxnom.getValue()));
             if(API.getInstance().getmessages(App.getUser2id(), App.getUser().getId(), 1)[0]!=null){
                 App.setRoot("chat");
             }
