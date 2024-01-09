@@ -230,7 +230,7 @@ public class API {
     public String[] getmessages(int iduser1,int iduser2, int page)
     {
         try {
-            ResultSet rs = conn.createStatement().executeQuery("SELECT message FROM messages WHERE ( id_utilisateur1 = " + iduser1 + " AND id_utilisateur2 = " + iduser2 + " ) OR ( id_utilisateur1 = " + iduser2 + " AND id_utilisateur2 = " + iduser1 + " ) ORDER BY date_envoi DESC LIMIT 4 OFFSET " + (page-1)*4 + ";");
+            ResultSet rs = conn.createStatement().executeQuery("SELECT message FROM messages WHERE ( id_utilisateur_envoie = " + iduser1 + " AND id_utilisateur_recoit = " + iduser2 + " ) OR ( id_utilisateur_envoie = " + iduser2 + " AND id_utilisateur_recoit = " + iduser1 + " ) ORDER BY date_envoi DESC LIMIT 4 OFFSET " + (page-1)*4 + ";");
             String[] messages = new String[4];
             int i = 0;
             while (rs.next()) {
@@ -267,10 +267,10 @@ public class API {
         }
     }
 
-    public void addmessage(int iduser1,int iduser2,String message, Date date)
+    public void addmessage(int iduser1,int iduser2,String message)
     {
         try {
-            conn.createStatement().execute("INSERT INTO messages (id_utilisateur_envoie,id_utilisateur_recoit,message,date_envoi) VALUES (" + iduser1 + "," + iduser2 + ",'" + message + "',"+ date +");");
+            conn.createStatement().execute("INSERT INTO messages (id_utilisateur_envoie,id_utilisateur_recoit,message,date_envoi) VALUES (" + iduser1 + "," + iduser2 + ",'" + message + "', strftime('%Y-%m-%d %H:%M:%S', datetime('now')));");
         } catch (Exception e) {
             System.out.println(e.getMessage());
 
@@ -319,4 +319,16 @@ public class API {
     public void resolu(int id) throws Exception {
         conn.createStatement().execute("UPDATE reclamations SET resolu = true WHERE id = " + id + ";");
     }
+
+    public int getmessagewriter(String message, int iduser1, int iduser2)
+    {
+        try {
+            ResultSet rs = conn.createStatement().executeQuery("SELECT id_utilisateur_envoie FROM messages WHERE message = '" + message + "' AND ( id_utilisateur_envoie = " + iduser1 + " AND id_utilisateur_recoit = " + iduser2 + " ) OR ( id_utilisateur_envoie = " + iduser2 + " AND id_utilisateur_recoit = " + iduser1 + ");");
+            return rs.getInt(1);
+        } catch (Exception e) {
+            return 0;
+        }
+    }
+
 }
+
