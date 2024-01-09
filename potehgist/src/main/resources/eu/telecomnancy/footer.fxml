@@ -18,8 +18,8 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
             <children>
-                <Button styleClass="hdrbtn" onAction="#reclamation" prefHeight="24.0" prefWidth="305.0" text="Nous contacter" />
-                <Button styleClass="hdrbtn" onAction="#administration" prefHeight="24.0" prefWidth="305.0" text="Admin" GridPane.columnIndex="1" />
+                <Button styleClass="hdrbtn" onAction="#reclamation" prefHeight="24.0" prefWidth="550" text="Nous contacter" />
+                <Button styleClass="hdrbtn" onAction="#administration" prefHeight="24.0" prefWidth="550" text="Administration" GridPane.columnIndex="1" />
             </children>
       </GridPane>
    </center>
