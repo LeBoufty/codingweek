@@ -144,4 +144,12 @@ public class API {
     public void addReclamation(int userid, String message) throws Exception {
         conn.createStatement().execute("INSERT INTO reclamations (id_utilisateur, message, date) VALUES (" + userid + ", '" + message + "', strftime('%Y-%m-%d %H:%M:%S', datetime('now')) );");
     }
+
+    public ResultSet getReclamations() throws Exception {
+        return conn.createStatement().executeQuery("SELECT * FROM reclamations WHERE resolu=false;");
+    }
+
+    public ResultSet getAllReclamations() throws Exception {
+        return conn.createStatement().executeQuery("SELECT * FROM reclamations;");
+    }
 }
