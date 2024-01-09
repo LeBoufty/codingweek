@@ -14,244 +14,248 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eu.telecomnancy.ListeAnnonceController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eu.telecomnancy.ListeAnnonceController">
     <top>
       <fx:include source="header.fxml" />
    </top>
    <bottom>
       <fx:include source="footer.fxml" />
    </bottom>
-   <right>
-      <VBox prefHeight="330.0" prefWidth="629.0" BorderPane.alignment="CENTER">
-         <children>
-            <HBox alignment="CENTER" prefHeight="12.0" prefWidth="600.0">
+   <center>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <center>
+            <VBox prefHeight="330.0" prefWidth="629.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label prefHeight="114.0" prefWidth="195.0" text="Liste des annonces">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
+                  <HBox alignment="CENTER" prefHeight="12.0" prefWidth="600.0">
+                     <children>
+                        <Label prefHeight="35.0" prefWidth="205.0" styleClass="smalltitle" text="Liste des annonces">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Pane prefHeight="16.0" prefWidth="600.0" />
+                  <GridPane alignment="CENTER" prefHeight="282.0" prefWidth="600.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                           <content>
+                              <VBox alignment="CENTER" prefHeight="129.0" prefWidth="295.0" styleClass="article">
+                                 <children>
+                                    <Label fx:id="nom_annonce_1" styleClass="article-title" text="Nom Annonce">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="categorie_1" styleClass="discrete" text="Service">
+                                       <font>
+                                          <Font name="System Italic" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Text fx:id="description_1" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Voici la description de malade \n haha">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </Text>
+                                    <HBox alignment="CENTER" prefHeight="14.0" prefWidth="186.0">
+                                       <children>
+                                          <Label styleClass="discrete" text="Proposé par : ">
+                                             <font>
+                                                <Font size="10.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="nom_vendeur_1" text="Jérôme">
+                                             <font>
+                                                <Font size="10.0" />
+                                             </font>
+                                          </Label>
+                                          <Pane prefHeight="14.0" prefWidth="25.0" />
+                                          <Label styleClass="discrete" text="Prix : ">
+                                             <font>
+                                                <Font size="10.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="prix_1" text="20F">
+                                             <font>
+                                                <Font size="10.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <ImageView fx:id="image_1" fitHeight="70.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true" />
+                                 </children>
+                              </VBox>
+                           </content>
+                        </ScrollPane>
+                        <ScrollPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                           <content>
+                              <VBox alignment="CENTER" prefHeight="129.0" prefWidth="295.0" styleClass="article">
+                                 <children>
+                                    <Label fx:id="nom_annonce_11" styleClass="article-title" text="Nom Annonce">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="categorie_11" styleClass="discrete" text="Service">
+                                       <font>
+                                          <Font name="System Italic" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Text fx:id="description_11" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Voici la description de malade \n haha">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </Text>
+                                    <HBox alignment="CENTER" prefHeight="14.0" prefWidth="186.0">
+                                       <children>
+                                          <Label styleClass="discrete" text="Proposé par : ">
+                                             <font>
+                                                <Font size="10.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="nom_vendeur_11" text="Jérôme">
+                                             <font>
+                                                <Font size="10.0" />
+                                             </font>
+                                          </Label>
+                                          <Pane prefHeight="14.0" prefWidth="25.0" />
+                                          <Label styleClass="discrete" text="Prix : ">
+                                             <font>
+                                                <Font size="10.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="prix_11" text="20F">
+                                             <font>
+                                                <Font size="10.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <ImageView fx:id="image_11" fitHeight="70.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true" />
+                                 </children>
+                              </VBox>
+                           </content>
+                        </ScrollPane>
+                        <ScrollPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                           <content>
+                              <VBox alignment="CENTER" prefHeight="129.0" prefWidth="295.0" styleClass="article">
+                                 <children>
+                                    <Label fx:id="nom_annonce_12" styleClass="article-title" text="Nom Annonce">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="categorie_12" styleClass="discrete" text="Service">
+                                       <font>
+                                          <Font name="System Italic" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Text fx:id="description_12" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Voici la description de malade \n haha">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </Text>
+                                    <HBox alignment="CENTER" prefHeight="14.0" prefWidth="186.0">
+                                       <children>
+                                          <Label styleClass="discrete" text="Proposé par : ">
+                                             <font>
+                                                <Font size="10.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="nom_vendeur_12" text="Jérôme">
+                                             <font>
+                                                <Font size="10.0" />
+                                             </font>
+                                          </Label>
+                                          <Pane prefHeight="14.0" prefWidth="25.0" />
+                                          <Label styleClass="discrete" text="Prix : ">
+                                             <font>
+                                                <Font size="10.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="prix_12" text="20F">
+                                             <font>
+                                                <Font size="10.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <ImageView fx:id="image_12" fitHeight="70.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true" />
+                                 </children>
+                              </VBox>
+                           </content>
+                        </ScrollPane>
+                        <ScrollPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <content>
+                              <VBox alignment="CENTER" prefHeight="129.0" prefWidth="295.0" styleClass="article">
+                                 <children>
+                                    <Label fx:id="nom_annonce_121" styleClass="article-title" text="Nom Annonce">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="categorie_121" styleClass="discrete" text="Service">
+                                       <font>
+                                          <Font name="System Italic" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Text fx:id="description_121" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Voici la description de malade \n haha">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </Text>
+                                    <HBox alignment="CENTER" prefHeight="14.0" prefWidth="186.0">
+                                       <children>
+                                          <Label styleClass="discrete" text="Proposé par : ">
+                                             <font>
+                                                <Font size="10.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="nom_vendeur_121" text="Jérôme">
+                                             <font>
+                                                <Font size="10.0" />
+                                             </font>
+                                          </Label>
+                                          <Pane prefHeight="14.0" prefWidth="25.0" />
+                                          <Label styleClass="discrete" text="Prix : ">
+                                             <font>
+                                                <Font size="10.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="prix_121" text="20F">
+                                             <font>
+                                                <Font size="10.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <ImageView fx:id="image_121" fitHeight="70.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true" />
+                                 </children>
+                              </VBox>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </GridPane>
+                  <HBox alignment="CENTER" prefHeight="33.0" prefWidth="600.0">
+                     <children>
+                        <Button fx:id="pageminus" mnemonicParsing="false" onAction="#pagemoins" text="&lt;" />
+                        <Pane prefHeight="30.0" prefWidth="69.0" />
+                        <Label fx:id="page_num" text="Page n°1" />
+                        <Pane prefHeight="30.0" prefWidth="75.0" />
+                        <Button fx:id="pagemaximus" mnemonicParsing="false" onAction="#pageplus" text="&gt;" />
+                     </children>
+                  </HBox>
                </children>
-            </HBox>
-            <Pane prefHeight="16.0" prefWidth="600.0" />
-            <GridPane alignment="CENTER" prefHeight="282.0" prefWidth="600.0">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <ScrollPane prefHeight="200.0" prefWidth="200.0">
-                     <content>
-                        <VBox alignment="CENTER" prefHeight="129.0" prefWidth="295.0">
-                           <children>
-                              <Label fx:id="nom_annonce_1" text="Nom Annonce">
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="categorie_1" text="Service">
-                                 <font>
-                                    <Font name="System Italic" size="12.0" />
-                                 </font>
-                              </Label>
-                              <Text fx:id="description_1" strokeType="OUTSIDE" strokeWidth="0.0" text="Voici la description de malade \n haha">
-                                 <font>
-                                    <Font size="10.0" />
-                                 </font>
-                              </Text>
-                              <HBox alignment="CENTER" prefHeight="14.0" prefWidth="186.0">
-                                 <children>
-                                    <Label text="Proposé par : ">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="nom_vendeur_1" text="Jérôme">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </Label>
-                                    <Pane prefHeight="14.0" prefWidth="25.0" />
-                                    <Label text="Prix : ">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="prix_1" text="20F">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </HBox>
-                              <ImageView fx:id="image_1" fitHeight="70.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true" />
-                           </children>
-                        </VBox>
-                     </content>
-                  </ScrollPane>
-                  <ScrollPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
-                     <content>
-                        <VBox alignment="CENTER" prefHeight="129.0" prefWidth="295.0">
-                           <children>
-                              <Label fx:id="nom_annonce_11" text="Nom Annonce">
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="categorie_11" text="Service">
-                                 <font>
-                                    <Font name="System Italic" size="12.0" />
-                                 </font>
-                              </Label>
-                              <Text fx:id="description_11" strokeType="OUTSIDE" strokeWidth="0.0" text="Voici la description de malade \n haha">
-                                 <font>
-                                    <Font size="10.0" />
-                                 </font>
-                              </Text>
-                              <HBox alignment="CENTER" prefHeight="14.0" prefWidth="186.0">
-                                 <children>
-                                    <Label text="Proposé par : ">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="nom_vendeur_11" text="Jérôme">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </Label>
-                                    <Pane prefHeight="14.0" prefWidth="25.0" />
-                                    <Label text="Prix : ">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="prix_11" text="20F">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </HBox>
-                              <ImageView fx:id="image_11" fitHeight="70.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true" />
-                           </children>
-                        </VBox>
-                     </content>
-                  </ScrollPane>
-                  <ScrollPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
-                     <content>
-                        <VBox alignment="CENTER" prefHeight="129.0" prefWidth="295.0">
-                           <children>
-                              <Label fx:id="nom_annonce_111" text="Nom Annonce">
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="categorie_111" text="Service">
-                                 <font>
-                                    <Font name="System Italic" size="12.0" />
-                                 </font>
-                              </Label>
-                              <Text fx:id="description_111" strokeType="OUTSIDE" strokeWidth="0.0" text="Voici la description de malade \n haha">
-                                 <font>
-                                    <Font size="10.0" />
-                                 </font>
-                              </Text>
-                              <HBox alignment="CENTER" prefHeight="14.0" prefWidth="186.0">
-                                 <children>
-                                    <Label text="Proposé par : ">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="nom_vendeur_111" text="Jérôme">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </Label>
-                                    <Pane prefHeight="14.0" prefWidth="25.0" />
-                                    <Label text="Prix : ">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="prix_111" text="20F">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </HBox>
-                              <ImageView fx:id="image_111" fitHeight="70.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true" />
-                           </children>
-                        </VBox>
-                     </content>
-                  </ScrollPane>
-                  <ScrollPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                     <content>
-                        <VBox alignment="CENTER" prefHeight="129.0" prefWidth="295.0">
-                           <children>
-                              <Label fx:id="nom_annonce_1111" text="Nom Annonce">
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="categorie_1111" text="Service">
-                                 <font>
-                                    <Font name="System Italic" size="12.0" />
-                                 </font>
-                              </Label>
-                              <Text fx:id="description_1111" strokeType="OUTSIDE" strokeWidth="0.0" text="Voici la description de malade \n haha">
-                                 <font>
-                                    <Font size="10.0" />
-                                 </font>
-                              </Text>
-                              <HBox alignment="CENTER" prefHeight="14.0" prefWidth="186.0">
-                                 <children>
-                                    <Label text="Proposé par : ">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="nom_vendeur_1111" text="Jérôme">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </Label>
-                                    <Pane prefHeight="14.0" prefWidth="25.0" />
-                                    <Label text="Prix : ">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="prix_1111" text="20F">
-                                       <font>
-                                          <Font size="10.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </HBox>
-                              <ImageView fx:id="image_1111" fitHeight="70.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true" />
-                           </children>
-                        </VBox>
-                     </content>
-                  </ScrollPane>
-               </children>
-            </GridPane>
-            <HBox alignment="CENTER" prefHeight="33.0" prefWidth="600.0">
-               <children>
-                  <Button fx:id="pageminus" mnemonicParsing="false" onAction="#pagemoins" text="&lt;" />
-                  <Pane prefHeight="30.0" prefWidth="69.0" />
-                  <Label fx:id="page_num" text="Page n°1" />
-                  <Pane prefHeight="30.0" prefWidth="75.0" />
-                  <Button fx:id="pagemaximus" mnemonicParsing="false" onAction="#pageplus" text="&gt;" />
-               </children>
-            </HBox>
-         </children>
-      </VBox>
-   </right>
+            </VBox>
+         </center>
+      </BorderPane>
+   </center>
 </BorderPane>
