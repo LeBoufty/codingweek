@@ -227,7 +227,7 @@ public class API {
         }
     }
 
-    public String[] getOffreInfosAcceuil(int page) {
+    public String[] getOffreInfosAccueil(int page) {
         // Les pages donnent les annoncent 4 par 4
         // La requète demande les dernières annonces enregistrées
 

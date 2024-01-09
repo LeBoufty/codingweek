@@ -98,7 +98,7 @@ public class ListeAnnonceController {
         page_num.setText("Page n°"+page);
 
         API api = API.getInstance();
-        String[] annonces = api.getOffreInfosAcceuil(page);
+        String[] annonces = api.getOffreInfosAccueil(page);
 
         nom_annonce_1.setText(annonces[0]);
         nom_vendeur_1.setText(annonces[1]);
