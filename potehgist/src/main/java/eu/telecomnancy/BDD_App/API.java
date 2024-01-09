@@ -79,6 +79,28 @@ public class API {
         }
     }
 
+    public void modifyargent(int userid, int newargent) throws Exception {
+    String query = "UPDATE utilisateurs SET argent = ? WHERE id = ?";
+    
+    try (PreparedStatement pstmt = conn.prepareStatement(query)) {
+        pstmt.setInt(1, newargent);
+        pstmt.setInt(2, userid);
+        
+        pstmt.executeUpdate();
+        }
+    }
+
+    public void modifyadmin(int userid, boolean newadmin) throws Exception {
+    String query = "UPDATE utilisateurs SET admin = ? WHERE id = ?";
+    
+    try (PreparedStatement pstmt = conn.prepareStatement(query)) {
+        pstmt.setBoolean(1, newadmin);
+        pstmt.setInt(2, userid);
+        
+        pstmt.executeUpdate();
+        }
+    }
+
     public void modifymdp(int userid, String newmdp) throws Exception {
     String query = "UPDATE utilisateurs SET mot_de_passe = ? WHERE id = ?";
     

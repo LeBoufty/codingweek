@@ -55,7 +55,44 @@ public class Utilisateur {
         }
     }
 
+    public void save() {
+        try {
+            API.getInstance().modifyUsername(id, nom);
+            API.getInstance().modifyemail(id, email);
+            API.getInstance().modifymdp(id, mot_de_passe);
+            API.getInstance().modify_code_postal(id, code_postal);
+            API.getInstance().modifyargent(id, argent);
+            API.getInstance().modifyadmin(id, admin);
+        } catch (Exception e) {
+            System.out.println("[DEBUG] Erreur lors de la modification de l'utilisateur");
+        }
+    }
+
     public int getId() {
         return id;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public String getMot_de_passe() {
+        return mot_de_passe;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public int getArgent() {
+        return argent;
+    }
+
+    public String getCode_postal() {
+        return code_postal;
+    }
+
+    public boolean isAdmin() {
+        return admin;
     }
 }
