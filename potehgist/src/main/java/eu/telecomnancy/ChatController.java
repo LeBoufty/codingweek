@@ -4,7 +4,6 @@ import eu.telecomnancy.BDD_App.API;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
 
@@ -12,9 +11,6 @@ public class ChatController {
 
     @FXML
     private TextArea message_a_envoyer;
-
-    @FXML
-    private TextField nomutilisateur;
 
     @FXML
     private Text message_recu1;
@@ -46,30 +42,19 @@ public class ChatController {
     @FXML
     private Label nomuser2;
     
-
-
     @FXML
-    private void initialize() {
-        message_recu1.setText("");
-        message_recu2.setText("");
-        message_recu3.setText("");
-        message_recu4.setText("");
-        emeteur1.setText("");
-        emeteur2.setText("");
-        emeteur3.setText("");
-        emeteur4.setText("");
-        App.numpagechat = 1;
-        page.setText(Integer.toString(App.numpagechat));
+    private void retour() throws Exception
+    {
+        App.setUser2(0);
+        App.setRoot("mainchat");
     }
 
     @FXML
-    private void chargerconvo() throws Exception {
-        App.setUser2(API.getInstance().getUserid(nomutilisateur.getText().toString()));
+    private void initialize() {
         if(App.getUser2id() != 0) {
             App.numpagechat = 1;
             page.setText(Integer.toString(App.numpagechat));
-            nomuser2.setText(nomutilisateur.getText());
-            nomutilisateur.setText("");
+            nomuser2.setText(App.getUser2().getNom());
             
             String[] messages = API.getInstance().getmessages(App.getUser().getId(), App.getUser2id(),App.numpagechat);
             if(messages!=null)
