@@ -2,10 +2,6 @@ package eu.telecomnancy;
 
 import eu.telecomnancy.BDD_App.API;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
-import javafx.scene.text.Text;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import java.net.URL;
@@ -20,12 +16,15 @@ public class ListeAnnonceController {
     private VBox annonceslayout;
 
     public void initialize(URL location, ResourceBundle ressources) {
+        System.out.println("ListeAnnonceController");
         List<Annonce> annonces = new ArrayList<>(annonces());
+        System.out.println(annonces);
         for (int i=0; i<annonces.size(); i++){
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("Annoncelisteitem.fxml"));
+            loader.setLocation(getClass().getResource("annoncelisteitem.fxml"));
 
             try{
+                System.out.println("try");
                 HBox hbox = loader.load();
                 AnnoncelisteItemController controller = loader.getController();
                 controller.setData(annonces.get(i));
@@ -45,6 +44,9 @@ public class ListeAnnonceController {
         annonce.setImgSrc("assets/imagedeprofile/1.png");
         annonce.setDescription("Description de l'annonce ddddd");
 
+        annonces.add(annonce);
+
+        annonce = new Annonce();
         annonce.setTitre("Ti de l'annonce tttt");
         annonce.setPrix(11);
         annonce.setImgSrc("assets/imagedeprofile/1.png");
