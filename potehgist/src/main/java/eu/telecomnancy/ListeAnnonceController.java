@@ -4,10 +4,8 @@ import eu.telecomnancy.BDD_App.API;
 import javafx.fxml.FXML;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import java.net.URL;
 import java.util.List;
 import java.util.ArrayList;
-import java.util.ResourceBundle;
 import javafx.fxml.FXMLLoader;
 
 public class ListeAnnonceController {
@@ -15,7 +13,7 @@ public class ListeAnnonceController {
     @FXML
     private VBox annonceslayout;
 
-    public void initialize(URL location, ResourceBundle ressources) {
+    public void initialize() {
         System.out.println("ListeAnnonceController");
         List<Annonce> annonces = new ArrayList<>(annonces());
         System.out.println(annonces);
