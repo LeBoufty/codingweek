@@ -1,0 +1,329 @@
+/* Variables */
+.root {
+  -background-color: #36363E;
+  -secondary-background-color: #282831;
+  -text-color: #FFFAFB;
+  -discrete-color: #aca7a8;
+  -accent-color-1: #D4282A;
+  -accent-color-2: #BB342F;
+  -accent-color-3: #CF5C36;
+  -discord-color: #5865F2;
+  -gmail-color: #D44638;
+}
+
+@font-face {
+  font-family: "Roboto-Light";
+  src: url(fonts/Roboto-Light.ttf);
+}
+
+@font-face {
+  font-family: "Roboto-Black";
+  src: url(fonts/Roboto-Black.ttf);
+}
+
+@font-face {
+  font-family: "Roboto-Bold";
+  src: url(fonts/Roboto-Bold.ttf);
+}
+
+@font-face {
+  font-family: "Minecrafter";
+  src: url(fonts/Minecrafter.ttf)
+}
+
+@font-face {
+  font-family: "LEMONMILK-Bold";
+  src: url(fonts/LEMONMILK-Bold.otf);
+}
+
+/* Global Styles */
+.root {
+  -fx-font-family: "Roboto-Light";
+  -fx-text-fill: -text-color;
+  -fx-background-color: -background-color;
+  -fx-padding: 0;
+}
+
+Label,
+Text {
+  -fx-font-family: "Roboto-Light";
+  -fx-text-fill: -text-color;
+}
+
+.bold {
+  -fx-font-family: "Roboto-Bold";
+}
+
+.discrete {
+  -fx-text-fill: -discrete-color;
+}
+
+/* Header Styles */
+.header {
+  -fx-background-color: -secondary-background-color;
+  -fx-padding: 10px 20px;
+}
+
+.nav {
+  -fx-display: flex;
+  -fx-justify-content: center;
+}
+
+.nav-list {
+  -fx-list-style: none;
+  -fx-display: flex;
+  -fx-padding: 0;
+}
+
+.nav-item {
+  -fx-margin-right: 20px;
+}
+
+.nav-item:last-child {
+  -fx-margin-right: 0;
+}
+
+.nav-item a {
+  -fx-text-decoration: none;
+  -fx-text-fill: -accent-color-1;
+  -fx-padding: 8px 16px;
+  -fx-border-radius: 4px;
+  -fx-transition: -fx-background-color 0.3s;
+}
+
+.nav-item a:hover {
+  -fx-background-color: -accent-color-1;
+  -fx-text-fill: -secondary-background-color;
+}
+
+.hdrbtn {
+  -fx-background-color: -background-color;
+  -fx-text-fill: -text-color;
+  -fx-padding: 10px 20px;
+  -fx-cursor: pointer;
+  -fx-font-family: "Roboto-Bold";
+  -fx-font-size: 16px;
+  -fx-position: relative;
+  -fx-top: -17px;
+}
+
+.hdrbtn:hover {
+  -fx-background-color: -accent-color-2;
+}
+
+.hdrimg {
+  -fx-fit-height: 50px;
+  -fx-fit-width: auto;
+  -fx-margin-top: 10px;
+  -fx-margin-right: 20px;
+}
+
+/* Footer Styles */
+footer {
+  -fx-text-align: center;
+  -fx-padding: 5px;
+  -fx-background-color: -secondary-background-color;
+  -fx-text-fill: -discrete-color;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  -fx-font-family: "Roboto-Black";
+  -fx-text-fill: -accent-color-1;
+}
+
+.big-title {
+  -fx-text-size-adjust: auto;
+  -fx-font-size: 6em;
+  -fx-text-fill: -accent-color-1;
+  -fx-font-family: "Roboto-Black";
+  -fx-text-align: center;
+}
+
+.title {
+  -fx-text-size-adjust: auto;
+  -fx-font-size: 4em;
+  -fx-text-fill: -accent-color-1;
+  -fx-font-family: "Roboto-Black";
+  -fx-text-align: center;
+}
+
+.smalltitle {
+  -fx-text-size-adjust: auto;
+  -fx-font-size: 2em;
+  -fx-text-fill: -accent-color-1;
+  -fx-font-family: "Roboto-Black";
+  -fx-text-align: center;
+}
+
+.ip {
+  -fx-word-break: break-word;
+  -fx-text-size-adjust: auto;
+  -fx-font-family: "Minecrafter";
+  -fx-font-size: 4em;
+  -fx-text-fill: -accent-color-3;
+  -fx-text-align: center;
+  -fx-background-color: -secondary-background-color;
+  -fx-padding: 24px;
+}
+
+.version {
+  -fx-text-size-adjust: auto;
+  -fx-font-family: "Minecrafter";
+  -fx-font-size: 2em;
+  -fx-text-fill: -accent-color-2;
+  -fx-text-align: center;
+  -fx-background-color: -secondary-background-color;
+  -fx-padding: 12px;
+}
+
+/* Links */
+a {
+  -fx-text-fill: -accent-color-1;
+  -fx-text-decoration: none;
+}
+
+a:hover {
+  -fx-text-fill: -accent-color-2;
+}
+
+/* Buttons */
+Button,
+.btn {
+  -fx-background-color: -accent-color-1;
+  -fx-text-fill: -text-color;
+  -fx-padding: 10px 20px;
+  -fx-cursor: pointer;
+  -fx-border-radius: 20px;
+  -fx-transition: -fx-background-image 1s;
+}
+
+Button:hover,
+.btn:hover {
+  -fx-background-color: -accent-color-2;
+}
+
+/* Forms */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+TextField,
+TextArea,
+PasswordField,
+.textarea {
+  -fx-background-color: -secondary-background-color;
+  -fx-padding: 8px;
+  -fx-font-size: 14px;
+  -fx-border-radius: 4px;
+  -fx-text-fill: -text-color;
+}
+
+input[type="submit"],
+.submit {
+  -fx-background-image: linear-gradient(to right, -accent-color-1, -accent-color-2);
+  -fx-text-fill: -text-color;
+  -fx-padding: 10px 20px;
+  -fx-cursor: pointer;
+  -fx-border-radius: 20px;
+  -fx-transition: -fx-background-image 0.3s;
+}
+
+input[type="submit"]:hover,
+.submit:hover {
+  -fx-background-image: linear-gradient(to right, -accent-color-2, -accent-color-1);
+}
+
+/* Cards */
+GridPane,
+.card {
+  -fx-background-color: -secondary-background-color;
+  -fx-text-fill: -text-color;
+  -fx-padding: 20px;
+  -fx-border-radius: 4px;
+}
+
+.gmail-card {
+  -fx-background-color: -gmail-color;
+  -fx-text-fill: -text-color;
+  -fx-padding: 12px;
+  -fx-border-radius: 4px;
+  -fx-text-size-adjust: break-all;
+  -fx-font-family: "LEMONMILK-Bold";
+  -fx-font-size: 2em;
+  -fx-text-align: center;
+  -fx-overflow-wrap: break-word;
+}
+
+.discord-card {
+  -fx-text-size-adjust: auto;
+  -fx-font-family: "LEMONMILK-Bold";
+  -fx-font-size: 2em;
+  -fx-text-fill: -text-color;
+  -fx-text-align: center;
+  -fx-background-color: -discord-color;
+  -fx-padding: 12px;
+  -fx-border-radius: 4px;
+}
+
+/* Tables */
+.table {
+  -fx-border-collapse: collapse;
+  -fx-width: 100%;
+  -fx-background-color: -secondary-background-color;
+  -fx-text-fill: -text-color;
+}
+
+.table th, .table td {
+  -fx-padding: 8px;
+}
+
+.table th {
+  -fx-background-color: -accent-color-2;
+  -fx-text-fill: -text-color;
+  -fx-font-family: "Roboto-Bold";
+}
+
+.table td {
+  -fx-background-color: -secondary-background-color;
+}
+
+/* Miscellaneous */
+BorderPane,
+.container {
+  -fx-max-width: 1200px;
+  -fx-padding: 20px;
+}
+
+.avatar {
+  -fx-fit-width: 60px;
+}
+
+.space {
+  -fx-padding: 20px;
+}
+
+/* Articles */
+
+.article {
+  -fx-background-color: -secondary-background-color;
+  -fx-text-fill: -text-color;
+  -fx-padding: 20px;
+  -fx-border-radius: 4px;
+}
+
+.article-title {
+  -fx-font-size: 24px;
+  -fx-text-fill: -accent-color-1;
+  -fx-margin-bottom: 10px;
+}
+
+.article-date {
+  -fx-font-size: 14px;
+  -fx-text-fill: -accent-color-2;
+  -fx-margin-bottom: 10px;
+}
+
+.article-content {
+  -fx-line-height: 1.6;
+  -fx-white-space: pre-wrap;
+}
