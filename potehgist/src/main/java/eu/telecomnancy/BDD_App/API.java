@@ -404,8 +404,8 @@ public class API {
     public Date[] getthreedatesnotif(int iduser, int page)
     {
         try {
-            ResultSet rs = conn.createStatement().executeQuery("SELECT date FROM notifications WHERE id_utilisateur = " + iduser + " AND vue = false ORDER BY date DESC LIMIT 4 OFFSET " + (page-1)*4 + ";");
-            Date[] dates = new Date[4];
+            ResultSet rs = conn.createStatement().executeQuery("SELECT date FROM notifications WHERE id_utilisateur = " + iduser + " ORDER BY date DESC LIMIT 3 OFFSET " + (page-1)*3 + ";");
+            Date[] dates = new Date[3];
             int i = 0;
             while (rs.next()) {
                 dates[i] = rs.getDate(1);
@@ -420,8 +420,8 @@ public class API {
     public int[] getthreeidnotif(int iduser, int page)
     {
         try {
-            ResultSet rs = conn.createStatement().executeQuery("SELECT id FROM notifications WHERE id_utilisateur = " + iduser + " AND vue = false ORDER BY date DESC LIMIT 4 OFFSET " + (page-1)*4 + ";");
-            int[] id = new int[4];
+            ResultSet rs = conn.createStatement().executeQuery("SELECT id FROM notifications WHERE id_utilisateur = " + iduser + " ORDER BY date DESC LIMIT 3 OFFSET " + (page-1)*3 + ";");
+            int[] id = new int[3];
             int i = 0;
             while (rs.next()) {
                 id[i] = rs.getInt(1);
@@ -436,8 +436,8 @@ public class API {
     public String[] getthreedescriptionnotif(int iduser, int page)
     {
         try {
-            ResultSet rs = conn.createStatement().executeQuery("SELECT message FROM notifications WHERE id_utilisateur = " + iduser + " AND vue = false ORDER BY date DESC LIMIT 4 OFFSET " + (page-1)*4 + ";");
-            String[] descriptions = new String[4];
+            ResultSet rs = conn.createStatement().executeQuery("SELECT message FROM notifications WHERE id_utilisateur = " + iduser + " ORDER BY date DESC LIMIT 3 OFFSET " + (page-1)*3 + ";");
+            String[] descriptions = new String[3];
             int i = 0;
             while (rs.next()) {
                 descriptions[i] = rs.getString(1);
@@ -464,6 +464,25 @@ public class API {
             conn.createStatement().execute("INSERT INTO notifications (id_utilisateur, message, date, vue) VALUES (" + iduser + ", '" + message + "', strftime('%Y-%m-%d %H:%M:%S', datetime('now')), false);");
         } catch (Exception e) {
             System.out.println(e.getMessage());
+        }
+    }
+
+    public void dlnotif(int id)
+    {
+        try {
+            conn.createStatement().execute("DELETE FROM notifications WHERE id = " + id + ";");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public boolean checkvunotif(int id)
+    {
+        try {
+            ResultSet rs = conn.createStatement().executeQuery("SELECT vue FROM notifications WHERE id = " + id + ";");
+                return rs.getBoolean(1);
+        } catch (Exception e) {
+            return (Boolean) null;
         }
     }
 
