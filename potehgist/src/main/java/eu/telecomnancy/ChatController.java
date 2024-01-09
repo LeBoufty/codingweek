@@ -118,6 +118,7 @@ public class ChatController {
     {
         if(App.getUser2id() != 0) {
             String message = message_a_envoyer.getText();
+            API.getInstance().addnotif(App.getUser2id(), "Vous avez reçu un message de " + App.getUser().getNom() + ".");
             App.numpagechat = 1;
             API.getInstance().addmessage(App.getUser().getId(), App.getUser2id(), message);
             message_a_envoyer.setText("");

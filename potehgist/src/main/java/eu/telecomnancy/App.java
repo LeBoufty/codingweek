@@ -2,6 +2,7 @@ package eu.telecomnancy;
 
 import java.io.IOException;
 
+import eu.telecomnancy.Model.Annonce_Recherche;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,8 +10,6 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-
-import eu.telecomnancy.Model.Annonce_Recherche;
 
 /**
  * JavaFX App test potagit
@@ -20,6 +19,7 @@ public class App extends Application {
     private static Scene scene;
     private static Utilisateur user = new Utilisateur();
     public static int numpagechat;
+    public static int numpageannonce;
     private static Utilisateur user2;
     public static Annonce_Recherche annonce_recherche = new Annonce_Recherche();
 
@@ -30,7 +30,7 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("connect"), 1200, 720);
         stage.setTitle("PotehGist");
-        stage.getIcons().add(new Image(getClass().getResourceAsStream("assets/logo.png")));
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("assets/favicon.png")));
         scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
         Font.loadFont(getClass().getResource("fonts/RobotoLight.ttf").toExternalForm(), 10);
         Font.loadFont(getClass().getResource("fonts/RobotoBlack.ttf").toExternalForm(), 10);
