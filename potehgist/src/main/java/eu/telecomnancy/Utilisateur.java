@@ -16,7 +16,7 @@ public class Utilisateur {
         this.nom = nom;
         this.mot_de_passe = Formater.hash(mot_de_passe);
         this.email = email;
-        this.argent = 0;
+        this.argent = 100;
         this.code_postal = code_postal;
         this.admin = false;
         this.id = ++id_max;
