@@ -1,7 +1,6 @@
 package eu.telecomnancy;
 
 import eu.telecomnancy.BDD_App.API;
-import javafx.beans.binding.StringBinding;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -124,5 +123,24 @@ public class ListeAnnonceController {
         categorie_1111.setText(annonces[21]);
         description_1111.setText(annonces[22]);
         // Ce sera pour date de depot
+    }
+
+    @FXML
+    private void pageplus() throws Exception {
+        int page = App.getPageAnnonce();
+        page++;
+        App.setPageAnnonce(page);
+        App.setRoot("listeannonce");
+    }
+
+    @FXML
+    private void pagemoins() throws Exception {
+        int page = App.getPageAnnonce();
+        if(page>1)
+        {
+            page--;
+            App.setPageAnnonce(page);
+        }
+        App.setRoot("listeannonce");
     }
 }

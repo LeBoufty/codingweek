@@ -9,4 +9,10 @@ public class HubController {
     private void depot() throws IOException {
         App.setRoot("creationannonce");
     }
+
+    @FXML
+    private void liste_annonce() throws IOException {
+        App.setPageAnnonce(1);
+        App.setRoot("listeannonce");
+    }
 }
