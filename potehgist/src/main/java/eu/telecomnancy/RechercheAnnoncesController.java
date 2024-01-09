@@ -46,6 +46,7 @@ public class RechercheAnnoncesController {
                 + " recherche_florin_min: " + recherche_florin_min.getText() + " recherche_florin_max: "
                 + recherche_florin_max.getText());
         
+        
         //App.setAnnonce_recherche(annonce_recherche.getText(), recherche_code_postal.getText(), recherche_date_apres.getValue(), recherche_date_avant.getValue(), recherche_materiel.isSelected(), recherche_service.isSelected(), recherche_florin_min.getText(), recherche_florin_max.getText());
     }
 
