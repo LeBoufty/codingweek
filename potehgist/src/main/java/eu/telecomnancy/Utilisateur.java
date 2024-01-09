@@ -72,6 +72,28 @@ public class Utilisateur {
         }
     }
 
+    public boolean pay(int prix, int destinataire) {
+        if (argent < prix) {
+            return false;
+        }
+        try {
+            argent -= prix;
+            Utilisateur user = new Utilisateur(destinataire);
+            user.argent += prix;
+            user.save();
+            save();
+        } catch (Exception e) {
+            System.out.println("[DEBUG] Erreur lors du paiement");
+            return false;
+        }
+        return true;
+    }
+
+    public void ajouterArgent(int montant) {
+        argent += montant;
+        save();
+    }
+
     public int getId() {
         return id;
     }
