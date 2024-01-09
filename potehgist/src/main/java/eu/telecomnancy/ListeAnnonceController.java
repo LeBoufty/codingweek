@@ -15,7 +15,7 @@ public class ListeAnnonceController {
     @FXML
     private VBox annonceslayout;
 
-    public void initialize(URL location, ResourceBundle ressources) {
+    public void initialize() {
         System.out.println("ListeAnnonceController");
         List<Annonce> annonces = new ArrayList<>(annonces());
         System.out.println(annonces);
