@@ -7,6 +7,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
+import java.io.File;
+import java.nio.file.Files;
 
 import eu.telecomnancy.Formater;
 
@@ -149,7 +151,29 @@ public class API {
     public void addUser(String username, String password, String email, String code_postal) throws Exception {
         email = Formater.format(email);
         code_postal = Formater.format(code_postal);
-        conn.createStatement().execute("INSERT INTO utilisateurs (nom, mot_de_passe, email, argent, admin, code_postal) VALUES ('" + username + "', '" + password + "', '" + email + "', 0, false, +'"+code_postal+"');");
+        String query = "INSERT INTO utilisateurs (nom, mot_de_passe, email, argent, admin, code_postal, image_profil) VALUES (?, ?, ?, ?, ?, ?, ?);";
+        try (PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setString(1, username);
+            pstmt.setString(2, password);
+            pstmt.setString(3, email);
+            pstmt.setInt(4, 0);
+            pstmt.setBoolean(5, false);
+            pstmt.setString(6, code_postal);
+            // System.out.println(getClass().getResource("/eu/telecomnancy/assets/placeholder.png").toExternalForm());
+            String path = getClass().getResource("/eu/telecomnancy/assets/placeholder.png").toExternalForm();
+            // retire file: au début
+            path = path.substring(5);
+            // System.out.println(path);
+            File imageFile = new File(path);
+            // System.out.println(imageFile.exists());
+            byte[] imageData = Files.readAllBytes(imageFile.toPath());
+            pstmt.setBytes(7, imageData);
+            pstmt.executeUpdate();
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Erreur lors de l'ajout de l'utilisateur");
+        }
     }
 
     public boolean usernamePris(String username) throws Exception {
@@ -335,6 +359,55 @@ public class API {
         }
     }
 
-    
+    public Date[] getthreedatesnotif(int iduser, int page)
+    {
+        try {
+            ResultSet rs = conn.createStatement().executeQuery("SELECT date FROM notifications WHERE id_utilisateur = " + iduser + " AND vue = false ORDER BY date DESC LIMIT 4 OFFSET " + (page-1)*4 + ";");
+            Date[] dates = new Date[4];
+            int i = 0;
+            while (rs.next()) {
+                dates[i] = rs.getDate(1);
+                i++;
+            }
+            return dates;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public String[] getthreedescriptionnotif(int iduser, int page)
+    {
+        try {
+            ResultSet rs = conn.createStatement().executeQuery("SELECT message FROM notifications WHERE id_utilisateur = " + iduser + " AND vue = false ORDER BY date DESC LIMIT 4 OFFSET " + (page-1)*4 + ";");
+            String[] descriptions = new String[4];
+            int i = 0;
+            while (rs.next()) {
+                descriptions[i] = rs.getString(1);
+                i++;
+            }
+            return descriptions;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public void mettrenotifenvu(int iduser, Date date, String message)
+    {
+        try {
+            conn.createStatement().execute("UPDATE notifications SET vue = true WHERE id_utilisateur = " + iduser + " AND date = '" + date + "' AND message = '" + message + "';");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void addnotif(int iduser, String message)
+    {
+        try {
+            conn.createStatement().execute("INSERT INTO notifications (id_utilisateur, message, date, vue) VALUES (" + iduser + ", '" + message + "', strftime('%Y-%m-%d %H:%M:%S', datetime('now')), false);");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
 }
 
