@@ -5,7 +5,7 @@ public class Annonce {
     private String description;
     private Integer prix;
     private String ImgSrc;
-
+    
     public String getImgSrc() {
         return ImgSrc;
     }
