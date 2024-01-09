@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import java.util.List;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import javafx.fxml.FXMLLoader;
 
@@ -13,7 +14,7 @@ public class ListeAnnonceController {
     @FXML
     private VBox annonceslayout;
 
-    public void initialize() {
+    public void initialize() throws Exception{
         System.out.println("ListeAnnonceController");
         List<Annonce> annonces = new ArrayList<>(annonces());
         System.out.println(annonces);
@@ -33,25 +34,25 @@ public class ListeAnnonceController {
         }
     }
 
-    private List<Annonce> annonces(){
+    private List<Annonce> annonces() throws Exception{
         List<Annonce> annonces = new ArrayList<>();
-        Annonce annonce = new Annonce();
+        ResultSet resultSet = API.getInstance().getAnnonces();
 
-        annonce.setTitre("Titre de l'annonce tttt");
-        annonce.setPrix(101);
-        annonce.setImgSrc("assets/imagedeprofile/1.png");
-        annonce.setDescription("Description de l'annonce ddddd");
+        while (resultSet.next()) {
+            Annonce annonce = new Annonce();
+            annonce.setDescription(resultSet.getString("description"));
+            annonce.setTitre(resultSet.getString("nom"));
+            annonce.setPrix(resultSet.getInt("prix"));
 
-        annonces.add(annonce);
-
-        annonce = new Annonce();
-        annonce.setTitre("Ti de l'annonce tttt");
-        annonce.setPrix(11);
-        annonce.setImgSrc("assets/imagedeprofile/1.png");
-        annonce.setDescription("Description de ce ddddd");
-
-        annonces.add(annonce);
-
+            annonces.add(annonce);
+        }
         return annonces;
     }
 }
+/*nom text NOT NULL,\n"
++ "	id integer PRIMARY KEY AUTOINCREMENT,\n"
++ "	id_vendeur integer NOT NULL,\n"
++ "	prix integer NOT NULL,\n"
++ " categorie text NOT NULL,\n" // service ou matériel
++ " description text,\n"
++ " date_depot datetime NOT NULL,\n" */
