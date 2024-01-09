@@ -1,7 +1,5 @@
 package eu.telecomnancy;
 
-import java.time.LocalDate;
-
 import eu.telecomnancy.BDD_App.API;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -74,29 +72,56 @@ public class ChatController {
             nomutilisateur.setText("");
             
             String[] messages = API.getInstance().getmessages(App.getUser().getId(), App.getUser2id(),App.numpagechat);
-            System.out.println("\nVoici les messages: "+messages+"\n");
             if(messages!=null)
             {
                 
                 if(messages[3] != null)
                 {
                     message_recu1.setText(messages[3]);
-                    emeteur1.setText(nomutilisateur.getText());
+                    if(API.getInstance().getmessagewriter(messages[3], App.getUser().getId(), App.getUser2id())==App.getUser().getId())
+                    {
+                        emeteur4.setText(App.getUser().getNom());
+                    }
+                    else
+                    {
+                        emeteur4.setText(App.getUser2().getNom());
+                    }
                 }
                 if(messages[2] != null)
                 {
                     message_recu2.setText(messages[2]);
-                    emeteur2.setText(nomutilisateur.getText());
+                    if(API.getInstance().getmessagewriter(messages[2], App.getUser().getId(), App.getUser2id())==App.getUser().getId())
+                    {
+                        emeteur3.setText(App.getUser().getNom());
+                    }
+                    else
+                    {
+                        emeteur3.setText(App.getUser2().getNom());
+                    }
                 }
                 if(messages[1] != null)
                 {
                     message_recu3.setText(messages[1]);
-                    emeteur3.setText(nomutilisateur.getText());
+                    if(API.getInstance().getmessagewriter(messages[1], App.getUser().getId(), App.getUser2id())==App.getUser().getId())
+                    {
+                        emeteur2.setText(App.getUser().getNom());
+                    }
+                    else
+                    {
+                        emeteur2.setText(App.getUser2().getNom());
+                    }
                 }
                 if(messages[0] != null)
                 {
                     message_recu4.setText(messages[0]);
-                    emeteur4.setText(nomutilisateur.getText());
+                    if(API.getInstance().getmessagewriter(messages[0], App.getUser().getId(), App.getUser2id())==App.getUser().getId())
+                    {
+                        emeteur1.setText(App.getUser().getNom());
+                    }
+                    else
+                    {
+                        emeteur1.setText(App.getUser2().getNom());
+                    }
                 }
             }
             
@@ -109,9 +134,7 @@ public class ChatController {
         if(App.getUser2id() != 0) {
             String message = message_a_envoyer.getText();
             App.numpagechat = 1;
-            LocalDate date = LocalDate.now();
-            java.sql.Date Datemessage=java.sql.Date.valueOf(date);;
-            API.getInstance().addmessage(App.getUser().getId(), App.getUser2id(), message, Datemessage);
+            API.getInstance().addmessage(App.getUser().getId(), App.getUser2id(), message);
             message_a_envoyer.setText("");
             String[] messages = API.getInstance().getmessages(App.getUser().getId(), App.getUser2id(),App.numpagechat);
             if(messages!=null)
@@ -119,22 +142,50 @@ public class ChatController {
                 if(messages[3] != null)
                 {
                     message_recu1.setText(messages[3]);
-                    emeteur1.setText(nomutilisateur.getText());
+                    if(API.getInstance().getmessagewriter(messages[3], App.getUser().getId(), App.getUser2id())==App.getUser().getId())
+                    {
+                        emeteur1.setText(App.getUser().getNom());
+                    }
+                    else
+                    {
+                        emeteur1.setText(App.getUser2().getNom());
+                    }
                 }
                 if(messages[2] != null)
                 {
                     message_recu2.setText(messages[2]);
-                    emeteur2.setText(nomutilisateur.getText());
+                    if(API.getInstance().getmessagewriter(messages[2], App.getUser().getId(), App.getUser2id())==App.getUser().getId())
+                    {
+                        emeteur2.setText(App.getUser().getNom());
+                    }
+                    else
+                    {
+                        emeteur2.setText(App.getUser2().getNom());
+                    }
                 }
                 if(messages[1] != null)
                 {
                     message_recu3.setText(messages[1]);
-                    emeteur3.setText(nomutilisateur.getText());
+                    if(API.getInstance().getmessagewriter(messages[1], App.getUser().getId(), App.getUser2id())==App.getUser().getId())
+                    {
+                        emeteur3.setText(App.getUser().getNom());
+                    }
+                    else
+                    {
+                        emeteur3.setText(App.getUser2().getNom());
+                    }
                 }
                 if(messages[0] != null)
                 {
                     message_recu4.setText(messages[0]);
-                    emeteur4.setText(nomutilisateur.getText());
+                    if(API.getInstance().getmessagewriter(messages[0], App.getUser().getId(), App.getUser2id())==App.getUser().getId())
+                    {
+                        emeteur4.setText(App.getUser().getNom());
+                    }
+                    else
+                    {
+                        emeteur4.setText(App.getUser2().getNom());
+                    }
                 }
             }
         }
@@ -145,28 +196,57 @@ public class ChatController {
     {
         if(App.getUser2id() != 0) {
             App.numpagechat++;
+            page.setText(Integer.toString(App.numpagechat));
             String[] messages = API.getInstance().getmessages(App.getUser().getId(), App.getUser2id(),App.numpagechat);
             if(messages!=null)
             {
                 if(messages[0] != null)
                 {
                     message_recu4.setText(messages[0]);
-                    emeteur1.setText(nomutilisateur.getText());
+                    if(API.getInstance().getmessagewriter(messages[0], App.getUser().getId(), App.getUser2id())==App.getUser().getId())
+                    {
+                        emeteur4.setText(App.getUser().getNom());
+                    }
+                    else
+                    {
+                        emeteur4.setText(App.getUser2().getNom());
+                    }
                 }
                 if(messages[1] != null)
                 {
                     message_recu3.setText(messages[1]);
-                    emeteur2.setText(nomutilisateur.getText());
+                    if(API.getInstance().getmessagewriter(messages[1], App.getUser().getId(), App.getUser2id())==App.getUser().getId())
+                    {
+                        emeteur3.setText(App.getUser().getNom());
+                    }
+                    else
+                    {
+                        emeteur3.setText(App.getUser2().getNom());
+                    }
                 }
                 if(messages[2] != null)
                 {
                     message_recu2.setText(messages[2]);
-                    emeteur3.setText(nomutilisateur.getText());
+                    if(API.getInstance().getmessagewriter(messages[2], App.getUser().getId(), App.getUser2id())==App.getUser().getId())
+                    {
+                        emeteur2.setText(App.getUser().getNom());
+                    }
+                    else
+                    {
+                        emeteur2.setText(App.getUser2().getNom());
+                    }
                 }
-                if(messages[4] != null)
+                if(messages[3] != null)
                 {
-                    message_recu1.setText(messages[4]);
-                    emeteur4.setText(nomutilisateur.getText());
+                    message_recu1.setText(messages[3]);
+                    if(API.getInstance().getmessagewriter(messages[3], App.getUser().getId(), App.getUser2id())==App.getUser().getId())
+                    {
+                        emeteur1.setText(App.getUser().getNom());
+                    }
+                    else
+                    {
+                        emeteur1.setText(App.getUser2().getNom());
+                    }
                 }
             }
             
@@ -178,28 +258,57 @@ public class ChatController {
     {
         if(App.getUser2id() != 0 && App.numpagechat > 1) {
             App.numpagechat--;
+            page.setText(Integer.toString(App.numpagechat));
             String[] messages = API.getInstance().getmessages(App.getUser().getId(), App.getUser2id(),App.numpagechat);
             if(messages!=null)
             {
                 if(messages[0] != null)
                 {
                     message_recu4.setText(messages[0]);
-                    emeteur1.setText(nomutilisateur.getText());
+                    if(API.getInstance().getmessagewriter(messages[0], App.getUser().getId(), App.getUser2id())==App.getUser().getId())
+                    {
+                        emeteur4.setText(App.getUser().getNom());
+                    }
+                    else
+                    {
+                        emeteur4.setText(App.getUser2().getNom());
+                    }
                 }
                 if(messages[1] != null)
                 {
                     message_recu3.setText(messages[1]);
-                    emeteur2.setText(nomutilisateur.getText());
+                    if(API.getInstance().getmessagewriter(messages[1], App.getUser().getId(), App.getUser2id())==App.getUser().getId())
+                    {
+                        emeteur3.setText(App.getUser().getNom());
+                    }
+                    else
+                    {
+                        emeteur3.setText(App.getUser2().getNom());
+                    }
                 }
                 if(messages[2] != null)
                 {
                     message_recu2.setText(messages[2]);
-                    emeteur3.setText(nomutilisateur.getText());
+                    if(API.getInstance().getmessagewriter(messages[2], App.getUser().getId(), App.getUser2id())==App.getUser().getId())
+                    {
+                        emeteur2.setText(App.getUser().getNom());
+                    }
+                    else
+                    {
+                        emeteur2.setText(App.getUser2().getNom());
+                    }
                 }
-                if(messages[4] != null)
+                if(messages[3] != null)
                 {
-                    message_recu1.setText(messages[4]);
-                    emeteur4.setText(nomutilisateur.getText());
+                    message_recu1.setText(messages[3]);
+                    if(API.getInstance().getmessagewriter(messages[3], App.getUser().getId(), App.getUser2id())==App.getUser().getId())
+                    {
+                        emeteur3.setText(App.getUser().getNom());
+                    }
+                    else
+                    {
+                        emeteur3.setText(App.getUser2().getNom());
+                    }
                 }
             }
             
