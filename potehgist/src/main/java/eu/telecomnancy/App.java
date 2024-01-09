@@ -32,11 +32,11 @@ public class App extends Application {
         stage.setTitle("PotehGist");
         stage.getIcons().add(new Image(getClass().getResourceAsStream("assets/logo.png")));
         scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
-        Font.loadFont(getClass().getResource("fonts/Roboto-Light.ttf").toExternalForm(), 10);
-        Font.loadFont(getClass().getResource("fonts/Roboto-Black.ttf").toExternalForm(), 10);
-        Font.loadFont(getClass().getResource("fonts/Roboto-Bold.ttf").toExternalForm(), 10);
+        Font.loadFont(getClass().getResource("fonts/RobotoLight.ttf").toExternalForm(), 10);
+        Font.loadFont(getClass().getResource("fonts/RobotoBlack.ttf").toExternalForm(), 10);
+        Font.loadFont(getClass().getResource("fonts/RobotoBold.ttf").toExternalForm(), 10);
         Font.loadFont(getClass().getResource("fonts/Minecrafter.ttf").toExternalForm(), 10);
-        Font.loadFont(getClass().getResource("fonts/LEMONMILK-Bold.otf").toExternalForm(), 10);
+        Font.loadFont(getClass().getResource("fonts/LEMONMILKBold.otf").toExternalForm(), 10);
         stage.setScene(scene);
         stage.show();
     }

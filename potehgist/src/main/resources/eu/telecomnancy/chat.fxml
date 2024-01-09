@@ -15,6 +15,9 @@
 <?import javafx.scene.text.Text?>
 
 <BorderPane prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eu.telecomnancy.ChatController">
+   <top>
+      <fx:include source="header.fxml" />
+   </top>
    <center>
       <VBox prefHeight="400.0" prefWidth="300.0" BorderPane.alignment="CENTER">
          <children>
@@ -93,30 +96,30 @@
                         <Label fx:id="page" text="1" GridPane.columnIndex="2" />
                      </children>
                   </GridPane>
-                  <Label fx:id="emeteur1" GridPane.halignment="LEFT" GridPane.rowIndex="6">
+                  <Label fx:id="emeteur1" text="zdzd" textFill="WHITE" GridPane.halignment="LEFT" GridPane.rowIndex="6">
                      <padding>
                         <Insets left="10.0" />
                      </padding>
                   </Label>
-                  <Label fx:id="emeteur2" GridPane.halignment="LEFT" GridPane.rowIndex="8">
+                  <Label fx:id="emeteur2" textFill="WHITE" GridPane.halignment="LEFT" GridPane.rowIndex="8">
                      <padding>
                         <Insets left="10.0" />
                      </padding>
                   </Label>
-                  <Label fx:id="emeteur3" GridPane.halignment="LEFT" GridPane.rowIndex="10">
+                  <Label fx:id="emeteur3" textFill="WHITE" GridPane.halignment="LEFT" GridPane.rowIndex="10">
                      <padding>
                         <Insets left="10.0" />
                      </padding>
                   </Label>
-                  <Label fx:id="emeteur4" GridPane.halignment="LEFT" GridPane.rowIndex="12">
+                  <Label fx:id="emeteur4" textFill="WHITE" GridPane.halignment="LEFT" GridPane.rowIndex="12">
                      <padding>
                         <Insets left="10.0" />
                      </padding>
                   </Label>
-                  <Text fx:id="message_recu1" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="7" />
-                  <Text fx:id="message_recu2" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="9" />
-                  <Text fx:id="message_recu3" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="11" />
-                  <Text fx:id="message_recu4" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="13" />
+                  <Text fx:id="message_recu1" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="7" />
+                  <Text fx:id="message_recu2" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="9" />
+                  <Text fx:id="message_recu3" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="11" />
+                  <Text fx:id="message_recu4" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="13" />
                   <Label fx:id="nomuser2" GridPane.rowIndex="3">
                      <font>
                         <Font name="System Bold" size="15.0" />
@@ -130,9 +133,6 @@
          </children>
       </VBox>
    </center>
-   <top>
-      <fx:include source="header.fxml" />
-   </top>
    <bottom>
       <fx:include source="footer.fxml" />
    </bottom>

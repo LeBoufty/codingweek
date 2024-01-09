@@ -12,18 +12,18 @@
 }
 
 @font-face {
-  font-family: "Roboto-Light";
-  src: url(fonts/Roboto-Light.ttf);
+  font-family: "Roboto Lt";
+  src: url(fonts/RobotoLight.ttf);
 }
 
 @font-face {
-  font-family: "Roboto-Black";
-  src: url(fonts/Roboto-Black.ttf);
+  font-family: "Roboto Bk";
+  src: url(fonts/RobotoBlack.ttf);
 }
 
 @font-face {
-  font-family: "Roboto-Bold";
-  src: url(fonts/Roboto-Bold.ttf);
+  font-family: "Roboto";
+  src: url(fonts/RobotoBold.ttf);
 }
 
 @font-face {
@@ -32,13 +32,13 @@
 }
 
 @font-face {
-  font-family: "LEMONMILK-Bold";
-  src: url(fonts/LEMONMILK-Bold.otf);
+  font-family: "LEMONMILKBold";
+  src: url(fonts/LEMONMILKBold.otf);
 }
 
 /* Global Styles */
 .root {
-  -fx-font-family: "Roboto-Light";
+  -fx-font-family: "Roboto Lt";
   -fx-text-fill: -text-color;
   -fx-background-color: -background-color;
   -fx-padding: 0;
@@ -46,12 +46,12 @@
 
 Label,
 Text {
-  -fx-font-family: "Roboto-Light";
+  -fx-font-family: "Roboto Lt";
   -fx-text-fill: -text-color;
 }
 
 .bold {
-  -fx-font-family: "Roboto-Bold";
+  -fx-font-family: "Roboto";
 }
 
 .discrete {
@@ -101,7 +101,7 @@ Text {
   -fx-text-fill: -text-color;
   -fx-padding: 10px 20px;
   -fx-cursor: pointer;
-  -fx-font-family: "Roboto-Bold";
+  -fx-font-family: "Roboto";
   -fx-font-size: 16px;
   -fx-position: relative;
   -fx-top: -17px;
@@ -128,7 +128,7 @@ footer {
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
-  -fx-font-family: "Roboto-Black";
+  -fx-font-family: "Roboto Bk";
   -fx-text-fill: -accent-color-1;
 }
 
@@ -136,7 +136,7 @@ h1, h2, h3, h4, h5, h6 {
   -fx-text-size-adjust: auto;
   -fx-font-size: 6em;
   -fx-text-fill: -accent-color-1;
-  -fx-font-family: "Roboto-Black";
+  -fx-font-family: "Roboto Bk";
   -fx-text-align: center;
 }
 
@@ -144,7 +144,7 @@ h1, h2, h3, h4, h5, h6 {
   -fx-text-size-adjust: auto;
   -fx-font-size: 4em;
   -fx-text-fill: -accent-color-1;
-  -fx-font-family: "Roboto-Black";
+  -fx-font-family: "Roboto Bk";
   -fx-text-align: center;
 }
 
@@ -152,7 +152,7 @@ h1, h2, h3, h4, h5, h6 {
   -fx-text-size-adjust: auto;
   -fx-font-size: 2em;
   -fx-text-fill: -accent-color-1;
-  -fx-font-family: "Roboto-Black";
+  -fx-font-family: "Roboto Bk";
   -fx-text-align: center;
 }
 
@@ -248,7 +248,7 @@ GridPane,
   -fx-padding: 12px;
   -fx-border-radius: 4px;
   -fx-text-size-adjust: break-all;
-  -fx-font-family: "LEMONMILK-Bold";
+  -fx-font-family: "LEMONMILKBold";
   -fx-font-size: 2em;
   -fx-text-align: center;
   -fx-overflow-wrap: break-word;
@@ -256,7 +256,7 @@ GridPane,
 
 .discord-card {
   -fx-text-size-adjust: auto;
-  -fx-font-family: "LEMONMILK-Bold";
+  -fx-font-family: "LEMONMILKBold";
   -fx-font-size: 2em;
   -fx-text-fill: -text-color;
   -fx-text-align: center;
@@ -280,7 +280,7 @@ GridPane,
 .table th {
   -fx-background-color: -accent-color-2;
   -fx-text-fill: -text-color;
-  -fx-font-family: "Roboto-Bold";
+  -fx-font-family: "Roboto";
 }
 
 .table td {

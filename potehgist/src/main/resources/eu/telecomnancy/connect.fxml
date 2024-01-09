@@ -8,15 +8,16 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<BorderPane prefHeight="480.0" prefWidth="720.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eu.telecomnancy.ConnectController">
+<BorderPane prefHeight="720.0" prefWidth="1200.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eu.telecomnancy.ConnectController">
    <bottom>
       <fx:include source="footer.fxml" BorderPane.alignment="BOTTOM_CENTER" />
    </bottom>
    <center>
       <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <top>
+         <center>
             <GridPane vgap="10.0" BorderPane.alignment="CENTER">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -31,14 +32,14 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label text="Nom d'utilisateur" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                  <TextField fx:id="username" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefWidth="200.0" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                  <Label styleClass="smalltitle" text="Nom d'utilisateur" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                  <TextField fx:id="username" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefWidth="300.0" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                      <cursor>
                         <Cursor fx:constant="TEXT" />
                      </cursor>
                   </TextField>
-                  <Label text="Mot de passe" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-                  <PasswordField fx:id="password" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="200.0" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                  <Label styleClass="smalltitle" text="Mot de passe" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                  <PasswordField fx:id="password" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="300.0" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
                   <Button alignment="CENTER" mnemonicParsing="false" onAction="#connect" text="Connexion" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
                   <Button mnemonicParsing="false" onAction="#create" text="Créer un compte" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
                   <Label StyleClass="title" alignment="CENTER" prefHeight="29.0" text="Connexion" textAlignment="CENTER" GridPane.halignment="CENTER">
@@ -48,7 +49,13 @@
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </GridPane>
+         </center>
+         <top>
+            <Pane prefHeight="70.0" prefWidth="1160.0" BorderPane.alignment="CENTER" />
          </top>
+         <bottom>
+            <Pane prefHeight="70.0" prefWidth="1160.0" BorderPane.alignment="CENTER" />
+         </bottom>
       </BorderPane>
    </center>
 </BorderPane>
