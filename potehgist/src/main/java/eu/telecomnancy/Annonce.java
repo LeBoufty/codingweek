@@ -5,14 +5,7 @@ public class Annonce {
     private String description;
     private Integer prix;
     private String ImgSrc;
-
-    public Annonce(String titre, String description, Integer prix, String ImgSrc) {
-        this.titre = titre;
-        this.description = description;
-        this.prix = prix;
-        this.ImgSrc = ImgSrc;
-    }
-
+    
     public String getImgSrc() {
         return ImgSrc;
     }
