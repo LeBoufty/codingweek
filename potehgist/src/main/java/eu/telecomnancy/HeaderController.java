@@ -19,7 +19,7 @@ public class HeaderController {
     Map<String, String> pageMappings = new HashMap<>();
     pageMappings.put("Creation Annonce", "creationannonce");
     pageMappings.put("Mon Profil", "profil");
-    pageMappings.put("Mes Chats", "chat");
+    pageMappings.put("Mes Chats", "mainchat");
     pageMappings.put("Deconnexion", "connect");
 
     header_burger.getItems().addAll("Creation Annonce", "Mon Profil","Mes Chats" ,"Deconnexion");
