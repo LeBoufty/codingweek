@@ -176,6 +176,15 @@ public class API {
         }
     }
 
+    public void getImageUser(int userid) throws Exception {
+        ResultSet rs = conn.createStatement().executeQuery("SELECT image_profil FROM utilisateurs WHERE id = " + userid + ";");
+        byte[] imageBytes = rs.getBytes(1);
+        String outputpath = getClass().getResource("/eu/telecomnancy/assets/").toExternalForm() + "user_photo.png";
+        outputpath = outputpath.substring(5);
+        
+        Files.write(new File(outputpath).toPath(), imageBytes);
+    }
+
     public boolean usernamePris(String username) throws Exception {
         ResultSet rs = conn.createStatement().executeQuery("SELECT COUNT(*) FROM utilisateurs WHERE nom = '" + username + "';");
         return rs.getInt(1)!=0;

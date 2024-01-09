@@ -2,6 +2,7 @@ package eu.telecomnancy;
 
 import java.io.IOException;
 
+import eu.telecomnancy.BDD_App.API;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -27,11 +28,9 @@ public class ProfilController {
         username.setText("Nom d'utilisateur: "+ user.getNom());
         email.setText("email: "+ user.getEmail());
         codepostal.setText("code postal: "+ user.getCode_postal());
-        if(getClass().getResource("assets/imagedeprofile/"+user.getId()+".png")!=null)
-        {   
-            Image image = new Image(getClass().getResource("assets/imagedeprofile/"+user.getId()+".png").toExternalForm());
-            imageView.setImage(image);
-        }
+        API.getInstance().getImageUser(user.getId());
+        Image image = new Image(getClass().getResource("/eu/telecomnancy/assets/user_photo.png").toExternalForm());
+        imageView.setImage(image);
     }
 
 
