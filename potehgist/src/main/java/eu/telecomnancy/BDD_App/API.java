@@ -226,4 +226,35 @@ public class API {
             return null;
         }
     }
+
+    public double getNote(int offreid) throws Exception {
+        ResultSet rs = conn.createStatement().executeQuery("SELECT AVG(valeur_evaluation) FROM evaluations WHERE id_offre = " + offreid + ";");
+        double sortie = rs.getDouble(1);
+        sortie = Math.round(sortie * 10) / 10; // Arrondi à 1 chiffre après la virgule
+        return sortie;
+    }
+
+    public double getUserNoteMoyenne(int userid) throws Exception {
+        ResultSet rs = conn.createStatement().executeQuery("SELECT AVG(valeur_evaluation) FROM evaluations JOIN offres ON evaluations.id_offre = offres.id WHERE offres.id_vendeur = " + userid + ";");
+        double sortie = rs.getDouble(1);
+        sortie = Math.round(sortie * 10) / 10; // Arrondi à 1 chiffre après la virgule
+        return sortie;
+    }
+
+    public void addEvaluation(int notant, int offre, int valeur) {
+        try {
+            conn.createStatement().execute("INSERT INTO evaluations (id_offre, id_evaluant, valeur_evaluation) VALUES (" + offre + ", " + notant + ", " + valeur + ");");
+        } catch (Exception e) {
+            System.out.println("[DEBUG] Erreur lors de l'ajout de l'évaluation");
+        }
+    }
+
+    public boolean isEvaluable(int notant, int offre) {
+        try {
+            ResultSet rs = conn.createStatement().executeQuery("SELECT COUNT(*) FROM evaluations WHERE id_offre = " + offre + " AND id_evaluant = " + notant + ";");
+            return rs.getInt(1) == 0;
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }
