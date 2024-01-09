@@ -12,6 +12,9 @@ public class FooterController {
 
     @FXML
     private void administration() throws IOException {
-        App.setRoot("administration");
+        if (App.getUser().isAdmin()){
+           App.setRoot("administration");
+        }
     }
+
 }
