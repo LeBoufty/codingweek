@@ -144,6 +144,7 @@ public class CreateBDD {
                         + "	id_utilisateur integer NOT NULL,\n"
                         + " message text NOT NULL,\n"
                         + " date datetime NOT NULL,\n"
+                        + " resolu bool NOT NULL DEFAULT false,\n"
                         + "	FOREIGN KEY(id_utilisateur) REFERENCES utilisateurs(id)\n"
                         + ");";
                 conn.createStatement().execute(reclamations); // Ajout dans la BDD
