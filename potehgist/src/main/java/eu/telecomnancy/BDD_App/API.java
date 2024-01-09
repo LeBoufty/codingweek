@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 
 public class API {
     private static API instance = null;
@@ -143,5 +144,31 @@ public class API {
 
     public void addReclamation(int userid, String message) throws Exception {
         conn.createStatement().execute("INSERT INTO reclamations (id_utilisateur, message, date) VALUES (" + userid + ", '" + message + "', strftime('%Y-%m-%d %H:%M:%S', datetime('now')) );");
+    }
+
+    public Date getdatedebut(int offreid) throws Exception {
+        ResultSet rs = conn.createStatement().executeQuery("SELECT date_debut FROM plannings_reservations WHERE id_offre = " + offreid + ";");
+        return rs.getDate(1);
+    }
+
+    public Date getdatefin(int offreid) throws Exception {
+        ResultSet rs = conn.createStatement().executeQuery("SELECT date_fin FROM plannings_reservations WHERE id_offre = " + offreid + ";");
+        return rs.getDate(1);
+    }
+
+    public int[] getOffresPlanning(int userid) throws Exception {
+        ResultSet rs = conn.createStatement().executeQuery("SELECT id FROM plannings_reservations WHERE id_utilisateur = " + userid + ";");
+        int[] offres = new int[100];
+        int i = 0;
+        while (rs.next()) {
+            offres[i] = rs.getInt(1);
+            i++;
+        }
+        return offres;
+    }
+
+    public String getNomOffre(int offreid) throws Exception {
+        ResultSet rs = conn.createStatement().executeQuery("SELECT nom FROM offres WHERE id = " + offreid + ";");
+        return rs.getString(1);
     }
 }

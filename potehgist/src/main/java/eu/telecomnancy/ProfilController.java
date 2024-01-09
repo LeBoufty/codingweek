@@ -43,7 +43,7 @@ public class ProfilController {
 
     @FXML
     private void toMonPlanning() throws IOException {
-        System.out.println("to MonPlanning");
+        App.setRoot("planning");
     }
 
     @FXML
