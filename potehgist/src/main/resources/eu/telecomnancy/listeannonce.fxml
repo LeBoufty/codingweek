@@ -148,17 +148,17 @@
                            <content>
                               <VBox alignment="CENTER" prefHeight="129.0" prefWidth="295.0" styleClass="article">
                                  <children>
-                                    <Label fx:id="nom_annonce_12" styleClass="article-title" text="Nom Annonce">
+                                    <Label fx:id="nom_annonce_111" styleClass="article-title" text="Nom Annonce">
                                        <font>
                                           <Font name="System Bold" size="14.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="categorie_12" styleClass="discrete" text="Service">
+                                    <Label fx:id="categorie_111" styleClass="discrete" text="Service">
                                        <font>
                                           <Font name="System Italic" size="12.0" />
                                        </font>
                                     </Label>
-                                    <Text fx:id="description_12" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Voici la description de malade \n haha">
+                                    <Text fx:id="description_111" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Voici la description de malade \n haha">
                                        <font>
                                           <Font size="10.0" />
                                        </font>
@@ -170,7 +170,7 @@
                                                 <Font size="10.0" />
                                              </font>
                                           </Label>
-                                          <Label fx:id="nom_vendeur_12" text="Jérôme">
+                                          <Label fx:id="nom_vendeur_111" text="Jérôme">
                                              <font>
                                                 <Font size="10.0" />
                                              </font>
@@ -181,14 +181,14 @@
                                                 <Font size="10.0" />
                                              </font>
                                           </Label>
-                                          <Label fx:id="prix_12" text="20F">
+                                          <Label fx:id="prix_111" text="20F">
                                              <font>
                                                 <Font size="10.0" />
                                              </font>
                                           </Label>
                                        </children>
                                     </HBox>
-                                    <ImageView fx:id="image_12" fitHeight="70.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true" />
+                                    <ImageView fx:id="image_111" fitHeight="70.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true" />
                                  </children>
                               </VBox>
                            </content>
@@ -197,17 +197,17 @@
                            <content>
                               <VBox alignment="CENTER" prefHeight="129.0" prefWidth="295.0" styleClass="article">
                                  <children>
-                                    <Label fx:id="nom_annonce_121" styleClass="article-title" text="Nom Annonce">
+                                    <Label fx:id="nom_annonce_1111" styleClass="article-title" text="Nom Annonce">
                                        <font>
                                           <Font name="System Bold" size="14.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="categorie_121" styleClass="discrete" text="Service">
+                                    <Label fx:id="categorie_1111" styleClass="discrete" text="Service">
                                        <font>
                                           <Font name="System Italic" size="12.0" />
                                        </font>
                                     </Label>
-                                    <Text fx:id="description_121" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Voici la description de malade \n haha">
+                                    <Text fx:id="description_1111" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Voici la description de malade \n haha">
                                        <font>
                                           <Font size="10.0" />
                                        </font>
@@ -219,7 +219,7 @@
                                                 <Font size="10.0" />
                                              </font>
                                           </Label>
-                                          <Label fx:id="nom_vendeur_121" text="Jérôme">
+                                          <Label fx:id="nom_vendeur_1111" text="Jérôme">
                                              <font>
                                                 <Font size="10.0" />
                                              </font>
@@ -230,14 +230,14 @@
                                                 <Font size="10.0" />
                                              </font>
                                           </Label>
-                                          <Label fx:id="prix_121" text="20F">
+                                          <Label fx:id="prix_1111" text="20F">
                                              <font>
                                                 <Font size="10.0" />
                                              </font>
                                           </Label>
                                        </children>
                                     </HBox>
-                                    <ImageView fx:id="image_121" fitHeight="70.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true" />
+                                    <ImageView fx:id="image_1111" fitHeight="70.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true" />
                                  </children>
                               </VBox>
                            </content>
