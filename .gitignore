@@ -29,6 +29,7 @@ replay_pid*
 
 # VS Code
 .vscode/
+
 # Allow all files in /RELEASE directory
 !/RELEASE/*
 
