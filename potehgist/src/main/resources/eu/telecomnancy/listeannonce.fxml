@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -52,15 +51,6 @@
                         </HBox>
                      </children>
                   </VBox>
-                  <HBox alignment="CENTER" prefHeight="33.0" prefWidth="600.0">
-                     <children>
-                        <Button fx:id="pageminus" mnemonicParsing="false" onAction="#pagemoins" text="&lt;" />
-                        <Pane prefHeight="30.0" prefWidth="69.0" />
-                        <Label fx:id="page_num" text="Page n°1" />
-                        <Pane prefHeight="30.0" prefWidth="75.0" />
-                        <Button fx:id="pagemaximus" mnemonicParsing="false" onAction="#pageplus" text="&gt;" />
-                     </children>
-                  </HBox>
                </children>
             </VBox>
          </center>
