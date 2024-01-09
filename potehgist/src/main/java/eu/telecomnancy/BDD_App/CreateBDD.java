@@ -25,7 +25,8 @@ public class CreateBDD {
                         + "	mot_de_passe text NOT NULL,\n"
                         + "	email text NOT NULL UNIQUE,\n"
                         + "	argent integer NOT NULL,\n"
-                        + " code_postal text NOT NULL,\n"
+                        + "     code_postal text NOT NULL,\n"
+                        + "     image_profil blob NOT NULL,\n" // image de profil
                         + "	admin bool NOT NULL\n"
                         + ");";
                 conn.createStatement().execute(utilisateurs); // Ajout dans la BDD
@@ -77,7 +78,7 @@ public class CreateBDD {
                 String photos = "CREATE TABLE IF NOT EXISTS photos (\n"
                         + "	id integer PRIMARY KEY AUTOINCREMENT,\n"
                         + "	id_offre integer NOT NULL,\n"
-                        + "	url_photo text NOT NULL,\n"
+                        + "	photos blob NOT NULL,\n"
                         + " position integer NOT NULL,\n" // position 0 = photo principale
                         + "	FOREIGN KEY(id_offre) REFERENCES offres(id)\n"
                         + ");";
@@ -149,6 +150,15 @@ public class CreateBDD {
                         + ");";
                 conn.createStatement().execute(reclamations); // Ajout dans la BDD
                 System.out.println("[DEBUG] La table reclamations a été créée.");
+
+                // Création de la table "test_images"
+
+                String test_images = "CREATE TABLE IF NOT EXISTS test_images (\n"
+                        + "	id integer PRIMARY KEY AUTOINCREMENT,\n"
+                        + "	image blob NOT NULL\n"
+                        + ");";
+                conn.createStatement().execute(test_images); // Ajout dans la BDD
+                System.out.println("[DEBUG] La table test_images a été créée.");
 
                 // fermeture de la connexion
                 conn.close();
