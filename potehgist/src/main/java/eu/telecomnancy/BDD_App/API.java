@@ -322,6 +322,9 @@ public class API {
         conn.createStatement().execute("UPDATE reclamations SET resolu = true WHERE id = " + id + ";");
     }
 
+    public ResultSet getAnnonces() throws Exception {
+        return conn.createStatement().executeQuery("SELECT * FROM offres;");
+    }
     public int getmessagewriter(String message, int iduser1, int iduser2)
     {
         try {
