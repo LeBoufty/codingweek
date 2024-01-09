@@ -95,4 +95,28 @@ public class Utilisateur {
     public boolean isAdmin() {
         return admin;
     }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public void setMot_de_passe(String mot_de_passe) {
+        this.mot_de_passe = Formater.hash(mot_de_passe);
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setArgent(int argent) {
+        this.argent = argent;
+    }
+
+    public void setCode_postal(String code_postal) {
+        this.code_postal = code_postal;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
+    }
 }
