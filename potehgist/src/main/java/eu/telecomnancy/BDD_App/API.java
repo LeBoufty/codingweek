@@ -235,6 +235,8 @@ public class API {
             int i = 0;
             while (rs.next()) {
                 messages[i] = rs.getString(1);
+                // Debug
+                System.out.println(messages[i]);
                 i++;
             }
             return messages;
@@ -266,6 +268,8 @@ public class API {
             return null;
         }
     }
+
+    public 
 
     public void addmessage(int iduser1,int iduser2,String message, Date date)
     {

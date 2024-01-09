@@ -10,6 +10,8 @@ import javafx.scene.image.Image;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
+import eu.telecomnancy.Model.Annonce_Recherche;
+
 /**
  * JavaFX App test potagit
  */
@@ -19,6 +21,7 @@ public class App extends Application {
     private static Utilisateur user = new Utilisateur();
     public static int numpagechat;
     private static Utilisateur user2;
+    public static Annonce_Recherche annonce_recherche = new Annonce_Recherche();
 
 
     private static int page_annonce = 1;
