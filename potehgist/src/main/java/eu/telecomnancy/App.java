@@ -30,7 +30,7 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("connect"), 1200, 720);
         stage.setTitle("PotehGist");
-        stage.getIcons().add(new Image(getClass().getResourceAsStream("assets/logo.png")));
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("assets/favicon.png")));
         scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
         Font.loadFont(getClass().getResource("fonts/RobotoLight.ttf").toExternalForm(), 10);
         Font.loadFont(getClass().getResource("fonts/RobotoBlack.ttf").toExternalForm(), 10);
