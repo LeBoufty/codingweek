@@ -7,6 +7,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
+import java.io.File;
+import java.nio.file.Files;
 
 import eu.telecomnancy.Formater;
 
@@ -149,7 +151,29 @@ public class API {
     public void addUser(String username, String password, String email, String code_postal) throws Exception {
         email = Formater.format(email);
         code_postal = Formater.format(code_postal);
-        conn.createStatement().execute("INSERT INTO utilisateurs (nom, mot_de_passe, email, argent, admin, code_postal) VALUES ('" + username + "', '" + password + "', '" + email + "', 0, false, +'"+code_postal+"');");
+        String query = "INSERT INTO utilisateurs (nom, mot_de_passe, email, argent, admin, code_postal, image_profil) VALUES (?, ?, ?, ?, ?, ?, ?);";
+        try (PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setString(1, username);
+            pstmt.setString(2, password);
+            pstmt.setString(3, email);
+            pstmt.setInt(4, 0);
+            pstmt.setBoolean(5, false);
+            pstmt.setString(6, code_postal);
+            // System.out.println(getClass().getResource("/eu/telecomnancy/assets/placeholder.png").toExternalForm());
+            String path = getClass().getResource("/eu/telecomnancy/assets/placeholder.png").toExternalForm();
+            // retire file: au début
+            path = path.substring(5);
+            // System.out.println(path);
+            File imageFile = new File(path);
+            // System.out.println(imageFile.exists());
+            byte[] imageData = Files.readAllBytes(imageFile.toPath());
+            pstmt.setBytes(7, imageData);
+            pstmt.executeUpdate();
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Erreur lors de l'ajout de l'utilisateur");
+        }
     }
 
     public boolean usernamePris(String username) throws Exception {
