@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+
+<HBox prefHeight="52.0" prefWidth="325.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eu.telecomnancy.AnnonceItemController">
+   <children>
+      <Label fx:id="nom_annonce" text="Nom Annonce" />
+      <Label fx:id="description" text="Description" />
+      <Label fx:id="nom_vendeur" text="Vendeur" />
+   </children>
+</HBox>
