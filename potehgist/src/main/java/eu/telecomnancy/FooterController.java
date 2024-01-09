@@ -9,4 +9,9 @@ public class FooterController {
     private void reclamation() throws IOException {
         App.setRoot("reclamation");
     }
+
+    @FXML
+    private void administration() throws IOException {
+        App.setRoot("administration");
+    }
 }

@@ -307,4 +307,16 @@ public class API {
             return false;
         }
     }
+
+    public ResultSet getReclamations() throws Exception {
+        return conn.createStatement().executeQuery("SELECT * FROM reclamations WHERE resolu=false;");
+    }
+
+    public ResultSet getAllReclamations() throws Exception {
+        return conn.createStatement().executeQuery("SELECT * FROM reclamations;");
+    }
+
+    public void resolu(int id) throws Exception {
+        conn.createStatement().execute("UPDATE reclamations SET resolu = true WHERE id = " + id + ";");
+    }
 }

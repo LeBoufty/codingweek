@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eu.telecomnancy.ListeAnnonceController">
     <top>
       <fx:include source="header.fxml" />
    </top>
@@ -244,11 +244,11 @@
             </GridPane>
             <HBox alignment="CENTER" prefHeight="33.0" prefWidth="600.0">
                <children>
-                  <Button fx:id="pageminus" mnemonicParsing="false" text="&lt;" />
+                  <Button fx:id="pageminus" mnemonicParsing="false" onAction="#pagemoins" text="&lt;" />
                   <Pane prefHeight="30.0" prefWidth="69.0" />
                   <Label fx:id="page_num" text="Page n°1" />
                   <Pane prefHeight="30.0" prefWidth="75.0" />
-                  <Button fx:id="pagemaximus" mnemonicParsing="false" text="&gt;" />
+                  <Button fx:id="pagemaximus" mnemonicParsing="false" onAction="#pageplus" text="&gt;" />
                </children>
             </HBox>
          </children>

@@ -25,7 +25,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("connect"), 720, 480);
+        scene = new Scene(loadFXML("connect"), 1280, 720);
         stage.setTitle("PotehGist");
         stage.getIcons().add(new Image(getClass().getResourceAsStream("assets/logo.png")));
         scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
