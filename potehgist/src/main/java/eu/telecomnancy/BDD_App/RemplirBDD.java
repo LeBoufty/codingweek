@@ -143,6 +143,11 @@ public class RemplirBDD {
         API.getInstance().addnotif(1, "Vous avez un nouveau chat");
         API.getInstance().addnotif(1, "Vous avez un nouveau chat");
         API.getInstance().addnotif(1, "Vous avez un nouveau chat");
+        API.getInstance().addnotif(1, "Vous avez un nouveau chat");
+        API.getInstance().addnotif(1, "Vous avez un nouveau chat");
+        API.getInstance().addnotif(1, "Vous avez un nouveau chat");
+        API.getInstance().addnotif(1, "Vous avez un nouveau chat");
+        API.getInstance().addnotif(1, "Vous avez un nouveau chat");
         API.getInstance().addnotif(2, "Sephiroth");
         API.getInstance().addnotif(2, "Sephiroth");
         API.getInstance().addnotif(2, "Sephiroth");
