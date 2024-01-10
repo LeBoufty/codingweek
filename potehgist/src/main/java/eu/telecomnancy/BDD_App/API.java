@@ -14,6 +14,7 @@ import java.util.Date;
 import eu.telecomnancy.Model.Annonce;
 import eu.telecomnancy.Model.Annonce_Recherche;
 import eu.telecomnancy.Outils.Formater;
+import java.time.Instant;
 
 public class API {
     private static API instance = null;
@@ -228,7 +229,8 @@ public class API {
     public void addOffre(String nom, String description, int prix, int vendeur, String categorie) throws Exception {
         nom = Formater.format(nom);
         description = Formater.format(description);
-        conn.createStatement().execute("INSERT INTO offres (nom, description, prix, id_vendeur, categorie, date_depot) VALUES ('" + nom + "', '" + description + "', " + prix + ", " + vendeur + ", '" + categorie + "', strftime('%Y-%m-%d %H:%M:%S', datetime('now')) );");
+        Instant now = Instant.now();
+        conn.createStatement().execute("INSERT INTO offres (nom, description, prix, id_vendeur, categorie, date_depot) VALUES ('" + nom + "', '" + description + "', " + prix + ", " + vendeur + ", '" + categorie + "', "+ now.getEpochSecond() + " );");
     }
 
     public void addReservation(int userid, int offreid, int datedebut, int datefin) throws Exception {

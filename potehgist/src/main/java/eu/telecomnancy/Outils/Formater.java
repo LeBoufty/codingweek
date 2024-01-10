@@ -72,4 +72,16 @@ public class Formater {
         }
         return hexString.toString();
     }
+
+    public static String shortenPrice(int price) {
+        String sortie = String.valueOf(price);
+        if (price >= 1000000000) {
+            sortie = sortie.substring(0, sortie.length() - 9) + "G";
+        } else if (price >= 1000000) {
+            sortie = sortie.substring(0, sortie.length() - 6) + "M";
+        } else if (price >= 1000) {
+            sortie = sortie.substring(0, sortie.length() - 3) + "k";
+        }
+        return sortie;
+    }
 }
