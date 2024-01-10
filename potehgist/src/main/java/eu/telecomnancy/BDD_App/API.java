@@ -624,15 +624,15 @@ public class API {
         
     }
 
-    public void addreservation(int id_utilisateur, int id_offre, java.sql.Date date_debut, java.sql.Date date_fin) {
+    public void addreservation(int id_utilisateur, int id_offre, int date_debut, int date_fin) {
         try {
             String query = "INSERT INTO plannings_reservations (id_utilisateur, id_offre, date_debut, date_fin) VALUES (?, ?, ?, ?)";
             PreparedStatement preparedStatement = conn.prepareStatement(query);
     
             preparedStatement.setInt(1, id_utilisateur);
             preparedStatement.setInt(2, id_offre);
-            preparedStatement.setDate(3, date_debut);
-            preparedStatement.setDate(4, date_fin);
+            preparedStatement.setInt(3, date_debut);
+            preparedStatement.setInt(4, date_fin);
     
             preparedStatement.execute();
             preparedStatement.close();
