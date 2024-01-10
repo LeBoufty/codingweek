@@ -1,13 +1,12 @@
 package eu.telecomnancy.BDD_App;
 
-import java.io.File;
-import java.nio.file.Files;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.time.LocalDate;
 
-import eu.telecomnancy.Outils.Formater;
+import eu.telecomnancy.Model.Utilisateur;
 
 
 
@@ -39,12 +38,33 @@ public class RemplirBDD {
 
 
         // Ajout des utilisateurs
-        //ajoututilisateur("Claude La Bagarre", "Avalanche", "Claude@Migdar.ff", 100, "10000", "placeholder.png", false);
-        //ajoututilisateur("JCVD", "J", "JeanClaudeVanDame@gamil.fr", 100, "30000", "placeholder.png", false);
-        //ajoututilisateur("Joe Biden", "1234", "Biden@wanadoo.com", 400000000, "75000", "placeholder.png", true);
-        //ajoututilisateur("Doigby", "Squeezie", "Doigby@twitch.tv", 2, "54000", "placeholder.png", false);
-        //ajoututilisateur("a", "a", "a", 100, "a", "placeholder.png", true);
-        //ajoututilisateur("z", "z", "z", 100, "z", "placeholder.png", true);
+        try {
+            Utilisateur u =new Utilisateur("Claude La Bagarre","Avalanche","Claude@Midgar.ff","54000");
+            u.saveAsNew();
+
+            
+            u = new Utilisateur("ClaudeLaBagarre", "Avalanche","Claude@Migdar.ff", "10000");
+            u.saveAsNew();
+
+            u = new Utilisateur("JCVD", "J","JeanClaudeVanDame@gmail.fr", "30000");
+            u.saveAsNew();
+
+            u = new Utilisateur("Joe Biden", "1234","Biden@wanadoo.com","75000");
+            u.saveAsNew();
+
+            u = new Utilisateur("Doigby", "Squeezie","Doigby@twitch.tv", "54000");
+            u.saveAsNew();
+
+            u = new Utilisateur("a", "a","a", "a");
+            u.saveAsNew();
+
+            u = new Utilisateur("z", "z","z", "z");
+            u.saveAsNew();
+
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
 
         // Ajout des offres
         try {
@@ -53,6 +73,9 @@ public class RemplirBDD {
             API.getInstance().addOffre("Cherche eau","Je cherche de l'eau.\nJ'adore l'eau et il n'y en a plus.", 1, 2, "Service");
 
             API.getInstance().addOffre("Service de lutins","Les lutins fabriquent vos cadeaux.", 10, 3, "Service");
+
+            API.getInstance().addOffre("Service de lutins","puceau moi ? serieusement ^^ haha on me l avait pas sortie celle la depuis loooongtemps :) demande a mes potes si je suis puceau tu vas voir les reponses que tu vas te prendre XD rien que la semaine passee j ai niquer donc chuuuuut ferme la puceau de merde car oui toi tu m as tout l air d un bon puceau de merde car souvent vous etes frustrer de ne pas BAISER :) ses agreable de se faire un missionnaire ou un amazone avec une meuf hein? tu peux pas repondre car tu ne sais pas ce que c ou alors tu le sais mais tu as du taper dans ta barre de recherche \"missionnaire sexe\" ou \"amazone sexe\" pour comprendre ce que c etait mdddrrr !! c est grave quoiquil en soit.... pour revenir a moi, je pense que je suis le mec le moins puceau de ma bande de 11 meilleurs amis pas psk j ai eu le plus de rapport intime mais psk j ai eu les plus jolie femme que mes amis :D ses pas moi qui le dit, ses eux qui commente sous mes photos insta \"trop belle la fille que tu as coucher avec hier en boite notamment!\" donc apres si tu veux que sa parte plus loi sa peut partir vraiment loi j habite dans la banlieue de niort sa te parle steven sanchez ? ses juste un cousin donc OKLM hahaha on verra si tu parles encore le puceau de merde mdddrrr pk insulter qd on est soi meme puceau tu me feras toujour marrer!!", 20, 6, "Service");
+
 
             API.getInstance().addOffre("Truc long","\"Unfortunate\" doesn't begin to describe my series, this game rewards blind luck and nothing else, I am beyond convinced at this point. After getting completely tooled by scheduling with my opponent changing times on me last minute and refusing to provide confirmation prior to the day of the match as to play times, losing this way somehow felt even worse than I had thought possible. My preparation was superior, my play was superior, and I lost, so I don't see a reason to continue engaging in an activity where what is within my control is overwhelmingly outweighed by what is not. I am done with competitive Pokemon, and you won't get a fond farewell. This community is infected to its roots with a degenerative disease that grows stronger over time but stops short of killing its host. Tournaments used to have a competitive spirit at their heart, this has been transplanted and replaced with an artificial organ that feeds on vitriol and mockery from insecure little boys that heckle by the sidelines and tear each other to shreds over scraps of attention. The environment we fostered has trapped us all like this in a vicious cycle, and escaping it requires acceptance of the harshest reality we all scramble to explain away, that none of the countless straining efforts we put ourselves through here will ever amount to one single shining glimmer of significance. I would make this the end, but World Cup is still ongoing, and I would never leave so many great friends out to dry, so I'll suffer through a few more games for them. One last thing before I leave you all to react with disdain, ridicule, and self-righteous fervor, before you do everything in your power to minimize my words and thoughts, box them up and shove them to some cobwebbed corner of your memory, and hope they disappear forever as a stain on your finite time ground to dust. From this moment on, nothing you say matters to me. The foulest insults you hurl with intent to wound will calmly settle at the earth before my feet, and the venom you spit will bring all the pain of a warm summer breeze. You are less than anything you can conceive, while I carry on, brimming with joy distilled from detachment.", 100000, 5, "Service");
 
@@ -97,9 +120,27 @@ public class RemplirBDD {
         API.getInstance().addmessage(4, 1, "Ok");
         API.getInstance().addmessage(1, 4, "A+");
         API.getInstance().addmessage(4, 1, "A+");
+        
 
         // Ajout des réservations
-        //API.getInstance().addreservation(1, 1, 1, 1, 2021, 1, 1, 1, 1, 2021, 1, 1);
+
+        LocalDate localDate = LocalDate.now();
+        java.sql.Date date_debut = java.sql.Date.valueOf(localDate);
+        java.sql.Date date_fin = java.sql.Date.valueOf(localDate.plusDays(5));
+        API.getInstance().addreservation(1, 1, date_debut, date_fin);
+
+        date_debut = java.sql.Date.valueOf(localDate.plusDays(4));
+        date_fin = java.sql.Date.valueOf(localDate.plusDays(20));
+        API.getInstance().addreservation(1, 3, date_debut, date_fin);
+
+        date_debut = java.sql.Date.valueOf(localDate.plusDays(6));
+        date_fin = java.sql.Date.valueOf(localDate.plusDays(10));
+        API.getInstance().addreservation(1, 5, date_debut, date_fin);
+
+        date_debut = java.sql.Date.valueOf(localDate.plusDays(2));
+        date_fin = java.sql.Date.valueOf(localDate.plusDays(6));
+        API.getInstance().addreservation(1, 4, date_debut, date_fin);
+        
 
         
 
@@ -137,23 +178,6 @@ public class RemplirBDD {
         }
     }
 
-    public void ajoutplanningreservation(int id_utilisateur, int id_offre, int jourdebut, int moisdebut, int anneedebut, int heuredebut, int minutedebut, int jourfin, int moisfin, int anneefin, int heurefin, int minutefin)
-    {
-        String date_debut = ""+anneedebut+"-"+moisdebut+"-"+jourdebut+" "+heuredebut+":"+minutedebut;
-        String date_fin = ""+anneefin+"-"+moisfin+"-"+jourfin+" "+heurefin+":"+minutefin;
-        String query = "INSERT INTO liste_attente (id_utilisateur, id_offre, date_debut, date_fin) VALUES (?, ?, ?, ?);";
-        try (PreparedStatement pstmt = conn.prepareStatement(query)) {
-            pstmt.setInt(1, id_utilisateur);
-            pstmt.setInt(2, id_offre);
-            pstmt.setString(3, date_debut);
-            pstmt.setString(4, date_fin);
-            pstmt.executeUpdate();
-        }
-        catch (Exception e) {
-            System.out.println(e.getMessage());
-            System.out.println("Erreur lors de l'ajout de la réservation");
-        }
-    }
 
     public void ajoutnotifications(int id_utilisateur, String message, int jour, int mois, int annee, int heure, int minute, boolean vu)
     {

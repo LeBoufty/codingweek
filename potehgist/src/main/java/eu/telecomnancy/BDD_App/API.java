@@ -619,12 +619,13 @@ public class API {
 
     public ResultSet getReservations(int iduser) throws Exception {
         return conn.createStatement().executeQuery("SELECT * FROM plannings_reservations WHERE id_utilisateur = " + iduser + ";");
+        
     }
 
-    public void addreservation(int iduser1,int idoffre ,String message)
+    public void addreservation(int id_utilisateur, int id_offre, java.sql.Date date_debut, java.sql.Date date_fin)
     {
         try {
-            conn.createStatement().execute("INSERT INTO plannings_reservations (id_utilisateur_envoie,id_utilisateur_recoit,message,date_envoi) VALUES (" + iduser1 + "," + idoffre + ",'" + message + "', strftime('%Y-%m-%d %H:%M:%S', datetime('now')));");
+            conn.createStatement().execute("INSERT INTO plannings_reservations (id_utilisateur,id_offre,date_debut,date_fin) VALUES (" + id_utilisateur+ "," + id_offre + "," + date_debut + ", "+ date_fin+" ;");
         } catch (Exception e) {
             System.out.println(e.getMessage());
 
