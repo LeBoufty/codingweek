@@ -17,9 +17,6 @@
    <top>
       <fx:include source="header.fxml" />
    </top>
-   <bottom>
-      <fx:include source="footer.fxml" />
-   </bottom>
    <center>
       <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <center>
@@ -131,4 +128,7 @@
          </center>
       </BorderPane>
    </center>
+   <bottom>
+      <fx:include source="footer.fxml" />
+   </bottom>
 </BorderPane>

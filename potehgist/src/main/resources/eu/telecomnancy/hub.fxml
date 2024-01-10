@@ -172,4 +172,7 @@
          </top>
       </BorderPane>
    </center>
+   <bottom>
+         <fx:include source="footer.fxml" />
+   </bottom>
 </BorderPane>
