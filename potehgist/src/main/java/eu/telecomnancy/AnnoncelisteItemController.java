@@ -4,12 +4,17 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import eu.telecomnancy.Model.Annonce;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 //import javafx.scene.image.Image;
 
 public class AnnoncelisteItemController{
+
+    @FXML
+    private Button button;
 
     @FXML
     private Label categorie;
@@ -32,6 +37,9 @@ public class AnnoncelisteItemController{
     @FXML
     private Label title;
 
+    @FXML
+    private Label idannonce;
+
     public void setData(Annonce annonce){
         // Image image = new Image(annonce.getImgSrc());
         // img.setImage(image);
@@ -42,10 +50,16 @@ public class AnnoncelisteItemController{
         categorie.setText(annonce.getCategorie());
         date_depot.setText(annonce.getDate_depot());
         code_postal.setText(annonce.getCode_postal());
+        idannonce.setText(String.valueOf(annonce.getId()));
 
     }
 
     public void initialize(URL location, ResourceBundle ressources) {
-
     }    
+
+    @FXML
+    void showAnnonce(ActionEvent event) {
+        App.idannonce = Integer.valueOf(idannonce.getText());
+        System.out.println("Annonce n°" + App.idannonce);
+    }
 }
