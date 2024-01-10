@@ -228,8 +228,30 @@ public class API {
     public void addOffre(String nom, String description, int prix, int vendeur, String categorie, byte[] photo) throws Exception {
         nom = Formater.format(nom);
         description = Formater.format(description);
-        conn.createStatement().execute("INSERT INTO offres (nom, description, prix, id_vendeur, categorie, date_depot, photo) VALUES ('" + nom + "', '" + description + "', " + prix + ", " + vendeur + ", '" + categorie + "', strftime('%Y-%m-%d %H:%M:%S', datetime('now')), "+ photo +" );");
+    
+        // Insert basic information into the database
+        String insertInfoSQL = "INSERT INTO offres (nom, description, prix, id_vendeur, categorie, date_depot) VALUES (?, ?, ?, ?, ?, strftime('%Y-%m-%d %H:%M:%S', datetime('now')))";
+        try (PreparedStatement preparedStatementInfo = conn.prepareStatement(insertInfoSQL)) {
+            preparedStatementInfo.setString(1, nom);
+            preparedStatementInfo.setString(2, description);
+            preparedStatementInfo.setInt(3, prix);
+            preparedStatementInfo.setInt(4, vendeur);
+            preparedStatementInfo.setString(5, categorie);
+            preparedStatementInfo.executeUpdate();
+        }
+    
+        // Get the ID of the last inserted row
+        int offreID = getMaxOffreID();
+    
+        // Insert the photo into the database using the obtained ID
+        String insertPhotoSQL = "UPDATE offres SET photo = ? WHERE id = ?";
+        try (PreparedStatement preparedStatementPhoto = conn.prepareStatement(insertPhotoSQL)) {
+            preparedStatementPhoto.setBytes(1, photo);
+            preparedStatementPhoto.setInt(2, offreID);
+            preparedStatementPhoto.executeUpdate();
+        }
     }
+    
 
     public void addOffre(String nom, String description, int prix, int vendeur, String categorie) throws Exception {
         nom = Formater.format(nom);
