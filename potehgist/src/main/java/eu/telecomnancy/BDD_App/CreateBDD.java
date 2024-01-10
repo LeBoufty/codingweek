@@ -42,6 +42,7 @@ public class CreateBDD {
                         + " categorie text NOT NULL,\n" // service ou matériel
                         + " description text,\n"
                         + " date_depot datetime NOT NULL,\n"
+                        + " photo_principale blob NOT NULL,\n"
                         + "	FOREIGN KEY(id_vendeur) REFERENCES utilisateurs(id)\n"
                         + ");";
                 conn.createStatement().execute(offres); // Ajout dans la BDD
@@ -72,18 +73,6 @@ public class CreateBDD {
                         + ");";
                 conn.createStatement().execute(liste_attente); // Ajout dans la BDD
                 System.out.println("[DEBUG] La table liste_attente a été créée.");
-
-                // Création de la table "photos"
-
-                String photos = "CREATE TABLE IF NOT EXISTS photos (\n"
-                        + "	id integer PRIMARY KEY AUTOINCREMENT,\n"
-                        + "	id_offre integer NOT NULL,\n"
-                        + "	photos blob NOT NULL,\n"
-                        + " position integer NOT NULL,\n" // position 0 = photo principale
-                        + "	FOREIGN KEY(id_offre) REFERENCES offres(id)\n"
-                        + ");";
-                conn.createStatement().execute(photos); // Ajout dans la BDD
-                System.out.println("[DEBUG] La table photos a été créée.");
 
                 // Création de la table "messages"
 
