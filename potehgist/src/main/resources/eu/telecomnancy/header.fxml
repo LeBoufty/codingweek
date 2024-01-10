@@ -29,7 +29,7 @@
    <right>
       <HBox prefHeight="35.0" prefWidth="62.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false">
+            <Button mnemonicParsing="false" onAction="#searchButton">
                <graphic>
                   <ImageView fitHeight="31.0" fitWidth="24.0" pickOnBounds="true">
                      <image>
