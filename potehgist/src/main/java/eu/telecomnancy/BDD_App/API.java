@@ -586,5 +586,10 @@ public class API {
         }
     }
 
+    public ResultSet getReservations(int iduser) throws Exception {
+        return conn.createStatement().executeQuery("SELECT * FROM plannings_reservations WHERE id_utilisateur = " + iduser + ";");
+    }
+    
+
 }
 
