@@ -22,6 +22,7 @@ public class App extends Application {
     public static int numpagechat;
     public static int numpageannonce;
     private static Utilisateur user2;
+    public static int idannonce;
     public static Annonce_Recherche annonce_recherche = new Annonce_Recherche();
     private static TypeRecherche type_recherche = TypeRecherche.ALL;
 
