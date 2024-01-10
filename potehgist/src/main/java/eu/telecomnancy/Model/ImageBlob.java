@@ -8,44 +8,34 @@ import javafx.scene.paint.Color;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
+import javax.imageio.ImageIO;
+import javafx.embed.swing.SwingFXUtils;
+import java.io.File;
+import javax.imageio.ImageWriter;
+import javax.imageio.stream.ImageOutputStream;
+import java.nio.file.Files;
+
 public class ImageBlob {
 
     public static byte[] imageViewToBytes(ImageView imageView) throws IOException {
         // Récupérer l'image depuis l'ImageView
-        Image image = imageView.getImage();
+            Image image = imageView.getImage();
 
-        // Obtenir le PixelReader de l'image
-        PixelReader pixelReader = image.getPixelReader();
+            java.awt.image.BufferedImage bufferedImage = SwingFXUtils.fromFXImage(image, null);
 
-        // Largeur et hauteur de l'image
-        int width = (int) image.getWidth();
-        int height = (int) image.getHeight();
+            // Save BufferedImage to file using ImageIO
+            File outputFile = new File("/tmp/potehgist.jpg");
+            ImageWriter writer = ImageIO.getImageWritersByFormatName("jpg").next();
+            ImageOutputStream outputStream = ImageIO.createImageOutputStream(outputFile);
+            writer.setOutput(outputStream);
+            writer.write(bufferedImage);
+            outputStream.close();
+            writer.dispose();
 
-        // Convertir les données d'image en byte[]
-        return imageToBytes(pixelReader, width, height);
-    }
-
-    private static byte[] imageToBytes(PixelReader pixelReader, int width, int height) throws IOException {
-        try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
-            // Écrire les données d'image dans le tableau de bytes
-            for (int y = 0; y < height; y++) {
-                for (int x = 0; x < width; x++) {
-                    // Récupérer la couleur du pixel
-                    Color color = pixelReader.getColor(x, y);
-
-                    // Convertir la couleur en valeurs RGB (8 bits par canal)
-                    int red = (int) (color.getRed() * 255);
-                    int green = (int) (color.getGreen() * 255);
-                    int blue = (int) (color.getBlue() * 255);
-
-                    // Écrire les valeurs RGB dans le tableau de bytes
-                    baos.write(red);
-                    baos.write(green);
-                    baos.write(blue);
-                }
-            }
-
-            return baos.toByteArray();
-        }
+            // Récupérer le fichier
+            File imageFile = new File("/tmp/potehgist.jpg");
+            byte[] imageData = Files.readAllBytes(imageFile.toPath());
+            
+            return imageData;
     }
 }
