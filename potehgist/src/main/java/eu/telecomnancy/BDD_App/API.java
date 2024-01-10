@@ -613,7 +613,8 @@ public class API {
             ResultSet rs = conn.createStatement().executeQuery("SELECT vue FROM notifications WHERE id = " + id + ";");
                 return rs.getBoolean(1);
         } catch (Exception e) {
-            return System.out.println(e.getMessage());
+            System.out.println(e.getMessage())
+            return false;
         }
     }
 
