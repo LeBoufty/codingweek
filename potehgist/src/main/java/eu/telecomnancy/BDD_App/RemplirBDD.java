@@ -1,9 +1,15 @@
 package eu.telecomnancy.BDD_App;
 
+import java.io.File;
+import java.nio.file.Files;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
-import eu.telecomnancy.Model.Utilisateur;
+import eu.telecomnancy.Outils.Formater;
+
+
 
 
 
@@ -25,41 +31,20 @@ public class RemplirBDD {
             }
             CreateBDD.createNewDatabase("/tmp/potehgist.db");
             url = "jdbc:sqlite:/tmp/potehgist.db";
+            conn = DriverManager.getConnection(url);
             
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            System.out.println("Erreur lors de la création de la base de données");
+        } catch (SQLException e) {
+            System.out.println("e.getMessage()");
         }
 
 
         // Ajout des utilisateurs
-        try {
-            Utilisateur u =new Utilisateur("Claude La Bagarre","Avalanche","Claude@Midgar.ff","54000");
-            u.saveAsNew();
-
-            
-            u = new Utilisateur("ClaudeLaBagarre", "Avalanche","Claude@Migdar.ff", "10000");
-            u.saveAsNew();
-
-            u = new Utilisateur("JCVD", "J","JeanClaudeVanDame@gmail.fr", "30000");
-            u.saveAsNew();
-
-            u = new Utilisateur("Joe Biden", "1234","Biden@wanadoo.com","75000");
-            u.saveAsNew();
-
-            u = new Utilisateur("Doigby", "Squeezie","Doigby@twitch.tv", "54000");
-            u.saveAsNew();
-
-            u = new Utilisateur("a", "a","a", "a");
-            u.saveAsNew();
-
-            u = new Utilisateur("z", "z","z", "z");
-            u.saveAsNew();
-
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        ajoututilisateur("Claude La Bagarre", "Avalanche", "Claude@Migdar.ff", 100, "10000", "placeholder.png", false);
+        ajoututilisateur("JCVD", "J", "JeanClaudeVanDame@gamil.fr", 100, "30000", "placeholder.png", false);
+        ajoututilisateur("Joe Biden", "1234", "Biden@wanadoo.com", 400000000, "75000", "placeholder.png", true);
+        ajoututilisateur("Doigby", "Squeezie", "Doigby@twitch.tv", 2, "54000", "placeholder.png", false);
+        ajoututilisateur("a", "a", "a", 100, "a", "placeholder.png", true);
+        ajoututilisateur("z", "z", "z", 100, "z", "placeholder.png", true);
 
         // Ajout des offres
         try {
