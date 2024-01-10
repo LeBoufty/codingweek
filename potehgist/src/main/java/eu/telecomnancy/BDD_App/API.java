@@ -225,10 +225,16 @@ public class API {
         return rs.getInt(1)!=0;
     }
 
+    public void addOffre(String nom, String description, int prix, int vendeur, String categorie, byte[] photo) throws Exception {
+        nom = Formater.format(nom);
+        description = Formater.format(description);
+        conn.createStatement().execute("INSERT INTO offres (nom, description, prix, id_vendeur, categorie, date_depot, photo) VALUES ('" + nom + "', '" + description + "', " + prix + ", " + vendeur + ", '" + categorie + "', strftime('%Y-%m-%d %H:%M:%S', datetime('now')), "+ photo +" );");
+    }
+
     public void addOffre(String nom, String description, int prix, int vendeur, String categorie) throws Exception {
         nom = Formater.format(nom);
         description = Formater.format(description);
-        conn.createStatement().execute("INSERT INTO offres (nom, description, prix, id_vendeur, categorie, date_depot) VALUES ('" + nom + "', '" + description + "', " + prix + ", " + vendeur + ", '" + categorie + "', strftime('%Y-%m-%d %H:%M:%S', datetime('now')) );");
+        conn.createStatement().execute("INSERT INTO offres (nom, description, prix, id_vendeur, categorie, date_depot) VALUES ('" + nom + "', '" + description + "', " + prix + ", " + vendeur + ", '" + categorie + "', strftime('%Y-%m-%d %H:%M:%S', datetime('now')));");
     }
 
     public void addReservation(int userid, int offreid, String datedebut, String datefin) throws Exception {
