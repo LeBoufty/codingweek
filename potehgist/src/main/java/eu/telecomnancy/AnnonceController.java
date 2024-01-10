@@ -8,7 +8,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class AnnonceController {
-
+    
     @FXML
     private Label categorie;
 
@@ -48,5 +48,14 @@ public class AnnonceController {
         API.getInstance().getImageAnnonce(annonce.getId());
         Image image = new Image(getClass().getResource("/eu/telecomnancy/assets/annonce_image.png").toExternalForm());
         annonce_img.setImage(image);
+    }
+
+    public void chat() throws Exception {
+        App.setUser2(new Annonce(Integer.valueOf(idannonce.getText())).getVendeur().getId());
+        App.setRoot("chat");
+    }
+
+    public void reservation() throws Exception {
+        App.setRoot("reserver");
     }
 }
