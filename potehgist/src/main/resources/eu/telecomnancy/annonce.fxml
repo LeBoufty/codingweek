@@ -42,6 +42,7 @@
                               <Label fx:id="description" alignment="TOP_LEFT" style="-fx-font-size: 16;" styleClass="discrete" text="Description" wrapText="true" /> 
                               <Label fx:id="code_postal" prefHeight="39.0" prefWidth="201.0" styleClass="discrete" text="Code postal" />
                               <Label fx:id="date_depot" prefHeight="26.0" prefWidth="201.0" styleClass="article-date" text="date depot" />
+                              <ImageView fx:id="annonce_img" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                            </children>
                         </VBox>
                      </children>
