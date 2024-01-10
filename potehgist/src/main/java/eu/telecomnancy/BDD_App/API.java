@@ -161,6 +161,15 @@ public class API {
         }
     }
 
+    public int getMaxReservationID() {
+        try {
+            ResultSet rs = conn.createStatement().executeQuery("SELECT MAX(id) FROM plannings_reservations;");
+            return rs.getInt(1);
+        } catch (Exception e) {
+            return 0;
+        }
+    }
+
     public void addUser(String username, String password, String email, String code_postal) throws Exception {
         email = Formater.format(email);
         code_postal = Formater.format(code_postal);
@@ -221,6 +230,10 @@ public class API {
         nom = Formater.format(nom);
         description = Formater.format(description);
         conn.createStatement().execute("INSERT INTO offres (nom, description, prix, id_vendeur, categorie, date_depot) VALUES ('" + nom + "', '" + description + "', " + prix + ", " + vendeur + ", '" + categorie + "', strftime('%Y-%m-%d %H:%M:%S', datetime('now')) );");
+    }
+
+    public void addReservation(int userid, int offreid, String datedebut, String datefin) throws Exception {
+        conn.createStatement().execute("INSERT INTO plannings_reservations (id_utilisateur, id_offre, date_debut, date_fin) VALUES (" + userid + ", " + offreid + ", '" + datedebut + "', '" + datefin + "');");
     }
 
     public boolean isAdmin(int userid) throws Exception {
@@ -296,6 +309,24 @@ public class API {
         } catch (Exception e) {
             return null;
         }
+    }
+
+    public String[] getReservationInfos(int id) {
+        try {
+            ResultSet rs = conn.createStatement().executeQuery("SELECT id_utilisateur, id_offre, date_debut, date_fin FROM plannings_reservations WHERE id = " + id + ";");
+            String[] infos = new String[4];
+            infos[0] = rs.getString(1);
+            infos[1] = rs.getString(2);
+            infos[2] = rs.getString(3);
+            infos[3] = rs.getString(4);
+            return infos;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public void updateReservation(int id, String datedebut, String datefin) throws Exception {
+        conn.createStatement().execute("UPDATE plannings_reservations SET date_debut = '" + datedebut + "', date_fin = '" + datefin + "' WHERE id = " + id + ";");
     }
 
     public void updateOffre(int id, String nom, String description, int prix, String categorie) throws Exception {
@@ -582,7 +613,8 @@ public class API {
             ResultSet rs = conn.createStatement().executeQuery("SELECT vue FROM notifications WHERE id = " + id + ";");
                 return rs.getBoolean(1);
         } catch (Exception e) {
-            return (Boolean) null;
+            System.out.println(e.getMessage());
+            return false;
         }
     }
 
