@@ -98,7 +98,7 @@ public class PlanningController {
         dateTime = LocalDateTime.ofEpochSecond(dates[6], 0, java.time.ZoneOffset.UTC);
         jour7.setText(dateTime.format(formatter));
         List<Reservation> resa = Reservation();
-        System.out.println(resa);
+        System.out.println(resa.get(0).getDate_debut()+" "+dates[0]+" "+resa.get(0).getDate_fin());
         for (int i=0; i<resa.size(); i++){
             mettredansleplanning(resa.get(i));
         }
@@ -106,7 +106,6 @@ public class PlanningController {
 
     private void mettredansleplanning(Reservation resa)
     {
-        int[] dates = new int[7]; 
         int datedebut = resa.getDate_debut();
         int datefin = resa.getDate_fin();
         if(datedebut<=dates[0] && datefin>=dates[0])
