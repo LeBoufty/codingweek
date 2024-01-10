@@ -13,7 +13,6 @@ import java.util.Date;
 
 import eu.telecomnancy.Model.Annonce;
 import eu.telecomnancy.Model.Annonce_Recherche;
-
 import eu.telecomnancy.Outils.Formater;
 
 public class API {
@@ -620,6 +619,16 @@ public class API {
 
     public ResultSet getReservations(int iduser) throws Exception {
         return conn.createStatement().executeQuery("SELECT * FROM plannings_reservations WHERE id_utilisateur = " + iduser + ";");
+    }
+
+    public void addreservation(int iduser1,int idoffre ,String message)
+    {
+        try {
+            conn.createStatement().execute("INSERT INTO plannings_reservations (id_utilisateur_envoie,id_utilisateur_recoit,message,date_envoi) VALUES (" + iduser1 + "," + iduser2 + ",'" + message + "', strftime('%Y-%m-%d %H:%M:%S', datetime('now')));");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+
+        }
     }
     
 
