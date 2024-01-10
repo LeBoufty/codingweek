@@ -29,7 +29,7 @@ public class Reservation {
 
     public void saveAsNew() {
         try {
-            API.getInstance().addReservation(user.getId(), annonce.getId(), Integer.toString(date_debut), Integer.toString(date_fin));
+            API.getInstance().addReservation(user.getId(), annonce.getId(), date_debut, date_fin);
             this.id = API.getInstance().getMaxReservationID();
             id_max = id;
         } catch (Exception e) {
