@@ -104,8 +104,8 @@ public class CreateBDD {
                 String sommeils = "CREATE TABLE IF NOT EXISTS sommeils (\n"
                         + "	id integer PRIMARY KEY AUTOINCREMENT,\n"
                         + "	id_utilisateur integer NOT NULL,\n"
-                        + " date_debut datetime NOT NULL,\n"
-                        + " date_fin datetime NOT NULL,\n"
+                        + "     date_debut datetime NOT NULL,\n"
+                        + "     date_fin datetime NOT NULL,\n"
                         + "	FOREIGN KEY(id_utilisateur) REFERENCES utilisateurs(id)\n"
                         + ");";
                 conn.createStatement().execute(sommeils); // Ajout dans la BDD
@@ -116,14 +116,41 @@ public class CreateBDD {
                 String plannings_reservations = "CREATE TABLE IF NOT EXISTS plannings_reservations (\n"
                         + "	id integer PRIMARY KEY AUTOINCREMENT,\n"
                         + "	id_utilisateur integer NOT NULL,\n"
-                        + " id_offre integer NOT NULL,\n"
-                        + " date_debut datetime NOT NULL,\n"
-                        + " date_fin datetime NOT NULL,\n"
+                        + "     id_offre integer NOT NULL,\n"
+                        + "     date_debut datetime NOT NULL,\n"
+                        + "     date_fin datetime NOT NULL,\n"
                         + "	FOREIGN KEY(id_utilisateur) REFERENCES utilisateurs(id),\n"
                         + "	FOREIGN KEY(id_offre) REFERENCES offres(id)\n"
                         + ");";
                 conn.createStatement().execute(plannings_reservations); // Ajout dans la BDD
                 System.out.println("[DEBUG] La table plannings_reservations a été créée.");
+
+                // Création de la table "plannings offres"
+
+                String plannings_offres = "CREATE TABLE IF NOT EXISTS plannings_offres (\n"
+                        + "	id integer PRIMARY KEY AUTOINCREMENT,\n"
+                        + "     id_offre integer NOT NULL,\n"
+                        + "     date_debut datetime NOT NULL,\n"
+                        + "     date_fin datetime NOT NULL,\n"
+                        + "	FOREIGN KEY(id_utilisateur) REFERENCES utilisateurs(id),\n"
+                        + "	FOREIGN KEY(id_offre) REFERENCES offres(id)\n"
+                        + ");";
+                conn.createStatement().execute(plannings_offres); // Ajout dans la BDD
+                System.out.println("[DEBUG] La table plannings_offres a été créée.");
+
+                // Création de la table "plannings pré-réservations"
+
+                String plannings_prereservations = "CREATE TABLE IF NOT EXISTS plannings_prereservations (\n"
+                        + "	id integer PRIMARY KEY AUTOINCREMENT,\n"
+                        + "	id_utilisateur integer NOT NULL,\n"
+                        + "     id_offre integer NOT NULL,\n"
+                        + "     date_debut datetime NOT NULL,\n"
+                        + "     date_fin datetime NOT NULL,\n"
+                        + "	FOREIGN KEY(id_utilisateur) REFERENCES utilisateurs(id),\n"
+                        + "	FOREIGN KEY(id_offre) REFERENCES offres(id)\n"
+                        + ");";
+                conn.createStatement().execute(plannings_prereservations); // Ajout dans la BDD
+                System.out.println("[DEBUG] La table plannings_prereservations a été créée.");
 
                 // Création de la table "notifications"
 

@@ -7,7 +7,9 @@ import java.util.Date;
 import java.util.List;
 
 import eu.telecomnancy.BDD_App.API;
+import eu.telecomnancy.Model.Annonce;
 import eu.telecomnancy.Model.Reservation;
+import eu.telecomnancy.Model.Utilisateur;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -217,7 +219,7 @@ public class PlanningController {
         ResultSet resultSet = API.getInstance().getReservations(App.getUser().getId());
 
         while (resultSet.next()) {
-            Reservation resa = new Reservation(resultSet.getInt("id"),resultSet.getInt("id_utilisateur"),resultSet.getInt("id_offre"),resultSet.getDate("date_debut"),resultSet.getDate("date_fin"));
+            Reservation resa = new Reservation(resultSet.getInt("id"));
 
             reservations.add(resa);
         }
