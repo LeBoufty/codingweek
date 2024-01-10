@@ -37,7 +37,8 @@ public class ProfilController {
 
     @FXML
     private void toMesoffres() throws IOException {
-        System.out.println("to MesOffres");
+        App.setTypeRecherche(TypeRecherche.MESANNONCES);
+        App.setRoot("listeannonce");
     }
 
 
