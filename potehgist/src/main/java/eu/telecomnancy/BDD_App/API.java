@@ -161,6 +161,15 @@ public class API {
         }
     }
 
+    public int getMaxMessageID() {
+        try {
+            ResultSet rs = conn.createStatement().executeQuery("SELECT MAX(id) FROM messages;");
+            return rs.getInt(1);
+        } catch (Exception e) {
+            return 0;
+        }
+    }
+
     public int getMaxReservationID() {
         try {
             ResultSet rs = conn.createStatement().executeQuery("SELECT MAX(id) FROM plannings_reservations;");
@@ -334,6 +343,21 @@ public class API {
         }
     }
 
+    public String[] getMessagesInfos(int id) {
+        try {
+            ResultSet rs = conn.createStatement().executeQuery("SELECT id_utilisateur_envoie, id_utilisateur_recoit, message, date_envoi FROM messages WHERE id = " + id + ";");
+            String[] infos = new String[4];
+            infos[0] = String.valueOf(rs.getInt(1));
+            infos[1] = String.valueOf(rs.getInt(2));
+            infos[2] = rs.getString(3);
+            infos[3] = String.valueOf(rs.getInt(4));
+
+            return infos;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
     public String[] getOffreInfos(int id) {
         try {
             ResultSet rs = conn.createStatement().executeQuery("SELECT nom, id_vendeur, prix, categorie, description, date_depot FROM offres WHERE id = " + id + ";");
@@ -401,25 +425,16 @@ public class API {
         description = Formater.format(description);
         conn.createStatement().execute("UPDATE notifications SET id_utilisateur = '" + id_utilisateur + "', message = '" + description + "', date = " + date + ", vue = '" + vue + "' WHERE id = " + id + ";");
     }
-
-    public String[] getmessages(int iduser1,int iduser2, int page)
-    {
-        try {
-            ResultSet rs = conn.createStatement().executeQuery("SELECT message FROM messages WHERE ( id_utilisateur_envoie = " + iduser1 + " AND id_utilisateur_recoit = " + iduser2 + " ) OR ( id_utilisateur_envoie = " + iduser2 + " AND id_utilisateur_recoit = " + iduser1 + " ) ORDER BY date_envoi DESC LIMIT 4 OFFSET " + (page-1)*4 + ";");
-            String[] messages = new String[4];
-            int i = 0;
-            while (rs.next()) {
-                messages[i] = rs.getString(1);
-                // Debug
-                System.out.println(messages[i]);
-                i++;
-            }
-            return messages;
-        }
-        catch (Exception e) {
-            return null;
-        }
+    public void updateMessage(int id, int id_utilisateur_envoie,int id_utilisateur_recoit, String message, int date) throws Exception {
+        message = Formater.format(message);
+        conn.createStatement().execute("UPDATE messages SET id_utilisateur_envoie = '" + id_utilisateur_envoie + "', id_utilisateur_recoit = '" + id_utilisateur_recoit + "', message = '" + message + "', date_envoi = " + date + " WHERE id = " + id + ";");
     }
+
+    public ResultSet getmessages(int iduser1,int iduser2) throws Exception {
+        return conn.createStatement().executeQuery("SELECT message FROM messages WHERE ( id_utilisateur_envoie = " + iduser1 + " AND id_utilisateur_recoit = " + iduser2 + " ) OR ( id_utilisateur_envoie = " + iduser2 + " AND id_utilisateur_recoit = " + iduser1 + " ) ORDER BY date_envoi DESC;");
+        
+    }
+
 
     public String[] getOffreInfosAccueil(int page) {
         // Les pages donnent les annoncent 4 par 4
@@ -447,7 +462,7 @@ public class API {
     public void addmessage(int iduser1,int iduser2,String message)
     {
         try {
-            conn.createStatement().execute("INSERT INTO messages (id_utilisateur_envoie,id_utilisateur_recoit,message,date_envoi) VALUES (" + iduser1 + "," + iduser2 + ",'" + message + "', strftime('%Y-%m-%d %H:%M:%S', datetime('now')));");
+            conn.createStatement().execute("INSERT INTO messages (id_utilisateur_envoie,id_utilisateur_recoit,message,date_envoi) VALUES (" + iduser1 + "," + iduser2 + ",'" + message + "', "+(int)Instant.now().getEpochSecond()+";");
         } catch (Exception e) {
             System.out.println(e.getMessage());
 
