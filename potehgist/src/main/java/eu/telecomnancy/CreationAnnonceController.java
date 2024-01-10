@@ -1,10 +1,18 @@
 package eu.telecomnancy;
 
+import java.io.File;
+
 import eu.telecomnancy.BDD_App.API;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.image.Image;
+import javafx.stage.FileChooser;
+import javafx.scene.image.ImageView;
 
 public class CreationAnnonceController {
+
+    @FXML
+    private ImageView imageView;
 
     @FXML
     private javafx.scene.control.TextField name;
@@ -26,14 +34,31 @@ public class CreationAnnonceController {
 
     @FXML
     private void create() throws Exception {
-        System.out.println("Création de l'annonce");
-        System.out.println("Nom : " + name.getText());
-        System.out.println("Description : " + Description.getText());
-        System.out.println("Prix : " + prix.getText());
-        System.out.println("Catégorie : " + categorie.getValue());
-        System.out.println("Vendeur : " + App.getUser().getId());
+        // System.out.println("Création de l'annonce");
+        // System.out.println("Nom : " + name.getText());
+        // System.out.println("Description : " + Description.getText());
+        // System.out.println("Prix : " + prix.getText());
+        // System.out.println("Catégorie : " + categorie.getValue());
+        // System.out.println("Vendeur : " + App.getUser().getId());
         API.getInstance().addOffre(name.getText(), Description.getText(), Integer.parseInt(prix.getText()), App.getUser().getId(), categorie.getValue());
         App.setRoot("hub");
+    }
+
+    @FXML
+    private void uploadImage() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Select Image File");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif")
+        );
+
+        File selectedFile = fileChooser.showOpenDialog(null);
+
+        if (selectedFile != null) {
+            // Load the selected image and set it to the ImageView
+            Image image = new Image(selectedFile.toURI().toString());
+            imageView.setImage(image);
+        }
     }
     
 }
