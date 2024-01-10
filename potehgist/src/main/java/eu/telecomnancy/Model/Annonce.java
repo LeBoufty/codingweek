@@ -6,7 +6,7 @@ public class Annonce {
     private String titre;
     private String description;
     private Integer prix;
-    private String ImgSrc;
+    private byte[] photo;
     private int id;
     private Utilisateur vendeur;
     private String categorie;
@@ -15,11 +15,11 @@ public class Annonce {
     private static int maxid = API.getInstance().getMaxOffreID();
 
 
-    public Annonce(String titre, String description, Integer prix, String ImgSrc, Utilisateur vendeur, String categorie, String date_depot, String code_postal) {
+    public Annonce(String titre, String description, Integer prix, byte[] photo, Utilisateur vendeur, String categorie, String date_depot, String code_postal) {
         this.titre = titre;
         this.description = description;
         this.prix = prix;
-        this.ImgSrc = ImgSrc;
+        this.photo = photo.clone();
         this.id = ++maxid;
         this.vendeur = vendeur;
         this.categorie = categorie;
@@ -53,7 +53,7 @@ public class Annonce {
 
     public void saveAsNew() {
         try {
-            API.getInstance().addOffre(titre, description, prix, vendeur.getId(), categorie);
+            API.getInstance().addOffre(titre, description, prix, vendeur.getId(), categorie, photo);
             this.id = API.getInstance().getMaxOffreID();
             maxid = id;
         } catch (Exception e) {
@@ -61,12 +61,12 @@ public class Annonce {
         }
     }
     
-    public String getImgSrc() {
-        return ImgSrc;
+    public byte[] getPhoto() {
+        return photo;
     }
 
-    public void setImgSrc(String imgSrc) {
-        this.ImgSrc = imgSrc;
+    public void setPhoto(byte[] photo) {
+        this.photo = photo.clone();
     }
 
     public String getTitre() {

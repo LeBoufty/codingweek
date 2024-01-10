@@ -8,6 +8,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.image.Image;
 import javafx.stage.FileChooser;
 import javafx.scene.image.ImageView;
+import eu.telecomnancy.Model.ImageBlob;
 
 public class CreationAnnonceController {
 
@@ -40,7 +41,7 @@ public class CreationAnnonceController {
         // System.out.println("Prix : " + prix.getText());
         // System.out.println("Catégorie : " + categorie.getValue());
         // System.out.println("Vendeur : " + App.getUser().getId());
-        API.getInstance().addOffre(name.getText(), Description.getText(), Integer.parseInt(prix.getText()), App.getUser().getId(), categorie.getValue());
+        API.getInstance().addOffre(name.getText(), Description.getText(), Integer.parseInt(prix.getText()), App.getUser().getId(), categorie.getValue(), ImageBlob.imageViewToBytes(imageView));
         App.setRoot("hub");
     }
 
