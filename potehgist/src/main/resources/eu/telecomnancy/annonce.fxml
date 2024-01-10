@@ -28,7 +28,7 @@
                                     <HBox prefHeight="100.0" prefWidth="200.0">
                                        <children>
                                           <Label prefHeight="40.0" prefWidth="75.0" styleClass="article-date" text="Catégorie :" />
-                                          <Label fx:id="categorie" prefHeight="48.0" prefWidth="188.0" styleClass="article-date" text="Catégorie" />
+                                          <Label fx:id="categorie" prefHeight="47.0" prefWidth="188.0" styleClass="article-date" text="Catégorie" />
                                        </children>
                                     </HBox>
                                  </children>
