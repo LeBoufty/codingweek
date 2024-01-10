@@ -88,4 +88,8 @@ public class Annonce {
     public void setPrix(Integer prix) {
         this.prix = prix;
     }
+
+    public int getId() {
+        return id;
+    }
 }
