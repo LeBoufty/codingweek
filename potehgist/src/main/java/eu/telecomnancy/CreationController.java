@@ -1,6 +1,7 @@
 package eu.telecomnancy;
 
 import eu.telecomnancy.BDD_App.API;
+import eu.telecomnancy.Model.Utilisateur;
 import javafx.fxml.FXML;
 
 public class CreationController {

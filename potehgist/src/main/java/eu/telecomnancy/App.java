@@ -3,6 +3,7 @@ package eu.telecomnancy;
 import java.io.IOException;
 
 import eu.telecomnancy.Model.Annonce_Recherche;
+import eu.telecomnancy.Model.Utilisateur;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
