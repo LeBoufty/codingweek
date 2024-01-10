@@ -286,9 +286,9 @@ public class API {
             infos[0] = rs.getString(1);
             infos[1] = rs.getString(2);
             infos[2] = rs.getString(3);
-            infos[3] = rs.getString(4);
+            infos[3] = String.valueOf(rs.getInt(4));
             infos[4] = rs.getString(5);
-            infos[5] = rs.getString(6);
+            infos[5] = String.valueOf(rs.getBoolean(6));
             return infos;
         } catch (Exception e) {
             return null;
