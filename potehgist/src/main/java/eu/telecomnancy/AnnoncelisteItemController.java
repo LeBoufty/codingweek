@@ -37,6 +37,9 @@ public class AnnoncelisteItemController{
     @FXML
     private Label title;
 
+    @FXML
+    private Label idannonce;
+
     public void setData(Annonce annonce){
         // Image image = new Image(annonce.getImgSrc());
         // img.setImage(image);
@@ -47,16 +50,16 @@ public class AnnoncelisteItemController{
         categorie.setText(annonce.getCategorie());
         date_depot.setText(annonce.getDate_depot());
         code_postal.setText(annonce.getCode_postal());
+        idannonce.setText(String.valueOf(annonce.getId()));
 
     }
 
     public void initialize(URL location, ResourceBundle ressources) {
-
     }    
 
     @FXML
     void showAnnonce(ActionEvent event) {
-        System.out.println("Annonce");
-        System.out.println(title.getText());
+        App.idannonce = Integer.valueOf(idannonce.getText());
+        System.out.println("Annonce n°" + App.idannonce);
     }
 }
