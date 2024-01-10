@@ -52,11 +52,17 @@
                      </font>
                   </Label>
                   <Label styleClass="smalltitle" text="Nom de l'annonce" GridPane.rowIndex="1" />
-                  <TextField fx:id="name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="name" promptText="Nom de l'annonce" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="20.0" />
+                     </font></TextField>
                   <Label styleClass="smalltitle" text="Prix" GridPane.rowIndex="2" />
-                  <TextField fx:id="prix" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="prix" promptText="Prix" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="20.0" />
+                     </font></TextField>
                   <Label styleClass="smalltitle" text="Catégorie" GridPane.rowIndex="3" />
-                  <ChoiceBox fx:id="categorie" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <ChoiceBox fx:id="categorie" prefWidth="150.0" style="-fx-font-size: 20;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   <Label styleClass="smalltitle" text="Description" GridPane.rowIndex="4" />
                   <TextArea fx:id="Description" prefHeight="151.0" prefWidth="300.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
                   <Label styleClass="smalltitle" text="Image" GridPane.rowIndex="5" />

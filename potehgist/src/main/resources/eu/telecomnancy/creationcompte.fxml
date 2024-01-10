@@ -7,6 +7,8 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
@@ -38,16 +40,37 @@
                      </font>
                   </Label>
                   <Label styleClass="smalltitle" text=" Nom d'utilisateur" GridPane.rowIndex="1" />
-                  <TextField fx:id="username" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="username" prefHeight="54.0" prefWidth="749.0" promptText="Nom d'utilisateur" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="20.0" />
+                     </font></TextField>
                   <Label styleClass="smalltitle" text=" Adresse Email" GridPane.rowIndex="2" />
-                  <TextField fx:id="email" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="email" prefHeight="55.0" promptText="Adresse Email" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="20.0" />
+                     </font></TextField>
                   <Label styleClass="smalltitle" text=" Mot de passe" GridPane.rowIndex="3" />
-                  <PasswordField fx:id="password1" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <PasswordField fx:id="password1" prefHeight="55.0" promptText="Mot de passe" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="20.0" />
+                     </font></PasswordField>
                   <Label styleClass="smalltitle" text=" Retaper le mot de passe" GridPane.rowIndex="4" />
-                  <PasswordField fx:id="password2" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <PasswordField fx:id="password2" prefHeight="55.0" promptText="Confirmez mot de passe" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <font>
+                        <Font size="20.0" />
+                     </font></PasswordField>
                   <Label styleClass="smalltitle" text=" Code Postal" GridPane.rowIndex="5" />
-                  <TextField fx:id="codepostal" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                  <Button mnemonicParsing="false" onAction="#create" prefHeight="80.0" prefWidth="356.0" style="-fx-font-size: 32;" text="Créer un compte" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+                  <TextField fx:id="codepostal" prefHeight="55.0" promptText="Code postal" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                     <font>
+                        <Font size="20.0" />
+                     </font></TextField>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#annuler" prefHeight="36.0" prefWidth="173.0" style="-fx-font-size: 32;" text="Annuler" />
+                        <Pane prefHeight="85.0" prefWidth="74.0" />
+                        <Button mnemonicParsing="false" onAction="#create" prefHeight="80.0" prefWidth="356.0" style="-fx-font-size: 32;" text="Créer un compte" />
+                     </children>
+                  </HBox>
                </children>
             </GridPane>
          </center>

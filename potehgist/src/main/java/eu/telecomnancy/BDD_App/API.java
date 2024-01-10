@@ -14,6 +14,7 @@ import java.util.Date;
 import eu.telecomnancy.Model.Annonce;
 import eu.telecomnancy.Model.Annonce_Recherche;
 import eu.telecomnancy.Outils.Formater;
+import java.time.Instant;
 
 public class API {
     private static API instance = null;
@@ -256,10 +257,11 @@ public class API {
     public void addOffre(String nom, String description, int prix, int vendeur, String categorie) throws Exception {
         nom = Formater.format(nom);
         description = Formater.format(description);
-        conn.createStatement().execute("INSERT INTO offres (nom, description, prix, id_vendeur, categorie, date_depot) VALUES ('" + nom + "', '" + description + "', " + prix + ", " + vendeur + ", '" + categorie + "', strftime('%Y-%m-%d %H:%M:%S', datetime('now')));");
+        Instant now = Instant.now();
+        conn.createStatement().execute("INSERT INTO offres (nom, description, prix, id_vendeur, categorie, date_depot) VALUES ('" + nom + "', '" + description + "', " + prix + ", " + vendeur + ", '" + categorie + "', "+ now.getEpochSecond() + " );");
     }
 
-    public void addReservation(int userid, int offreid, String datedebut, String datefin) throws Exception {
+    public void addReservation(int userid, int offreid, int datedebut, int datefin) throws Exception {
         conn.createStatement().execute("INSERT INTO plannings_reservations (id_utilisateur, id_offre, date_debut, date_fin) VALUES (" + userid + ", " + offreid + ", '" + datedebut + "', '" + datefin + "');");
     }
 
@@ -338,14 +340,14 @@ public class API {
         }
     }
 
-    public String[] getReservationInfos(int id) {
+    public int[] getReservationInfos(int id) {
         try {
             ResultSet rs = conn.createStatement().executeQuery("SELECT id_utilisateur, id_offre, date_debut, date_fin FROM plannings_reservations WHERE id = " + id + ";");
-            String[] infos = new String[4];
-            infos[0] = rs.getString(1);
-            infos[1] = rs.getString(2);
-            infos[2] = rs.getString(3);
-            infos[3] = rs.getString(4);
+            int[] infos = new int[4];
+            infos[0] = rs.getInt(1);
+            infos[1] = rs.getInt(2);
+            infos[2] = rs.getInt(3);
+            infos[3] = rs.getInt(4);
             return infos;
         } catch (Exception e) {
             return null;
@@ -645,16 +647,26 @@ public class API {
         
     }
 
-    public void addreservation(int id_utilisateur, int id_offre, java.sql.Date date_debut, java.sql.Date date_fin)
-    {
+    public void addreservation(int id_utilisateur, int id_offre, int date_debut, int date_fin) {
         try {
-            conn.createStatement().execute("INSERT INTO plannings_reservations (id_utilisateur,id_offre,date_debut,date_fin) VALUES (" + id_utilisateur+ "," + id_offre + "," + date_debut + ", "+ date_fin+" ;");
+            String query = "INSERT INTO plannings_reservations (id_utilisateur, id_offre, date_debut, date_fin) VALUES (?, ?, ?, ?)";
+            PreparedStatement preparedStatement = conn.prepareStatement(query);
+    
+            preparedStatement.setInt(1, id_utilisateur);
+            preparedStatement.setInt(2, id_offre);
+            preparedStatement.setInt(3, date_debut);
+            preparedStatement.setInt(4, date_fin);
+    
+            preparedStatement.execute();
+            preparedStatement.close();
         } catch (Exception e) {
             System.out.println(e.getMessage());
-
         }
     }
     
-
 }
+
+
+    
+
 

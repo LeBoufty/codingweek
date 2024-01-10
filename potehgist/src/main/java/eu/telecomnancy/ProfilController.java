@@ -26,9 +26,9 @@ public class ProfilController {
     public void initialize() throws Exception
     {
         Utilisateur user = App.getUser();
-        username.setText("Nom d'utilisateur: "+ user.getNom());
-        email.setText("email: "+ user.getEmail());
-        codepostal.setText("code postal: "+ user.getCode_postal());
+        username.setText(user.getNom());
+        email.setText(user.getEmail());
+        codepostal.setText(user.getCode_postal());
         API.getInstance().getImageUser(user.getId());
         Image image = new Image(getClass().getResource("/eu/telecomnancy/assets/user_photo.png").toExternalForm());
         imageView.setImage(image);

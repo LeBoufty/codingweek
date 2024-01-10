@@ -39,6 +39,9 @@ public class CreateBDD {
                         + "	id integer PRIMARY KEY AUTOINCREMENT,\n"
                         + "	id_vendeur integer NOT NULL,\n"
                         + "	prix integer NOT NULL,\n"
+                        + " categorie text NOT NULL,\n" // service ou matériel
+                        + " description text,\n"
+                        + " date_depot int NOT NULL,\n"
                         + "     categorie text NOT NULL,\n" // service ou matériel
                         + "     description text,\n"
                         + "     date_depot datetime NOT NULL,\n"
@@ -81,7 +84,7 @@ public class CreateBDD {
                         + "	id_utilisateur_envoie integer NOT NULL,\n" // l'id de celui qui a envoyé le message
                         + "	id_utilisateur_recoit integer NOT NULL,\n" // l'id de celui qui a reçu le message
                         + " message text NOT NULL,\n"
-                        + " date_envoi datetime NOT NULL,\n"
+                        + " date_envoi int NOT NULL,\n"
                         + "	FOREIGN KEY(id_utilisateur_envoie) REFERENCES utilisateurs(id),\n"
                         + "	FOREIGN KEY(id_utilisateur_recoit) REFERENCES utilisateurs(id)\n"
                         + ");";
@@ -93,8 +96,8 @@ public class CreateBDD {
                 String sommeils = "CREATE TABLE IF NOT EXISTS sommeils (\n"
                         + "	id integer PRIMARY KEY AUTOINCREMENT,\n"
                         + "	id_utilisateur integer NOT NULL,\n"
-                        + "     date_debut datetime NOT NULL,\n"
-                        + "     date_fin datetime NOT NULL,\n"
+                        + "     date_debut int NOT NULL,\n"
+                        + "     date_fin int NOT NULL,\n"
                         + "	FOREIGN KEY(id_utilisateur) REFERENCES utilisateurs(id)\n"
                         + ");";
                 conn.createStatement().execute(sommeils); // Ajout dans la BDD
@@ -106,8 +109,8 @@ public class CreateBDD {
                         + "	id integer PRIMARY KEY AUTOINCREMENT,\n"
                         + "	id_utilisateur integer NOT NULL,\n"
                         + "     id_offre integer NOT NULL,\n"
-                        + "     date_debut datetime NOT NULL,\n"
-                        + "     date_fin datetime NOT NULL,\n"
+                        + "     date_debut integer NOT NULL,\n"
+                        + "     date_fin integer NOT NULL,\n"
                         + "	FOREIGN KEY(id_utilisateur) REFERENCES utilisateurs(id),\n"
                         + "	FOREIGN KEY(id_offre) REFERENCES offres(id)\n"
                         + ");";
@@ -119,8 +122,8 @@ public class CreateBDD {
                 String plannings_offres = "CREATE TABLE IF NOT EXISTS plannings_offres (\n"
                         + "	id integer PRIMARY KEY AUTOINCREMENT,\n"
                         + "     id_offre integer NOT NULL,\n"
-                        + "     date_debut datetime NOT NULL,\n"
-                        + "     date_fin datetime NOT NULL,\n"
+                        + "     date_debut int NOT NULL,\n"
+                        + "     date_fin int NOT NULL,\n"
                         + "	FOREIGN KEY(id_offre) REFERENCES offres(id)\n"
                         + ");";
                 conn.createStatement().execute(plannings_offres); // Ajout dans la BDD
@@ -132,8 +135,8 @@ public class CreateBDD {
                         + "	id integer PRIMARY KEY AUTOINCREMENT,\n"
                         + "	id_utilisateur integer NOT NULL,\n"
                         + "     id_offre integer NOT NULL,\n"
-                        + "     date_debut datetime NOT NULL,\n"
-                        + "     date_fin datetime NOT NULL,\n"
+                        + "     date_debut int NOT NULL,\n"
+                        + "     date_fin int NOT NULL,\n"
                         + "	FOREIGN KEY(id_utilisateur) REFERENCES utilisateurs(id),\n"
                         + "	FOREIGN KEY(id_offre) REFERENCES offres(id)\n"
                         + ");";
@@ -146,7 +149,7 @@ public class CreateBDD {
                         + "	id integer PRIMARY KEY AUTOINCREMENT,\n"
                         + "	id_utilisateur integer NOT NULL,\n"
                         + " message text NOT NULL,\n"
-                        + " date datetime NOT NULL,\n"
+                        + " date int NOT NULL,\n"
                         + " vue bool NOT NULL,\n"
                         + "	FOREIGN KEY(id_utilisateur) REFERENCES utilisateurs(id)\n"
                         + ");";
@@ -159,7 +162,7 @@ public class CreateBDD {
                         + "	id integer PRIMARY KEY AUTOINCREMENT,\n"
                         + "	id_utilisateur integer NOT NULL,\n"
                         + " message text NOT NULL,\n"
-                        + " date datetime NOT NULL,\n"
+                        + " date int NOT NULL,\n"
                         + " resolu bool NOT NULL DEFAULT false,\n"
                         + "	FOREIGN KEY(id_utilisateur) REFERENCES utilisateurs(id)\n"
                         + ");";

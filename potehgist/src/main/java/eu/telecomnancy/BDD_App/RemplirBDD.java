@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.time.LocalDate;
+import java.time.Instant;
 
 import eu.telecomnancy.Model.Utilisateur;
 
@@ -35,7 +35,11 @@ public class RemplirBDD {
 
         // Ajout des utilisateurs
         try {
-            Utilisateur u =new Utilisateur("Claude La Bagarre","Avalanche","Claude@Midgar.ff","54000");
+
+            Utilisateur u = new Utilisateur("a", "a","a", "a");
+            u.saveAsNew();
+            
+            u =new Utilisateur("Claude La Bagarre","Avalanche","Claude@Midgar.ff","54000");
             u.saveAsNew();
 
             
@@ -49,9 +53,6 @@ public class RemplirBDD {
             u.saveAsNew();
 
             u = new Utilisateur("Doigby", "Squeezie","Doigby@twitch.tv", "54000");
-            u.saveAsNew();
-
-            u = new Utilisateur("a", "a","a", "a");
             u.saveAsNew();
 
             u = new Utilisateur("z", "z","z", "z");
@@ -120,58 +121,37 @@ public class RemplirBDD {
 
         // Ajout des réservations
 
-        LocalDate localDate = LocalDate.now();
-        java.sql.Date date_debut = java.sql.Date.valueOf(localDate);
-        java.sql.Date date_fin = java.sql.Date.valueOf(localDate.plusDays(5));
+        Instant now = Instant.now();
+        int date_debut = (int)now.getEpochSecond();
+        int date_fin = (int)now.getEpochSecond()+90000*4;
         API.getInstance().addreservation(1, 1, date_debut, date_fin);
 
-        date_debut = java.sql.Date.valueOf(localDate.plusDays(4));
-        date_fin = java.sql.Date.valueOf(localDate.plusDays(20));
         API.getInstance().addreservation(1, 3, date_debut, date_fin);
 
-        date_debut = java.sql.Date.valueOf(localDate.plusDays(6));
-        date_fin = java.sql.Date.valueOf(localDate.plusDays(10));
+        date_debut = (int)now.getEpochSecond()+90000*6;
+        date_fin = (int)now.getEpochSecond()+90000*10;
         API.getInstance().addreservation(1, 5, date_debut, date_fin);
 
-        date_debut = java.sql.Date.valueOf(localDate.plusDays(2));
-        date_fin = java.sql.Date.valueOf(localDate.plusDays(6));
+        date_debut = (int)now.getEpochSecond()+90000*2;
+        date_fin = (int)now.getEpochSecond()+90000*6;
         API.getInstance().addreservation(1, 4, date_debut, date_fin);
         
 
-        
+        // Ajout des notifications
+        API.getInstance().addnotif(1, "Vous avez un nouveau chat");
+        API.getInstance().addnotif(1, "Vous avez un nouveau chat");
+        API.getInstance().addnotif(1, "Vous avez un nouveau chat");
+        API.getInstance().addnotif(1, "Vous avez un nouveau chat");
+        API.getInstance().addnotif(1, "Vous avez un nouveau chat");
+        API.getInstance().addnotif(2, "Sephiroth");
+        API.getInstance().addnotif(2, "Sephiroth");
+        API.getInstance().addnotif(2, "Sephiroth");
+        API.getInstance().addnotif(2, "Sephiroth");
+        API.getInstance().addnotif(2, "Sephiroth");
+        API.getInstance().addnotif(2, "Sephiroth");
+        API.getInstance().addnotif(2, "Sephiroth");
 
-    }
 
-    public void ajoutevaluation(int id_offre, int id_evaluant, int valeur_evaluation)
-    {
-        String query = "INSERT INTO evaluations (id_offre, id_evaluant, valeur_evaluation) VALUES (?, ?, ?);";
-        try (PreparedStatement pstmt = conn.prepareStatement(query)) {
-            pstmt.setInt(1, id_offre);
-            pstmt.setInt(2, id_evaluant);
-            pstmt.setInt(3, valeur_evaluation);
-            pstmt.executeUpdate();
-        }
-        catch (Exception e) {
-            System.out.println(e.getMessage());
-            System.out.println("Erreur lors de l'ajout de l'évaluation");
-        }
-    }
-
-    public void ajoutmessages(int id_utilisateur_envoie, int id_utilisateur_recoit, String message, int jour, int mois, int annee, int heure, int minute)
-    {
-        String date_envoi = ""+annee+"-"+mois+"-"+jour+" "+heure+":"+minute;
-        String query = "INSERT INTO messages (id_utilisateur_envoie, id_utilisateur_recoit, message, date_envoi) VALUES (?, ?, ?, ?);";
-        try (PreparedStatement pstmt = conn.prepareStatement(query)) {
-            pstmt.setInt(1, id_utilisateur_envoie);
-            pstmt.setInt(2, id_utilisateur_recoit);
-            pstmt.setString(3, message);
-            pstmt.setString(4, date_envoi);
-            pstmt.executeUpdate();
-        }
-        catch (Exception e) {
-            System.out.println(e.getMessage());
-            System.out.println("Erreur lors de l'ajout du message");
-        }
     }
 
 

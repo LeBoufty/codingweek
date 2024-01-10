@@ -34,7 +34,7 @@
               </rowConstraints>
                <children>
                   <Label styleClass="smalltitle" text="Nom d'utilisateur" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                  <TextField fx:id="username" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="45.0" prefWidth="300.0" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                  <TextField fx:id="username" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="45.0" prefWidth="300.0" promptText="Nom d'utilisateur" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                      <cursor>
                         <Cursor fx:constant="TEXT" />
                      </cursor>
@@ -43,11 +43,11 @@
                      </font>
                   </TextField>
                   <Label styleClass="smalltitle" text="Mot de passe" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-                  <PasswordField fx:id="password" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="300.0" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+                  <PasswordField fx:id="password" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="300.0" promptText="Mot de passe" GridPane.halignment="CENTER" GridPane.rowIndex="4">
                      <font>
                         <Font size="20.0" />
                      </font></PasswordField>
-                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#connect" prefHeight="108.0" prefWidth="227.0" text="Connexion" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#connect" prefHeight="108.0" prefWidth="227.0" style="-fx-font-size: 30;" text="Connexion" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
                   </Button>
                   <Button mnemonicParsing="false" onAction="#create" text="Créer un compte" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
                   <Label StyleClass="title" alignment="CENTER" prefHeight="29.0" text="Connexion" textAlignment="CENTER" GridPane.halignment="CENTER">

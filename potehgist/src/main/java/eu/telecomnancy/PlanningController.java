@@ -1,9 +1,10 @@
 package eu.telecomnancy;
 
 import java.sql.ResultSet;
-import java.time.LocalDate;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import eu.telecomnancy.BDD_App.API;
@@ -13,6 +14,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+
 
 public class PlanningController {
 
@@ -43,7 +45,7 @@ public class PlanningController {
     private Label jour7;
 
 
-    private LocalDate[] dates;
+    private int[] dates= new int[7];
 
 
     @FXML
@@ -72,25 +74,31 @@ public class PlanningController {
 
     @FXML
     public void initialize() throws Exception{
-        Page.setText(Integer.toString(currentpage));
-        System.out.println("ListeAnnonceController");
-        dates = new LocalDate[7];
-        dates[0] = LocalDate.now().plusDays((currentpage-1)*7);
-        dates[1] = dates[0].plusDays(1);
-        dates[2] = dates[0].plusDays(2);
-        dates[3] = dates[0].plusDays(3);
-        dates[4] = dates[0].plusDays(4);
-        dates[5] = dates[0].plusDays(5);
-        dates[6] = dates[0].plusDays(6);
-        jour1.setText(dates[0].toString());
-        jour2.setText(dates[1].toString());
-        jour3.setText(dates[2].toString());
-        jour4.setText(dates[3].toString());
-        jour5.setText(dates[4].toString());
-        jour6.setText(dates[5].toString());
-        jour7.setText(dates[6].toString());
-        List<Reservation> resa = new ArrayList<>(Reservation());
-        System.out.println(resa);
+        Instant now = Instant.now();
+        dates[0] = (int)now.getEpochSecond()+(currentpage-1)*86400*7;
+        dates[1] = dates[0]+86400;
+        dates[2] = dates[0]+86400*2;
+        dates[3] = dates[0]+86400*3;
+        dates[4] = dates[0]+86400*4;
+        dates[5] = dates[0]+86400*5;
+        dates[6] = dates[0]+86400*6;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDateTime dateTime = LocalDateTime.ofEpochSecond(dates[0], 0, java.time.ZoneOffset.UTC);
+        jour1.setText(dateTime.format(formatter));
+        dateTime = LocalDateTime.ofEpochSecond(dates[1], 0, java.time.ZoneOffset.UTC);
+        jour2.setText(dateTime.format(formatter));
+        dateTime = LocalDateTime.ofEpochSecond(dates[2], 0, java.time.ZoneOffset.UTC);
+        jour3.setText(dateTime.format(formatter));
+        dateTime = LocalDateTime.ofEpochSecond(dates[3], 0, java.time.ZoneOffset.UTC);
+        jour4.setText(dateTime.format(formatter));
+        dateTime = LocalDateTime.ofEpochSecond(dates[4], 0, java.time.ZoneOffset.UTC);
+        jour5.setText(dateTime.format(formatter));
+        dateTime = LocalDateTime.ofEpochSecond(dates[5], 0, java.time.ZoneOffset.UTC);
+        jour6.setText(dateTime.format(formatter));
+        dateTime = LocalDateTime.ofEpochSecond(dates[6], 0, java.time.ZoneOffset.UTC);
+        jour7.setText(dateTime.format(formatter));
+        List<Reservation> resa = Reservation();
+        System.out.println(resa.get(0).getDate_debut()+" "+dates[0]+" "+resa.get(0).getDate_fin());
         for (int i=0; i<resa.size(); i++){
             mettredansleplanning(resa.get(i));
         }
@@ -98,14 +106,9 @@ public class PlanningController {
 
     private void mettredansleplanning(Reservation resa)
     {
-        Date[] DatesFormatees = new Date[7]; 
-        Date datedebut = resa.getDate_debut();
-        Date datefin = resa.getDate_fin();
-        for(int i=0;i<7;i++)
-        {
-            DatesFormatees[i]=Date.from(dates[i].atStartOfDay().toInstant(null));
-        }
-        if(datedebut.compareTo(DatesFormatees[0])>=0 && datefin.compareTo(DatesFormatees[0])<=0)
+        int datedebut = resa.getDate_debut();
+        int datefin = resa.getDate_fin();
+        if(datedebut<=dates[0] && datefin>=dates[0])
         {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("reservationlisteitem.fxml"));
@@ -120,7 +123,7 @@ public class PlanningController {
                 e.printStackTrace();
             }
         }
-        if(datedebut.compareTo(DatesFormatees[1])>=0 && datefin.compareTo(DatesFormatees[1])<=0)
+        if(datedebut<=dates[1] && datefin>=dates[1])
         {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("reservationlisteitem.fxml"));
@@ -135,7 +138,7 @@ public class PlanningController {
                 e.printStackTrace();
             }
         }
-        if(datedebut.compareTo(DatesFormatees[2])>=0 && datefin.compareTo(DatesFormatees[2])<=0)
+        if(datedebut<=dates[2] && datefin>=dates[2])
         {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("reservationlisteitem.fxml"));
@@ -150,7 +153,7 @@ public class PlanningController {
                 e.printStackTrace();
             }
         }
-        if(datedebut.compareTo(DatesFormatees[3])>=0 && datefin.compareTo(DatesFormatees[3])<=0)
+        if(datedebut<=dates[3] && datefin>=dates[3])
         {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("reservationlisteitem.fxml"));
@@ -165,7 +168,7 @@ public class PlanningController {
                 e.printStackTrace();
             }
         }
-        if(datedebut.compareTo(DatesFormatees[4])>=0 && datefin.compareTo(DatesFormatees[4])<=0)
+        if(datedebut<=dates[4] && datefin>=dates[4])
         {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("reservationlisteitem.fxml"));
@@ -180,7 +183,7 @@ public class PlanningController {
                 e.printStackTrace();
             }
         }
-        if(datedebut.compareTo(DatesFormatees[5])>=0 && datefin.compareTo(DatesFormatees[5])<=0)
+        if(datedebut<=dates[5] && datefin>=dates[5])
         {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("reservationlisteitem.fxml"));
@@ -195,7 +198,7 @@ public class PlanningController {
                 e.printStackTrace();
             }
         }
-        if(datedebut.compareTo(DatesFormatees[6])>=0 && datefin.compareTo(DatesFormatees[6])<=0)
+        if(datedebut<=dates[6] && datefin>=dates[6])
         {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("reservationlisteitem.fxml"));
@@ -215,7 +218,7 @@ public class PlanningController {
     private List<Reservation> Reservation() throws Exception{
         List<Reservation> reservations = new ArrayList<>();
         ResultSet resultSet = API.getInstance().getReservations(App.getUser().getId());
-
+        System.out.println(resultSet);
         while (resultSet.next()) {
             Reservation resa = new Reservation(resultSet.getInt("id"));
 
@@ -228,6 +231,13 @@ public class PlanningController {
     private void pageSuivante() throws Exception {
         currentpage++;
         Page.setText(Integer.toString(currentpage));
+        annonceslayout1.getChildren().clear();
+        annonceslayout2.getChildren().clear();
+        annonceslayout3.getChildren().clear();
+        annonceslayout4.getChildren().clear();
+        annonceslayout5.getChildren().clear();
+        annonceslayout6.getChildren().clear();
+        annonceslayout7.getChildren().clear();
         initialize();
     }
 
@@ -237,7 +247,18 @@ public class PlanningController {
             currentpage--;
             Page.setText(Integer.toString(currentpage));
         }
+        annonceslayout1.getChildren().clear();
+        annonceslayout2.getChildren().clear();
+        annonceslayout3.getChildren().clear();
+        annonceslayout4.getChildren().clear();
+        annonceslayout5.getChildren().clear();
+        annonceslayout6.getChildren().clear();
+        annonceslayout7.getChildren().clear();
         initialize();
     }
     
+    @FXML
+    private void retour() throws Exception {
+        App.setRoot("profil");
+    }
 }
