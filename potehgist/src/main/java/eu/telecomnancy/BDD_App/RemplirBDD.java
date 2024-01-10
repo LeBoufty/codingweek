@@ -21,6 +21,7 @@ public class RemplirBDD {
     public void remplir()
     {
         try {
+            String url =  CreateBDD.BDD_NAME;
             // Supprime le fichier de la BDD
             java.io.File file = new java.io.File(url);
             if (file.delete()) {
@@ -33,11 +34,22 @@ public class RemplirBDD {
             conn = DriverManager.getConnection(url);
             
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            System.out.println("e.getMessage()");
         }
 
 
         // Ajout des utilisateurs
+        ajoututilisateur("Claude La Bagarre", "Avalanche", "Claude@Migdar.ff", 100, "10000", "placeholder.png", false);
+        ajoututilisateur("JCVD", "J", "JeanClaudeVanDame@gamil.fr", 100, "30000", "placeholder.png", false);
+        ajoututilisateur("Joe Biden", "1234", "Biden@wanadoo.com", 400000000, "75000", "placeholder.png", true);
+        ajoututilisateur("Doigby", "Squeezie", "Doigby@twitch.tv", 2, "54000", "placeholder.png", false);
+        ajoututilisateur("a", "a", "a", 100, "a", "placeholder.png", true);
+        ajoututilisateur("z", "z", "z", 100, "z", "placeholder.png", true);
+
+        // Ajout des offres
+        ajoutoffre("Mercenaire à louer", 1, 77, "service", "Talents de mercenaire efficace à louer.\n Pas cher.\nNe travaille pas pour les enfants", java.time.LocalDateTime.now().toString());
+
+
 
     }
 
@@ -45,20 +57,20 @@ public class RemplirBDD {
     {
         email = Formater.format(email);
         code_postal = Formater.format(code_postal);
-        String query = "INSERT INTO utilisateurs (nom, mot_de_passe, email, argent, admin, code_postal, image_profil) VALUES (?, ?, ?, ?, ?, ?, ?);";
+        String query = "INSERT INTO utilisateurs (nom, mot_de_passe, email, argent, code_postal, image_profil,admin) VALUES (?, ?, ?, ?, ?, ?, ?);";
         try (PreparedStatement pstmt = conn.prepareStatement(query)) {
             pstmt.setString(1, nom);
             pstmt.setString(2, mdp);
             pstmt.setString(3, email);
-            pstmt.setInt(4, 0);
-            pstmt.setBoolean(5, false);
-            pstmt.setString(6, code_postal);
+            pstmt.setString(4, code_postal);
+            pstmt.setInt(5, argent);
+            pstmt.setBoolean(7, false);
             // System.out.println(getClass().getResource("/eu/telecomnancy/assets/placeholder.png").toExternalForm());
             String path = getClass().getResource("/eu/telecomnancy/assets/"+imagename).toExternalForm();
             path = path.substring(5);
             File imageFile = new File(path);
             byte[] imageData = Files.readAllBytes(imageFile.toPath());
-            pstmt.setBytes(7, imageData);
+            pstmt.setBytes(6, imageData);
             pstmt.executeUpdate();
         }
         catch (Exception e) {
@@ -168,6 +180,11 @@ public class RemplirBDD {
             System.out.println(e.getMessage());
             System.out.println("Erreur lors de l'ajout de la réclamation");
         }
+    }
+
+    public static void main(String [] args) {
+        RemplirBDD remplirbdd = new RemplirBDD();
+        remplirbdd.remplir();
     }
 
 }
