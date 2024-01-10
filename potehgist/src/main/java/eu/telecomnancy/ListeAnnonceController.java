@@ -16,15 +16,12 @@ public class ListeAnnonceController {
     private VBox annonceslayout;
 
     public void initialize() throws Exception{
-        System.out.println("ListeAnnonceController");
         List<Annonce> annonces = new ArrayList<>(annonces());
-        System.out.println(annonces);
         for (int i=0; i<annonces.size(); i++){
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("annoncelisteitem.fxml"));
 
             try{
-                System.out.println("try");
                 HBox hbox = loader.load();
                 AnnoncelisteItemController controller = loader.getController();
                 controller.setData(annonces.get(i));
