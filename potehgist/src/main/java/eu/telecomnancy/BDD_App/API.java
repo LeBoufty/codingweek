@@ -11,6 +11,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 
+import eu.telecomnancy.Model.Annonce;
+import eu.telecomnancy.Model.Annonce_Recherche;
+
 import eu.telecomnancy.Outils.Formater;
 
 public class API {
@@ -460,8 +463,65 @@ public class API {
     }
 
     public ResultSet getAnnonces() throws Exception {
-        return conn.createStatement().executeQuery("SELECT * FROM offres;");
+        return conn.createStatement().executeQuery("SELECT offres.nom as nom, offres.description as description, offres.prix as prix, offres.categorie as categorie, offres.date_depot as date, utilisateurs.code_postal  as code_postal FROM offres JOIN utilisateurs ON id_vendeur=utilisateurs.id;");
     }
+
+
+    public ArrayList<Annonce> getAnnoncesRecherche(Annonce_Recherche recherche) throws Exception {
+
+        ArrayList<Annonce> list_annonces = new ArrayList<Annonce>();
+
+        String code_postal = recherche.recherche_code_postal;
+        String date_apres = recherche.recherche_date_apres;
+        String date_avant = recherche.recherche_date_avant;
+        String text = recherche.recherche_text;
+        boolean materiel = recherche.recherche_materiel;
+        boolean service = recherche.recherche_service;
+        int florin_min = recherche.recherche_florin_min;
+        int florin_max = recherche.recherche_florin_max;
+        int note_min = recherche.recherche_note_min;
+
+        String query = "SELECT * FROM offres WHERE ";
+        if (!code_postal.equals("")) {
+            query += " id_vendeur IN (SELECT id FROM utilisateurs WHERE code_postal = '" + code_postal + "') AND ";
+        }
+        if (!date_apres.equals("")) {
+            query += "date_depot >= '" + date_apres + "' AND ";
+        }
+        if (!date_avant.equals("")) {
+            query += "date_depot <= '" + date_avant + "' AND ";
+        }
+        if (!text.equals("")) {
+            query += "nom LIKE '%" + text + "%' AND ";
+        }
+        if (materiel && !service) {
+            query += "categorie = 'materiel' AND ";
+        }
+        if (!materiel && service) {
+            query += "categorie = 'service' AND ";
+        }
+        if (florin_min != -1) {
+            query += "prix >= " + florin_min + " AND ";
+        }
+        if (florin_max != -1) {
+            query += "prix <= " + florin_max + " AND ";
+        }
+        if (note_min != -1) { // fait la moyenne des notes de l'utilisateur : si la moyenne est inférieure à note_min, on ne renvoie pas l'annonce
+            query += "id_vendeur IN (SELECT id_vendeur FROM offres JOIN evaluations ON offres.id = evaluations.id_offre GROUP BY id_vendeur HAVING AVG(valeur_evaluation) >= " + note_min + ") AND ";
+        }
+        query += "1=1";
+        query += " ORDER BY date_depot DESC;";
+
+        System.out.println(query);
+        ResultSet rs = conn.createStatement().executeQuery(query);
+        while (rs.next()) {
+            Annonce annonce = new Annonce(rs.getInt("id"));
+            list_annonces.add(annonce);
+        }
+        
+        return list_annonces;
+    }
+
     public int getmessagewriter(String message, int iduser1, int iduser2)
     {
         try {
@@ -556,6 +616,11 @@ public class API {
             return (Boolean) null;
         }
     }
+
+    public ResultSet getReservations(int iduser) throws Exception {
+        return conn.createStatement().executeQuery("SELECT * FROM plannings_reservations WHERE id_utilisateur = " + iduser + ";");
+    }
+    
 
 }
 
