@@ -8,13 +8,13 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 
 import eu.telecomnancy.Model.Annonce;
 import eu.telecomnancy.Model.Annonce_Recherche;
 import eu.telecomnancy.Outils.Formater;
-import java.time.Instant;
 
 public class API {
     private static API instance = null;
@@ -164,6 +164,15 @@ public class API {
     public int getMaxReservationID() {
         try {
             ResultSet rs = conn.createStatement().executeQuery("SELECT MAX(id) FROM plannings_reservations;");
+            return rs.getInt(1);
+        } catch (Exception e) {
+            return 0;
+        }
+    }
+
+    public int getMaxNotificationID() {
+        try {
+            ResultSet rs = conn.createStatement().executeQuery("SELECT MAX(id) FROM notifications;");
             return rs.getInt(1);
         } catch (Exception e) {
             return 0;
@@ -341,6 +350,20 @@ public class API {
         }
     }
 
+    public String[] getNotifInfos(int id) {
+        try {
+            ResultSet rs = conn.createStatement().executeQuery("SELECT id_utilisateur, message, date, vue FROM notifications WHERE id = " + id + ";");
+            String[] infos = new String[4];
+            infos[0] = rs.getString(1);
+            infos[1] = rs.getString(2);
+            infos[2] = rs.getString(3);
+            infos[3] = rs.getString(4);
+            return infos;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
     public void getImageAnnonce(int annonce_id) throws Exception {
         ResultSet rs = conn.createStatement().executeQuery("SELECT photo FROM offres WHERE id = " + annonce_id + ";");
         byte[] imageBytes = rs.getBytes(1);
@@ -372,6 +395,11 @@ public class API {
         nom = Formater.format(nom);
         description = Formater.format(description);
         conn.createStatement().execute("UPDATE offres SET nom = '" + nom + "', description = '" + description + "', prix = " + prix + ", categorie = '" + categorie + "' WHERE id = " + id + ";");
+    }
+
+    public void updateNotif(int id, int id_utilisateur, String description, int date, boolean vue) throws Exception {
+        description = Formater.format(description);
+        conn.createStatement().execute("UPDATE notifications SET id_utilisateur = '" + id_utilisateur + "', message = '" + description + "', date = " + date + ", vue = '" + vue + "' WHERE id = " + id + ";");
     }
 
     public String[] getmessages(int iduser1,int iduser2, int page)
@@ -626,7 +654,7 @@ public class API {
     public void addnotif(int iduser, String message)
     {
         try {
-            conn.createStatement().execute("INSERT INTO notifications (id_utilisateur, message, date, vue) VALUES (" + iduser + ", '" + message + "', strftime('%Y-%m-%d %H:%M:%S', datetime('now')), false);");
+            conn.createStatement().execute("INSERT INTO notifications (id_utilisateur, message, date, vue) VALUES (" + iduser + ", '" + message + "', "+(int)Instant.now().getEpochSecond()+", false);");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -654,6 +682,11 @@ public class API {
 
     public ResultSet getReservations(int iduser) throws Exception {
         return conn.createStatement().executeQuery("SELECT * FROM plannings_reservations WHERE id_utilisateur = " + iduser + ";");
+        
+    }
+
+    public ResultSet getNotif(int iduser) throws Exception {
+        return conn.createStatement().executeQuery("SELECT * FROM notifications WHERE id_utilisateur = " + iduser + ";");
         
     }
 
