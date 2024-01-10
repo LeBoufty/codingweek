@@ -206,7 +206,7 @@ Button,
 }
 
 .buttontransparent {
-  -fx-background-color: -transparent;
+  -fx-background-color: -secondary-background-color;
 }
 
 Button:hover,
