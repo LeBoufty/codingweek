@@ -13,14 +13,7 @@ public class Annonce_Recherche {
     public int recherche_note_min;
 
     public Annonce_Recherche() {
-        this.recherche_text = "";
-        this.recherche_code_postal = "";
-        this.recherche_date_apres = "";
-        this.recherche_date_avant = "";
-        this.recherche_materiel = true;
-        this.recherche_service = true;
-        this.recherche_florin_min = -1;
-        this.recherche_florin_max = -1;
+        setDefault();
     }
 
     public void setDefault() {
@@ -32,6 +25,7 @@ public class Annonce_Recherche {
         this.recherche_service = true;
         this.recherche_florin_min = -1;
         this.recherche_florin_max = -1;
+        this.recherche_note_min = -1;
     }
 
 }

@@ -94,6 +94,10 @@ public class App extends Application {
         return page_annonce;
     }
 
+    public static void setRecherche(Annonce_Recherche recherche) {
+        annonce_recherche = recherche;
+    }
+
     public static void main(String[] args) {
         launch(args);
     }

@@ -1,5 +1,6 @@
 package eu.telecomnancy;
 
+import eu.telecomnancy.Model.Annonce_Recherche;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
@@ -45,9 +46,24 @@ public class RechercheAnnoncesController {
                 + recherche_materiel.isSelected() + " recherche_service: " + recherche_service.isSelected()
                 + " recherche_florin_min: " + recherche_florin_min.getText() + " recherche_florin_max: "
                 + recherche_florin_max.getText());
-        
-        
-        //App.setAnnonce_recherche(annonce_recherche.getText(), recherche_code_postal.getText(), recherche_date_apres.getValue(), recherche_date_avant.getValue(), recherche_materiel.isSelected(), recherche_service.isSelected(), recherche_florin_min.getText(), recherche_florin_max.getText());
+
+        Annonce_Recherche recherche = new Annonce_Recherche();
+        recherche.recherche_text = annonce_recherche.getText();
+        recherche.recherche_code_postal = recherche_code_postal.getText();
+        recherche.recherche_date_apres = recherche_date_apres.getValue().toString();
+        recherche.recherche_date_avant = recherche_date_avant.getValue().toString();
+        recherche.recherche_materiel = recherche_materiel.isSelected();
+        recherche.recherche_service = recherche_service.isSelected();
+        recherche.recherche_florin_min = Integer.parseInt(recherche_florin_min.getText());
+        recherche.recherche_florin_max = Integer.parseInt(recherche_florin_max.getText());
+        recherche.recherche_note_min = (int) recherche_note_min.getValue(); 
+        App.setRecherche(recherche);
+        App.setTypeRecherche(TypeRecherche.ALL);
+        try {
+            App.setRoot("liste_annonces");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }

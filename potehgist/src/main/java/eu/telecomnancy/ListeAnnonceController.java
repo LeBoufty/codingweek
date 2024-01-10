@@ -46,17 +46,22 @@ public class ListeAnnonceController {
     }
 
     private List<Annonce> annonces() throws Exception{
+        
         List<Annonce> annonces = new ArrayList<>();
-        ResultSet resultSet = API.getInstance().getAnnonces();
 
-        while (resultSet.next()) {
-            Annonce annonce = new Annonce();
-            annonce.setDescription(resultSet.getString("description"));
-            annonce.setTitre(resultSet.getString("nom"));
-            annonce.setPrix(resultSet.getInt("prix"));
+        // ResultSet resultSet = API.getInstance().getAnnonces();
 
-            annonces.add(annonce);
-        }
+        // while (resultSet.next()) {
+        //     Annonce annonce = new Annonce(resultSet.getInt("id"));
+        //     // annonce.setDescription(resultSet.getString("description"));
+        //     // annonce.setTitre(resultSet.getString("nom"));
+        //     // annonce.setPrix(resultSet.getInt("prix"));
+
+        //     annonces.add(annonce);
+        // }
+        
+        annonces = API.getInstance().getAnnoncesRecherche(App.annonce_recherche);
+
         return annonces;
     }
 }

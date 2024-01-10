@@ -477,11 +477,14 @@ public class API {
         if (note_min != -1) { // fait la moyenne des notes de l'utilisateur : si la moyenne est inférieure à note_min, on ne renvoie pas l'annonce
             query += "id_vendeur IN (SELECT id_vendeur FROM offres JOIN evaluations ON offres.id = evaluations.id_offre GROUP BY id_vendeur HAVING AVG(valeur_evaluation) >= " + note_min + ") AND ";
         }
-        query += "1=1;";
+        query += "1=1";
+        query += " ORDER BY date_depot DESC;";
+
         System.out.println(query);
         ResultSet rs = conn.createStatement().executeQuery(query);
         while (rs.next()) {
-            Annonce annonce = new Annonce();
+            Annonce annonce = new Annonce(rs.getInt("id"));
+            list_annonces.add(annonce);
         }
         
         return list_annonces;
