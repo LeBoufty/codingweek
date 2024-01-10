@@ -37,13 +37,13 @@
                         </Label>
                         <ChoiceBox fx:id="type_planning" prefWidth="150.0" />
                         <Pane prefHeight="36.0" prefWidth="35.0" />
-                        <Button fx:id="button_planning_select" mnemonicParsing="false" prefHeight="36.0" prefWidth="205.0" text="Sélecitonner le planning" />
+                        <Button fx:id="button_planning_select" mnemonicParsing="false" onAction="#select_planning_action" prefHeight="36.0" prefWidth="205.0" text="Sélecitonner le planning" />
                      </children>
                   </HBox>
                   <Pane prefHeight="8.0" prefWidth="1160.0" />
                   <ScrollPane prefHeight="476.0" prefWidth="1160.0">
                      <content>
-                        <VBox fx:id="layout_planning_service" prefHeight="200.0" prefWidth="100.0" styleClass="darkbg" />
+                        <VBox fx:id="layout_planning_service" styleClass="darkbg" />
                      </content>
                   </ScrollPane>
                   <Pane prefHeight="36.0" prefWidth="1160.0" />
