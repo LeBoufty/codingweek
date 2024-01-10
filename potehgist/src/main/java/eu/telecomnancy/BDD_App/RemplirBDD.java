@@ -39,12 +39,12 @@ public class RemplirBDD {
 
 
         // Ajout des utilisateurs
-        ajoututilisateur("Claude La Bagarre", "Avalanche", "Claude@Migdar.ff", 100, "10000", "placeholder.png", false);
-        ajoututilisateur("JCVD", "J", "JeanClaudeVanDame@gamil.fr", 100, "30000", "placeholder.png", false);
-        ajoututilisateur("Joe Biden", "1234", "Biden@wanadoo.com", 400000000, "75000", "placeholder.png", true);
-        ajoututilisateur("Doigby", "Squeezie", "Doigby@twitch.tv", 2, "54000", "placeholder.png", false);
-        ajoututilisateur("a", "a", "a", 100, "a", "placeholder.png", true);
-        ajoututilisateur("z", "z", "z", 100, "z", "placeholder.png", true);
+        //ajoututilisateur("Claude La Bagarre", "Avalanche", "Claude@Migdar.ff", 100, "10000", "placeholder.png", false);
+        //ajoututilisateur("JCVD", "J", "JeanClaudeVanDame@gamil.fr", 100, "30000", "placeholder.png", false);
+        //ajoututilisateur("Joe Biden", "1234", "Biden@wanadoo.com", 400000000, "75000", "placeholder.png", true);
+        //ajoututilisateur("Doigby", "Squeezie", "Doigby@twitch.tv", 2, "54000", "placeholder.png", false);
+        //ajoututilisateur("a", "a", "a", 100, "a", "placeholder.png", true);
+        //ajoututilisateur("z", "z", "z", 100, "z", "placeholder.png", true);
 
         // Ajout des offres
         try {
@@ -99,7 +99,7 @@ public class RemplirBDD {
         API.getInstance().addmessage(4, 1, "A+");
 
         // Ajout des réservations
-        API.getInstance().addreservation(1, 1, 1, 1, 2021, 1, 1, 1, 1, 2021, 1, 1);
+        //API.getInstance().addreservation(1, 1, 1, 1, 2021, 1, 1, 1, 1, 2021, 1, 1);
 
         
 

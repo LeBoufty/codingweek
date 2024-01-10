@@ -624,7 +624,7 @@ public class API {
     public void addreservation(int iduser1,int idoffre ,String message)
     {
         try {
-            conn.createStatement().execute("INSERT INTO plannings_reservations (id_utilisateur_envoie,id_utilisateur_recoit,message,date_envoi) VALUES (" + iduser1 + "," + iduser2 + ",'" + message + "', strftime('%Y-%m-%d %H:%M:%S', datetime('now')));");
+            conn.createStatement().execute("INSERT INTO plannings_reservations (id_utilisateur_envoie,id_utilisateur_recoit,message,date_envoi) VALUES (" + iduser1 + "," + idoffre + ",'" + message + "', strftime('%Y-%m-%d %H:%M:%S', datetime('now')));");
         } catch (Exception e) {
             System.out.println(e.getMessage());
 
