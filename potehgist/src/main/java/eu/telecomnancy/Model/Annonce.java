@@ -11,10 +11,11 @@ public class Annonce {
     private Utilisateur vendeur;
     private String categorie;
     private String date_depot;
+    private String code_postal;
     private static int maxid = API.getInstance().getMaxOffreID();
 
 
-    public Annonce(String titre, String description, Integer prix, String ImgSrc, Utilisateur vendeur, String categorie, String date_depot) {
+    public Annonce(String titre, String description, Integer prix, String ImgSrc, Utilisateur vendeur, String categorie, String date_depot, String code_postal) {
         this.titre = titre;
         this.description = description;
         this.prix = prix;
@@ -25,6 +26,10 @@ public class Annonce {
         this.date_depot = date_depot;
     }
 
+    public Annonce(){
+
+    }
+
     public Annonce(int id) {
         String[] infos = API.getInstance().getOffreInfos(id);
         this.titre = infos[0];
@@ -33,6 +38,7 @@ public class Annonce {
         this.categorie = infos[3];
         this.description = infos[4];
         this.date_depot = infos[5];
+        this.code_postal = vendeur.getCode_postal();
     }
 
     public void save() {
