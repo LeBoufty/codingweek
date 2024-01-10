@@ -152,6 +152,15 @@ public class API {
         }
     }
 
+    public int getMaxOffreID() {
+        try {
+            ResultSet rs = conn.createStatement().executeQuery("SELECT MAX(id) FROM offres;");
+            return rs.getInt(1);
+        } catch (Exception e) {
+            return 0;
+        }
+    }
+
     public void addUser(String username, String password, String email, String code_postal) throws Exception {
         email = Formater.format(email);
         code_postal = Formater.format(code_postal);
@@ -187,6 +196,15 @@ public class API {
         outputpath = outputpath.substring(5);
         
         Files.write(new File(outputpath).toPath(), imageBytes);
+    }
+
+    public ArrayList<Integer> getOffresFromUser(int userid) throws Exception {
+        ResultSet rs = conn.createStatement().executeQuery("SELECT id FROM offres WHERE id_vendeur = " + userid + ";");
+        ArrayList<Integer> offres = new ArrayList<Integer>();
+        while (rs.next()) {
+            offres.add(rs.getInt(1));
+        }
+        return offres;
     }
 
     public boolean usernamePris(String username) throws Exception {
@@ -262,6 +280,28 @@ public class API {
         } catch (Exception e) {
             return null;
         }
+    }
+
+    public String[] getOffreInfos(int id) {
+        try {
+            ResultSet rs = conn.createStatement().executeQuery("SELECT nom, id_vendeur, prix, categorie, description, date_depot FROM offres WHERE id = " + id + ";");
+            String[] infos = new String[6];
+            infos[0] = rs.getString(1);
+            infos[1] = rs.getString(2);
+            infos[2] = rs.getString(3);
+            infos[3] = rs.getString(4);
+            infos[4] = rs.getString(5);
+            infos[5] = rs.getString(6);
+            return infos;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public void updateOffre(int id, String nom, String description, int prix, String categorie) throws Exception {
+        nom = Formater.format(nom);
+        description = Formater.format(description);
+        conn.createStatement().execute("UPDATE offres SET nom = '" + nom + "', description = '" + description + "', prix = " + prix + ", categorie = '" + categorie + "' WHERE id = " + id + ";");
     }
 
     public String[] getmessages(int iduser1,int iduser2, int page)

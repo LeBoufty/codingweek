@@ -148,6 +148,7 @@ public class HubController {
 
     @FXML
     private void liste_annonce() throws IOException {
+        App.setTypeRecherche(TypeRecherche.ALL);
         App.setRoot("listeannonce");
     }
 
