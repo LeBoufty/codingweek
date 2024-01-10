@@ -64,7 +64,12 @@ public class CreationAnnonce_Planning_Service {
             try {
                 loader.setLocation(getClass().getResource("element_planing_ponctuel.fxml"));
                 HBox hbox = loader.load();
+                element_planing_ponctuelController controllerr = loader.getController();
+                controllerr.setParent_controller(this);
+
+                
                 layout_planning_service.getChildren().add(hbox);
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -92,7 +97,10 @@ public class CreationAnnonce_Planning_Service {
         }
     }
 
-
+    public void notif_sup(int numero) {
+        System.out.println("Notif sup" + numero);
+        layout_planning_service.getChildren().remove(numero);
+    }
 
 
 }

@@ -5,9 +5,11 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
@@ -39,10 +41,16 @@
                   <RowConstraints minHeight="30.0" prefHeight="50.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="30.0" prefHeight="50.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="30.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="30.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="30.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="128.0" minHeight="30.0" prefHeight="127.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="92.0" minHeight="30.0" prefHeight="45.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="75.0" minHeight="30.0" prefHeight="70.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
+                  <Label prefHeight="118.0" prefWidth="520.0" styleClass="title" text="Création d'annonce" GridPane.columnIndex="1">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
                   <Label styleClass="smalltitle" text="Nom de l'annonce" GridPane.rowIndex="1" />
                   <TextField fx:id="name" promptText="Nom de l'annonce" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <font>
@@ -56,14 +64,20 @@
                   <Label styleClass="smalltitle" text="Catégorie" GridPane.rowIndex="3" />
                   <ChoiceBox fx:id="categorie" prefWidth="150.0" style="-fx-font-size: 20;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   <Label styleClass="smalltitle" text="Description" GridPane.rowIndex="4" />
-                  <TextArea fx:id="Description" prefHeight="151.0" prefWidth="300.0" promptText="Description...." GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-                  <Button mnemonicParsing="false" onAction="#create" prefHeight="58.0" prefWidth="278.0" style="-fx-font-size: 20;" text="Suivant" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
-                  <Label prefHeight="118.0" prefWidth="520.0" styleClass="title" text="Création d'annonce" GridPane.columnIndex="1">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <VBox prefHeight="200.0" prefWidth="100.0" />
+                  <TextArea fx:id="Description" prefHeight="151.0" prefWidth="300.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                  <Label styleClass="smalltitle" text="Image" GridPane.rowIndex="5" />
+                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                     <children>
+                        <VBox prefHeight="69.0" prefWidth="184.0">
+                           <children>
+                              <Pane prefHeight="15.0" prefWidth="184.0" />
+                              <Button mnemonicParsing="false" onAction="#uploadImage" text="Téléverser une image" />
+                           </children>
+                        </VBox>
+                        <ImageView fx:id="imageView" fitHeight="66.0" fitWidth="343.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="NEVER" />
+                     </children>
+                  </HBox>
+                  <Button mnemonicParsing="false" onAction="#create" prefHeight="58.0" prefWidth="278.0" style="-fx-font-size: 20;" text="Suivant" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
                </children>
             </GridPane>
          </center>

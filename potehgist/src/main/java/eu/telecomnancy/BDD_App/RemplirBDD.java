@@ -8,10 +8,6 @@ import java.time.Instant;
 
 import eu.telecomnancy.Model.Utilisateur;
 
-
-
-
-
 public class RemplirBDD {
     
     private Connection conn;

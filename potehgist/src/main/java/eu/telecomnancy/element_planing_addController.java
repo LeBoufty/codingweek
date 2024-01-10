@@ -15,8 +15,6 @@ public class element_planing_addController {
     @FXML
     private HBox box;
 
-
-
     @FXML
     void maximum(ActionEvent event) {
         parent_controller.notif_add();

@@ -235,6 +235,35 @@ public class API {
         return rs.getInt(1)!=0;
     }
 
+    public void addOffre(String nom, String description, int prix, int vendeur, String categorie, byte[] photo) throws Exception {
+        nom = Formater.format(nom);
+        description = Formater.format(description);
+    
+        // Insert basic information into the database
+        String insertInfoSQL = "INSERT INTO offres (nom, description, prix, id_vendeur, categorie, date_depot) VALUES (?, ?, ?, ?, ?, ?)";
+        try (PreparedStatement preparedStatementInfo = conn.prepareStatement(insertInfoSQL)) {
+            preparedStatementInfo.setString(1, nom);
+            preparedStatementInfo.setString(2, description);
+            preparedStatementInfo.setInt(3, prix);
+            preparedStatementInfo.setInt(4, vendeur);
+            preparedStatementInfo.setString(5, categorie);
+            preparedStatementInfo.setInt(6, (int) Instant.now().getEpochSecond());
+            preparedStatementInfo.executeUpdate();
+        }
+    
+        // Get the ID of the last inserted row
+        int offreID = getMaxOffreID();
+    
+        // Insert the photo into the database using the obtained ID
+        String insertPhotoSQL = "UPDATE offres SET photo = ? WHERE id = ?";
+        try (PreparedStatement preparedStatementPhoto = conn.prepareStatement(insertPhotoSQL)) {
+            preparedStatementPhoto.setBytes(1, photo);
+            preparedStatementPhoto.setInt(2, offreID);
+            preparedStatementPhoto.executeUpdate();
+        }
+    }
+    
+
     public void addOffre(String nom, String description, int prix, int vendeur, String categorie) throws Exception {
         nom = Formater.format(nom);
         description = Formater.format(description);
@@ -490,11 +519,6 @@ public class API {
     public void resolu(int id) throws Exception {
         conn.createStatement().execute("UPDATE reclamations SET resolu = true WHERE id = " + id + ";");
     }
-
-    public ResultSet getAnnonces() throws Exception {
-        return conn.createStatement().executeQuery("SELECT offres.nom as nom, offres.description as description, offres.prix as prix, offres.categorie as categorie, offres.date_depot as date, utilisateurs.code_postal  as code_postal FROM offres JOIN utilisateurs ON id_vendeur=utilisateurs.id;");
-    }
-
 
     public ArrayList<Annonce> getAnnoncesRecherche(Annonce_Recherche recherche) throws Exception {
 
