@@ -42,8 +42,7 @@ public class ListeAnnonceController {
     }
 
     private List<Annonce> annonces() throws Exception{
-        
-        List<Annonce> annonces = new ArrayList<>();        
+        List<Annonce> annonces = new ArrayList<>();
         annonces = API.getInstance().getAnnoncesRecherche(App.annonce_recherche);
 
         return annonces;

@@ -20,6 +20,31 @@ public class Formater {
         return s.replaceAll("'", "''");
     }
 
+    public static String addNewlines(String s, int n) {
+        StringBuilder sb = new StringBuilder(s);
+        int i = 0;
+        int index = 0;
+        int lastspace = -1;
+        for (char c : sb.toString().toCharArray()) {
+            if (c == '\n') {
+                i = 0;
+            }
+            if (c == ' ') {
+                lastspace = index;
+            }
+            if (++i % n == 0) {
+                if (lastspace != -1) {
+                    sb.setCharAt(lastspace, '\n');
+                    lastspace = -1;
+                } else {
+                    sb.insert(index, '\n');
+                }
+            }
+            index++;
+        }
+        return sb.toString();
+    }
+
     public static String hash(String s) {
         MessageDigest digest;
         try {
