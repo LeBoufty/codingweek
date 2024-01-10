@@ -14,9 +14,9 @@
             <HBox prefHeight="150.0" prefWidth="1099.0">
                <children>
                   <ImageView fx:id="img" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-                  <VBox prefHeight="150.0" prefWidth="709.0" styleClass="article-content">
+                  <VBox prefHeight="150.0" prefWidth="666.0" styleClass="article-content">
                      <children>
-                        <Label fx:id="title" alignment="TOP_LEFT" prefHeight="59.0" prefWidth="254.0" styleClass="title" text="Title">
+                        <Label fx:id="title" alignment="TOP_LEFT" prefHeight="70.0" prefWidth="674.0" styleClass="title" text="Title">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -29,7 +29,7 @@
                      <children>
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Label fx:id="price" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="101.0" prefWidth="138.0" styleClass="title" text="Prix" />
+                              <Label fx:id="price" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="95.0" prefWidth="187.0" styleClass="title" text="Prix" />
                               <Label prefHeight="95.0" prefWidth="56.0" styleClass="title" text="₣" />
                               <Label fx:id="idannonce" prefHeight="18.0" prefWidth="9.0" text="Label" visible="false" />
                            </children>
