@@ -39,7 +39,11 @@ public class RemplirBDD {
 
         // Ajout des utilisateurs
         try {
-            Utilisateur u =new Utilisateur("Claude La Bagarre","Avalanche","Claude@Midgar.ff","54000");
+
+            Utilisateur u = new Utilisateur("a", "a","a", "a");
+            u.saveAsNew();
+            
+            u =new Utilisateur("Claude La Bagarre","Avalanche","Claude@Midgar.ff","54000");
             u.saveAsNew();
 
             
@@ -53,9 +57,6 @@ public class RemplirBDD {
             u.saveAsNew();
 
             u = new Utilisateur("Doigby", "Squeezie","Doigby@twitch.tv", "54000");
-            u.saveAsNew();
-
-            u = new Utilisateur("a", "a","a", "a");
             u.saveAsNew();
 
             u = new Utilisateur("z", "z","z", "z");

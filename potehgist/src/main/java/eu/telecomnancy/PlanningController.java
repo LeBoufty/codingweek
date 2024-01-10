@@ -3,7 +3,6 @@ package eu.telecomnancy;
 import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import eu.telecomnancy.BDD_App.API;
@@ -89,7 +88,7 @@ public class PlanningController {
         jour5.setText(dates[4].toString());
         jour6.setText(dates[5].toString());
         jour7.setText(dates[6].toString());
-        List<Reservation> resa = new ArrayList<>(Reservation());
+        List<Reservation> resa = Reservation();
         System.out.println(resa);
         for (int i=0; i<resa.size(); i++){
             mettredansleplanning(resa.get(i));
@@ -98,14 +97,17 @@ public class PlanningController {
 
     private void mettredansleplanning(Reservation resa)
     {
-        Date[] DatesFormatees = new Date[7]; 
-        Date datedebut = resa.getDate_debut();
-        Date datefin = resa.getDate_fin();
+        int[] DatesFormatees = new int[7]; 
+        int datedebut = resa.getDate_debut();
+        int datefin = resa.getDate_fin();
         for(int i=0;i<7;i++)
         {
-            DatesFormatees[i]=Date.from(dates[i].atStartOfDay().toInstant(null));
+            DatesFormatees[i]=dates[i].getYear()*10000+dates[i].getMonthValue()*100+dates[i].getDayOfMonth();
         }
-        if(datedebut.compareTo(DatesFormatees[0])>=0 && datefin.compareTo(DatesFormatees[0])<=0)
+        System.out.println(DatesFormatees);
+        System.out.println(datedebut);
+        System.out.println(datefin);
+        if(datedebut<=DatesFormatees[0] && datefin>=DatesFormatees[0])
         {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("reservationlisteitem.fxml"));
@@ -120,7 +122,7 @@ public class PlanningController {
                 e.printStackTrace();
             }
         }
-        if(datedebut.compareTo(DatesFormatees[1])>=0 && datefin.compareTo(DatesFormatees[1])<=0)
+        if(datedebut<=DatesFormatees[1] && datefin>=DatesFormatees[1])
         {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("reservationlisteitem.fxml"));
@@ -135,7 +137,7 @@ public class PlanningController {
                 e.printStackTrace();
             }
         }
-        if(datedebut.compareTo(DatesFormatees[2])>=0 && datefin.compareTo(DatesFormatees[2])<=0)
+        if(datedebut<=DatesFormatees[2] && datefin>=DatesFormatees[2])
         {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("reservationlisteitem.fxml"));
@@ -150,7 +152,7 @@ public class PlanningController {
                 e.printStackTrace();
             }
         }
-        if(datedebut.compareTo(DatesFormatees[3])>=0 && datefin.compareTo(DatesFormatees[3])<=0)
+        if(datedebut<=DatesFormatees[3] && datefin>=DatesFormatees[3])
         {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("reservationlisteitem.fxml"));
@@ -165,7 +167,7 @@ public class PlanningController {
                 e.printStackTrace();
             }
         }
-        if(datedebut.compareTo(DatesFormatees[4])>=0 && datefin.compareTo(DatesFormatees[4])<=0)
+        if(datedebut<=DatesFormatees[4] && datefin>=DatesFormatees[4])
         {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("reservationlisteitem.fxml"));
@@ -180,7 +182,7 @@ public class PlanningController {
                 e.printStackTrace();
             }
         }
-        if(datedebut.compareTo(DatesFormatees[5])>=0 && datefin.compareTo(DatesFormatees[5])<=0)
+        if(datedebut<=DatesFormatees[5] && datefin>=DatesFormatees[5])
         {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("reservationlisteitem.fxml"));
@@ -195,7 +197,7 @@ public class PlanningController {
                 e.printStackTrace();
             }
         }
-        if(datedebut.compareTo(DatesFormatees[6])>=0 && datefin.compareTo(DatesFormatees[6])<=0)
+        if(datedebut<=DatesFormatees[6] && datefin>=DatesFormatees[6])
         {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("reservationlisteitem.fxml"));
@@ -215,7 +217,7 @@ public class PlanningController {
     private List<Reservation> Reservation() throws Exception{
         List<Reservation> reservations = new ArrayList<>();
         ResultSet resultSet = API.getInstance().getReservations(App.getUser().getId());
-
+        System.out.println(resultSet);
         while (resultSet.next()) {
             Reservation resa = new Reservation(resultSet.getInt("id"));
 

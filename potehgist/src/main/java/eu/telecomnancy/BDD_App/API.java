@@ -310,14 +310,14 @@ public class API {
         }
     }
 
-    public String[] getReservationInfos(int id) {
+    public int[] getReservationInfos(int id) {
         try {
             ResultSet rs = conn.createStatement().executeQuery("SELECT id_utilisateur, id_offre, date_debut, date_fin FROM plannings_reservations WHERE id = " + id + ";");
-            String[] infos = new String[4];
-            infos[0] = rs.getString(1);
-            infos[1] = rs.getString(2);
-            infos[2] = rs.getString(3);
-            infos[3] = rs.getString(4);
+            int[] infos = new int[4];
+            infos[0] = rs.getInt(1);
+            infos[1] = rs.getInt(2);
+            infos[2] = rs.getInt(3);
+            infos[3] = rs.getInt(4);
             return infos;
         } catch (Exception e) {
             return null;
@@ -622,16 +622,26 @@ public class API {
         
     }
 
-    public void addreservation(int id_utilisateur, int id_offre, java.sql.Date date_debut, java.sql.Date date_fin)
-    {
+    public void addreservation(int id_utilisateur, int id_offre, java.sql.Date date_debut, java.sql.Date date_fin) {
         try {
-            conn.createStatement().execute("INSERT INTO plannings_reservations (id_utilisateur,id_offre,date_debut,date_fin) VALUES (" + id_utilisateur+ "," + id_offre + "," + date_debut + ", "+ date_fin+" ;");
+            String query = "INSERT INTO plannings_reservations (id_utilisateur, id_offre, date_debut, date_fin) VALUES (?, ?, ?, ?)";
+            PreparedStatement preparedStatement = conn.prepareStatement(query);
+    
+            preparedStatement.setInt(1, id_utilisateur);
+            preparedStatement.setInt(2, id_offre);
+            preparedStatement.setDate(3, date_debut);
+            preparedStatement.setDate(4, date_fin);
+    
+            preparedStatement.execute();
+            preparedStatement.close();
         } catch (Exception e) {
             System.out.println(e.getMessage());
-
         }
     }
     
-
 }
+
+
+    
+
 
