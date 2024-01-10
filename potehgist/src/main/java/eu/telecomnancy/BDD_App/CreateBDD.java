@@ -39,12 +39,9 @@ public class CreateBDD {
                         + "	id integer PRIMARY KEY AUTOINCREMENT,\n"
                         + "	id_vendeur integer NOT NULL,\n"
                         + "	prix integer NOT NULL,\n"
-                        + " categorie text NOT NULL,\n" // service ou matériel
-                        + " description text,\n"
-                        + " date_depot int NOT NULL,\n"
                         + "     categorie text NOT NULL,\n" // service ou matériel
                         + "     description text,\n"
-                        + "     date_depot datetime NOT NULL,\n"
+                        + "     date_depot int NOT NULL,\n"
                         + "     photo blob NOT NULL,\n"
                         + "	FOREIGN KEY(id_vendeur) REFERENCES utilisateurs(id)\n"
                         + ");";

@@ -231,13 +231,14 @@ public class API {
         description = Formater.format(description);
     
         // Insert basic information into the database
-        String insertInfoSQL = "INSERT INTO offres (nom, description, prix, id_vendeur, categorie, date_depot) VALUES (?, ?, ?, ?, ?, strftime('%Y-%m-%d %H:%M:%S', datetime('now')))";
+        String insertInfoSQL = "INSERT INTO offres (nom, description, prix, id_vendeur, categorie, date_depot) VALUES (?, ?, ?, ?, ?, ?)";
         try (PreparedStatement preparedStatementInfo = conn.prepareStatement(insertInfoSQL)) {
             preparedStatementInfo.setString(1, nom);
             preparedStatementInfo.setString(2, description);
             preparedStatementInfo.setInt(3, prix);
             preparedStatementInfo.setInt(4, vendeur);
             preparedStatementInfo.setString(5, categorie);
+            preparedStatementInfo.setInt(6, (int) Instant.now().getEpochSecond());
             preparedStatementInfo.executeUpdate();
         }
     
