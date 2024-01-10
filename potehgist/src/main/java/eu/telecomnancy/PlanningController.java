@@ -7,9 +7,7 @@ import java.util.Date;
 import java.util.List;
 
 import eu.telecomnancy.BDD_App.API;
-import eu.telecomnancy.Model.Annonce;
 import eu.telecomnancy.Model.Reservation;
-import eu.telecomnancy.Model.Utilisateur;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;

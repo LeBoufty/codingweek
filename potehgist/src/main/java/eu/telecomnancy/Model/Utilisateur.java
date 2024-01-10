@@ -1,6 +1,5 @@
 package eu.telecomnancy.Model;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import eu.telecomnancy.BDD_App.API;
