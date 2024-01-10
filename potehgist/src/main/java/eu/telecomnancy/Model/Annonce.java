@@ -24,6 +24,7 @@ public class Annonce {
         this.vendeur = vendeur;
         this.categorie = categorie;
         this.date_depot = date_depot;
+        this.code_postal = code_postal;
     }
 
     public Annonce(){
@@ -32,6 +33,7 @@ public class Annonce {
 
     public Annonce(int id) {
         String[] infos = API.getInstance().getOffreInfos(id);
+        this.id = id;
         this.titre = infos[0];
         this.vendeur = new Utilisateur(Integer.parseInt(infos[1]));
         this.prix = Integer.parseInt(infos[2]);
