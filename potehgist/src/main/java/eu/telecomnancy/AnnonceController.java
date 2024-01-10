@@ -44,9 +44,9 @@ public class AnnonceController {
         categorie.setText(annonce.getCategorie());
         date_depot.setText(annonce.getDate_depot());
         code_postal.setText(annonce.getCode_postal());
-        
+
         API.getInstance().getImageAnnonce(annonce.getId());
         Image image = new Image(getClass().getResource("/eu/telecomnancy/assets/annonce_image.png").toExternalForm());
-        annonce_img.setImage(image);        
+        annonce_img.setImage(image);
     }
 }
