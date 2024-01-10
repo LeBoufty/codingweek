@@ -242,4 +242,8 @@ public class PlanningController {
         initialize();
     }
     
+    @FXML
+    private void retour() throws Exception {
+        App.setRoot("profil");
+    }
 }
