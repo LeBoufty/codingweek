@@ -29,17 +29,17 @@
    <right>
       <HBox prefHeight="35.0" prefWidth="62.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" onAction="#searchButton">
+            <Button blendMode="SRC_ATOP" cache="true" cacheShape="false" centerShape="false" contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" onAction="#searchButton" scaleShape="false" style="&#10;        -fx-background-color: transparent;&#10;      " textAlignment="CENTER">
                <graphic>
-                  <ImageView fitHeight="31.0" fitWidth="24.0" pickOnBounds="true">
+                  <ImageView StyleClass="hdrimg" fitHeight="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@assets/loupe.png" />
                      </image>
+                     <cursor>
+                        <Cursor fx:constant="CLOSED_HAND" />
+                     </cursor>
                   </ImageView>
                </graphic>
-               <style>
-                  -fx-background-color: transparent;
-                </style>
             </Button>
             <ChoiceBox fx:id="header_burger" prefHeight="42.0" prefWidth="36.0">
                <style>
