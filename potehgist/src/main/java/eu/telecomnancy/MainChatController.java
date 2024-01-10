@@ -1,5 +1,7 @@
 package eu.telecomnancy;
 
+import java.sql.ResultSet;
+
 import eu.telecomnancy.BDD_App.API;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
@@ -33,7 +35,8 @@ public class MainChatController {
     {
         if(!nomutilisateur.getText().equals("")){
             App.setUser2(API.getInstance().getUserid(nomutilisateur.getText().toString()));
-            if(API.getInstance().getmessages(App.getUser2id(), App.getUser().getId(), 1)[0]!=null){
+            ResultSet messages = API.getInstance().getmessages(App.getUser2id(), App.getUser().getId());
+            if(messages.next()){
                 App.setRoot("chat");
             }
             else{
@@ -44,7 +47,8 @@ public class MainChatController {
         }
         if(!Boxnom.getValue().equals(null) && !Boxnom.getValue().equals("")){
             App.setUser2(API.getInstance().getUserid(Boxnom.getValue()));
-            if(API.getInstance().getmessages(App.getUser2id(), App.getUser().getId(), 1)[0]!=null){
+            ResultSet messages = API.getInstance().getmessages(App.getUser2id(), App.getUser().getId());
+            if(messages.next()){
                 App.setRoot("chat");
             }
             else{
