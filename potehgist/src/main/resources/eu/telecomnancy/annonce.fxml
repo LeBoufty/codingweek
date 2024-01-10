@@ -42,7 +42,6 @@
                               <Label fx:id="description" alignment="TOP_LEFT" style="-fx-font-size: 16;" styleClass="discrete" text="Description" wrapText="true" /> 
                               <Label fx:id="code_postal" prefHeight="39.0" prefWidth="201.0" styleClass="discrete" text="Code postal" />
                               <Label fx:id="date_depot" prefHeight="26.0" prefWidth="201.0" styleClass="article-date" text="date depot" />
-                              <ImageView fx:id="annonce_img" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                            </children>
                         </VBox>
                      </children>
@@ -53,8 +52,8 @@
          <right>
             <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fx:id="img" fitHeight="350.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true" />
-                  <Pane prefHeight="160.0" prefWidth="163.0" />
+                  <Pane prefHeight="97.0" prefWidth="331.0" />
+                  <ImageView fx:id="annonce_img" fitHeight="331.0" fitWidth="331.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </VBox>
          </right></BorderPane>
