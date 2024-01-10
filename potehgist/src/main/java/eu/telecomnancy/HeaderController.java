@@ -40,4 +40,9 @@ public class HeaderController {
     private void homeButton() throws IOException {
         App.setRoot("hub");
     }
+
+    @FXML
+    private void searchButton() throws IOException {
+        App.setRoot("rechercheannonce");
     }
+}

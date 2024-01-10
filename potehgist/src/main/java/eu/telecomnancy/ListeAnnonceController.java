@@ -6,7 +6,6 @@ import javafx.fxml.FXML;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import java.util.List;
-import java.sql.ResultSet;
 import java.util.ArrayList;
 import javafx.fxml.FXMLLoader;
 
@@ -44,22 +43,7 @@ public class ListeAnnonceController {
 
     private List<Annonce> annonces() throws Exception{
         
-        List<Annonce> annonces = new ArrayList<>();
-
-        ResultSet resultSet = API.getInstance().getAnnonces();
-
-        while (resultSet.next()) {
-            Annonce annonce = new Annonce();
-            annonce.setDescription(resultSet.getString("description"));
-            annonce.setTitre(resultSet.getString("nom"));
-            annonce.setPrix(resultSet.getInt("prix"));
-            annonce.setCategorie(resultSet.getString("categorie"));
-            annonce.setDate_depot(resultSet.getString("date"));
-            annonce.setCode_postal(resultSet.getString("code_postal"));
-
-            annonces.add(annonce);
-        }
-        
+        List<Annonce> annonces = new ArrayList<>();        
         annonces = API.getInstance().getAnnoncesRecherche(App.annonce_recherche);
 
         return annonces;
