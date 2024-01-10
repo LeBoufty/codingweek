@@ -1,5 +1,8 @@
 package eu.telecomnancy.Model;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 import eu.telecomnancy.BDD_App.API;
 import eu.telecomnancy.Outils.Formater;
 
@@ -89,6 +92,19 @@ public class Utilisateur {
             return false;
         }
         return true;
+    }
+
+    public ArrayList<Annonce> getAnnonces() {
+        ArrayList<Annonce> annonces = new ArrayList<>();
+        try {
+            ArrayList<Integer> ids = API.getInstance().getOffresFromUser(id);
+            for (int id : ids) {
+                annonces.add(new Annonce(id));
+            }
+        } catch (Exception e) {
+            System.out.println("[DEBUG] Erreur lors de la récupération des annonces");
+        }
+        return annonces;
     }
 
     public void ajouterArgent(int montant) {

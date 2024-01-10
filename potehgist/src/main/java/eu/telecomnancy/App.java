@@ -23,6 +23,7 @@ public class App extends Application {
     public static int numpageannonce;
     private static Utilisateur user2;
     public static Annonce_Recherche annonce_recherche = new Annonce_Recherche();
+    private static TypeRecherche type_recherche = TypeRecherche.ALL;
 
 
     private static int page_annonce = 1;
@@ -40,6 +41,14 @@ public class App extends Application {
         Font.loadFont(getClass().getResource("fonts/LEMONMILKBold.otf").toExternalForm(), 10);
         stage.setScene(scene);
         stage.show();
+    }
+
+    static void setTypeRecherche(TypeRecherche type) {
+        type_recherche = type;
+    }
+
+    static TypeRecherche getTypeRecherche() {
+        return type_recherche;
     }
 
     static void setRoot(String fxml) throws IOException {

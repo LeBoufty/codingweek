@@ -17,7 +17,17 @@ public class ListeAnnonceController {
 
     public void initialize() throws Exception{
         System.out.println("ListeAnnonceController");
-        List<Annonce> annonces = new ArrayList<>(annonces());
+        List<Annonce> annonces = new ArrayList<>();
+        switch (App.getTypeRecherche()) {
+            case ALL:
+                annonces = new ArrayList<>(annonces());
+                break;
+            case MESANNONCES:
+                annonces = new ArrayList<>(App.getUser().getAnnonces());
+                break;
+            default:
+                break;
+        }
         System.out.println(annonces);
         for (int i=0; i<annonces.size(); i++){
             FXMLLoader loader = new FXMLLoader();

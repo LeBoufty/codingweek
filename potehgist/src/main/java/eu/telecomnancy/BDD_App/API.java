@@ -195,6 +195,15 @@ public class API {
         Files.write(new File(outputpath).toPath(), imageBytes);
     }
 
+    public ArrayList<Integer> getOffresFromUser(int userid) throws Exception {
+        ResultSet rs = conn.createStatement().executeQuery("SELECT id FROM offres WHERE id_vendeur = " + userid + ";");
+        ArrayList<Integer> offres = new ArrayList<Integer>();
+        while (rs.next()) {
+            offres.add(rs.getInt(1));
+        }
+        return offres;
+    }
+
     public boolean usernamePris(String username) throws Exception {
         ResultSet rs = conn.createStatement().executeQuery("SELECT COUNT(*) FROM utilisateurs WHERE nom = '" + username + "';");
         return rs.getInt(1)!=0;
