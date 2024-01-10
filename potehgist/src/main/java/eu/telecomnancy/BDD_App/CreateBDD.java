@@ -117,8 +117,8 @@ public class CreateBDD {
                         + "	id integer PRIMARY KEY AUTOINCREMENT,\n"
                         + "	id_utilisateur integer NOT NULL,\n"
                         + "     id_offre integer NOT NULL,\n"
-                        + "     date_debut int NOT NULL,\n"
-                        + "     date_fin int NOT NULL,\n"
+                        + "     date_debut integer NOT NULL,\n"
+                        + "     date_fin integer NOT NULL,\n"
                         + "	FOREIGN KEY(id_utilisateur) REFERENCES utilisateurs(id),\n"
                         + "	FOREIGN KEY(id_offre) REFERENCES offres(id)\n"
                         + ");";

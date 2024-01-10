@@ -231,7 +231,7 @@ public class API {
         conn.createStatement().execute("INSERT INTO offres (nom, description, prix, id_vendeur, categorie, date_depot) VALUES ('" + nom + "', '" + description + "', " + prix + ", " + vendeur + ", '" + categorie + "', strftime('%Y-%m-%d %H:%M:%S', datetime('now')) );");
     }
 
-    public void addReservation(int userid, int offreid, String datedebut, String datefin) throws Exception {
+    public void addReservation(int userid, int offreid, int datedebut, int datefin) throws Exception {
         conn.createStatement().execute("INSERT INTO plannings_reservations (id_utilisateur, id_offre, date_debut, date_fin) VALUES (" + userid + ", " + offreid + ", '" + datedebut + "', '" + datefin + "');");
     }
 
