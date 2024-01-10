@@ -17,7 +17,9 @@ public class ConnectController {
     // Vu que l'username peut peut-être contenir des espaces, on devrait peut-être utiliser l'email
     @FXML
     private void connect() throws Exception {
-        System.out.println(username.getText()+" "+password.getText());
+        // Non
+        //System.out.println(username.getText()+" "+password.getText());
+        
         // On vérifie si le couple username/password est valide
         if (valide(username.getText(), password.getText())) {
             // Si c'est valide on récupère l'id de l'utilisateur
