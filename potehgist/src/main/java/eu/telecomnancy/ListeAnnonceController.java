@@ -1,14 +1,13 @@
 package eu.telecomnancy;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import eu.telecomnancy.BDD_App.API;
 import eu.telecomnancy.Model.Annonce;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import java.util.List;
+import java.util.ArrayList;
+import javafx.fxml.FXMLLoader;
 
 public class ListeAnnonceController {
     
@@ -16,15 +15,22 @@ public class ListeAnnonceController {
     private VBox annonceslayout;
 
     public void initialize() throws Exception{
-        System.out.println("ListeAnnonceController");
-        List<Annonce> annonces = new ArrayList<>(annonces());
-        System.out.println(annonces);
+        List<Annonce> annonces = new ArrayList<>();
+        switch (App.getTypeRecherche()) {
+            case ALL:
+                annonces = new ArrayList<>(annonces());
+                break;
+            case MESANNONCES:
+                annonces = new ArrayList<>(App.getUser().getAnnonces());
+                break;
+            default:
+                break;
+        }
         for (int i=0; i<annonces.size(); i++){
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("annoncelisteitem.fxml"));
 
             try{
-                System.out.println("try");
                 HBox hbox = loader.load();
                 AnnoncelisteItemController controller = loader.getController();
                 controller.setData(annonces.get(i));
