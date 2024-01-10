@@ -10,17 +10,17 @@
    <children>
       <VBox prefHeight="200.0" prefWidth="100.0" styleClass="root">
          <children>
-            <Label fx:id="title" alignment="TOP_LEFT" prefHeight="59.0" prefWidth="298.0" styleClass="article-title" text="Title">
+            <Label fx:id="title" alignment="TOP_LEFT" prefHeight="0.0" prefWidth="100.0" style="-fx-font-size: 12;" styleClass="article-title" text="Title">
                <font>
                   <Font size="10.0" />
                </font>
             </Label>
-            <Label fx:id="Acheteur" alignment="TOP_LEFT" prefHeight="59.0" prefWidth="298.0" styleClass="discrete" text="Acheteur">
+            <Label fx:id="Acheteur" alignment="TOP_LEFT" prefHeight="2.0" prefWidth="100.0" styleClass="discrete" text="Acheteur">
                <font>
                   <Font size="10.0" />
                </font>
             </Label>
-            <Button mnemonicParsing="false" text="Voir" />
+            <Button mnemonicParsing="false" prefHeight="0.0" prefWidth="100.0" text="Voir" />
          </children>
       </VBox>
    </children>
