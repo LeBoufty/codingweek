@@ -38,5 +38,10 @@ public class CreationController {
             }
         }
     }
+
+    @FXML
+    private void annuler() throws Exception {
+        App.setRoot("connect");
+    }
     
 }

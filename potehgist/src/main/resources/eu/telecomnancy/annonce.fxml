@@ -39,7 +39,7 @@
                         </HBox>
                         <VBox prefHeight="504.0" prefWidth="810.0" styleClass="article-content">
                            <children>
-                              <Label fx:id="description" alignment="TOP_LEFT" styleClass="discrete" text="Description" wrapText="true" /> 
+                              <Label fx:id="description" alignment="TOP_LEFT" style="-fx-font-size: 16;" styleClass="discrete" text="Description" wrapText="true" /> 
                               <Label fx:id="code_postal" prefHeight="39.0" prefWidth="201.0" styleClass="discrete" text="Code postal" />
                               <Label fx:id="date_depot" prefHeight="26.0" prefWidth="201.0" styleClass="article-date" text="date depot" />
                            </children>
