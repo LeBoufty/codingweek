@@ -3,7 +3,6 @@ object Connexion
 object Inscription
 object HUB
 object Messagerie
-object Chat 
 object RechercheOffres
 object DepotOffres
 object ListeOffres
@@ -18,13 +17,13 @@ object Admin
 object Reclamation
 
 Connexion -> Inscription : ""
-Connexion -> HUB : "Connexion réussie"
-Inscription -down-> HUB : "Inscription réussie"
-HUB -down-> Messagerie : ""
+Connexion -down-> HUB : "Connexion réussie"
+Inscription -> Connexion : "Inscription réussie"
 HUB -down-> RechercheOffres : ""
-HEADER -> HUB : ""
-HEADER -> Messagerie : ""
+HEADER -> DepotOffres : ""
+HEADER -down-> Messagerie : ""
 HEADER -down-> Profil : ""
+HEADER -> Connexion : "Déconnexion"
 Profil -down-> MesOffres : ""
 Profil -down-> MonPlanning : ""
 HUB -down-> DepotOffres : ""
@@ -32,12 +31,12 @@ RechercheOffres -down-> ListeOffres : "Recherche effectuée"
 ListeOffres -down-> Offre : "Choix d'une offre"
 Offre -down-> Reservation : ""
 DepotOffres -down-> Offre : "Dépôt réalisé"
-Messagerie -down-> Chat : "Choix d'un contact"
 FOOTER -down-> Reclamation : ""
 FOOTER -down-> Admin : ""
 
 HEADER : Absent avant connexion
 FOOTER : Absent avant connexion
+MesOffres : ListeOffres avec filtre
 HUB : + Notifications
 FOOTER : + Crédits
 Offre : + Détails
