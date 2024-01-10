@@ -420,8 +420,9 @@ public class API {
     }
 
     public ResultSet getAnnonces() throws Exception {
-        return conn.createStatement().executeQuery("SELECT * FROM offres;");
+        return conn.createStatement().executeQuery("SELECT offres.nom as nom, offres.description as description, offres.prix as prix, offres.categorie as categorie, offres.date_depot as date, utilisateurs.code_postal  as code_postal FROM offres JOIN utilisateurs ON id_vendeur=utilisateurs.id;");
     }
+
     public int getmessagewriter(String message, int iduser1, int iduser2)
     {
         try {
