@@ -42,7 +42,7 @@ public class MainChatController {
                 nomutilisateur.setText("");
             }
         }
-        if(Boxnom.getValue() != null && !Boxnom.getValue().equals("")){
+        if(!Boxnom.getValue().equals(null) && !Boxnom.getValue().equals("")){
             App.setUser2(API.getInstance().getUserid(Boxnom.getValue()));
             if(API.getInstance().getmessages(App.getUser2id(), App.getUser().getId(), 1)[0]!=null){
                 App.setRoot("chat");
