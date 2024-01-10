@@ -32,6 +32,8 @@ public class Reservation {
     public void saveAsNew() {
         try {
             API.getInstance().addReservation(user.getId(), annonce.getId(), date_debut.toString(), date_fin.toString());
+            this.id = API.getInstance().getMaxReservationID();
+            id_max = id;
         } catch (Exception e) {
             e.printStackTrace();
         }

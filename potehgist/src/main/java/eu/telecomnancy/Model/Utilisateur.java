@@ -34,8 +34,9 @@ public class Utilisateur {
             this.email = infos[2];
             this.argent = Integer.parseInt(infos[3]);
             this.code_postal = infos[4];
-            this.admin = Integer.parseInt(infos[5]) == 1;
+            this.admin = infos[5].equals("true");
         } catch (Exception e) {
+            e.printStackTrace();
             System.out.println("[DEBUG] Utilisateur non trouvé");
         }
     }
@@ -54,6 +55,7 @@ public class Utilisateur {
         try {
             API.getInstance().addUser(nom, mot_de_passe, email, code_postal);
             this.id = API.getInstance().getUserid(nom);
+            id_max = API.getInstance().getMaxID();
             save();
         } catch (Exception e) {
             System.out.println("[DEBUG] Erreur lors de l'ajout de l'utilisateur");
