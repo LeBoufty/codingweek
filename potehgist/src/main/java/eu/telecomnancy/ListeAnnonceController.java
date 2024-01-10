@@ -6,7 +6,6 @@ import javafx.fxml.FXML;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import java.util.List;
-import java.sql.ResultSet;
 import java.util.ArrayList;
 import javafx.fxml.FXMLLoader;
 
