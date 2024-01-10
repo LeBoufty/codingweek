@@ -7,6 +7,7 @@ import java.security.NoSuchAlgorithmException;
 public class Formater {
     public static final String USERNAME_REGEX = "^[a-zA-Z0-9_-]{4,32}$";
     public static final int MIN_PASSWORD_LENGTH = 8;
+    public static final int MAX_DESCRIPTION_LENGTH = 1803;
 
     public static boolean checkUsername(String username) {
         return username.matches(USERNAME_REGEX);
@@ -43,6 +44,10 @@ public class Formater {
             index++;
         }
         return sb.toString();
+    }
+
+    public static boolean checkDescription(String description) {
+        return description.length() <= MAX_DESCRIPTION_LENGTH;
     }
 
     public static String hash(String s) {
