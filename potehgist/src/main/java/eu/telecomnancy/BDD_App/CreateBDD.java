@@ -132,7 +132,6 @@ public class CreateBDD {
                         + "     id_offre integer NOT NULL,\n"
                         + "     date_debut datetime NOT NULL,\n"
                         + "     date_fin datetime NOT NULL,\n"
-                        + "	FOREIGN KEY(id_utilisateur) REFERENCES utilisateurs(id),\n"
                         + "	FOREIGN KEY(id_offre) REFERENCES offres(id)\n"
                         + ");";
                 conn.createStatement().execute(plannings_offres); // Ajout dans la BDD

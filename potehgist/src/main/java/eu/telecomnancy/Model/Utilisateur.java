@@ -54,6 +54,7 @@ public class Utilisateur {
         try {
             API.getInstance().addUser(nom, mot_de_passe, email, code_postal);
             this.id = API.getInstance().getUserid(nom);
+            id_max = API.getInstance().getMaxID();
             save();
         } catch (Exception e) {
             System.out.println("[DEBUG] Erreur lors de l'ajout de l'utilisateur");

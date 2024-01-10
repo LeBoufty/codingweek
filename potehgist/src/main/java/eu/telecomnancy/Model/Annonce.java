@@ -54,6 +54,8 @@ public class Annonce {
     public void saveAsNew() {
         try {
             API.getInstance().addOffre(titre, description, prix, vendeur.getId(), categorie);
+            this.id = API.getInstance().getMaxOffreID();
+            maxid = id;
         } catch (Exception e) {
             e.printStackTrace();
         }
