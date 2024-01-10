@@ -50,10 +50,3 @@ public class ListeAnnonceController {
         return annonces;
     }
 }
-/*nom text NOT NULL,\n"
-+ "	id integer PRIMARY KEY AUTOINCREMENT,\n"
-+ "	id_vendeur integer NOT NULL,\n"
-+ "	prix integer NOT NULL,\n"
-+ " categorie text NOT NULL,\n" // service ou matériel
-+ " description text,\n"
-+ " date_depot datetime NOT NULL,\n" */
