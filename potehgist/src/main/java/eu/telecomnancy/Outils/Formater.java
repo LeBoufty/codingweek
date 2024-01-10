@@ -1,4 +1,4 @@
-package eu.telecomnancy;
+package eu.telecomnancy.Outils;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;

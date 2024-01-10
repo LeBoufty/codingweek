@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.Date;
 
 import eu.telecomnancy.BDD_App.API;
+import eu.telecomnancy.Model.Utilisateur;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;

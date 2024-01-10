@@ -3,6 +3,7 @@ package eu.telecomnancy;
 import java.io.IOException;
 
 import eu.telecomnancy.BDD_App.API;
+import eu.telecomnancy.Model.Utilisateur;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;

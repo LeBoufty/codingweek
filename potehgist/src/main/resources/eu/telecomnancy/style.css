@@ -254,6 +254,11 @@ GridPane,
   -fx-text-fill: -text-color;
 }
 
+ChoiceBox {
+  -fx-background-color: -background-color;
+  -fx-text-fill: -text-color;
+}
+
 .gmail-card {
   -fx-background-color: -gmail-color;
   -fx-text-fill: -text-color;
