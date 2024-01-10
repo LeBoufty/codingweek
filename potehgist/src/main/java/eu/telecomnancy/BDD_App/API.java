@@ -341,6 +341,15 @@ public class API {
         }
     }
 
+    public void getImageAnnonce(int annonce_id) throws Exception {
+        ResultSet rs = conn.createStatement().executeQuery("SELECT photo FROM offres WHERE id = " + annonce_id + ";");
+        byte[] imageBytes = rs.getBytes(1);
+        String outputpath = getClass().getResource("/eu/telecomnancy/assets/").toExternalForm() + "annonce_image.png";
+        outputpath = outputpath.substring(5);
+        
+        Files.write(new File(outputpath).toPath(), imageBytes);
+    }
+
     public int[] getReservationInfos(int id) {
         try {
             ResultSet rs = conn.createStatement().executeQuery("SELECT id_utilisateur, id_offre, date_debut, date_fin FROM plannings_reservations WHERE id = " + id + ";");

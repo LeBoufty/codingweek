@@ -42,7 +42,7 @@ public class CreateBDD {
                         + "     categorie text NOT NULL,\n" // service ou matériel
                         + "     description text,\n"
                         + "     date_depot int NOT NULL,\n"
-                        + "     photo blob NOT NULL,\n"
+                        + "     photo blob,\n"
                         + "	FOREIGN KEY(id_vendeur) REFERENCES utilisateurs(id)\n"
                         + ");";
                 conn.createStatement().execute(offres); // Ajout dans la BDD
