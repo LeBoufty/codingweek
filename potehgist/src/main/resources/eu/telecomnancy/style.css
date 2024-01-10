@@ -205,6 +205,10 @@ Button,
   -fx-transition: -fx-background-image 1s;
 }
 
+.buttontransparent {
+  -fx-background-color: -transparent;
+}
+
 Button:hover,
 .btn:hover {
   -fx-background-color: -accent-color-2;
@@ -269,6 +273,11 @@ ChoiceBox {
   -fx-font-size: 2em;
   -fx-text-align: center;
   -fx-overflow-wrap: break-word;
+}
+
+.grisbg {
+  -fx-background-color: -secondary-background-color;
+  -fx-text-fill: -text-color;
 }
 
 .discord-card {
