@@ -50,7 +50,7 @@ public class CreationAnnonceController {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Select Image File");
         fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif")
+                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg")
         );
 
         File selectedFile = fileChooser.showOpenDialog(null);
