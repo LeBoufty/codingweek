@@ -2,10 +2,6 @@ package eu.telecomnancy.Model;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.image.PixelReader;
-import javafx.scene.paint.Color;
-
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
@@ -24,8 +20,8 @@ public class ImageBlob {
             java.awt.image.BufferedImage bufferedImage = SwingFXUtils.fromFXImage(image, null);
 
             // Save BufferedImage to file using ImageIO
-            File outputFile = new File("/tmp/potehgist.jpg");
-            ImageWriter writer = ImageIO.getImageWritersByFormatName("jpg").next();
+            File outputFile = new File("/tmp/potehgist.png");
+            ImageWriter writer = ImageIO.getImageWritersByFormatName("png").next();
             ImageOutputStream outputStream = ImageIO.createImageOutputStream(outputFile);
             writer.setOutput(outputStream);
             writer.write(bufferedImage);
@@ -33,7 +29,7 @@ public class ImageBlob {
             writer.dispose();
 
             // Récupérer le fichier
-            File imageFile = new File("/tmp/potehgist.jpg");
+            File imageFile = new File("/tmp/potehgist.png");
             byte[] imageData = Files.readAllBytes(imageFile.toPath());
             
             return imageData;
