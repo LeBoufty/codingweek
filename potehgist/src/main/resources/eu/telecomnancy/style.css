@@ -249,6 +249,11 @@ GridPane,
   -fx-border-radius: 4px;
 }
 
+.darkbg {
+  -fx-background-color: -secondary-background-color;
+  -fx-text-fill: -text-color;
+}
+
 .gmail-card {
   -fx-background-color: -gmail-color;
   -fx-text-fill: -text-color;
