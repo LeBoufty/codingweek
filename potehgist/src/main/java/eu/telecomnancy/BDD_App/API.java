@@ -461,11 +461,6 @@ public class API {
         conn.createStatement().execute("UPDATE reclamations SET resolu = true WHERE id = " + id + ";");
     }
 
-    public ResultSet getAnnonces() throws Exception {
-        return conn.createStatement().executeQuery("SELECT offres.nom as nom, offres.description as description, offres.prix as prix, offres.categorie as categorie, offres.date_depot as date, utilisateurs.code_postal  as code_postal FROM offres JOIN utilisateurs ON id_vendeur=utilisateurs.id;");
-    }
-
-
     public ArrayList<Annonce> getAnnoncesRecherche(Annonce_Recherche recherche) throws Exception {
 
         ArrayList<Annonce> list_annonces = new ArrayList<Annonce>();
