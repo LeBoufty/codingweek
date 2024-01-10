@@ -8,10 +8,6 @@ import java.time.LocalDate;
 
 import eu.telecomnancy.Model.Utilisateur;
 
-
-
-
-
 public class RemplirBDD {
     
     private Connection conn;
