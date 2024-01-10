@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 
-import eu.telecomnancy.Formater;
+import eu.telecomnancy.Outils.Formater;
 
 public class API {
     private static API instance = null;

@@ -1,6 +1,7 @@
 package eu.telecomnancy;
 
 import eu.telecomnancy.BDD_App.API;
+import eu.telecomnancy.Model.Annonce;
 import javafx.fxml.FXML;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;

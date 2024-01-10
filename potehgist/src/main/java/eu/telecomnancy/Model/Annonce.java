@@ -1,4 +1,4 @@
-package eu.telecomnancy;
+package eu.telecomnancy.Model;
 
 public class Annonce {
     private String titre;
