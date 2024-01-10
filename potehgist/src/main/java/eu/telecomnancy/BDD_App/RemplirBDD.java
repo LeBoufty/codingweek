@@ -130,15 +130,15 @@ public class RemplirBDD {
         int date_fin = (int)now.getEpochSecond()+90000*4;
         API.getInstance().addreservation(1, 1, date_debut, date_fin);
 
-        API.getInstance().addreservation(1, 3, date_debut, date_fin);
+        // API.getInstance().addreservation(1, 3, date_debut, date_fin);
 
-        date_debut = (int)now.getEpochSecond()+90000*6;
-        date_fin = (int)now.getEpochSecond()+90000*10;
-        API.getInstance().addreservation(1, 5, date_debut, date_fin);
+        // date_debut = (int)now.getEpochSecond()+90000*6;
+        // date_fin = (int)now.getEpochSecond()+90000*10;
+        // API.getInstance().addreservation(1, 5, date_debut, date_fin);
 
-        date_debut = (int)now.getEpochSecond()+90000*2;
-        date_fin = (int)now.getEpochSecond()+90000*6;
-        API.getInstance().addreservation(1, 4, date_debut, date_fin);
+        // date_debut = (int)now.getEpochSecond()+90000*2;
+        // date_fin = (int)now.getEpochSecond()+90000*6;
+        // API.getInstance().addreservation(1, 4, date_debut, date_fin);
         
 
         // Ajout des notifications
