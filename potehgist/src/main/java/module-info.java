@@ -8,4 +8,5 @@ module eu.telecomnancy {
 
     opens eu.telecomnancy to javafx.fxml;
     exports eu.telecomnancy;
+    exports eu.telecomnancy.Model;
 }
