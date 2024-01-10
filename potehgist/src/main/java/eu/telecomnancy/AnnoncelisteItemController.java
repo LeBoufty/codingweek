@@ -47,7 +47,7 @@ public class AnnoncelisteItemController{
 
         title.setText(annonce.getTitre());
         description.setText(Formater.addNewlines(annonce.getDescription(), 120));
-        price.setText(annonce.getPrix().toString());
+        price.setText(Formater.shortenPrice(annonce.getPrix()));
         categorie.setText(annonce.getCategorie());
         date_depot.setText(annonce.getDate_depot());
         code_postal.setText(annonce.getCode_postal());
