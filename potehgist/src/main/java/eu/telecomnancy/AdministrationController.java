@@ -8,6 +8,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import eu.telecomnancy.BDD_App.API;
+import eu.telecomnancy.Model.Reclamation;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 

@@ -3,6 +3,7 @@ package eu.telecomnancy;
 import java.io.IOException;
 
 import eu.telecomnancy.BDD_App.API;
+import eu.telecomnancy.Outils.Formater;
 import javafx.fxml.FXML;
 
 public class ConnectController {

@@ -1,4 +1,4 @@
-package eu.telecomnancy;
+package eu.telecomnancy.Model;
 
 import eu.telecomnancy.BDD_App.API;
 

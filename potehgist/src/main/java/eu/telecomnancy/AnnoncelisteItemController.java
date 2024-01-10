@@ -3,6 +3,7 @@ package eu.telecomnancy;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import eu.telecomnancy.Model.Annonce;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
