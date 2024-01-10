@@ -16,7 +16,6 @@ public class ListeAnnonceController {
     private VBox annonceslayout;
 
     public void initialize() throws Exception{
-        System.out.println("ListeAnnonceController");
         List<Annonce> annonces = new ArrayList<>();
         switch (App.getTypeRecherche()) {
             case ALL:
@@ -28,7 +27,6 @@ public class ListeAnnonceController {
             default:
                 break;
         }
-        System.out.println(annonces);
         for (int i=0; i<annonces.size(); i++){
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("annoncelisteitem.fxml"));
@@ -48,7 +46,7 @@ public class ListeAnnonceController {
         
         List<Annonce> annonces = new ArrayList<>();
 
-        // ResultSet resultSet = API.getInstance().getAnnonces();
+        ResultSet resultSet = API.getInstance().getAnnonces();
 
         while (resultSet.next()) {
             Annonce annonce = new Annonce();
@@ -59,8 +57,8 @@ public class ListeAnnonceController {
             annonce.setDate_depot(resultSet.getString("date"));
             annonce.setCode_postal(resultSet.getString("code_postal"));
 
-        //     annonces.add(annonce);
-        // }
+            annonces.add(annonce);
+        }
         
         annonces = API.getInstance().getAnnoncesRecherche(App.annonce_recherche);
 
