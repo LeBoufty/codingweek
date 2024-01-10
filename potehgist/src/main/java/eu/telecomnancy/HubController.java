@@ -2,11 +2,14 @@ package eu.telecomnancy;
 
 import java.io.IOException;
 import java.util.Date;
+import java.util.List;
 
 import eu.telecomnancy.BDD_App.API;
+import eu.telecomnancy.Model.Notification;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+
 
 public class HubController {
 
@@ -60,7 +63,11 @@ public class HubController {
     @FXML
     private void initialize()
     {
-        
+        List<Notification> resa = Notification();
+        System.out.println(resa.get(0).getDate_debut()+" "+dates[0]+" "+resa.get(0).getDate_fin());
+        for (int i=0; i<resa.size(); i++){
+            mettredansleplanning(resa.get(i));
+        }
         App.numpageannonce=1;
         page.setText(String.valueOf(App.numpageannonce));
         String[] messages = API.getInstance().getthreedescriptionnotif(App.getUser().getId(), App.numpageannonce);
