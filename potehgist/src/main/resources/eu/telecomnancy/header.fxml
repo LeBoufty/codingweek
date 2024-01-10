@@ -6,16 +6,11 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 
 <BorderPane StyleClass="header" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eu.telecomnancy.HeaderController">
-   <right>
-      <ChoiceBox fx:id="header_burger" prefWidth="25.0" BorderPane.alignment="CENTER" />
-      <style>
-        -fx-background-color: transparent;
-      </style>
-   </right>
    <left>
-    <Button onAction="#homeButton" blendMode="SRC_ATOP" cache="true" cacheShape="false" centerShape="false" contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" scaleShape="false" textAlignment="CENTER" BorderPane.alignment="CENTER">
+    <Button blendMode="SRC_ATOP" cache="true" cacheShape="false" centerShape="false" contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" onAction="#homeButton" scaleShape="false" textAlignment="CENTER" BorderPane.alignment="CENTER">
       <graphic>
          <ImageView StyleClass="hdrimg" fitHeight="25.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -31,4 +26,27 @@
       </style>
    </Button>   
    </left>
+   <right>
+      <HBox prefHeight="35.0" prefWidth="62.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false">
+               <graphic>
+                  <ImageView fitHeight="31.0" fitWidth="24.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@assets/loupe.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <style>
+                  -fx-background-color: transparent;
+                </style>
+            </Button>
+            <ChoiceBox fx:id="header_burger" prefHeight="42.0" prefWidth="36.0">
+               <style>
+                  -fx-background-color: transparent;
+               </style>
+            </ChoiceBox>
+         </children>
+      </HBox>
+   </right>
 </BorderPane>
