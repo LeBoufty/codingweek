@@ -7,20 +7,20 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox alignment="CENTER_LEFT" prefHeight="99.0" prefWidth="1160.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eu.telecomnancy.AnnoncelisteItemController">
+<HBox alignment="CENTER_LEFT" prefHeight="99.0" prefWidth="1160.0" styleClass="article" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eu.telecomnancy.AnnoncelisteItemController">
    <children>
       <ImageView fx:id="img" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-      <VBox prefHeight="150.0" prefWidth="709.0">
+      <VBox prefHeight="150.0" prefWidth="709.0" styleClass="article-content">
          <children>
-            <Label fx:id="title" alignment="TOP_LEFT" prefHeight="59.0" prefWidth="298.0" text="Title" styleClass="smalltitle">
+            <Label fx:id="title" alignment="TOP_LEFT" prefHeight="59.0" prefWidth="298.0" styleClass="article-title" text="Title">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label fx:id="description" prefHeight="86.0" prefWidth="442.0" text="Description" styleClass="description"/>
+            <Label fx:id="description" prefHeight="86.0" prefWidth="442.0" styleClass="discrete" text="Description" />
          </children>
       </VBox>
-      <Label fx:id="price" prefHeight="18.0" prefWidth="125.0" text="Prix" styleClass="smalltitle"/>
+      <Label fx:id="price" prefHeight="18.0" prefWidth="125.0" styleClass="title" text="Prix" />
       <Button mnemonicParsing="false" text="Voir" />
    </children>
 </HBox>
