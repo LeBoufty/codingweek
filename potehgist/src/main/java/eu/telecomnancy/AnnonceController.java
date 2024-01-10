@@ -37,7 +37,7 @@ public class AnnonceController {
     private ImageView annonce_img;
 
     public void initialize() throws Exception {
-        Annonce annonce = new Annonce(App.idannonce);
+        Annonce annonce = App.getAnnonce();
         title.setText(annonce.getTitre());
         description.setText(annonce.getDescription());
         price.setText(annonce.getPrix().toString());

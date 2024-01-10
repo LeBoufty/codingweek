@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import eu.telecomnancy.Model.Annonce_Recherche;
 import eu.telecomnancy.Model.Utilisateur;
+import eu.telecomnancy.Model.Annonce;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -101,6 +102,18 @@ public class App extends Application {
 
     public static void main(String[] args) {
         launch(args);
+    }
+
+    public static void setidannonce(int id) {
+        idannonce = id;
+    }
+
+    public static int getidannonce() {
+        return idannonce;
+    }
+
+    public static Annonce getAnnonce() {
+        return new Annonce(idannonce);
     }
 
 }
