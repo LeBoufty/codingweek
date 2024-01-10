@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import eu.telecomnancy.Model.Annonce;
+import eu.telecomnancy.Outils.Formater;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -45,7 +46,7 @@ public class AnnoncelisteItemController{
         // img.setImage(image);
 
         title.setText(annonce.getTitre());
-        description.setText(annonce.getDescription());
+        description.setText(Formater.addNewlines(annonce.getDescription(), 120));
         price.setText(annonce.getPrix().toString());
         categorie.setText(annonce.getCategorie());
         date_depot.setText(annonce.getDate_depot());
@@ -58,8 +59,9 @@ public class AnnoncelisteItemController{
     }    
 
     @FXML
-    void showAnnonce(ActionEvent event) {
+    void showAnnonce(ActionEvent event) throws Exception{
         App.idannonce = Integer.valueOf(idannonce.getText());
         System.out.println("Annonce n°" + App.idannonce);
+        App.setRoot("annonce");
     }
 }
