@@ -5,6 +5,9 @@ public class Annonce {
     private String description;
     private Integer prix;
     private String ImgSrc;
+    private String categorie;
+    private String code_postal;
+    private String date_depot;
     
     public String getImgSrc() {
         return ImgSrc;
