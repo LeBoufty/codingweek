@@ -58,8 +58,9 @@ public class AnnoncelisteItemController{
     }    
 
     @FXML
-    void showAnnonce(ActionEvent event) {
+    void showAnnonce(ActionEvent event) throws Exception{
         App.idannonce = Integer.valueOf(idannonce.getText());
         System.out.println("Annonce n°" + App.idannonce);
+        App.setRoot("annonce");
     }
 }
