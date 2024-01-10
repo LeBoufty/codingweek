@@ -4,12 +4,17 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import eu.telecomnancy.Model.Annonce;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 //import javafx.scene.image.Image;
 
 public class AnnoncelisteItemController{
+
+    @FXML
+    private Button button;
 
     @FXML
     private Label categorie;
@@ -48,4 +53,10 @@ public class AnnoncelisteItemController{
     public void initialize(URL location, ResourceBundle ressources) {
 
     }    
+
+    @FXML
+    void showAnnonce(ActionEvent event) {
+        System.out.println("Annonce");
+        System.out.println(title.getText());
+    }
 }
