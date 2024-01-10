@@ -156,6 +156,13 @@ h1, h2, h3, h4, h5, h6 {
   -fx-text-align: center;
 }
 
+.description {
+  -fx-text-size-adjust: auto;
+  -fx-font-size: 1em;
+  -fx-text-fill: -accent-color-2;
+  -fx-font-family: "Roboto Lt";
+}
+
 .ip {
   -fx-word-break: break-word;
   -fx-text-size-adjust: auto;
@@ -327,3 +334,46 @@ BorderPane,
   -fx-line-height: 1.6;
   -fx-white-space: pre-wrap;
 }
+
+/* Scrollbar */
+.scroll-bar:horizontal .thumb {
+  -fx-background-color: -accent-color-1;
+}
+
+.scroll-bar:vertical .thumb {
+  -fx-background-color: -accent-color-1;
+}
+
+.scroll-bar:horizontal .thumb:hover {
+  -fx-background-color: -accent-color-2;
+}
+
+.scroll-bar:vertical .thumb:hover {
+  -fx-background-color: -accent-color-2;
+}
+
+.scroll-bar:horizontal .thumb:pressed {
+  -fx-background-color: -accent-color-3;
+}
+
+.scroll-bar:vertical .thumb:pressed {
+  -fx-background-color: -accent-color-3;
+}
+
+/* ScrollPane */
+.scroll-pane {
+  -fx-background-color: -secondary-background-color;
+  -fx-text-fill: -discrete-color;
+  -fx-hbar-policy: as-needed;
+  -fx-vbar-policy: as-needed;
+  -fx-fit-to-width: true;
+  -fx-fit-to-height: true;
+}
+
+/* Vbox */
+.vbox {
+  -fx-background-color: -secondary-background-color;
+  -fx-text-fill: -discrete-color;
+}
+
+
