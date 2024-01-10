@@ -1,14 +1,19 @@
 package eu.telecomnancy;
 
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import eu.telecomnancy.BDD_App.API;
 import eu.telecomnancy.Model.Notification;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 
 public class HubController {
@@ -60,90 +65,34 @@ public class HubController {
     @FXML
     private Button boutonright;
 
-    @FXML
-    private void initialize()
-    {
-        List<Notification> resa = Notification();
-        System.out.println(resa.get(0).getDate_debut()+" "+dates[0]+" "+resa.get(0).getDate_fin());
-        for (int i=0; i<resa.size(); i++){
-            mettredansleplanning(resa.get(i));
+    @FXML VBox NotifVobx;
+
+
+    private List<Notification> Notification() throws Exception{
+        ResultSet result = API.getInstance().getNotif(App.getUser().getId());
+        List<Notification> notifs = new ArrayList<>();
+        while(result.next())
+        {
+            Notification notif = new Notification(result.getInt("id"));
+            notifs.add(notif);
         }
-        App.numpageannonce=1;
-        page.setText(String.valueOf(App.numpageannonce));
-        String[] messages = API.getInstance().getthreedescriptionnotif(App.getUser().getId(), App.numpageannonce);
-        Date[] dates = API.getInstance().getthreedatesnotif(App.getUser().getId(), App.numpageannonce);
-        ids = API.getInstance().getthreeidnotif(App.getUser().getId(), App.numpageannonce);
-        if(messages!=null){
-            if(messages[0]==null && messages[1]==null && messages[2]==null)
-            {
-                bouton1.setVisible(false);
-                bouton2.setVisible(false);
-                bouton3.setVisible(false);
-                boutonleft.setVisible(false);
-                boutonright.setVisible(false);
-            }
-            if(messages[0]!=null){
-                if(API.getInstance().checkvunotif(ids[0]))
-            {
-                vu1.setText("vu");
-            }
-            else
-            {
-                vu1.setText("");
-            }
-                description1.setText(messages[0]);
-                date1.setText(dates[0].toString());
-                API.getInstance().mettrenotifenvu(ids[0]);
-                 bouton1.setVisible(true);
-            }
-            else
-            {
-                description1.setText("");
-                date1.setText("");
-                vu1.setText("");
-                bouton1.setVisible(false);
-            }
-            if(messages[1]!=null){
-                if(API.getInstance().checkvunotif(ids[1]))
-            {
-                vu2.setText("vu");
-            }
-            else
-            {
-                vu2.setText("");
-            }
-                description2.setText(messages[1]);
-                date2.setText(dates[1].toString());
-                API.getInstance().mettrenotifenvu(ids[1]);
-                bouton2.setVisible(true);
-            }
-            else
-            {
-                description2.setText("");
-                date2.setText("");
-                vu2.setText("");
-                bouton2.setVisible(false);
-            }
-            if(messages[2]!=null){
-                if(API.getInstance().checkvunotif(ids[2]))
-            {
-                vu3.setText("vu");
-            }
-            else
-            {
-                vu3.setText("");
-            }
-                description3.setText(messages[2]);
-                date3.setText(dates[2].toString());
-                API.getInstance().mettrenotifenvu(ids[2]);
-                bouton3.setVisible(true);
-            }
-            else
-            {
-                description3.setText("");
-                date3.setText("");
-                vu3.setText("");
-                bouton3.setVisible(false);
+        return notifs;
+    }
+
+    @FXML
+    private void initialize() throws Exception
+    {
+        List<Notification> notifs = Notification();
+        for (int i=0; i<notifs.size(); i++){
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("notifitem.fxml"));
+            try{
+                HBox hbox = loader.load();
+                NotifItemController controller = loader.getController();
+                controller.setData(notifs.get(i).getMessage(), notifs.get(i).getdate());
+                NotifVobx.getChildren().add(hbox);
+            } catch (Exception e){
+                e.printStackTrace();
             }
         }
     }

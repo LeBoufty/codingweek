@@ -645,7 +645,7 @@ public class API {
     public void addnotif(int iduser, String message)
     {
         try {
-            conn.createStatement().execute("INSERT INTO notifications (id_utilisateur, message, date, vue) VALUES (" + iduser + ", '" + message + "', strftime('%Y-%m-%d %H:%M:%S', datetime('now')), false);");
+            conn.createStatement().execute("INSERT INTO notifications (id_utilisateur, message, date, vue) VALUES (" + iduser + ", '" + message + "', "+(int)Instant.now().getEpochSecond()+", false);");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -673,6 +673,11 @@ public class API {
 
     public ResultSet getReservations(int iduser) throws Exception {
         return conn.createStatement().executeQuery("SELECT * FROM plannings_reservations WHERE id_utilisateur = " + iduser + ";");
+        
+    }
+
+    public ResultSet getNotif(int iduser) throws Exception {
+        return conn.createStatement().executeQuery("SELECT * FROM notifications WHERE id_utilisateur = " + iduser + ";");
         
     }
 

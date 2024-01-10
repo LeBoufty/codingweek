@@ -82,53 +82,8 @@ public class Notification {
         this.description = description.trim();
     }
 
-    public Integer getPrix() {
-        return prix;
+    public void setmessage(String message) {
+        this.description = message;
     }
 
-    public void setPrix(Integer prix) {
-        this.prix = prix;
-    }
-
-    public String getCategorie() {
-        return categorie;
-    }
-
-    public void setCategorie(String categorie) {
-        this.categorie = categorie.trim();
-    }
-
-    public String getDate_depot() {
-        return date_depot;
-    }
-
-    public void setDate_depot(String date_depot) {
-        this.date_depot = date_depot.trim();
-    }
-
-    public Utilisateur getVendeur() {
-        return vendeur;
-    }
-
-    public void setVendeur(Utilisateur vendeur) {
-        this.vendeur = vendeur;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-        maxid = Math.max(maxid, id);
-    }
-
-    public String getCode_postal() {
-        return code_postal;
-    }
-
-    public void setCode_postal(String code_postal) {
-        code_postal = code_postal.trim();
-        this.code_postal = code_postal;
-    }
 }
