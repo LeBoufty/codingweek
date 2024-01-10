@@ -231,6 +231,13 @@ public class PlanningController {
     private void pageSuivante() throws Exception {
         currentpage++;
         Page.setText(Integer.toString(currentpage));
+        annonceslayout1.getChildren().clear();
+        annonceslayout2.getChildren().clear();
+        annonceslayout3.getChildren().clear();
+        annonceslayout4.getChildren().clear();
+        annonceslayout5.getChildren().clear();
+        annonceslayout6.getChildren().clear();
+        annonceslayout7.getChildren().clear();
         initialize();
     }
 
@@ -240,6 +247,13 @@ public class PlanningController {
             currentpage--;
             Page.setText(Integer.toString(currentpage));
         }
+        annonceslayout1.getChildren().clear();
+        annonceslayout2.getChildren().clear();
+        annonceslayout3.getChildren().clear();
+        annonceslayout4.getChildren().clear();
+        annonceslayout5.getChildren().clear();
+        annonceslayout6.getChildren().clear();
+        annonceslayout7.getChildren().clear();
         initialize();
     }
     
