@@ -13,7 +13,7 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 /**
- * JavaFX App test potagit
+ * JavaFX App test potagit 2
  */
 public class App extends Application {
 

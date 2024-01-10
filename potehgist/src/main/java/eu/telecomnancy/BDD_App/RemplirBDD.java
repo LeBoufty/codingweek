@@ -1,10 +1,14 @@
 package eu.telecomnancy.BDD_App;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.time.LocalDate;
 
 import eu.telecomnancy.Model.Utilisateur;
+
+
 
 
 
@@ -26,10 +30,10 @@ public class RemplirBDD {
             }
             CreateBDD.createNewDatabase("/tmp/potehgist.db");
             url = "jdbc:sqlite:/tmp/potehgist.db";
+            conn = DriverManager.getConnection(url);
             
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            System.out.println("Erreur lors de la création de la base de données");
+        } catch (SQLException e) {
+            System.out.println("e.getMessage()");
         }
 
 

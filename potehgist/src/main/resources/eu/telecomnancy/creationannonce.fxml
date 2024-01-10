@@ -51,7 +51,7 @@
                   <ChoiceBox fx:id="categorie" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   <Label styleClass="smalltitle" text="Description" GridPane.rowIndex="4" />
                   <TextArea fx:id="Description" prefHeight="151.0" prefWidth="300.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-                  <Button mnemonicParsing="false" onAction="#create" prefHeight="58.0" prefWidth="278.0" style="-fx-font-size: 20;" text="Créer une annonce" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                  <Button mnemonicParsing="false" onAction="#create" prefHeight="58.0" prefWidth="278.0" style="-fx-font-size: 20;" text="Suivant" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
                   <Label prefHeight="118.0" prefWidth="520.0" styleClass="title" text="Création d'annonce" GridPane.columnIndex="1">
                      <font>
                         <Font size="20.0" />
