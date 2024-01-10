@@ -22,7 +22,12 @@
       </VBox>
       <VBox prefHeight="150.0" prefWidth="201.0">
          <children>
-            <Label fx:id="price" prefHeight="93.0" prefWidth="201.0" styleClass="title" text="Prix" />
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="price" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="88.0" prefWidth="138.0" styleClass="title" text="Prix" />
+                  <Label prefHeight="95.0" prefWidth="56.0" styleClass="title" text="₣" />
+               </children>
+            </HBox>
             <Label fx:id="code_postal" prefHeight="39.0" prefWidth="201.0" styleClass="discrete" text="Code postal" />
             <Label fx:id="date_depot" prefHeight="26.0" prefWidth="201.0" styleClass="article-date" text="date depot" />
          </children>
