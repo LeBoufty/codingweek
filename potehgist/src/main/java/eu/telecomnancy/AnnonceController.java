@@ -51,11 +51,12 @@ public class AnnonceController {
     }
 
     public void chat() throws Exception {
-        App.setUser2(new Annonce(Integer.valueOf(idannonce.getText())).getVendeur().getId());
+        App.setUser2(App.getAnnonce().getVendeur().getId());
         App.setRoot("chat");
     }
 
     public void reservation() throws Exception {
+        App.setidannonce(App.idannonce);
         App.setRoot("reserver");
     }
 }
