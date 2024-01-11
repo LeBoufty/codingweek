@@ -24,9 +24,9 @@
                         <VBox prefHeight="100.0" prefWidth="701.0" styleClass="darkbg">
                            <children>
                               <Label styleClass="smalltitle" text="Détail de l'annonce :" />
-                              <Label fx:id="Titre" text="titre" />
-                              <Label fx:id="Prix" text="prix" />
-                              <Label fx:id="Description" text="description" />
+                              <Label fx:id="Titre" styleClass="article-date" text="titre" />
+                              <Label fx:id="Prix" styleClass="discrete" text="prix" />
+                              <Label fx:id="Description" styleClass="description" text="description" />
                            </children>
                         </VBox>
                      </children>
