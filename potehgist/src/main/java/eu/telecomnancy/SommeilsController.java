@@ -40,8 +40,7 @@ public class SommeilsController {
             Sommeils sommeil = new Sommeils(resultSet.getInt("id"), resultSet.getInt("date_debut"), resultSet.getInt("date_fin"));
             sommeils.add(sommeil);
         }
-        System.out.println("sommeils");
-        System.out.println(sommeils.size());
+        
         for (int i=0; i<sommeils.size(); i++){
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("sommeilsItem.fxml"));
