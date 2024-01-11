@@ -60,9 +60,9 @@
                               </HBox>
                               <HBox prefHeight="100.0" prefWidth="200.0">
                                  <children>
-                                    <Button mnemonicParsing="false" onAction="#chat" prefHeight="38.0" prefWidth="84.0" text="Chat" />
+                                    <Button fx:id="buttonchat" mnemonicParsing="false" onAction="#chat" prefHeight="38.0" prefWidth="84.0" text="Chat" />
                                     <Pane prefHeight="100.0" prefWidth="165.0" />
-                                    <Button mnemonicParsing="false" onAction="#reservation" prefHeight="38.0" prefWidth="97.0" text="Réserver" />
+                                    <Button fx:id="buttonres" mnemonicParsing="false" onAction="#reservation" prefHeight="38.0" prefWidth="97.0" text="Réserver" />
                                  </children>
                               </HBox>
                            </children>

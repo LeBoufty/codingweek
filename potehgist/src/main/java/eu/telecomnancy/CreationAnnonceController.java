@@ -33,6 +33,34 @@ public class CreationAnnonceController {
     @FXML
     private javafx.scene.control.TextArea Description;
 
+    private boolean checkinteger(String s)
+        {
+            try {
+                Integer.parseInt(s);
+            } catch (NumberFormatException e) {
+                return false;
+            } catch (NullPointerException e) {
+                return false;
+            }
+            return true;
+        }
+    
+    private boolean checkbox(ChoiceBox<String> box)
+        {
+            try {
+                if(box.getValue().equals(null))
+                {
+                    return false;
+                }
+            } catch (NumberFormatException e) {
+                return false;
+            } catch (NullPointerException e) {
+                return false;
+            }
+            return true;
+        }
+
+
     @FXML
     private void create() throws Exception {
         // System.out.println("Création de l'annonce");
@@ -41,7 +69,7 @@ public class CreationAnnonceController {
         // System.out.println("Prix : " + prix.getText());
         // System.out.println("Catégorie : " + categorie.getValue());
         // System.out.println("Vendeur : " + App.getUser().getId());
-        //API.getInstance().addOffre(name.getText(), Description.getText(), Integer.parseInt(prix.getText()), App.getUser().getId(), categorie.getValue(), ImageBlob.imageViewToBytes(imageView));
+        //API.getInstance().addOffre(name.getText(), Description.getText(), Integer.parseInt(prix.getText()), App.getUser().getId(), categorie.getValue(), ImageBlob.imageViewToBytes(imageView)); 
 
 
         // si l'image est vide, on met une image par défaut
@@ -50,12 +78,25 @@ public class CreationAnnonceController {
             imageView.setImage(image);
         }
         
-        App.annonce_en_creation = new Annonce_en_creation(name.getText(), Description.getText(), Integer.parseInt(prix.getText()), ImageBlob.imageViewToBytes(imageView), categorie.getValue());
-        if (categorie.getValue().equals("Matériel")) {
-            App.setRoot("creationannonce_planning_materiel");
-        } else {
-            App.setRoot("creationannonce_planning_service");
+        if(!checkinteger(prix.getText()))
+        {
+            prix.setText("Entrer un entier pour le prix");
         }
+        else
+        {
+           if(checkbox(categorie))
+            {
+                App.annonce_en_creation = new Annonce_en_creation(name.getText(), Description.getText(), Integer.parseInt(prix.getText()), ImageBlob.imageViewToBytes(imageView), categorie.getValue());
+            if (categorie.getValue().equals("Matériel")) {
+                App.setRoot("creationannonce_planning_materiel");
+            } else {
+                App.setRoot("creationannonce_planning_service");
+            }
+            }
+            
+        }
+
+        
     }
 
     @FXML
