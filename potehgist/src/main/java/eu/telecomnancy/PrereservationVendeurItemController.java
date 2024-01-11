@@ -9,7 +9,9 @@ import eu.telecomnancy.Model.Reservation;
 
 public class PrereservationVendeurItemController {
 
-    private boolean isVendeur = false;
+    private Reservation reservation;
+
+    private boolean isVendeur;
 
     @FXML
     private Label Date_debut;
@@ -38,7 +40,8 @@ public class PrereservationVendeurItemController {
         API.getInstance().deletePreReservation(Integer.parseInt(id.getText()));
         if (isVendeur) {
             App.setRoot("prereservationvendeur");
-        } else {
+        }
+        else {
             App.setRoot("prereservationuser");
         }
     }
@@ -49,16 +52,20 @@ public class PrereservationVendeurItemController {
         API.getInstance().acceptPreReservation(Integer.parseInt(id.getText()));
         if (isVendeur) {
             App.setRoot("prereservationvendeur");
-        } else {
+        }
+        else {
             App.setRoot("prereservationuser");
         }
     }
 
-    public void setData(Reservation reservation) {
+    public void setData(Reservation reservation) throws Exception {
+        this.reservation = reservation;
+
         Titre.setText(reservation.getAnnonce().getTitre());
         id_offre.setText(String.valueOf(reservation.getId_offre()));
         id.setText(String.valueOf(reservation.getId()));
-        id_acheteur.setText(String.valueOf(reservation.getId_utilisateur()));
+        String Nom_Acheteur = API.getInstance().getUsername(reservation.getId_utilisateur());
+        id_acheteur.setText(Nom_Acheteur);
         Date_debut.setText(String.valueOf(reservation.getdate_debutString()));
         Date_fin.setText(String.valueOf(reservation.getdate_finString()));
 
@@ -68,7 +75,7 @@ public class PrereservationVendeurItemController {
     }
 
     public void showAnnonce(ActionEvent event) throws Exception {
-        App.setidannonce(Integer.valueOf(id_offre.getText()));
+        App.setidannonce(reservation.getId_offre());
         App.setRoot("annonce");
     }
 

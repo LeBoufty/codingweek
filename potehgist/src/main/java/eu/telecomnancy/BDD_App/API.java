@@ -315,6 +315,10 @@ public class API {
         String query = "INSERT INTO plannings_reservations (id_utilisateur, id_offre, date_debut, date_fin) VALUES (?, ?, ?, ?)";
         PreparedStatement preparedStatement = conn.prepareStatement(query);
         ResultSet rs = conn.createStatement().executeQuery("SELECT id_utilisateur, id_offre, date_debut, date_fin FROM plannings_prereservations WHERE id = " + id_planning + ";");
+        System.out.println("On accepte la pré-réservation " + id_planning);
+        System.out.println("La requête a renvoyer cette taille : " + rs.getMetaData().getColumnCount());
+        System.out.println("Il y avait " + rs.getInt(1) + " " + rs.getInt(2) + " " + rs.getInt(3) + " " + rs.getInt(4));
+
         preparedStatement.setInt(1, rs.getInt(1));
         preparedStatement.setInt(2, rs.getInt(2));
         preparedStatement.setInt(3, rs.getInt(3));
