@@ -36,8 +36,16 @@ public class Sommeils {
         this.datefin = datefin;
     }
 
-    public String getDatedebutString(int date) {
+    public String getDateString(int date) {
         Date_M date_m = new Date_M(date);
         return date_m.getAlldateAAAAMMJJ();
+    }
+
+    public String getDateDebutString() {
+        return getDateString(datedebut);
+    }
+
+    public String getDateFinString() {
+        return getDateString(datefin);
     }
 }
