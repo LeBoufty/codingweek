@@ -1,32 +1,26 @@
 package eu.telecomnancy.Model;
 
-import java.sql.Date;
-
 public class Sommeils {
     
     private int id;
-    private String datedebut;
-    private String datefin;
+    private int datedebut;
+    private int datefin;
 
-    public Sommeils(int id, String datedebut, String datefin) {
+    public Sommeils(int id, int datedebut, int datefin) {
         this.id = id;
         this.datedebut = datedebut;
         this.datefin = datefin;
-    }
-
-    public Sommeils(int id, Date dated, Date datef){
-        
     }
 
     public int getId() {
         return id;
     }
 
-    public String getDatedebut() {
+    public int getDatedebut() {
         return datedebut;
     }
 
-    public String getDatefin() {
+    public int getDatefin() {
         return datefin;
     }
 
@@ -34,11 +28,16 @@ public class Sommeils {
         this.id = id;
     }
 
-    public void setDatedebut(String datedebut) {
+    public void setDatedebut(int datedebut) {
         this.datedebut = datedebut;
     }
 
-    public void setDatefin(String datefin) {
+    public void setDatefin(int datefin) {
         this.datefin = datefin;
+    }
+
+    public String getDatedebutString(int date) {
+        Date_M date_m = new Date_M(date);
+        return date_m.getAlldateAAAAMMJJ();
     }
 }
