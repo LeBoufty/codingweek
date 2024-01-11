@@ -1,15 +1,17 @@
 package eu.telecomnancy;
 
-import javafx.event.ActionEvent;
+import java.util.List;
+
+import eu.telecomnancy.BDD_App.API;
+import eu.telecomnancy.Model.Annonce;
+import eu.telecomnancy.Model.Date_M;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
-import eu.telecomnancy.Model.Annonce;
 import javafx.scene.control.TextField;
-import eu.telecomnancy.BDD_App.API;
-import eu.telecomnancy.Model.Date_M;
-import javafx.fxml.FXMLLoader;
-import java.util.List;
+import javafx.scene.layout.VBox;
+import javafx.scene.layout.HBox;
 
 public class ReserverMaterielController {
 
@@ -43,6 +45,9 @@ public class ReserverMaterielController {
     @FXML
     private TextField minute_fin;
 
+    @FXML
+    private VBox planning;
+
     public void initialize() throws Exception {
         Annonce annonce = App.getAnnonce();
         Description.setText(annonce.getDescription());
@@ -55,17 +60,11 @@ public class ReserverMaterielController {
 
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("planningreservation.fxml"));
-        try{
-            PlanningReservationController controller = loader.getController();
-            controller.currentannonce = annonce.getId();
-        } catch (Exception e){
-            e.printStackTrace();
-        }
-    }
 
-    @FXML
-    void reserver(ActionEvent event) {
-
+        HBox hbox = loader.load();
+        PlanningReservationController controller = loader.getController();
+        controller.currentannonce = annonce.getId();
+        planning.getChildren().add(hbox);
     }
 
 }

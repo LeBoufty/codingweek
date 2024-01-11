@@ -1,5 +1,6 @@
 package eu.telecomnancy;
 
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.time.Instant;
 import java.util.ArrayList;
@@ -70,7 +71,7 @@ public class ChatController {
     }
 
     @FXML
-    private void envoyermessage()
+    private void envoyermessage() throws IOException
     {
         if(App.getUser2id() != 0) {
             API.getInstance().addnotif(App.getUser2id(), "Vous avez reçu un message de " + App.getUser().getNom() + ".", 1,App.getUser().getId());
@@ -87,6 +88,7 @@ public class ChatController {
                 e.printStackTrace();
             }
         }
+        App.setRoot("chat");
     }
 
 }

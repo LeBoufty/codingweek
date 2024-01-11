@@ -41,7 +41,7 @@ public class HubController {
             try{
                 HBox hbox = loader.load();
                 NotifItemController controller = loader.getController();
-                controller.setData(notifs.get(i).getMessage(), notifs.get(i).getdate(), notifs.get(i).gettype(), notifs.get(i).getiduser2());
+                controller.setData(notifs.get(i).getMessage(), notifs.get(i).getdate(), notifs.get(i).gettype(), notifs.get(i).getiduser2(),notifs.get(i).getidannonce());
                 NotifVobx.getChildren().add(hbox);
             } catch (Exception e){
                 e.printStackTrace();
