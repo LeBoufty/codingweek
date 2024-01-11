@@ -60,4 +60,8 @@ public class Reservation {
         return date_fin;
     }
 
+    public Annonce getAnnonce() {
+        return annonce;
+    }
+
 }
