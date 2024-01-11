@@ -1,15 +1,17 @@
 package eu.telecomnancy;
 
-import javafx.event.ActionEvent;
+import java.util.List;
+
+import eu.telecomnancy.BDD_App.API;
+import eu.telecomnancy.Model.Annonce;
+import eu.telecomnancy.Model.Date_M;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
-import eu.telecomnancy.Model.Annonce;
 import javafx.scene.control.TextField;
-import eu.telecomnancy.BDD_App.API;
-import eu.telecomnancy.Model.Date_M;
-import javafx.fxml.FXMLLoader;
-import java.util.List;
+import javafx.scene.layout.VBox;
+import javafx.scene.layout.HBox;
 
 public class ReserverMaterielController {
 
@@ -38,10 +40,16 @@ public class ReserverMaterielController {
     private TextField heure_debut;
 
     @FXML
+    private TextField minute_debut;
+
+    @FXML
     private TextField heure_fin;
 
     @FXML
     private TextField minute_fin;
+
+    @FXML
+    private VBox planning;
 
     public void initialize() throws Exception {
         Annonce annonce = App.getAnnonce();
@@ -55,18 +63,20 @@ public class ReserverMaterielController {
 
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("planningreservation.fxml"));
-        try{
-            PlanningReservationController controller = loader.getController();
-            controller.currentannonce = annonce.getId();
-        } catch (Exception e){
-            e.printStackTrace();
-        }
+
+        HBox hbox = loader.load();
+        PlanningReservationController controller = loader.getController();
+        controller.currentannonce = annonce.getId();
+        planning.getChildren().add(hbox);
     }
+
 
     @FXML
-    void reserver(ActionEvent event) {
-
+    public void reserver() throws Exception{
+        Date_M date_debut = new Date_M(this.date_debut.getValue().getYear(), this.date_debut.getValue().getMonthValue(), this.date_debut.getValue().getDayOfMonth(), Integer.parseInt(heure_debut.getText()), Integer.parseInt(minute_debut.getText()));
+        Date_M date_fin = new Date_M(this.date_fin.getValue().getYear(), this.date_fin.getValue().getMonthValue(), this.date_fin.getValue().getDayOfMonth(), Integer.parseInt(heure_fin.getText()), Integer.parseInt(minute_fin.getText()));
+        API.getInstance().addPreReservation(App.getUser().getId(), App.getAnnonce().getId(),(int)date_debut.getDate(),(int)date_fin.getDate());
+        App.setRoot("hub");
     }
-
 }
 
