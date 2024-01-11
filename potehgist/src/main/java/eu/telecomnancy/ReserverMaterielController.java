@@ -90,9 +90,12 @@ public class ReserverMaterielController {
 
     @FXML
     public void reserver() throws Exception{
-        if (App.getUser().removeArgent(App.getAnnonce().getPrix())){
-            Date_M date_debut = new Date_M(this.date_debut.getValue().getYear(), this.date_debut.getValue().getMonthValue(), this.date_debut.getValue().getDayOfMonth(), Integer.parseInt(heure_debut.getText()), Integer.parseInt(minute_debut.getText()));
-            Date_M date_fin = new Date_M(this.date_fin.getValue().getYear(), this.date_fin.getValue().getMonthValue(), this.date_fin.getValue().getDayOfMonth(), Integer.parseInt(heure_fin.getText()), Integer.parseInt(minute_fin.getText()));
+        Date_M date_debut = new Date_M(this.date_debut.getValue().getYear(), this.date_debut.getValue().getMonthValue(), this.date_debut.getValue().getDayOfMonth(), Integer.parseInt(heure_debut.getText()), Integer.parseInt(minute_debut.getText()));
+        Date_M date_fin = new Date_M(this.date_fin.getValue().getYear(), this.date_fin.getValue().getMonthValue(), this.date_fin.getValue().getDayOfMonth(), Integer.parseInt(heure_fin.getText()), Integer.parseInt(minute_fin.getText()));
+
+        int nb_hours = Date_M.getNbHours(date_debut, date_fin);
+
+        if (App.getUser().removeArgent(App.getAnnonce().getPrix()*nb_hours)){
             API.getInstance().addPreReservation(App.getUser().getId(), App.getAnnonce().getId(),(int)date_debut.getDate(),(int)date_fin.getDate());
             App.setRoot("hub");
         } else {

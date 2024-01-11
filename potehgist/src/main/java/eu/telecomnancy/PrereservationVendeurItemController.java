@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import eu.telecomnancy.BDD_App.API;
 import eu.telecomnancy.Model.Reservation;
 import eu.telecomnancy.Model.Utilisateur;
+import eu.telecomnancy.Model.Date_M;
 
 public class PrereservationVendeurItemController {
 
@@ -38,7 +39,8 @@ public class PrereservationVendeurItemController {
     @FXML
     void Refuse(ActionEvent event) throws Exception {
         Utilisateur user = new Utilisateur(reservation.getId_utilisateur());
-        user.addArgent(reservation.getAnnonce().getPrix());
+        int nb_hours = getNbHours();
+        user.addArgent(reservation.getAnnonce().getPrix()*nb_hours);
         isVendeur = isVendeur();
         API.getInstance().deletePreReservation(reservation.getId());
         if (isVendeur) {
@@ -51,7 +53,8 @@ public class PrereservationVendeurItemController {
 
     @FXML
     void Validate(ActionEvent event) throws Exception{
-        App.getUser().addArgent(reservation.getAnnonce().getPrix());
+        int nb_hours = getNbHours();
+        App.getUser().addArgent(reservation.getAnnonce().getPrix()*nb_hours);
         isVendeur = isVendeur();
         API.getInstance().acceptPreReservation(reservation.getId());
         if (isVendeur) {
@@ -88,5 +91,14 @@ public class PrereservationVendeurItemController {
             return true;
         }
         return false;
+    }
+
+    public int getNbHours() throws Exception{
+        if (reservation.getAnnonce().getCategorie().equals("Service")) {
+            return 1;
+        }
+        else {
+            return Date_M.getNbHours(reservation.getDate_debut(), reservation.getDate_fin());
+        }
     }
 }
