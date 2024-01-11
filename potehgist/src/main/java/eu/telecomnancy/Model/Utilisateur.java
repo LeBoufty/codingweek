@@ -138,6 +138,24 @@ public class Utilisateur {
         return annonces;
     }
 
+    public boolean addArgent(int montant) {
+        if (montant < 0) {
+            return false;
+        }
+        argent += montant;
+        save();
+        return true;
+    }
+
+    public boolean removeArgent(int montant) {
+        if (montant < 0 || argent < montant) {
+            return false;
+        }
+        argent -= montant;
+        save();
+        return true;
+    }
+
     public void ajouterArgent(int montant) {
         argent += montant;
         save();
