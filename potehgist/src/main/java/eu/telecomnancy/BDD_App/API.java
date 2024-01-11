@@ -755,6 +755,11 @@ public class API {
         
     }
 
+    public ResultSet getReservationsparannonce(int idannonce) throws Exception {
+        return conn.createStatement().executeQuery("SELECT * FROM plannings_reservations WHERE id_offre = " + idannonce + ";");
+        
+    }
+
     public ResultSet getNotif(int iduser) throws Exception {
         return conn.createStatement().executeQuery("SELECT * FROM notifications WHERE id_utilisateur = " + iduser + ";");
         
