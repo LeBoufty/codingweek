@@ -9,6 +9,8 @@
   -accent-color-3: #CF5C36;
   -discord-color: #5865F2;
   -gmail-color: #D44638;
+  -other-chat-color: #4d1c1d;
+  -you-chat-color: #635a59;
 }
 
 @font-face {
@@ -352,6 +354,22 @@ BorderPane,
 .article-content {
   -fx-line-height: 1.6;
   -fx-white-space: pre-wrap;
+}
+
+/* Chat */
+
+.messageyou {
+  -fx-background-color: -you-chat-color;
+  -fx-text-fill: -text-color;
+  -fx-padding: 20px;
+  -fx-border-radius: 4px;
+}
+
+.messageother {
+  -fx-background-color: -other-chat-color;
+  -fx-text-fill: -text-color;
+  -fx-padding: 20px;
+  -fx-border-radius: 4px;
 }
 
 /* Scrollbar */

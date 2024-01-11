@@ -22,6 +22,9 @@ public class Formater {
     }
 
     public static String addNewlines(String s, int n) {
+        if (s == null) {
+            return null;
+        }
         StringBuilder sb = new StringBuilder(s);
         int i = 0;
         int index = 0;
