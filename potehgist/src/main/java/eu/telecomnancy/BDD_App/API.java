@@ -376,12 +376,14 @@ public class API {
 
     public String[] getNotifInfos(int id) {
         try {
-            ResultSet rs = conn.createStatement().executeQuery("SELECT id_utilisateur, message, date, vue FROM notifications WHERE id = " + id + ";");
-            String[] infos = new String[4];
+            ResultSet rs = conn.createStatement().executeQuery("SELECT id_utilisateur, message, date, vue, type, iduser2 FROM notifications WHERE id = " + id + ";");
+            String[] infos = new String[6];
             infos[0] = rs.getString(1);
             infos[1] = rs.getString(2);
             infos[2] = rs.getString(3);
             infos[3] = rs.getString(4);
+            infos[4] = rs.getString(5);
+            infos[5] = rs.getString(6);
             return infos;
         } catch (Exception e) {
             return null;
@@ -666,10 +668,19 @@ public class API {
         }
     }
 
-    public void addnotif(int iduser, String message)
+    public void addnotif(int iduser, String message, int type, int iduser2)
     {
         try {
-            conn.createStatement().execute("INSERT INTO notifications (id_utilisateur, message, date, vue) VALUES (" + iduser + ", '" + message + "', "+(int)Instant.now().getEpochSecond()+", false);");
+            conn.createStatement().execute("INSERT INTO notifications (id_utilisateur, message, date, vue, type, iduser2) VALUES (" + iduser + ", '" + message + "', "+(int)Instant.now().getEpochSecond()+", false, "+ type +", "+iduser2+");");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void addnotif(int iduser, String message, int type)
+    {
+        try {
+            conn.createStatement().execute("INSERT INTO notifications (id_utilisateur, message, date, vue, type, iduser2) VALUES (" + iduser + ", '" + message + "', "+(int)Instant.now().getEpochSecond()+", false, "+ type +", "+ 0 +");");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

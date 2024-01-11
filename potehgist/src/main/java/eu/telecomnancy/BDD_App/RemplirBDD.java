@@ -149,23 +149,23 @@ public class RemplirBDD {
         
 
         // Ajout des notifications
-        API.getInstance().addnotif(1, "Vous avez un nouveau chat");
-        API.getInstance().addnotif(1, "Vous avez un nouveau chat");
-        API.getInstance().addnotif(1, "Vous avez un nouveau chat");
-        API.getInstance().addnotif(1, "Vous avez un nouveau chat");
-        API.getInstance().addnotif(1, "Vous avez un nouveau chat");
-        API.getInstance().addnotif(1, "Vous avez un nouveau chat");
-        API.getInstance().addnotif(1, "Vous avez un nouveau chat");
-        API.getInstance().addnotif(1, "Vous avez un nouveau chat");
-        API.getInstance().addnotif(1, "Vous avez un nouveau chat");
-        API.getInstance().addnotif(1, "Vous avez un nouveau chat");
-        API.getInstance().addnotif(2, "Sephiroth");
-        API.getInstance().addnotif(2, "Sephiroth");
-        API.getInstance().addnotif(2, "Sephiroth");
-        API.getInstance().addnotif(2, "Sephiroth");
-        API.getInstance().addnotif(2, "Sephiroth");
-        API.getInstance().addnotif(2, "Sephiroth");
-        API.getInstance().addnotif(2, "Sephiroth");
+        API.getInstance().addnotif(1, "Vous avez un nouveau chat",1,2);
+        API.getInstance().addnotif(1, "Vous avez un nouveau chat",1,2);
+        API.getInstance().addnotif(1, "Vous avez un nouveau chat",1,2);
+        API.getInstance().addnotif(1, "Vous avez un nouveau chat",1,2);
+        API.getInstance().addnotif(1, "Vous avez un nouveau chat",1,2);
+        API.getInstance().addnotif(1, "Vous avez un nouveau chat",1,2);
+        API.getInstance().addnotif(1, "Vous avez un nouveau chat",1,2);
+        API.getInstance().addnotif(1, "Vous avez un nouveau chat",1,2);
+        API.getInstance().addnotif(1, "Vous avez un nouveau chat",1,2);
+        API.getInstance().addnotif(1, "Vous avez un nouveau chat",1,2);
+        API.getInstance().addnotif(2, "Sephiroth",1,1);
+        API.getInstance().addnotif(2, "Sephiroth",1,1);
+        API.getInstance().addnotif(2, "Sephiroth",1,1);
+        API.getInstance().addnotif(2, "Sephiroth",1,1);
+        API.getInstance().addnotif(2, "Sephiroth",1,1);
+        API.getInstance().addnotif(2, "Sephiroth",1,1);
+        API.getInstance().addnotif(2, "Sephiroth",1,1);
 
 
         //ajout des reclamations
