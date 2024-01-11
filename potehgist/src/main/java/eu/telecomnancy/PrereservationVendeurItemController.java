@@ -4,6 +4,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import eu.telecomnancy.BDD_App.API;
+import eu.telecomnancy.BDD_App.API;
 import eu.telecomnancy.Model.Reservation;
 
 public class PrereservationVendeurItemController {
@@ -30,13 +32,15 @@ public class PrereservationVendeurItemController {
     private Button Button_validate;
 
     @FXML
-    void Refuse(ActionEvent event) {
-
+    void Refuse(ActionEvent event) throws Exception {
+        API.getInstance().deletePreReservation(Integer.parseInt(id.getText()));
+        App.setRoot("profil");
     }
 
     @FXML
-    void Validate(ActionEvent event) {
-
+    void Validate(ActionEvent event) throws Exception{
+        API.getInstance().acceptPreReservation(Integer.parseInt(id.getText()));
+        App.setRoot("profil");
     }
 
     public void setData(Reservation reservation) {

@@ -138,5 +138,4 @@ public class App extends Application {
     public static Annonce getAnnonce() {
         return new Annonce(idannonce);
     }
-
 }
