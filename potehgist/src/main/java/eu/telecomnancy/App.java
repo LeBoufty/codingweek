@@ -72,7 +72,7 @@ public class App extends Application {
         user2 = new Utilisateur(id);
     }
 
-    static Utilisateur getUser() {
+    public static Utilisateur getUser() {
         return user;
     }
 
