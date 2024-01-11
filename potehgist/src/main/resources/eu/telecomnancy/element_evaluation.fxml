@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
@@ -13,12 +14,12 @@
    <children>
       <HBox alignment="CENTER_LEFT" prefHeight="179.0" prefWidth="933.0" styleClass="darkbg">
          <children>
-            <Button mnemonicParsing="false" onAction="#showAnnonce" prefHeight="199.0" prefWidth="778.0" styleClass="buttontransparent">
+            <Button mnemonicParsing="false" prefHeight="199.0" prefWidth="623.0" styleClass="buttontransparent">
                <graphic>
                   <VBox prefHeight="179.0" prefWidth="694.0">
                      <children>
                         <Label fx:id="Titre" prefHeight="128.0" prefWidth="716.0" styleClass="article-title" text="Titre" />
-                        <GridPane prefHeight="182.0" prefWidth="716.0">
+                        <GridPane prefHeight="182.0" prefWidth="136.0">
                           <columnConstraints>
                             <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="179.0" minWidth="0.0" prefWidth="178.0" />
                               <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="6.0" prefWidth="145.0" />
@@ -44,9 +45,10 @@
                   </VBox>
                </graphic>
             </Button>
+            <Slider fx:id="note" blockIncrement="1.0" majorTickUnit="1.0" max="5.0" minorTickCount="1" prefHeight="38.0" prefWidth="210.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+            <Pane prefHeight="179.0" prefWidth="46.0" />
             <Button fx:id="Button_validate" mnemonicParsing="false" onAction="#Validate" styleClass="btngreen" text="V" />
             <Pane prefHeight="179.0" prefWidth="46.0" />
-            <Button mnemonicParsing="false" onAction="#Refuse" styleClass="btn" text="X" />
          </children>
       </HBox>
    </children>
