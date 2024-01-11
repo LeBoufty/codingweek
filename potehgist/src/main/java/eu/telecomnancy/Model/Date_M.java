@@ -2,11 +2,11 @@ package eu.telecomnancy.Model;
 
 import java.time.LocalDate;
 
-public class Date {
+public class Date_M {
     
     public long date; // seconds since 1970-01-01 00:00:00 UTC
 
-    public Date(long date) {
+    public Date_M(long date) {
         this.date = date;
     }
 
@@ -14,24 +14,24 @@ public class Date {
         return date;
     }
 
-    public Date(int annee, int mois, int jour) {
+    public Date_M(int annee, int mois, int jour) {
         this.date = (java.time.LocalDate.of(annee, mois, jour).toEpochDay() * 24 * 60 * 60);
     }
 
-    public Date(int annee, int mois, int jour, int heure, int minute) {
+    public Date_M(int annee, int mois, int jour, int heure, int minute) {
         this.date = (java.time.LocalDateTime.of(annee, mois, jour, heure, minute).toEpochSecond(java.time.ZoneOffset.UTC));
     }
 
-    public Date(LocalDate date_FXML) {
+    public Date_M(LocalDate date_FXML) {
         this.date = (java.time.LocalDate.of(date_FXML.getYear(), date_FXML.getMonthValue(), date_FXML.getDayOfMonth()).toEpochDay() * 24 * 60 * 60);
     }
 
-    public static Date now() {
-        return new Date(java.time.Instant.now().getEpochSecond());
+    public static Date_M now() {
+        return new Date_M(java.time.Instant.now().getEpochSecond());
     }
 
-    public static Date today() {
-        return new Date(java.time.LocalDate.now().toEpochDay() * 24 * 60 * 60);
+    public static Date_M today() {
+        return new Date_M(java.time.LocalDate.now().toEpochDay() * 24 * 60 * 60);
     }
 
     public static long getDate_FXML(LocalDate date_FXML) {
