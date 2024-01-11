@@ -50,7 +50,7 @@ public class CreationAnnonceController {
             imageView.setImage(image);
         }
 
-        App.annonce_en_création = new Annonce_en_creation(name.getText(), Description.getText(), Integer.parseInt(prix.getText()), ImageBlob.imageViewToBytes(imageView), categorie.getValue());
+        App.annonce_en_creation = new Annonce_en_creation(name.getText(), Description.getText(), Integer.parseInt(prix.getText()), ImageBlob.imageViewToBytes(imageView), categorie.getValue());
         if (categorie.getValue().equals("Matériel")) {
             App.setRoot("creationannonce_planning_materiel");
         } else {
