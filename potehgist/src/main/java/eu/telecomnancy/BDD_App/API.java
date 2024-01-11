@@ -316,6 +316,17 @@ public class API {
         preparedStatement.execute();
     }
 
+    public void addPlaningLastOffre(int date_debut, int date_fin) throws Exception {
+        String query = "INSERT INTO plannings_offres (id_offre, date_debut, date_fin) VALUES (?, ?, ?)";
+        PreparedStatement preparedStatement = conn.prepareStatement(query);
+        
+        preparedStatement.setInt(1, getMaxOffreID());
+        preparedStatement.setInt(2, date_debut);
+        preparedStatement.setInt(3, date_fin);
+
+        preparedStatement.execute();
+    }
+
     public void addPlaningMateriel(Annonce_en_creation annonce) throws Exception {
         String insertInfoSQL = "INSERT INTO plannings_offres (id_offre, date_debut, date_fin) VALUES (?, ?, ?)";
         PreparedStatement preparedStatementInfo = conn.prepareStatement(insertInfoSQL);
