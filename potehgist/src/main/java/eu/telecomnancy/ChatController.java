@@ -37,7 +37,8 @@ public class ChatController {
         List<Message> chats = new ArrayList<>();
         while(result.next())
         {
-            Message msg = new Message(result.getInt(1));
+            Message msg = new Message(result.getInt("id"));
+            System.out.println(msg.getmessage());
             chats.add(msg);
         }
         return chats;
@@ -46,6 +47,7 @@ public class ChatController {
     @FXML
     private void initialize() throws Exception {
         if(App.getUser2id() != 0) {
+            nomuser2.setText(App.getUser2().getNom());
             List<Message> chats = Message();
             for (int i=0; i<chats.size(); i++)
             {
