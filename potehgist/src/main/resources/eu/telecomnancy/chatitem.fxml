@@ -12,7 +12,7 @@
          <children>
             <HBox prefHeight="26.0" prefWidth="560.0">
                <children>
-                  <Label fx:id="Auteur" prefHeight="19.0" prefWidth="80.0" styleClass="discrete" text="Acheteur">
+                  <Label fx:id="Auteur" prefHeight="19.0" prefWidth="608.0" styleClass="discrete" text="Acheteur">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -21,7 +21,10 @@
             </HBox>
             <VBox prefWidth="550.0">
                <children>
-                  <Text fx:id="Description" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                  <Text fx:id="Description" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Text>
                   <Label fx:id="Date" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="20.0" prefWidth="547.0" styleClass="discrete" text="Date">
                      <font>
                         <Font size="10.0" />
