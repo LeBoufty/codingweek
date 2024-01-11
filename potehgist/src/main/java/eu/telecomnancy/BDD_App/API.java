@@ -17,6 +17,7 @@ import eu.telecomnancy.Model.Annonce;
 import eu.telecomnancy.Model.Annonce_Recherche;
 import eu.telecomnancy.Model.Annonce_en_creation;
 import eu.telecomnancy.Model.Date_M;
+import eu.telecomnancy.Model.Reservation;
 import eu.telecomnancy.Model.Utilisateur;
 import eu.telecomnancy.Outils.Formater;
 
@@ -275,6 +276,18 @@ public class API {
             dates.add(new Date_M(rs.getInt(2)));
         }
         return dates;
+    }
+
+    public ArrayList<Reservation> getPreReservationVendeur(int userid) throws Exception {
+        String query = "SELECT id, id_utilisateur, id_offre, date_debut, date_fin FROM plannings_prereservations WHERE id_offre IN (SELECT id FROM offres WHERE id_vendeur = ?) ORDER BY id ASC;";
+        PreparedStatement preparedStatement = conn.prepareStatement(query);
+        preparedStatement.setInt(1, userid);
+        ResultSet rs = preparedStatement.executeQuery();
+        ArrayList<Reservation> reservations = new ArrayList<Reservation>();
+        while (rs.next()) {
+            reservations.add(new Reservation(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getInt(5)));
+        }
+        return reservations;
     }
 
     public ArrayList<Integer> getDatePlaningServiceRestant(int offreid) throws Exception {

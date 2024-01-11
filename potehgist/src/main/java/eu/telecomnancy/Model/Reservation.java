@@ -27,6 +27,14 @@ public class Reservation {
         this.date_fin = infos[3];
     }
 
+    public Reservation(int id, int id_utilisateur, int id_offre, int date_debut, int date_fin) { // Fait par Pierre
+        this.user = new Utilisateur(id_utilisateur);
+        this.annonce = new Annonce(id_offre);
+        this.date_debut = date_debut;
+        this.date_fin = date_fin;
+        this.id = id;
+    }
+
     public void saveAsNew() {
         try {
             API.getInstance().addReservation(user.getId(), annonce.getId(), date_debut, date_fin);
