@@ -64,7 +64,10 @@
                   <Label styleClass="smalltitle" text="Catégorie" GridPane.rowIndex="3" />
                   <ChoiceBox fx:id="categorie" prefWidth="150.0" style="-fx-font-size: 20;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   <Label styleClass="smalltitle" text="Description" GridPane.rowIndex="4" />
-                  <TextArea fx:id="Description" prefHeight="151.0" prefWidth="300.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                  <TextArea fx:id="Description" prefHeight="151.0" prefWidth="300.0" promptText="Description..." GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+                     <font>
+                        <Font size="18.0" />
+                     </font></TextArea>
                   <Label styleClass="smalltitle" text="Image" GridPane.rowIndex="5" />
                   <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
                      <children>

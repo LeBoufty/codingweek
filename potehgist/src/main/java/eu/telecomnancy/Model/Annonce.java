@@ -81,6 +81,10 @@ public class Annonce {
         return description;
     }
 
+    public byte[] getPhotoBytes() {
+        return photo;
+    }
+
     public void setDescription(String description) {
         this.description = description.trim();
     }
