@@ -5,7 +5,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import eu.telecomnancy.BDD_App.API;
-import eu.telecomnancy.BDD_App.API;
 import eu.telecomnancy.Model.Reservation;
 
 public class PrereservationVendeurItemController {
