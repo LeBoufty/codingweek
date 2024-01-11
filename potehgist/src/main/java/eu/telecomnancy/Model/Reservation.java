@@ -64,4 +64,13 @@ public class Reservation {
         return annonce;
     }
 
+    public String getdate_debutString() {
+        Date_M date = new Date_M(date_debut);
+        return date.getAlldateJJMMAAAA();
+    }
+
+    public String getdate_finString() {
+        Date_M date = new Date_M(date_fin);
+        return date.getAlldateJJMMAAAA();
+    }
 }
