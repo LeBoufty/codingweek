@@ -46,6 +46,7 @@ public class RemplirBDD {
             u.saveAsNew();
 
             u = new Utilisateur("Joe Biden", "1234","Biden@wanadoo.com","75000");
+            u.setAdmin(true);
             u.saveAsNew();
 
             u = new Utilisateur("Doigby", "Squeezie","Doigby@twitch.tv", "54000");
