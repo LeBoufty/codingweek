@@ -11,6 +11,8 @@ public class PrereservationVendeurItemController {
 
     private Reservation reservation;
 
+    private boolean isVendeur;
+
     @FXML
     private Label Date_debut;
 
@@ -34,14 +36,29 @@ public class PrereservationVendeurItemController {
 
     @FXML
     void Refuse(ActionEvent event) throws Exception {
+        isVendeur = isVendeur(reservation.getId_offre());
+
         API.getInstance().deletePreReservation(reservation.getId());
         App.setRoot("profil");
+        if (isVendeur) {
+            App.setRoot("prereservationvendeur");
+        }
+        else {
+            App.setRoot("prereservationuser");
+        }
     }
 
     @FXML
     void Validate(ActionEvent event) throws Exception{
         API.getInstance().acceptPreReservation(reservation.getId());
         App.setRoot("profil");
+        isVendeur = isVendeur(reservation.getId_offre());
+        if (isVendeur) {
+            App.setRoot("prereservationvendeur");
+        }
+        else {
+            App.setRoot("prereservationuser");
+        }
     }
 
     public void setData(Reservation reservation) throws Exception {
@@ -63,5 +80,12 @@ public class PrereservationVendeurItemController {
     public void showAnnonce(ActionEvent event) throws Exception {
         App.setidannonce(reservation.getId_offre());
         App.setRoot("annonce");
+    }
+
+    public boolean isVendeur(int idoffre) throws Exception {
+        if (App.getUser().getId() == API.getInstance().getPreReservationUserId(idoffre)) {
+            return true;
+        }
+        return false;
     }
 }
