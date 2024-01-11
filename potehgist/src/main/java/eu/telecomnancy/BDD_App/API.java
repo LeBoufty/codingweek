@@ -263,6 +263,34 @@ public class API {
         return rs.getInt(1)!=0;
     }
 
+    public ArrayList<Date_M> getDatePlaningServiceRestantDate(int id_planning) throws Exception {
+        // Sélectionne les dates de début et de fin de l'offre lorsqu'elle n'est pas réservée
+        String query = "SELECT date_debut, date_fin FROM plannings_offres WHERE id = ?";
+        PreparedStatement preparedStatement = conn.prepareStatement(query);
+        preparedStatement.setInt(1, id_planning);
+        ResultSet rs = preparedStatement.executeQuery();
+        ArrayList<Date_M> dates = new ArrayList<Date_M>();
+        while (rs.next()) {
+            dates.add(new Date_M(rs.getInt(1)));
+            dates.add(new Date_M(rs.getInt(2)));
+        }
+        return dates;
+    }
+
+    public ArrayList<Integer> getDatePlaningServiceRestant(int offreid) throws Exception {
+        // Sélectionne les ints de l'offre lorsqu'elle n'est pas réservée
+        String query = "SELECT id FROM plannings_offres WHERE id_offre = ? AND date_debut NOT IN (SELECT date_debut FROM plannings_reservations WHERE id_offre = ?)";
+        PreparedStatement preparedStatement = conn.prepareStatement(query);
+        preparedStatement.setInt(1, offreid);
+        preparedStatement.setInt(2, offreid);
+        ResultSet rs = preparedStatement.executeQuery();
+        ArrayList<Integer> dates = new ArrayList<Integer>();
+        while (rs.next()) {
+            dates.add(rs.getInt(1));
+        }
+        return dates;        
+    }
+
     public ArrayList<Date_M> getDatePlaningOffre(int offreid) throws Exception {
         String query = "SELECT date_debut, date_fin FROM plannings_offres WHERE id_offre = ?";
         PreparedStatement preparedStatement = conn.prepareStatement(query);
