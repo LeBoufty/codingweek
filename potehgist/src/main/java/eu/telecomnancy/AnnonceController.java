@@ -60,9 +60,12 @@ public class AnnonceController {
 
     public void reservation() throws Exception {
         App.setidannonce(App.idannonce);
-        if (App.getAnnonce().getCategorie() == "Service")
+        if (App.getAnnonce().getCategorie().equals("Service")) {
+            System.out.println("Service");
             App.setRoot("reserverservice");
-        else{
+        }
+        else {
+            System.out.println("Materiel");
             App.setRoot("reservermateriel");
         }
     }

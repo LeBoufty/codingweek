@@ -45,6 +45,7 @@ public class ReserverServiceController {
             element_reserver_serviceController controller = loader.getController();
             controller.date_debut = (int) date.get(0).getDate();
             controller.date_fin = (int) date.get(1).getDate();
+            controller.initialize();
 
             vbox_layout.getChildren().add(hbox);
         }
