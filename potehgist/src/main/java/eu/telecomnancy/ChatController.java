@@ -52,7 +52,7 @@ public class ChatController {
             for (int i=0; i<chats.size(); i++)
             {
                 FXMLLoader loader = new FXMLLoader();
-                if (chats.get(i).getAuthor() == App.getUser().getNom())
+                if (chats.get(i).getAuthorID() == App.getUser().getId())
                     loader.setLocation(getClass().getResource("chatitemuser.fxml"));
                 else
                     loader.setLocation(getClass().getResource("chatitem.fxml"));

@@ -1,15 +1,15 @@
 package eu.telecomnancy.Model;
 
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import java.io.IOException;
+import java.io.File;
+import java.nio.file.Files;
 
 import javax.imageio.ImageIO;
-import javafx.embed.swing.SwingFXUtils;
-import java.io.File;
 import javax.imageio.ImageWriter;
 import javax.imageio.stream.ImageOutputStream;
-import java.nio.file.Files;
+
+import javafx.embed.swing.SwingFXUtils;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class ImageBlob {
 
