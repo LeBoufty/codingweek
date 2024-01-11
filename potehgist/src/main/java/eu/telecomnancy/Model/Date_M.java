@@ -80,14 +80,14 @@ public class Date_M {
         res += getAnnee() + "-";
         res += getMois() + "-";
         res += getJour() + " ";
-        res += getHeure() + ":";
+        res += getHeure() + "h";
         res += getMinute();
         return res;
     }
 
     public String getAlldateHHMM(){
         String res = "";
-        res += getHeure() + ":";
+        res += getHeure() + "h";
         res += getMinute();
         return res;
     }
