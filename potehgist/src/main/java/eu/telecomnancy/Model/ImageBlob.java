@@ -13,25 +13,37 @@ import java.nio.file.Files;
 
 public class ImageBlob {
 
-    public static byte[] imageViewToBytes(ImageView imageView) throws IOException {
+    public static byte[] pathtToByte(String path) throws Exception{
+        File imageFile = new File(path);
+        byte[] imageData = Files.readAllBytes(imageFile.toPath());
+        return imageData;
+    }
+
+    public static byte[] imageToByte(Image image) throws Exception{
+        java.awt.image.BufferedImage bufferedImage = SwingFXUtils.fromFXImage(image, null);
+
+        // Save BufferedImage to file using ImageIO
+        File outputFile = new File("/tmp/potehgist.png");
+        ImageWriter writer = ImageIO.getImageWritersByFormatName("png").next();
+        ImageOutputStream outputStream = ImageIO.createImageOutputStream(outputFile);
+        writer.setOutput(outputStream);
+        writer.write(bufferedImage);
+        outputStream.close();
+        writer.dispose();
+
+        // Récupérer le fichier
+        byte[] imageData = pathtToByte("/tmp/potehgist.png");
+        
+        return imageData;
+    }
+
+    public static byte[] imageViewToBytes(ImageView imageView) throws Exception {
         // Récupérer l'image depuis l'ImageView
-            Image image = imageView.getImage();
+        Image image = imageView.getImage();
 
-            java.awt.image.BufferedImage bufferedImage = SwingFXUtils.fromFXImage(image, null);
-
-            // Save BufferedImage to file using ImageIO
-            File outputFile = new File("/tmp/potehgist.png");
-            ImageWriter writer = ImageIO.getImageWritersByFormatName("png").next();
-            ImageOutputStream outputStream = ImageIO.createImageOutputStream(outputFile);
-            writer.setOutput(outputStream);
-            writer.write(bufferedImage);
-            outputStream.close();
-            writer.dispose();
-
-            // Récupérer le fichier
-            File imageFile = new File("/tmp/potehgist.png");
-            byte[] imageData = Files.readAllBytes(imageFile.toPath());
+            // Convertir l'image en byte[]
+        byte[] imageData = imageToByte(image);
             
-            return imageData;
+        return imageData;
     }
 }
