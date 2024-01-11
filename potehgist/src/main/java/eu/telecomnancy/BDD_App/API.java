@@ -791,7 +791,7 @@ public class API {
 
     public ResultSet getSommeils(int iduser) throws Exception {
         int date = (int) Instant.now().getEpochSecond();
-        return conn.createStatement().executeQuery("SELECT * FROM sommeils WHERE id_utilisateur = " + iduser + " AND "+ date + " > date_fin ;");   
+        return conn.createStatement().executeQuery("SELECT * FROM sommeils WHERE id_utilisateur = " + iduser + " AND "+ date + " < date_fin ;");   
     }
 }
 
