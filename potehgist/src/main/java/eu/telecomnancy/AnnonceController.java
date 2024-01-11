@@ -57,6 +57,6 @@ public class AnnonceController {
 
     public void reservation() throws Exception {
         App.setidannonce(App.idannonce);
-        App.setRoot("reserver");
+        App.setRoot("reservermateriel");
     }
 }
