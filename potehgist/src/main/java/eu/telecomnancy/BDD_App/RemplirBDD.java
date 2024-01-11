@@ -200,7 +200,7 @@ public class RemplirBDD {
         }
     }
 
-    public static void main(String [] args) {
+    public static void main(String [] args) throws Exception {
         RemplirBDD remplirbdd = new RemplirBDD();
         remplirbdd.remplir();
     }
