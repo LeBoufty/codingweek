@@ -59,5 +59,11 @@ public class Date_M {
         return java.time.LocalDateTime.ofEpochSecond(date, 0, java.time.ZoneOffset.UTC).getMinute();
     }
 
-
+    public String getAlldateAAAAMMJJ(){
+        String res = "";
+        res += getAnnee() + "-";
+        res += getMois() + "-";
+        res += getJour() + " ";
+        return res;
+    }
 }
