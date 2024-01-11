@@ -33,3 +33,5 @@ replay_pid*
 # Allow all files in /RELEASE directory
 !/RELEASE/*
 
+# à changer après
+*/pom.xml
