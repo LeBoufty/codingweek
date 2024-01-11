@@ -30,7 +30,7 @@
                      </children>
                   </HBox>
                   <Pane prefHeight="12.0" prefWidth="1160.0" />
-                  <ScrollPane prefHeight="397.0" prefWidth="1160.0" styleClass="root">
+                  <ScrollPane hbarPolicy="NEVER" prefHeight="397.0" prefWidth="1160.0" styleClass="root" vvalue="1.0">
                      <content>
                         <VBox fx:id="ChatVbox" prefHeight="376.0" prefWidth="1160.0" styleClass="grisbg" />
                      </content></ScrollPane>
