@@ -34,7 +34,7 @@ public class PrereservationVendeurItemController {
 
     @FXML
     void Refuse(ActionEvent event) throws Exception {
-        isVendeur = isVendeur(Integer.parseInt(id_offre.getText()));
+        isVendeur = isVendeur();
         API.getInstance().deletePreReservation(Integer.parseInt(id.getText()));
         if (isVendeur) {
             App.setRoot("prereservationvendeur");
@@ -45,8 +45,8 @@ public class PrereservationVendeurItemController {
 
     @FXML
     void Validate(ActionEvent event) throws Exception{
-        isVendeur = isVendeur(Integer.parseInt(id_offre.getText()));
-        API.getInstance().acceptPreReservation(Integer.parseInt(id_offre.getText()));
+        isVendeur = isVendeur();
+        API.getInstance().acceptPreReservation(Integer.parseInt(id.getText()));
         if (isVendeur) {
             App.setRoot("prereservationvendeur");
         } else {
@@ -72,7 +72,7 @@ public class PrereservationVendeurItemController {
         App.setRoot("annonce");
     }
 
-    public boolean isVendeur(int idoffre) throws Exception{
+    public boolean isVendeur() throws Exception{
         if (App.getUser().getId() != API.getInstance().getPreReservationUserId(Integer.parseInt(id_offre.getText()))) {
             return true;
         }
