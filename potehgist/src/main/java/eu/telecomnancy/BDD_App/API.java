@@ -302,6 +302,11 @@ public class API {
         return reservations;
     }
 
+    public int getPreReservationUserId(int id_planning) throws Exception {
+        ResultSet rs = conn.createStatement().executeQuery("SELECT id_utilisateur FROM plannings_prereservations WHERE id = " + id_planning + ";");
+        return rs.getInt(1);
+    }
+
     public void deletePreReservation(int id_planning) throws Exception {
         conn.createStatement().execute("DELETE FROM plannings_prereservations WHERE id = " + id_planning + ";");
     }
