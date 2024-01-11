@@ -4,9 +4,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import eu.telecomnancy.Model.Annonce;
-import eu.telecomnancy.Model.Date_M;
 
-public class PrereservationItemController {
+public class PrereservationVendeurItemController {
 
     @FXML
     private Label Date_debut;
@@ -33,7 +32,6 @@ public class PrereservationItemController {
     public void initialize() throws Exception {
         Annonce annonce = App.getAnnonce();
         Titre.setText(annonce.getTitre());
-        id_acheteur.setText(annonce.getVendeur().getNom());
     }
 
 }
