@@ -67,6 +67,8 @@ public class Notification {
         return id_utilisateur;
     }
 
+    
+
     public int getdate() {
         return this.date;
     }
@@ -98,4 +100,10 @@ public class Notification {
     public int getiduser2() {
         return iduser2;
     }
+
+    public int getidannonce() {
+        return id;
+    }
 }
+
+
