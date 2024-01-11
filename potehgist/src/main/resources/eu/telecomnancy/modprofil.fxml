@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -61,6 +62,19 @@
                   <Label styleClass="smalltitle" text=" Nouvelle Image de profil" GridPane.rowIndex="6" />
                   <Button mnemonicParsing="false" onAction="#updateprofile" prefHeight="65.0" prefWidth="244.0" style="-fx-font-size: 16;" text="Confirmer le changement" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
                   <Button mnemonicParsing="false" onAction="#returntoprofile" text="Retour" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
+                  <GridPane GridPane.columnIndex="1" GridPane.rowIndex="6">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#uploadImage" text="Téléverser une image" />
+                        <ImageView fx:id="imageView" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" />
+                     </children>
+                  </GridPane>
                </children>
             </GridPane>
          </center>
