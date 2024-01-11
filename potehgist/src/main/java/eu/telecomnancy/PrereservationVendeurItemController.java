@@ -20,6 +20,9 @@ public class PrereservationVendeurItemController {
     private Label id_acheteur;
 
     @FXML
+    private Label id_offre;
+
+    @FXML
     void Refuse(ActionEvent event) {
 
     }
@@ -29,9 +32,13 @@ public class PrereservationVendeurItemController {
 
     }
 
-    public void initialize() throws Exception {
-        Annonce annonce = App.getAnnonce();
+    public void setData(Annonce annonce) {
         Titre.setText(annonce.getTitre());
+        id_offre.setText(String.valueOf(annonce.getId()));
     }
 
+    public void showAnnonce(ActionEvent event) throws Exception {
+        App.setidannonce(Integer.valueOf(id_offre.getText()));
+        App.setRoot("annonce");
+    }
 }
