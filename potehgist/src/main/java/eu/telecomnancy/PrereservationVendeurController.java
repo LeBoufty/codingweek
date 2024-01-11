@@ -17,11 +17,11 @@ public class PrereservationVendeurController {
     public void initialize() throws Exception{
         List<Reservation> reservations = new ArrayList<>();
 
-        reservations = new ArrayList<>(Reservations());
+        reservations = API.getInstance().getPreReservationVendeur(App.getUser().getId());
 
         for (int i=0; i<reservations.size(); i++){
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("reservationlisteitem.fxml"));
+            loader.setLocation(getClass().getResource("prereservationvendeuritem.fxml"));
 
             try{
                 HBox hbox = loader.load();
@@ -34,10 +34,4 @@ public class PrereservationVendeurController {
         }
     }
 
-    private List<reservation> reservations() throws Exception{
-        List<reservation> reservations = new ArrayList<>();
-        reservations = API.getInstance().getreservationsRecherche(App.reservation_recherche);
-
-        return reservations;
-    }
 }

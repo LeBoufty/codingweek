@@ -39,6 +39,9 @@ public class PrereservationVendeurItemController {
         Titre.setText(reservation.getAnnonce().getTitre());
         id_offre.setText(String.valueOf(reservation.getId_offre()));
         id.setText(String.valueOf(reservation.getId()));
+        id_acheteur.setText(String.valueOf(reservation.getId_utilisateur()));
+        Date_debut.setText(String.valueOf(reservation.getDate_debut()));
+        Date_fin.setText(String.valueOf(reservation.getDate_fin()));
     }
 
     public void showAnnonce(ActionEvent event) throws Exception {
