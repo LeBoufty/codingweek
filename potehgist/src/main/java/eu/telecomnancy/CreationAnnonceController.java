@@ -2,7 +2,6 @@ package eu.telecomnancy;
 
 import java.io.File;
 
-import eu.telecomnancy.BDD_App.API;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.image.Image;
@@ -44,7 +43,7 @@ public class CreationAnnonceController {
         // System.out.println("Vendeur : " + App.getUser().getId());
         //API.getInstance().addOffre(name.getText(), Description.getText(), Integer.parseInt(prix.getText()), App.getUser().getId(), categorie.getValue(), ImageBlob.imageViewToBytes(imageView));
 
-        
+
         // si l'image est vide, on met une image par défaut
         if (imageView.getImage() == null) {
             Image image = new Image(getClass().getResource("/eu/telecomnancy/assets/placeholder.png").toExternalForm());
