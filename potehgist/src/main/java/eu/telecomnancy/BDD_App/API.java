@@ -12,9 +12,12 @@ import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 
+import eu.telecomnancy.App;
 import eu.telecomnancy.Model.Annonce;
 import eu.telecomnancy.Model.Annonce_Recherche;
 import eu.telecomnancy.Outils.Formater;
+import eu.telecomnancy.Model.Annonce_en_creation;
+import eu.telecomnancy.Model.Utilisateur;
 
 public class API {
     private static API instance = null;
@@ -244,21 +247,23 @@ public class API {
         return rs.getInt(1)!=0;
     }
 
+    public void addPlaningMateriel(Annonce_en_creation annonce) throws Exception {
+        String insertInfoSQL = "INSERT INTO plannings_offres (id_offre, date_debut, date_fin) VALUES (?, ?, ?)";
+        PreparedStatement preparedStatementInfo = conn.prepareStatement(insertInfoSQL);
+        preparedStatementInfo.setInt(1, getMaxOffreID());
+        preparedStatementInfo.setInt(2, (int) annonce.date_debut_materiel);
+        preparedStatementInfo.setInt(3, (int) annonce.date_fin_materiel);
+        preparedStatementInfo.executeUpdate();
+    }
+
+    public void addOffre(Annonce_en_creation annonce) throws Exception {
+        Utilisateur user = App.getUser();
+        addOffre(annonce.titre, annonce.description, annonce.prix, user.getId(), annonce.categorie, annonce.photo);
+    }
+
     public void addOffre(String nom, String description, int prix, int vendeur, String categorie, byte[] photo) throws Exception {
-        nom = Formater.format(nom);
-        description = Formater.format(description);
-    
-        // Insert basic information into the database
-        String insertInfoSQL = "INSERT INTO offres (nom, description, prix, id_vendeur, categorie, date_depot) VALUES (?, ?, ?, ?, ?, ?)";
-        try (PreparedStatement preparedStatementInfo = conn.prepareStatement(insertInfoSQL)) {
-            preparedStatementInfo.setString(1, nom);
-            preparedStatementInfo.setString(2, description);
-            preparedStatementInfo.setInt(3, prix);
-            preparedStatementInfo.setInt(4, vendeur);
-            preparedStatementInfo.setString(5, categorie);
-            preparedStatementInfo.setInt(6, (int) Instant.now().getEpochSecond());
-            preparedStatementInfo.executeUpdate();
-        }
+
+        addOffre(nom, description, prix, vendeur, categorie);
     
         // Get the ID of the last inserted row
         int offreID = getMaxOffreID();
@@ -276,8 +281,18 @@ public class API {
     public void addOffre(String nom, String description, int prix, int vendeur, String categorie) throws Exception {
         nom = Formater.format(nom);
         description = Formater.format(description);
-        Instant now = Instant.now();
-        conn.createStatement().execute("INSERT INTO offres (nom, description, prix, id_vendeur, categorie, date_depot) VALUES ('" + nom + "', '" + description + "', " + prix + ", " + vendeur + ", '" + categorie + "', "+ (int)now.getEpochSecond() + " );");
+    
+        // Insert basic information into the database
+        String insertInfoSQL = "INSERT INTO offres (nom, description, prix, id_vendeur, categorie, date_depot) VALUES (?, ?, ?, ?, ?, ?)";
+        try (PreparedStatement preparedStatementInfo = conn.prepareStatement(insertInfoSQL)) {
+            preparedStatementInfo.setString(1, nom);
+            preparedStatementInfo.setString(2, description);
+            preparedStatementInfo.setInt(3, prix);
+            preparedStatementInfo.setInt(4, vendeur);
+            preparedStatementInfo.setString(5, categorie);
+            preparedStatementInfo.setInt(6, (int) Instant.now().getEpochSecond());
+            preparedStatementInfo.executeUpdate();
+        }
     }
 
     public void addReservation(int userid, int offreid, int datedebut, int datefin) throws Exception {

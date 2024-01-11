@@ -7,8 +7,8 @@ public class Annonce_en_creation {
     public Integer prix;
     public byte[] photo;
     public String categorie;
-    public int date_debut_materiel;
-    public int date_fin_materiel;
+    public long date_debut_materiel;
+    public long date_fin_materiel;
     
 
     public Annonce_en_creation(String titre, String description, Integer prix, byte[] photo, String categorie) {
