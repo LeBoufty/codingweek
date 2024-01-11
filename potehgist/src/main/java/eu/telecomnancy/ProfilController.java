@@ -30,9 +30,11 @@ public class ProfilController {
         email.setText(user.getEmail());
         codepostal.setText(user.getCode_postal());
         API.getInstance().getImageUser(user.getId());
-        Image image = new Image(getClass().getResource("/eu/telecomnancy/assets/placeholder.png").toExternalForm());
+        Image image = new Image(getClass().getResource("/eu/telecomnancy/assets/user_photo.png").toExternalForm());
         imageView.setImage(image);
+        
     }
+
 
 
     @FXML
