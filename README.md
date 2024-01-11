@@ -85,10 +85,15 @@ java --module-path ${JAVAFX_HOME}/lib --add-modules=javafx.base,javafx.controls,
     + Chat.
     + Système de notifications.
     + Création du système de recherche.
+    + Ajout de photos de profil et d'offres.
 
 - 11/1/24
-    + Débug
-    + Vidéo.
+    + Correction de bugs
+    + Ajout du système de réservation
+
+- 12/1/24
+    + Debug
+    + Vidéo de présentation
 
 ## Crédits
 
