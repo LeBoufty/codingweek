@@ -40,7 +40,7 @@
                   </Label>
                   <DatePicker fx:id="date_fin" />
                   <Pane prefHeight="53.0" prefWidth="1160.0" />
-                  <Button mnemonicParsing="false" onAction="#create_annonce" text="Créé l'annonce" />
+                  <Button mnemonicParsing="false" onAction="#create_annonce" text="Créer l'annonce" />
                </children>
             </VBox>
          </center>
