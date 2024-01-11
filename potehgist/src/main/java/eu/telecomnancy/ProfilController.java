@@ -58,4 +58,14 @@ public class ProfilController {
     private void toSommeils() throws IOException {
         App.setRoot("sommeils");
     }
+
+    @FXML
+    private void toReservationsVendeur() throws IOException {
+        App.setRoot("prereservationvendeur");
+    }
+
+    @FXML
+    private void toMesReservations() throws IOException {
+        //App.setRoot("mesreservations");
+    }
 }

@@ -11,6 +11,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane prefHeight="720.0" prefWidth="1200.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eu.telecomnancy.ProfilController">
@@ -50,10 +51,9 @@
                         <Button mnemonicParsing="false" onAction="#toSommeils" prefHeight="69.0" prefWidth="193.0" style="-fx-font-size: 20;" text="Mes sommeils" />
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <children>
                         <Button alignment="CENTER" mnemonicParsing="false" onAction="#toModifProfile" text="Modifier le profil" />
-                        <Pane prefHeight="61.0" prefWidth="71.0" />
                      </children>
                   </HBox>
                   <GridPane GridPane.rowIndex="2">
@@ -87,6 +87,13 @@
                         <Label styleClass="smalltitle" text="Code postal :" GridPane.rowIndex="2" />
                      </children>
                   </GridPane>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#toMesReservations" text="Mes réservations" />
+                        <Pane prefHeight="47.0" prefWidth="348.0" />
+                        <Button mnemonicParsing="false" onAction="#toReservationsVendeur" text="Réservations sur mes offres" />
+                     </children>
+                  </VBox>
                </children>
                <cursor>
                   <Cursor fx:constant="TEXT" />
