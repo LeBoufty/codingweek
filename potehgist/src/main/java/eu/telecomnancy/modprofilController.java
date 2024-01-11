@@ -39,7 +39,7 @@ public class modprofilController {
         // Si le nom d'utilisateur ou l'e-mail est déjà pris on affiche un message
         if(!username.getText().equals("")) {
             if (API.getInstance().usernamePris(username.getText())) {
-                System.out.println("Nom d'utilisateur déjà pris");
+                App.error("Nom d'utilisateur déjà pris");
             } else {
                 user.setNom(username.getText());
             }
@@ -47,7 +47,7 @@ public class modprofilController {
 
         if(!email.getText().equals("")) {
             if (API.getInstance().emailPris(email.getText())) {
-                System.out.println("E-mail déjà pris");
+                App.error("E-mail déjà pris");
             } else {
                 user.setEmail(email.getText());
             }
@@ -55,7 +55,7 @@ public class modprofilController {
 
         if(!password1.getText().equals("")) {
             if (!password1.getText().equals(password2.getText())) {
-                System.out.println("Les mots de passe ne correspondent pas");
+                App.error("Les mots de passe ne correspondent pas");
             } else {
                 user.setMot_de_passe(password1.getText());
             }
