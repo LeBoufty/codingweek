@@ -12,6 +12,7 @@ import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 
+import eu.telecomnancy.Model.Date_M;
 import eu.telecomnancy.App;
 import eu.telecomnancy.Model.Annonce;
 import eu.telecomnancy.Model.Annonce_Recherche;
@@ -290,7 +291,7 @@ public class API {
             preparedStatementInfo.setInt(3, prix);
             preparedStatementInfo.setInt(4, vendeur);
             preparedStatementInfo.setString(5, categorie);
-            preparedStatementInfo.setInt(6, (int) Instant.now().getEpochSecond());
+            preparedStatementInfo.setInt(6, (int) Date_M.now().getDate());
             preparedStatementInfo.executeUpdate();
         }
     }
