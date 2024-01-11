@@ -12,7 +12,7 @@ public class RemplirBDD {
     
     private Connection conn;
 
-    public void remplir()
+    public void remplir() throws Exception
     {
         try {
             String url =  CreateBDD.BDD_NAME;
@@ -41,10 +41,6 @@ public class RemplirBDD {
             u =new Utilisateur("Claude La Bagarre","Avalanche","Claude@Midgar.ff","54000");
             u.saveAsNew();
 
-            
-            u = new Utilisateur("ClaudeLaBagarre", "Avalanche","Claude@Migdar.ff", "10000");
-            u.saveAsNew();
-
             u = new Utilisateur("JCVD", "J","JeanClaudeVanDame@gmail.fr", "30000");
             u.saveAsNew();
 
@@ -55,6 +51,9 @@ public class RemplirBDD {
             u.saveAsNew();
 
             u = new Utilisateur("z", "z","z", "z");
+            u.saveAsNew();
+
+            u = new Utilisateur("e", "e","e", "e");
             u.saveAsNew();
 
         } catch (Exception e) {
@@ -154,6 +153,14 @@ public class RemplirBDD {
         API.getInstance().addnotif(2, "Sephiroth");
         API.getInstance().addnotif(2, "Sephiroth");
         API.getInstance().addnotif(2, "Sephiroth");
+
+
+        //ajout des reclamations
+
+        API.getInstance().addReclamation(1, "Je n'ai pas reçu mon colis");
+        API.getInstance().addReclamation(2, "b");
+        API.getInstance().addReclamation(1, "Je n'ai pas reçu mon colis");
+        API.getInstance().addReclamation(4, "Je n'ai pas reçu mes missiles alors que je suis au pole Nord");
 
 
     }

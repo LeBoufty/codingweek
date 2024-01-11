@@ -277,7 +277,7 @@ public class API {
         nom = Formater.format(nom);
         description = Formater.format(description);
         Instant now = Instant.now();
-        conn.createStatement().execute("INSERT INTO offres (nom, description, prix, id_vendeur, categorie, date_depot) VALUES ('" + nom + "', '" + description + "', " + prix + ", " + vendeur + ", '" + categorie + "', "+ now.getEpochSecond() + " );");
+        conn.createStatement().execute("INSERT INTO offres (nom, description, prix, id_vendeur, categorie, date_depot) VALUES ('" + nom + "', '" + description + "', " + prix + ", " + vendeur + ", '" + categorie + "', "+ (int)now.getEpochSecond() + " );");
     }
 
     public void addReservation(int userid, int offreid, int datedebut, int datefin) throws Exception {
@@ -299,7 +299,7 @@ public class API {
 
     public void addReclamation(int userid, String message) throws Exception {
         message = Formater.format(message);
-        conn.createStatement().execute("INSERT INTO reclamations (id_utilisateur, message, date) VALUES (" + userid + ", '" + message + "', strftime('%Y-%m-%d %H:%M:%S', datetime('now')) );");
+        conn.createStatement().execute("INSERT INTO reclamations (id_utilisateur, message, date) VALUES (" + userid + ", '" + message + "', "+(int)Instant.now().getEpochSecond()+" );");
     }
 
     public Date getdatedebut(int offreid) throws Exception {
