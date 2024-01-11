@@ -75,6 +75,14 @@ public class Date_M {
         return res;
     }
 
+    public String getAlldateJJMMAAAA(){
+        String res = "";
+        res += getJour() + "-";     
+        res += getMois() + "-";
+        res += getAnnee() + " ";
+        return res;
+    }
+
     public String getAlldateAAAAMMJJHHMM(){
         String res = "";
         res += getAnnee() + "-";

@@ -82,7 +82,7 @@ public class PlanningController {
         dates[4] = dates[0]+86400*4;
         dates[5] = dates[0]+86400*5;
         dates[6] = dates[0]+86400*6;
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         LocalDateTime dateTime = LocalDateTime.ofEpochSecond(dates[0], 0, java.time.ZoneOffset.UTC);
         jour1.setText(dateTime.format(formatter));
         dateTime = LocalDateTime.ofEpochSecond(dates[1], 0, java.time.ZoneOffset.UTC);

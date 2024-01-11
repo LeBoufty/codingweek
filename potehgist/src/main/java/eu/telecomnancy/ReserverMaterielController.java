@@ -13,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
+
 public class ReserverMaterielController {
 
     @FXML
@@ -66,8 +67,14 @@ public class ReserverMaterielController {
         }
         else
         {
-            debut_dispo.setText(dates.get(0).toString());
-            fin_dispo.setText(dates.get(1).toString());
+            int debut=(int)dates.get(0).date;
+            int fin=(int)dates.get(1).date;
+            Date_M date = new Date_M(debut);
+            String aff=date.getAlldateJJMMAAAA();
+            debut_dispo.setText(aff);
+            date = new Date_M(fin);
+            aff=date.getAlldateJJMMAAAA();
+            fin_dispo.setText(aff);
         }
         App.currentannonce = annonce.getId();
         FXMLLoader loader = new FXMLLoader();
