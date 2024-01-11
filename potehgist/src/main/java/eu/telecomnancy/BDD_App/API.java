@@ -285,7 +285,7 @@ public class API {
         ResultSet rs = preparedStatement.executeQuery();
         ArrayList<Reservation> reservations = new ArrayList<Reservation>();
         while (rs.next()) {
-            reservations.add(new Reservation(rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getInt(5)));
+            reservations.add(new Reservation(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getInt(5)));
         }
         return reservations;
     }
