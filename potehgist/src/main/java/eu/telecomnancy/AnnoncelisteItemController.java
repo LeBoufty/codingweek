@@ -3,12 +3,14 @@ package eu.telecomnancy;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import eu.telecomnancy.BDD_App.API;
 import eu.telecomnancy.Model.Annonce;
 import eu.telecomnancy.Outils.Formater;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 //import javafx.scene.image.Image;
 
@@ -41,7 +43,7 @@ public class AnnoncelisteItemController{
     @FXML
     private Label idannonce;
 
-    public void setData(Annonce annonce){
+    public void setData(Annonce annonce) throws Exception{
         // Image image = new Image(annonce.getImgSrc());
         // img.setImage(image);
 
@@ -52,6 +54,10 @@ public class AnnoncelisteItemController{
         date_depot.setText(annonce.getDate_depot());
         code_postal.setText(annonce.getCode_postal());
         idannonce.setText(String.valueOf(annonce.getId()));
+        API.getInstance().getImageAnnonce(annonce.getId());
+        Image image = new Image(getClass().getResource("/eu/telecomnancy/assets/annonce_image.png").toExternalForm());
+        img.setImage(image);
+        
 
     }
 

@@ -12,13 +12,13 @@ import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 
-import eu.telecomnancy.Model.Date_M;
 import eu.telecomnancy.App;
 import eu.telecomnancy.Model.Annonce;
 import eu.telecomnancy.Model.Annonce_Recherche;
-import eu.telecomnancy.Outils.Formater;
 import eu.telecomnancy.Model.Annonce_en_creation;
+import eu.telecomnancy.Model.Date_M;
 import eu.telecomnancy.Model.Utilisateur;
+import eu.telecomnancy.Outils.Formater;
 
 public class API {
     private static API instance = null;
@@ -114,6 +114,17 @@ public class API {
         }
     }
 
+    public void modifyimage(int userid, byte[] image) throws Exception {
+        String query = "UPDATE utilisateurs SET image_profil = ? WHERE id = ?";
+        
+        try (PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setBytes(1, image);
+            pstmt.setInt(2, userid);
+            
+            pstmt.executeUpdate();
+        }
+    }
+
     public void modifymdp(int userid, String newmdp) throws Exception {
         String query = "UPDATE utilisateurs SET mot_de_passe = ? WHERE id = ?";
         
@@ -141,6 +152,9 @@ public class API {
         ResultSet rs;
         try {
             rs = conn.createStatement().executeQuery("SELECT mot_de_passe FROM utilisateurs WHERE nom = '" + username + "';");
+            if (!rs.next()) {
+                return false;
+            }
             return rs.getString(1).equals(password);
         } catch (SQLException e) {
             return false;
@@ -358,14 +372,15 @@ public class API {
     }
     public String[] getUserInfos(int id) {
         try {
-            ResultSet rs = conn.createStatement().executeQuery("SELECT nom, mot_de_passe, email, argent, code_postal, admin FROM utilisateurs WHERE id = " + id + ";");
-            String[] infos = new String[6];
+            ResultSet rs = conn.createStatement().executeQuery("SELECT nom, mot_de_passe, email, argent, code_postal,image_profil, admin FROM utilisateurs WHERE id = " + id + ";");
+            String[] infos = new String[7];
             infos[0] = rs.getString(1);
             infos[1] = rs.getString(2);
             infos[2] = rs.getString(3);
             infos[3] = String.valueOf(rs.getInt(4));
             infos[4] = rs.getString(5);
-            infos[5] = String.valueOf(rs.getBoolean(6));
+            infos[5] = rs.getString(6);
+            infos[6] = String.valueOf(rs.getBoolean(7));
             return infos;
         } catch (Exception e) {
             return null;
@@ -804,7 +819,7 @@ public class API {
 
     public ResultSet getSommeils(int iduser) throws Exception {
         int date = (int) Instant.now().getEpochSecond();
-        return conn.createStatement().executeQuery("SELECT * FROM sommeils WHERE id_utilisateur = " + iduser + " AND "+ date + " > date_fin ;");   
+        return conn.createStatement().executeQuery("SELECT * FROM sommeils WHERE id_utilisateur = " + iduser + " AND "+ date + " < date_fin ;");   
     }
 }
 

@@ -28,7 +28,7 @@ public class ConnectController {
             App.setRoot("hub");
         } else {
             // Si c'est invalide on affiche un message
-            System.out.println("Mauvais couple username/password");
+            App.error("Nom d'utilisateur ou mot de passe incorrect");;
         }
     }
 

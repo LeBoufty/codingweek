@@ -25,10 +25,10 @@ public class CreationController {
     private void create() throws Exception {
         // Si le nom d'utilisateur ou l'e-mail est déjà pris on affiche un message
         if (API.getInstance().usernamePris(username.getText()) || API.getInstance().emailPris(email.getText())) {
-            System.out.println("Nom d'utilisateur ou e-mail déjà pris");
+            App.error("Nom d'utilisateur ou e-mail déjà pris");
         } else {
             if (!password1.getText().equals(password2.getText())) {
-                System.out.println("Les mots de passe ne correspondent pas");
+                App.error("Les mots de passe ne correspondent pas");
             } else {
                 // Sinon on ajoute l'utilisateur à la base de données
                 Utilisateur user = new Utilisateur(username.getText(), password1.getText(), email.getText(), codepostal.getText());

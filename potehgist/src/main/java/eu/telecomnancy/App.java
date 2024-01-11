@@ -28,6 +28,7 @@ public class App extends Application {
     public static Annonce_Recherche annonce_recherche = new Annonce_Recherche();
     private static TypeRecherche type_recherche = TypeRecherche.ALL;
     public static Annonce_en_creation annonce_en_creation;
+    private static Stage popup; 
 
 
     private static int page_annonce = 1;
@@ -45,6 +46,25 @@ public class App extends Application {
         Font.loadFont(getClass().getResource("fonts/LEMONMILKBold.otf").toExternalForm(), 10);
         stage.setScene(scene);
         stage.show();
+    }
+
+    public static void error(String message) throws IOException {
+        closePopup();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(App.class.getResource("error.fxml"));
+        Scene scene = new Scene(loader.load(), 480, 164);
+        Stage stage = new Stage();
+        stage.setTitle("Erreur");
+        stage.setScene(scene);
+        stage.show();
+        popup = stage;
+        ErrorController controller = loader.getController();
+        controller.setData(message);
+    }
+
+    public static void closePopup() {
+        if(popup != null)
+            popup.close();
     }
 
     static void setTypeRecherche(TypeRecherche type) {
