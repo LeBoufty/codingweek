@@ -13,15 +13,32 @@ public class Utilisateur {
     private int argent;
     private String code_postal;
     private boolean admin;
+    private byte[] image;
     private static int id_max = API.getInstance().getMaxID();
 
-    public Utilisateur(String nom, String mot_de_passe, String email, String code_postal) {
+    public Utilisateur(String nom, String mot_de_passe, String email, String code_postal, byte[] image) {
         this.nom = nom;
         this.mot_de_passe = Formater.hash(mot_de_passe);
         this.email = email;
         this.argent = 100;
         this.code_postal = code_postal;
         this.admin = false;
+        this.image = image;
+        this.id = ++id_max;
+    }
+
+    public Utilisateur(String nom, String mot_de_passe, String email, String code_postal) throws Exception {
+        this.nom = nom;
+        this.mot_de_passe = Formater.hash(mot_de_passe);
+        this.email = email;
+        this.argent = 100;
+        this.code_postal = code_postal;
+        this.admin = false;
+
+        String path = getClass().getResource("/eu/telecomnancy/assets/").toExternalForm() + "logo.png";
+        path = path.substring(5);
+
+        this.image = ImageBlob.pathtToByte(path);
         this.id = ++id_max;
     }
 
@@ -35,6 +52,7 @@ public class Utilisateur {
             this.argent = Integer.parseInt(infos[3]);
             this.code_postal = infos[4];
             this.admin = infos[5].equals("true");
+            this.image = infos[6].getBytes();
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("[DEBUG] Utilisateur non trouvé");
@@ -62,6 +80,14 @@ public class Utilisateur {
         }
     }
 
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
     public void save() {
         if (id == 0) {
             return;
@@ -73,6 +99,7 @@ public class Utilisateur {
             API.getInstance().modify_code_postal(id, code_postal);
             API.getInstance().modifyargent(id, argent);
             API.getInstance().modifyadmin(id, admin);
+            API.getInstance().modifyimage(id, image);
         } catch (Exception e) {
             System.out.println("[DEBUG] Erreur lors de la modification de l'utilisateur");
         }
