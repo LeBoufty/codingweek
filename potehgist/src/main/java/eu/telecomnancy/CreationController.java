@@ -26,10 +26,33 @@ public class CreationController {
         // Si le nom d'utilisateur ou l'e-mail est déjà pris on affiche un message
         if (API.getInstance().usernamePris(username.getText()) || API.getInstance().emailPris(email.getText())) {
             App.error("Nom d'utilisateur ou e-mail déjà pris");
-        } else {
+            }
+        else if(username.getText().equals(""))
+            {
+                App.error("Veuillez entrer un nom d'utilisateur");
+            }
+        else if(email.getText().equals(""))
+            {
+                App.error("Veuillez entrer un e-mail");
+            }
+        else if(codepostal.getText().equals(""))
+            {
+                App.error("Veuillez entrer un code postal");
+            }
+        else if(password1.getText().equals(""))
+            {
+                App.error("Veuillez entrer un mot de passe");
+            }
+        else if(password2.getText().equals(""))
+            {
+                App.error("Veuillez confirmer votre mot de passe");
+            }
+        else{
             if (!password1.getText().equals(password2.getText())) {
                 App.error("Les mots de passe ne correspondent pas");
-            } else {
+            } 
+            
+            else {
                 // Sinon on ajoute l'utilisateur à la base de données
                 Utilisateur user = new Utilisateur(username.getText(), password1.getText(), email.getText(), codepostal.getText());
                 user.saveAsNew();
