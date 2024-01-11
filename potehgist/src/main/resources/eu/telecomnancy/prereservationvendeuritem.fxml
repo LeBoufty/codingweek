@@ -37,6 +37,7 @@
                               <Label styleClass="article-date" text="Fin de la réservation : " GridPane.columnIndex="2" GridPane.rowIndex="1" />
                               <Label fx:id="Date_fin" styleClass="article-date" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                               <Label fx:id="id_offre" text="Label" visible="false" GridPane.columnIndex="2" />
+                              <Label fx:id="id" text="Label" visible="false" GridPane.columnIndex="3" />
                            </children>
                         </GridPane>
                      </children>
