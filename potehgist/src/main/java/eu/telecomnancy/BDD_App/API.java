@@ -722,6 +722,50 @@ public class API {
         }
     }
     
+    public void addSommeils(int id_utilisateur, int date_debut, int date_fin) {
+        try {
+            String query = "INSERT INTO sommeils (id_utilisateur, date_debut, date_fin) VALUES (?, ?, ?)";
+            PreparedStatement preparedStatement = conn.prepareStatement(query);
+    
+            preparedStatement.setInt(1, id_utilisateur);
+            preparedStatement.setInt(2, date_debut);
+            preparedStatement.setInt(3, date_fin);
+    
+            preparedStatement.execute();
+            preparedStatement.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void deleteSommeils(int id) {
+        try {
+            String query = "DELETE FROM sommeils WHERE id = ?";
+            PreparedStatement preparedStatement = conn.prepareStatement(query);
+    
+            preparedStatement.setInt(1, id);
+    
+            preparedStatement.execute();
+            preparedStatement.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public int getidSommeils(int id_utilisateur, int date_debut, int date_fin) {
+        try {
+            ResultSet rs = conn.createStatement().executeQuery("SELECT id FROM sommeils WHERE id_utilisateur = " + id_utilisateur + " AND date_debut = " + date_debut + " AND date_fin = " + date_fin + ";");
+            return rs.getInt(1);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return 0;
+        }
+    }
+
+    public ResultSet getSommeils(int iduser) throws Exception {
+        int date = (int) Instant.now().getEpochSecond();
+        return conn.createStatement().executeQuery("SELECT * FROM sommeils WHERE id_utilisateur = " + iduser + " AND "+ date + " > date_fin ;");   
+    }
 }
 
 
