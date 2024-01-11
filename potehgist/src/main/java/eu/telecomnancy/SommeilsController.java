@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.layout.VBox;
 import eu.telecomnancy.BDD_App.API;
+import eu.telecomnancy.Model.Date_M;
 import eu.telecomnancy.Model.Sommeils;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,8 +24,9 @@ public class SommeilsController {
     private VBox sommeilslayout;
 
     @FXML
-    public void AddSommeils(ActionEvent event) {
-        //API.addSommeils(App.getUser().getId(),Date_debut.getValue(), Date_fin.getValue());
+    public void AddSommeils(ActionEvent event) throws Exception{
+        API.getInstance().addSommeils(App.getUser().getId(),(int)Date_M.getDate_FXML(Date_debut.getValue()),(int)Date_M.getDate_FXML(Date_fin.getValue()));
+        App.setRoot("sommeils");
     }
 
     public void initialize() throws Exception{
@@ -34,7 +36,7 @@ public class SommeilsController {
         sommeils = new ArrayList<Sommeils>();
         ResultSet resultSet = API.getInstance().getSommeils(id);
         while (resultSet.next()) {
-            Sommeils sommeil = new Sommeils(resultSet.getInt("id"), resultSet.getDate("datedebut"), resultSet.getDate("datefin"));
+            Sommeils sommeil = new Sommeils(resultSet.getInt("id"), resultSet.getInt("date_debut"), resultSet.getInt("date_fin"));
             sommeils.add(sommeil);
         }
         for (int i=0; i<sommeils.size(); i++){
@@ -44,7 +46,7 @@ public class SommeilsController {
             try{
                 VBox vbox = loader.load();
                 SommeilsItemController controller = loader.getController();
-                controller.setData(Integer.toString(sommeils.get(i).getId()), sommeils.get(i).getDatedebut(), sommeils.get(i).getDatefin());
+                controller.setData(Integer.toString(sommeils.get(i).getId()), sommeils.get(i).getDateDebutString(), sommeils.get(i).getDateFinString());
                 sommeilslayout.getChildren().add(vbox);
             } catch (Exception e){
                 e.printStackTrace();
