@@ -50,7 +50,10 @@ public class ChatController {
             for (int i=0; i<chats.size(); i++)
             {
                 FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("chatitem.fxml"));
+                if (chats.get(i).getAuthor() == App.getUser().getNom())
+                    loader.setLocation(getClass().getResource("chatitemuser.fxml"));
+                else
+                    loader.setLocation(getClass().getResource("chatitem.fxml"));
                 try{
                     HBox hbox = loader.load();
                     ChatItemController controller = loader.getController();
@@ -69,12 +72,13 @@ public class ChatController {
         if(App.getUser2id() != 0) {
             API.getInstance().addnotif(App.getUser2id(), "Vous avez reçu un message de " + App.getUser().getNom() + ".");
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("chatitem.fxml"));
+            loader.setLocation(getClass().getResource("chatitemuser.fxml"));
             try{
                 HBox hbox = loader.load();
                 ChatItemController controller = loader.getController();
                 controller.setData(message_a_envoyer.getText(), (int)Instant.now().getEpochSecond(), App.getUser().getNom());
                 ChatVbox.getChildren().add(hbox);
+                message_a_envoyer.setText("");
             } catch (Exception e){
                 e.printStackTrace();
             }
