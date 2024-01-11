@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import eu.telecomnancy.BDD_App.API;
 import eu.telecomnancy.Model.Reservation;
+import eu.telecomnancy.Model.Utilisateur;
 
 public class PrereservationVendeurItemController {
 
@@ -36,6 +37,8 @@ public class PrereservationVendeurItemController {
 
     @FXML
     void Refuse(ActionEvent event) throws Exception {
+        Utilisateur user = new Utilisateur(reservation.getId_utilisateur());
+        user.addArgent(reservation.getAnnonce().getPrix());
         isVendeur = isVendeur();
         API.getInstance().deletePreReservation(reservation.getId());
         if (isVendeur) {
@@ -48,6 +51,7 @@ public class PrereservationVendeurItemController {
 
     @FXML
     void Validate(ActionEvent event) throws Exception{
+        App.getUser().addArgent(reservation.getAnnonce().getPrix());
         isVendeur = isVendeur();
         API.getInstance().acceptPreReservation(reservation.getId());
         if (isVendeur) {

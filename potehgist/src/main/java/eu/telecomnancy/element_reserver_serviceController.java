@@ -34,8 +34,12 @@ public class element_reserver_serviceController {
     @FXML
     void rerserver(ActionEvent event) throws Exception {
         int id_user = App.getUser().getId();
-        API.getInstance().addPreReservation(id_user, id_offre, date_debut, date_fin);
-        App.setRoot("hub");
+        if (App.getUser().removeArgent(App.getAnnonce().getPrix())){
+            API.getInstance().addPreReservation(id_user, id_offre, date_debut, date_fin);
+            App.setRoot("hub");
+        } else {
+            App.error("Vous n'avez pas assez d'argent pour reserver ce service");
+        }
     }
 
 }
