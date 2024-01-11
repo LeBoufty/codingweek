@@ -70,4 +70,21 @@ public class Date_M {
         res += getJour() + " ";
         return res;
     }
+
+    public String getAlldateAAAAMMJJHHMM(){
+        String res = "";
+        res += getAnnee() + "-";
+        res += getMois() + "-";
+        res += getJour() + " ";
+        res += getHeure() + ":";
+        res += getMinute();
+        return res;
+    }
+
+    public String getAlldateHHMM(){
+        String res = "";
+        res += getHeure() + ":";
+        res += getMinute();
+        return res;
+    }
 }

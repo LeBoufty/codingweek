@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox fx:id="box_ponctuel" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1158.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eu.telecomnancy.element_planing_ponctuelController">
+<HBox fx:id="box_ponctuel" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1158.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eu.telecomnancy.element_reserver_serviceController">
    <children>
       <Pane prefHeight="108.0" prefWidth="122.0" />
       <VBox>
@@ -17,23 +15,20 @@
             <HBox>
                <children>
                   <Label text="Date du service : " />
-                  <DatePicker fx:id="date_ponctuel" />
+                  <Label fx:id="date" text="La date en fait" />
                </children>
             </HBox>
             <Pane prefHeight="20.0" />
             <HBox>
                <children>
-                  <Label text="Heure : " />
-                  <TextField fx:id="heure_ponctuel" prefHeight="24.0" prefWidth="65.0" />
-                  <Pane prefWidth="44.0" />
-                  <Label text="Minute : " />
-                  <TextField fx:id="minute_ponctuel" prefHeight="24.0" prefWidth="65.0" />
+                  <Label text="Durée : " />
+                  <Label fx:id="duree" text="Nb_minute" />
                </children>
             </HBox>
             <Pane prefHeight="20.0" />
          </children>
       </VBox>
       <Pane prefHeight="108.0" prefWidth="82.0" />
-      <Button mnemonicParsing="false" onAction="#minus_ponctuel" text="-" />
+      <Button mnemonicParsing="false" onAction="#rerserver" text="Réserver" />
    </children>
 </HBox>
