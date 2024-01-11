@@ -20,6 +20,8 @@ public class PlanningReservationController {
 
     public int currentpage=1;
 
+    public int currentannonce=0;
+
     @FXML
     private Label Page;
 
@@ -217,7 +219,7 @@ public class PlanningReservationController {
 
     private List<Reservation> Reservation() throws Exception{
         List<Reservation> reservations = new ArrayList<>();
-        ResultSet resultSet = API.getInstance().getReservationsparannonce(App.getUser().getId());
+        ResultSet resultSet = API.getInstance().getReservationsparannonce(currentannonce);
         System.out.println(resultSet);
         while (resultSet.next()) {
             Reservation resa = new Reservation(resultSet.getInt("id"));
