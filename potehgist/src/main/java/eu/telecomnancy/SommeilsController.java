@@ -3,6 +3,7 @@ package eu.telecomnancy;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import eu.telecomnancy.BDD_App.API;
 import eu.telecomnancy.Model.Date_M;
@@ -39,15 +40,17 @@ public class SommeilsController {
             Sommeils sommeil = new Sommeils(resultSet.getInt("id"), resultSet.getInt("date_debut"), resultSet.getInt("date_fin"));
             sommeils.add(sommeil);
         }
+        System.out.println("sommeils");
+        System.out.println(sommeils.size());
         for (int i=0; i<sommeils.size(); i++){
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("sommeilsitem.fxml"));
+            loader.setLocation(getClass().getResource("sommeilsItem.fxml"));
 
             try{
-                VBox vbox = loader.load();
+                HBox hbox = loader.load();
                 SommeilsItemController controller = loader.getController();
                 controller.setData(Integer.toString(sommeils.get(i).getId()), sommeils.get(i).getDateDebutString(), sommeils.get(i).getDateFinString());
-                sommeilslayout.getChildren().add(vbox);
+                sommeilslayout.getChildren().add(hbox);
             } catch (Exception e){
                 e.printStackTrace();
             }
