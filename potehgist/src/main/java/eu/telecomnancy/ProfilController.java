@@ -68,4 +68,9 @@ public class ProfilController {
     private void toMesReservations() throws IOException {
         App.setRoot("prereservationuser");
     }
+
+    @FXML
+    private void toEvaluation() throws IOException {
+        App.setRoot("evaluation");
+    }
 }

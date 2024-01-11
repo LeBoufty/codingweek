@@ -52,11 +52,9 @@ public class CreateBDD {
 
                 String evaluations = "CREATE TABLE IF NOT EXISTS evaluations (\n"
                         + "	id integer PRIMARY KEY AUTOINCREMENT,\n"
-                        + "	id_offre integer NOT NULL,\n"
-                        + "	id_evaluant integer NOT NULL,\n"
+                        + "	id_reservation integer NOT NULL,\n"
                         + "	valeur_evaluation integer NOT NULL,\n"
-                        + "	FOREIGN KEY(id_offre) REFERENCES offres(id),\n"
-                        + "	FOREIGN KEY(id_evaluant) REFERENCES utilisateurs(id)\n"
+                        + "	FOREIGN KEY(id_reservation) REFERENCES plannings_reservations(id)\n"
                         + ");";
                 conn.createStatement().execute(evaluations); // Ajout dans la BDD
                 System.out.println("[DEBUG] La table evaluations a été créée.");

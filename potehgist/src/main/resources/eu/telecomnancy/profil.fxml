@@ -92,6 +92,8 @@
                         <Button mnemonicParsing="false" onAction="#toMesReservations" text="Mes réservations" />
                         <Pane prefHeight="47.0" prefWidth="348.0" />
                         <Button mnemonicParsing="false" onAction="#toReservationsVendeur" text="Réservations sur mes offres" />
+                        <Pane prefHeight="47.0" prefWidth="348.0" />
+                        <Button mnemonicParsing="false" onAction="#toEvaluation" text="Évaluer" />
                      </children>
                   </VBox>
                </children>

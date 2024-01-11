@@ -341,6 +341,27 @@ public class API {
         return dates;        
     }
 
+    public ArrayList<Reservation> getEvaluation(int userid) throws Exception {
+        // Sélectionne les offres réservé qui n'ont pas encore été évaluées
+        String query = "SELECT id, id_utilisateur, id_offre, date_debut, date_fin FROM plannings_reservations WHERE id_utilisateur = ? AND id NOT IN (SELECT id_reservation FROM evaluations) ORDER BY id ASC;";
+        PreparedStatement preparedStatement = conn.prepareStatement(query);
+        preparedStatement.setInt(1, userid);
+        ResultSet rs = preparedStatement.executeQuery();
+        ArrayList<Reservation> reservations = new ArrayList<Reservation>();
+        while (rs.next()) {
+            reservations.add(new Reservation(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getInt(5)));
+        }
+        return reservations;
+    }
+
+    public void addEvaluation(int reservationid, int note) throws Exception {
+        String query = "INSERT INTO evaluations (id_reservation, valeur_evaluation) VALUES (?, ?)";
+        PreparedStatement preparedStatement = conn.prepareStatement(query);
+        preparedStatement.setInt(1, reservationid);
+        preparedStatement.setInt(2, note);
+        preparedStatement.execute();
+    }
+
     public ArrayList<Date_M> getDatePlaningOffre(int offreid) throws Exception {
         String query = "SELECT date_debut, date_fin FROM plannings_offres WHERE id_offre = ?";
         PreparedStatement preparedStatement = conn.prepareStatement(query);
