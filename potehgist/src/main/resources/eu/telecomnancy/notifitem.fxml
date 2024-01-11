@@ -22,7 +22,7 @@
                   <Font size="10.0" />
                </font>
             </Label>
-            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="3.0" prefWidth="62.0" text="Voir">
+            <Button fx:id="voir" alignment="CENTER" mnemonicParsing="false" prefHeight="3.0" prefWidth="62.0" text="Voir">
                <font>
                   <Font size="10.0" />
                </font></Button>

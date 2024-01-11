@@ -72,7 +72,7 @@ public class ChatController {
     private void envoyermessage()
     {
         if(App.getUser2id() != 0) {
-            API.getInstance().addnotif(App.getUser2id(), "Vous avez reçu un message de " + App.getUser().getNom() + ".");
+            API.getInstance().addnotif(App.getUser2id(), "Vous avez reçu un message de " + App.getUser().getNom() + ".", 1,App.getUser().getId());
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("chatitemuser.fxml"));
             try{
