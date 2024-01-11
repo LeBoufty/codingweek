@@ -48,15 +48,35 @@ public class RechercheAnnoncesController {
                 + recherche_florin_max.getText());
 
         Annonce_Recherche recherche = new Annonce_Recherche();
-        recherche.recherche_text = annonce_recherche.getText();
-        recherche.recherche_code_postal = recherche_code_postal.getText();
-        recherche.recherche_date_apres = recherche_date_apres.getValue().toString();
-        recherche.recherche_date_avant = recherche_date_avant.getValue().toString();
+        if (!annonce_recherche.getText().isEmpty()) {
+            recherche.recherche_text = annonce_recherche.getText();
+        }
+        if (!recherche_code_postal.getText().isEmpty()) {
+            recherche.recherche_code_postal = recherche_code_postal.getText();
+        }
+        if (recherche_date_apres.getValue() != null) {
+            recherche.recherche_date_apres = recherche_date_apres.getValue().toString();
+        }
+        if (recherche_date_avant.getValue() != null) {
+            recherche.recherche_date_avant = recherche_date_avant.getValue().toString();
+        }
         recherche.recherche_materiel = recherche_materiel.isSelected();
         recherche.recherche_service = recherche_service.isSelected();
-        recherche.recherche_florin_min = Integer.parseInt(recherche_florin_min.getText());
-        recherche.recherche_florin_max = Integer.parseInt(recherche_florin_max.getText());
-        recherche.recherche_note_min = (int) recherche_note_min.getValue(); 
+        if (!recherche_florin_min.getText().isEmpty()) {
+            recherche.recherche_florin_min = Integer.parseInt(recherche_florin_min.getText());
+        } else {
+            recherche.recherche_florin_min = -1;
+        }
+        if (!recherche_florin_max.getText().isEmpty()) {
+            recherche.recherche_florin_max = Integer.parseInt(recherche_florin_max.getText());
+        } else {
+            recherche.recherche_florin_max = -1;
+        }
+        if (recherche_note_min.getValue() != 0) {
+            recherche.recherche_note_min = (int) recherche_note_min.getValue();
+        } else {
+            recherche.recherche_note_min = -1;
+        }
         App.setRecherche(recherche);
         App.setTypeRecherche(TypeRecherche.ALL);
         try {
