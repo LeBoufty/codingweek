@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 
 import eu.telecomnancy.BDD_App.API;
 import eu.telecomnancy.Model.Annonce;
+import eu.telecomnancy.Model.Date_M;
 import eu.telecomnancy.Outils.Formater;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -51,7 +52,9 @@ public class AnnoncelisteItemController{
         description.setText(Formater.addNewlines(annonce.getDescription(), 120));
         price.setText(Formater.shortenPrice(annonce.getPrix()));
         categorie.setText(annonce.getCategorie());
-        date_depot.setText(annonce.getDate_depot());
+        int Date=Integer.parseInt(annonce.getDate_depot());
+        Date_M date = new Date_M(Date);
+        date_depot.setText(date.getAlldateJJMMAAAA());
         code_postal.setText(annonce.getCode_postal());
         idannonce.setText(String.valueOf(annonce.getId()));
         API.getInstance().getImageAnnonce(annonce.getId());

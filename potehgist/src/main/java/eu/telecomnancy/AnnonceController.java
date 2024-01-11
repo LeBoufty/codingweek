@@ -2,6 +2,7 @@ package eu.telecomnancy;
 
 import eu.telecomnancy.BDD_App.API;
 import eu.telecomnancy.Model.Annonce;
+import eu.telecomnancy.Model.Date_M;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -42,7 +43,9 @@ public class AnnonceController {
         description.setText(annonce.getDescription());
         price.setText(annonce.getPrix().toString());
         categorie.setText(annonce.getCategorie());
-        date_depot.setText(annonce.getDate_depot());
+        int Date=Integer.parseInt(annonce.getDate_depot());
+        Date_M date = new Date_M(Date);
+        date_depot.setText(date.getAlldateJJMMAAAA());
         code_postal.setText(annonce.getCode_postal());
 
         API.getInstance().getImageAnnonce(annonce.getId());
@@ -57,6 +60,13 @@ public class AnnonceController {
 
     public void reservation() throws Exception {
         App.setidannonce(App.idannonce);
-        App.setRoot("reservermateriel");
+        if (App.getAnnonce().getCategorie().equals("Service")) {
+            System.out.println("Service");
+            App.setRoot("reserverservice");
+        }
+        else {
+            System.out.println("Materiel");
+            App.setRoot("reservermateriel");
+        }
     }
 }

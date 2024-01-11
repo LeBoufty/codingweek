@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import eu.telecomnancy.BDD_App.API;
+import eu.telecomnancy.Model.Date_M;
 import eu.telecomnancy.Model.Reservation;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,7 +19,7 @@ import javafx.scene.layout.VBox;
 
 public class PlanningReservationController {
 
-    public int currentpage=1;
+    public int currentpage=0;
 
     public int currentannonce=0;
 
@@ -75,7 +76,25 @@ public class PlanningReservationController {
     private VBox annonceslayout7;
 
     @FXML
-    public void initialize() throws Exception{
+    public void initialize(){
+        currentannonce = App.currentannonce;
+        afficherdate();  
+    }
+
+
+    private void afficherdate()
+    {
+        annonceslayout1.getChildren().clear();
+        annonceslayout2.getChildren().clear();
+        annonceslayout3.getChildren().clear();
+        annonceslayout4.getChildren().clear();
+        annonceslayout5.getChildren().clear();
+        annonceslayout6.getChildren().clear();
+        annonceslayout7.getChildren().clear();
+        if(currentpage==0)
+        {
+            currentpage=1;
+        }
         Instant now = Instant.now();
         dates[0] = (int)now.getEpochSecond()+(currentpage-1)*86400*7;
         dates[1] = dates[0]+86400;
@@ -84,7 +103,7 @@ public class PlanningReservationController {
         dates[4] = dates[0]+86400*4;
         dates[5] = dates[0]+86400*5;
         dates[6] = dates[0]+86400*6;
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         LocalDateTime dateTime = LocalDateTime.ofEpochSecond(dates[0], 0, java.time.ZoneOffset.UTC);
         jour1.setText(dateTime.format(formatter));
         dateTime = LocalDateTime.ofEpochSecond(dates[1], 0, java.time.ZoneOffset.UTC);
@@ -99,117 +118,163 @@ public class PlanningReservationController {
         jour6.setText(dateTime.format(formatter));
         dateTime = LocalDateTime.ofEpochSecond(dates[6], 0, java.time.ZoneOffset.UTC);
         jour7.setText(dateTime.format(formatter));
-        List<Reservation> resa = Reservation();
-        System.out.println(resa.get(0).getDate_debut()+" "+dates[0]+" "+resa.get(0).getDate_fin());
-        for (int i=0; i<resa.size(); i++){
-            mettredansleplanning(resa.get(i));
+
+        Date_M date_M = new Date_M(dates[0]);
+
+        for (int i=0; i<7; i++){
+            date_M = new Date_M(dates[i]);
+            dates[i]=dates[i]-date_M.getHeure()*3600-date_M.getMinute()*60-date_M.getSeconde();
+        }
+
+
+        List<Reservation> resa;
+        try {
+            resa = Reservation();
+            if(resa.size() == 0)
+            {
+                System.out.println("pas de resa");
+            }
+            else
+            {
+                for (int i=0; i<resa.size(); i++){
+                    mettredansleplanning(resa.get(i));
+                }
+            }
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
     }
 
     private void mettredansleplanning(Reservation resa)
     {
+        
         int datedebut = resa.getDate_debut();
         int datefin = resa.getDate_fin();
-        if(datedebut<=dates[0] && datefin>=dates[0])
+
+        Date_M date = new Date_M(datedebut);
+        int jourdebut = datedebut-date.getHeure()*3600-date.getMinute()*60-date.getSeconde();
+
+        date = new Date_M(datefin);
+        int jourfin = datefin-date.getHeure()*3600-date.getMinute()*60-date.getSeconde();
+
+        afficherdateitem(jourdebut, datedebut,0);
+        afficherdateitem(jourfin, datefin,1);
+    }
+
+    private List<Reservation> Reservation() throws Exception{
+        List<Reservation> reservations = new ArrayList<>();
+        ResultSet resultSet = API.getInstance().getReservationsparannonce(currentannonce);
+        while (resultSet.next()) {
+            Reservation resa = new Reservation(resultSet.getInt("id"));
+            reservations.add(resa);
+        }
+        return reservations;
+    }
+
+    private void afficherdateitem(int jourdebut, int datedebut,int etat)
+    {
+        
+        if(jourdebut==dates[0])
         {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("planningreservationlisteitem.fxml"));
 
             try{
-                System.out.println("try");
+                
                 HBox hbox = loader.load();
                 PlanningreslistitemController controller = loader.getController();
-                controller.setData(String.valueOf(dates[0]));
+                controller.setData(datedebut,etat);
                 annonceslayout1.getChildren().add(hbox);
             } catch (Exception e){
                 e.printStackTrace();
             }
         }
-        if(datedebut<=dates[1] && datefin>=dates[1])
+        if(jourdebut==dates[1])
         {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("planningreservationlisteitem.fxml"));
 
             try{
-                System.out.println("try");
+                
                 HBox hbox = loader.load();
                 PlanningreslistitemController controller = loader.getController();
-                controller.setData(String.valueOf(dates[1]));
+                controller.setData(datedebut,etat);
                 annonceslayout2.getChildren().add(hbox);
             } catch (Exception e){
                 e.printStackTrace();
             }
         }
-        if(datedebut<=dates[2] && datefin>=dates[2])
+        if(jourdebut==dates[2])
         {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("planningreservationlisteitem.fxml"));
 
             try{
-                System.out.println("try");
+                
                 HBox hbox = loader.load();
                 PlanningreslistitemController controller = loader.getController();
-                controller.setData(String.valueOf(dates[2]));
+                controller.setData(datedebut,etat);
                 annonceslayout3.getChildren().add(hbox);
             } catch (Exception e){
                 e.printStackTrace();
             }
         }
-        if(datedebut<=dates[3] && datefin>=dates[3])
+        if(jourdebut==dates[3])
         {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("planningreservationlisteitem.fxml"));
 
             try{
-                System.out.println("try");
+                
                 HBox hbox = loader.load();
                 PlanningreslistitemController controller = loader.getController();
-                controller.setData(String.valueOf(dates[3]));
+                controller.setData(datedebut,etat);
                 annonceslayout4.getChildren().add(hbox);
             } catch (Exception e){
                 e.printStackTrace();
             }
         }
-        if(datedebut<=dates[4] && datefin>=dates[4])
+        if(jourdebut==dates[4])
         {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("planningreservationlisteitem.fxml"));
 
             try{
-                System.out.println("try");
+                
                 HBox hbox = loader.load();
                 PlanningreslistitemController controller = loader.getController();
-                controller.setData(String.valueOf(dates[4]));
+                controller.setData(datedebut,etat);
                 annonceslayout5.getChildren().add(hbox);
             } catch (Exception e){
                 e.printStackTrace();
             }
         }
-        if(datedebut<=dates[5] && datefin>=dates[5])
+        if(jourdebut==dates[5])
         {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("planningreservationlisteitem.fxml"));
 
             try{
-                System.out.println("try");
+                
                 HBox hbox = loader.load();
                 PlanningreslistitemController controller = loader.getController();
-                controller.setData(String.valueOf(dates[5]));
+                controller.setData(datedebut,etat);
                 annonceslayout6.getChildren().add(hbox);
             } catch (Exception e){
                 e.printStackTrace();
             }
         }
-        if(datedebut<=dates[6] && datefin>=dates[6])
+        if(jourdebut==dates[6])
         {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("planningreservationlisteitem.fxml"));
 
             try{
-                System.out.println("try");
+                
                 HBox hbox = loader.load();
                 PlanningreslistitemController controller = loader.getController();
-                controller.setData(String.valueOf(dates[6]));
+                controller.setData(datedebut,etat);
                 annonceslayout7.getChildren().add(hbox);
             } catch (Exception e){
                 e.printStackTrace();
@@ -217,17 +282,8 @@ public class PlanningReservationController {
         }
     }
 
-    private List<Reservation> Reservation() throws Exception{
-        List<Reservation> reservations = new ArrayList<>();
-        ResultSet resultSet = API.getInstance().getReservationsparannonce(currentannonce);
-        System.out.println(resultSet);
-        while (resultSet.next()) {
-            Reservation resa = new Reservation(resultSet.getInt("id"));
+    
 
-            reservations.add(resa);
-        }
-        return reservations;
-    }
 
     @FXML
     private void pageSuivante() throws Exception {
@@ -240,7 +296,7 @@ public class PlanningReservationController {
         annonceslayout5.getChildren().clear();
         annonceslayout6.getChildren().clear();
         annonceslayout7.getChildren().clear();
-        initialize();
+        afficherdate();
     }
 
     @FXML
@@ -256,7 +312,7 @@ public class PlanningReservationController {
         annonceslayout5.getChildren().clear();
         annonceslayout6.getChildren().clear();
         annonceslayout7.getChildren().clear();
-        initialize();
+        afficherdate();
     }
     
     @FXML

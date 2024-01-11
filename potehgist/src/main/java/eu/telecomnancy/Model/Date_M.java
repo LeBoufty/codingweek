@@ -63,6 +63,10 @@ public class Date_M {
         return java.time.LocalDateTime.ofEpochSecond(date, 0, java.time.ZoneOffset.UTC).getMinute();
     }
 
+    public int getSeconde() {
+        return java.time.LocalDateTime.ofEpochSecond(date, 0, java.time.ZoneOffset.UTC).getSecond();
+    }
+
     public String getAlldateAAAAMMJJ(){
         String res = "";
         res += getAnnee() + "-";
@@ -71,19 +75,27 @@ public class Date_M {
         return res;
     }
 
+    public String getAlldateJJMMAAAA(){
+        String res = "";
+        res += getJour() + "-";     
+        res += getMois() + "-";
+        res += getAnnee() + " ";
+        return res;
+    }
+
     public String getAlldateAAAAMMJJHHMM(){
         String res = "";
         res += getAnnee() + "-";
         res += getMois() + "-";
         res += getJour() + " ";
-        res += getHeure() + ":";
+        res += getHeure() + "h";
         res += getMinute();
         return res;
     }
 
     public String getAlldateHHMM(){
         String res = "";
-        res += getHeure() + ":";
+        res += getHeure() + "h";
         res += getMinute();
         return res;
     }

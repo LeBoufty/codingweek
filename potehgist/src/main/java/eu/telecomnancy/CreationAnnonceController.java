@@ -2,13 +2,13 @@ package eu.telecomnancy;
 
 import java.io.File;
 
+import eu.telecomnancy.Model.Annonce_en_creation;
+import eu.telecomnancy.Model.ImageBlob;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.image.Image;
-import javafx.stage.FileChooser;
 import javafx.scene.image.ImageView;
-import eu.telecomnancy.Model.ImageBlob;
-import eu.telecomnancy.Model.Annonce_en_creation;
+import javafx.stage.FileChooser;
 
 public class CreationAnnonceController {
 
@@ -49,7 +49,7 @@ public class CreationAnnonceController {
             Image image = new Image(getClass().getResource("/eu/telecomnancy/assets/placeholder.png").toExternalForm());
             imageView.setImage(image);
         }
-
+        
         App.annonce_en_creation = new Annonce_en_creation(name.getText(), Description.getText(), Integer.parseInt(prix.getText()), ImageBlob.imageViewToBytes(imageView), categorie.getValue());
         if (categorie.getValue().equals("Matériel")) {
             App.setRoot("creationannonce_planning_materiel");
