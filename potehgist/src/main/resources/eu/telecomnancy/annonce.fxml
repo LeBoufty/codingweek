@@ -13,7 +13,7 @@
    <center>
       <BorderPane BorderPane.alignment="CENTER">
          <center>
-            <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <HBox prefHeight="100.0" prefWidth="200.0" styleClass="article" BorderPane.alignment="CENTER">
                <children>
                   <VBox prefHeight="610.0" prefWidth="859.0">
                      <children>
@@ -21,7 +21,7 @@
                            <children>
                               <VBox prefHeight="124.0" prefWidth="838.0">
                                  <children>
-                                    <Label fx:id="title" alignment="TOP_LEFT" prefHeight="75.0" prefWidth="360.0" styleClass="title" text="Title">
+                                    <Label fx:id="title" alignment="TOP_LEFT" prefHeight="70.0" prefWidth="624.0" styleClass="title" text="Title">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
