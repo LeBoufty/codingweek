@@ -2,6 +2,7 @@ package eu.telecomnancy;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import eu.telecomnancy.Model.Reservation;
 
@@ -26,6 +27,9 @@ public class PrereservationVendeurItemController {
     private Label id;
 
     @FXML
+    private Button Button_validate;
+
+    @FXML
     void Refuse(ActionEvent event) {
 
     }
@@ -42,6 +46,10 @@ public class PrereservationVendeurItemController {
         id_acheteur.setText(String.valueOf(reservation.getId_utilisateur()));
         Date_debut.setText(String.valueOf(reservation.getdate_debutString()));
         Date_fin.setText(String.valueOf(reservation.getdate_finString()));
+
+        if (App.getUser().getId() == reservation.getId_utilisateur()) {
+            Button_validate.setVisible(false);
+        }
     }
 
     public void showAnnonce(ActionEvent event) throws Exception {
