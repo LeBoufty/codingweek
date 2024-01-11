@@ -7,6 +7,7 @@ import java.util.List;
 
 import eu.telecomnancy.BDD_App.API;
 import eu.telecomnancy.Model.Message;
+import eu.telecomnancy.Outils.Formater;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -80,7 +81,7 @@ public class ChatController {
                 ChatItemController controller = loader.getController();
                 controller.setData(message_a_envoyer.getText(), (int)Instant.now().getEpochSecond(), App.getUser().getNom());
                 ChatVbox.getChildren().add(hbox);
-                API.getInstance().addmessage(App.getUser().getId(), App.getUser2id(), message_a_envoyer.getText());
+                API.getInstance().addmessage(App.getUser().getId(), App.getUser2id(), Formater.format(message_a_envoyer.getText()));
                 message_a_envoyer.setText("");
             } catch (Exception e){
                 e.printStackTrace();
