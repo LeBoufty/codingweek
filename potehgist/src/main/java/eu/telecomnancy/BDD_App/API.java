@@ -114,6 +114,17 @@ public class API {
         }
     }
 
+    public void modifyimage(int userid, byte[] image) throws Exception {
+        String query = "UPDATE utilisateurs SET image_profil = ? WHERE id = ?";
+        
+        try (PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setBytes(1, image);
+            pstmt.setInt(2, userid);
+            
+            pstmt.executeUpdate();
+        }
+    }
+
     public void modifymdp(int userid, String newmdp) throws Exception {
         String query = "UPDATE utilisateurs SET mot_de_passe = ? WHERE id = ?";
         
