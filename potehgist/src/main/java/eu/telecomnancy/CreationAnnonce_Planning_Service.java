@@ -78,6 +78,9 @@ public class CreationAnnonce_Planning_Service {
             try {
                 loader.setLocation(getClass().getResource("element_planing_recurrent.fxml"));
                 HBox hbox = loader.load();
+                element_planing_recurrentController controllerr = loader.getController();
+                controllerr.setParent_controller(this);
+
                 layout_planning_service.getChildren().add(hbox);
             } catch (Exception e) {
                 e.printStackTrace();
