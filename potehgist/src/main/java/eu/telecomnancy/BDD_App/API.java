@@ -607,8 +607,8 @@ public class API {
         ArrayList<Annonce> list_annonces = new ArrayList<Annonce>();
 
         String code_postal = recherche.recherche_code_postal;
-        String date_apres = recherche.recherche_date_apres;
-        String date_avant = recherche.recherche_date_avant;
+        int date_apres = recherche.recherche_date_apres;
+        int date_avant = recherche.recherche_date_avant;
         String text = recherche.recherche_text;
         boolean materiel = recherche.recherche_materiel;
         boolean service = recherche.recherche_service;
@@ -620,14 +620,15 @@ public class API {
         if (!code_postal.equals("")) {
             query += " id_vendeur IN (SELECT id FROM utilisateurs WHERE code_postal = '" + code_postal + "') AND ";
         }
-        if (!date_apres.equals("")) {
+        if (date_apres!=0) {
             query += "date_depot >= '" + date_apres + "' AND ";
         }
-        if (!date_avant.equals("")) {
+        if (date_avant!=0) {
             query += "date_depot <= '" + date_avant + "' AND ";
         }
         if (!text.equals("")) {
             query += "nom LIKE '%" + text + "%' AND ";
+            query += "description LIKE '%" + text + "%' AND ";
         }
         if (materiel && !service) {
             query += "categorie = 'materiel' AND ";
