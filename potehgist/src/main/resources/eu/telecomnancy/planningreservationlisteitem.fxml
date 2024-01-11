@@ -14,7 +14,7 @@
                   <Font size="10.0" />
                </font>
             </Label>
-            <Label fx:id="Acheteur" alignment="TOP_LEFT" prefHeight="2.0" prefWidth="100.0" styleClass="discrete" text="Reservé">
+            <Label fx:id="Moment" alignment="TOP_LEFT" prefHeight="2.0" prefWidth="100.0" styleClass="discrete" text="Reservé">
                <font>
                   <Font size="10.0" />
                </font>

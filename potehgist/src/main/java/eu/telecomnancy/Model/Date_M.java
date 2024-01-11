@@ -63,6 +63,10 @@ public class Date_M {
         return java.time.LocalDateTime.ofEpochSecond(date, 0, java.time.ZoneOffset.UTC).getMinute();
     }
 
+    public int getSeconde() {
+        return java.time.LocalDateTime.ofEpochSecond(date, 0, java.time.ZoneOffset.UTC).getSecond();
+    }
+
     public String getAlldateAAAAMMJJ(){
         String res = "";
         res += getAnnee() + "-";

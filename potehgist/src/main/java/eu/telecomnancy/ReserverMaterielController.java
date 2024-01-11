@@ -10,8 +10,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 public class ReserverMaterielController {
 
@@ -55,15 +55,25 @@ public class ReserverMaterielController {
         Titre.setText(annonce.getTitre());
 
         List<Date_M> dates = API.getInstance().getDatePlaningOffre(annonce.getId());
-        debut_dispo.setText(dates.get(0).toString());
-        fin_dispo.setText(dates.get(1).toString());
-
+        System.out.println(dates.size());
+        if(dates.size() == 0)
+        {
+            debut_dispo.setText("Pas de date disponible");
+            fin_dispo.setText("Pas de date disponible");
+        }
+        else
+        {
+            debut_dispo.setText(dates.get(0).toString());
+            fin_dispo.setText(dates.get(1).toString());
+        }
+        App.currentannonce = annonce.getId();
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("planningreservation.fxml"));
 
         HBox hbox = loader.load();
+        
         PlanningReservationController controller = loader.getController();
-        controller.currentannonce = annonce.getId();
+        
         planning.getChildren().add(hbox);
     }
 

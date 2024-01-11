@@ -67,27 +67,46 @@ public class RemplirBDD {
             String path = getClass().getResource("/eu/telecomnancy/assets/").toExternalForm() + "Cloud_Strife.png";
             path = path.substring(5);
             API.getInstance().addOffre("Mercenaire à louer","Talents de mercenaire efficace à louer.\n Pas cher.\nNe travaille pas pour les enfants", 7, 1, "Service", ImageBlob.pathtToByte(path));
+            int datedebut = (int)Instant.now().getEpochSecond();
+            int datefin = (int)Instant.now().getEpochSecond()+90000*4;
+            API.getInstance().addPlaningLastOffre(datedebut, datefin);
 
             path = getClass().getResource("/eu/telecomnancy/assets/").toExternalForm() + "logo.png";
             path = path.substring(5);
             API.getInstance().addOffre("Cherche eau","Je cherche de l'eau.\nJ'adore l'eau et il n'y en a plus.", 1, 2, "Service", ImageBlob.pathtToByte(path));
+            datedebut = (int)Instant.now().getEpochSecond()+90000;
+            datefin = (int)Instant.now().getEpochSecond()+90000*10;
+            API.getInstance().addPlaningLastOffre(datedebut, datefin);
 
             path = getClass().getResource("/eu/telecomnancy/assets/").toExternalForm() + "Joe-Biden.png";
             path = path.substring(5);
             API.getInstance().addOffre("Service de lutins","Les lutins fabriquent vos cadeaux.", 10, 3, "Service", ImageBlob.pathtToByte(path));
+            datedebut = (int)Instant.now().getEpochSecond()-90000*3;
+            datefin = (int)Instant.now().getEpochSecond()+90000*3;
+            API.getInstance().addPlaningLastOffre(datedebut, datefin);
 
             path = getClass().getResource("/eu/telecomnancy/assets/").toExternalForm() + "logo.png";
             path = path.substring(5);
             API.getInstance().addOffre("Service de lutins","puceau moi ? serieusement ^^ haha on me l avait pas sortie celle la depuis loooongtemps :) demande a mes potes si je suis puceau tu vas voir les reponses que tu vas te prendre XD rien que la semaine passee j ai niquer donc chuuuuut ferme la puceau de merde car oui toi tu m as tout l air d un bon puceau de merde car souvent vous etes frustrer de ne pas BAISER :) ses agreable de se faire un missionnaire ou un amazone avec une meuf hein? tu peux pas repondre car tu ne sais pas ce que c ou alors tu le sais mais tu as du taper dans ta barre de recherche \"missionnaire sexe\" ou \"amazone sexe\" pour comprendre ce que c etait mdddrrr !! c est grave quoiquil en soit.... pour revenir a moi, je pense que je suis le mec le moins puceau de ma bande de 11 meilleurs amis pas psk j ai eu le plus de rapport intime mais psk j ai eu les plus jolie femme que mes amis :D ses pas moi qui le dit, ses eux qui commente sous mes photos insta \"trop belle la fille que tu as coucher avec hier en boite notamment!\" donc apres si tu veux que sa parte plus loi sa peut partir vraiment loi j habite dans la banlieue de niort sa te parle steven sanchez ? ses juste un cousin donc OKLM hahaha on verra si tu parles encore le puceau de merde mdddrrr pk insulter qd on est soi meme puceau tu me feras toujour marrer!!", 20, 6, "Service", ImageBlob.pathtToByte(path));
+            datedebut = (int)Instant.now().getEpochSecond()+90000;
+            datefin = (int)Instant.now().getEpochSecond()+90000*2;
+            API.getInstance().addPlaningLastOffre(datedebut, datefin);
 
             path = getClass().getResource("/eu/telecomnancy/assets/").toExternalForm() + "logo.png";
             path = path.substring(5);
             API.getInstance().addOffre("Truc long","\"Unfortunate\" doesn't begin to describe my series, this game rewards blind luck and nothing else, I am beyond convinced at this point. After getting completely tooled by scheduling with my opponent changing times on me last minute and refusing to provide confirmation prior to the day of the match as to play times, losing this way somehow felt even worse than I had thought possible. My preparation was superior, my play was superior, and I lost, so I don't see a reason to continue engaging in an activity where what is within my control is overwhelmingly outweighed by what is not. I am done with competitive Pokemon, and you won't get a fond farewell. This community is infected to its roots with a degenerative disease that grows stronger over time but stops short of killing its host. Tournaments used to have a competitive spirit at their heart, this has been transplanted and replaced with an artificial organ that feeds on vitriol and mockery from insecure little boys that heckle by the sidelines and tear each other to shreds over scraps of attention. The environment we fostered has trapped us all like this in a vicious cycle, and escaping it requires acceptance of the harshest reality we all scramble to explain away, that none of the countless straining efforts we put ourselves through here will ever amount to one single shining glimmer of significance. I would make this the end, but World Cup is still ongoing, and I would never leave so many great friends out to dry, so I'll suffer through a few more games for them. One last thing before I leave you all to react with disdain, ridicule, and self-righteous fervor, before you do everything in your power to minimize my words and thoughts, box them up and shove them to some cobwebbed corner of your memory, and hope they disappear forever as a stain on your finite time ground to dust. From this moment on, nothing you say matters to me. The foulest insults you hurl with intent to wound will calmly settle at the earth before my feet, and the venom you spit will bring all the pain of a warm summer breeze. You are less than anything you can conceive, while I carry on, brimming with joy distilled from detachment.", 100000, 5, "Service", ImageBlob.pathtToByte(path));
+            datedebut = (int)Instant.now().getEpochSecond()+90000*4;
+            datefin = (int)Instant.now().getEpochSecond()+90000*9;
+            API.getInstance().addPlaningLastOffre(datedebut, datefin);
 
             path = getClass().getResource("/eu/telecomnancy/assets/").toExternalForm() + "logo.png";
             path = path.substring(5);
             API.getInstance().addOffre("Caractère speciaux","Shut up bozo, CURSE OF RA 𓀀 𓀁 𓀂 𓀃 𓀄 𓀅 𓀆 𓀇 𓀈 𓀉 𓀊 𓀋 𓀌 𓀍 𓀎 𓀏 𓀐 𓀑 𓀒 𓀓 𓀔 𓀕 𓀖 𓀗 𓀘 𓀙 𓀚 𓀛 𓀜 𓀝 𓀞 𓀟 𓀠 𓀡 𓀢 𓀣 𓀤 𓀥 𓀦 𓀧 𓀨 𓀩 𓀪 𓀫 𓀬 𓀭 𓀲 𓀳 𓀴 𓀵 𓀶 𓀷 𓀸 𓀹 𓀺 𓀻 𓀼 𓀽 𓀾 𓀿 𓁀 𓁁 𓁂 𓁃 𓁄 𓁅 𓁆 𓁇 𓁈 𓁉 𓁊 𓁋 𓁍 𓁎 𓁏 𓁐 𓁑", 1, 6, "Service", ImageBlob.pathtToByte(path));
+            datedebut = (int)Instant.now().getEpochSecond()+90000*1;
+            datefin = (int)Instant.now().getEpochSecond()+90000*3;
+            API.getInstance().addPlaningLastOffre(datedebut, datefin);
 
+            
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

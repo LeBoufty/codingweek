@@ -2,9 +2,10 @@ package eu.telecomnancy;
 
 import java.io.IOException;
 
-import eu.telecomnancy.Model.Annonce_Recherche;
-import eu.telecomnancy.Model.Utilisateur;
 import eu.telecomnancy.Model.Annonce;
+import eu.telecomnancy.Model.Annonce_Recherche;
+import eu.telecomnancy.Model.Annonce_en_creation;
+import eu.telecomnancy.Model.Utilisateur;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,7 +13,6 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import eu.telecomnancy.Model.Annonce_en_creation;
 
 /**
  * JavaFX App test potagit 2
@@ -29,6 +29,7 @@ public class App extends Application {
     private static TypeRecherche type_recherche = TypeRecherche.ALL;
     public static Annonce_en_creation annonce_en_creation;
     private static Stage popup; 
+    public static int currentannonce;
 
 
     private static int page_annonce = 1;
