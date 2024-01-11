@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import eu.telecomnancy.Model.Annonce_en_creation;
 
 /**
  * JavaFX App test potagit 2
@@ -26,6 +27,7 @@ public class App extends Application {
     public static int idannonce;
     public static Annonce_Recherche annonce_recherche = new Annonce_Recherche();
     private static TypeRecherche type_recherche = TypeRecherche.ALL;
+    public static Annonce_en_creation annonce_en_création;
 
 
     private static int page_annonce = 1;

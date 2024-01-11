@@ -52,4 +52,8 @@ public class ProfilController {
         App.setRoot("modprofil");
     }
     
+    @FXML
+    private void toSommeils() throws IOException {
+        App.setRoot("sommeils");
+    }
 }
