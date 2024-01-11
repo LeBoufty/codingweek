@@ -28,6 +28,7 @@ public class API {
 
     private API() {
         CreateBDD.createNewDatabase("/tmp/potehgist.db");
+
         try {
             url = "jdbc:sqlite:/tmp/potehgist.db";
             conn = DriverManager.getConnection(url);
@@ -260,6 +261,19 @@ public class API {
     public boolean emailPris(String email) throws Exception {
         ResultSet rs = conn.createStatement().executeQuery("SELECT COUNT(*) FROM utilisateurs WHERE email = '" + email + "';");
         return rs.getInt(1)!=0;
+    }
+
+    public ArrayList<Date_M> getDatePlaningOffre(int offreid) throws Exception {
+        String query = "SELECT date_debut, date_fin FROM plannings_offres WHERE id_offre = ?";
+        PreparedStatement preparedStatement = conn.prepareStatement(query);
+        preparedStatement.setInt(1, offreid);
+        ResultSet rs = preparedStatement.executeQuery();
+        ArrayList<Date_M> dates = new ArrayList<Date_M>();
+        while (rs.next()) {
+            dates.add(new Date_M(rs.getInt(1)));
+            dates.add(new Date_M(rs.getInt(2)));
+        }
+        return dates;
     }
 
     public void addPreReservation(int userid, int offreid, int datedebut, int datefin) throws Exception {
