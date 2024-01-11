@@ -4,6 +4,7 @@ import eu.telecomnancy.BDD_App.API;
 import eu.telecomnancy.Model.Annonce;
 import eu.telecomnancy.Model.Date_M;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -37,6 +38,12 @@ public class AnnonceController {
     @FXML
     private ImageView annonce_img;
 
+    @FXML
+    private Button buttonchat;
+
+    @FXML
+    private Button buttonres;
+
     public void initialize() throws Exception {
         Annonce annonce = App.getAnnonce();
         title.setText(annonce.getTitre());
@@ -51,6 +58,15 @@ public class AnnonceController {
         API.getInstance().getImageAnnonce(annonce.getId());
         Image image = new Image(getClass().getResource("/eu/telecomnancy/assets/annonce_image.png").toExternalForm());
         annonce_img.setImage(image);
+
+        if(App.getUser().getId() == annonce.getVendeur().getId()){
+            buttonchat.setVisible(false);
+            buttonres.setVisible(false);
+        }
+        else{
+            buttonchat.setVisible(true);
+            buttonres.setVisible(true);
+        }
     }
 
     public void chat() throws Exception {

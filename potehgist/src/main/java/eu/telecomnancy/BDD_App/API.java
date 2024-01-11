@@ -290,6 +290,22 @@ public class API {
         return reservations;
     }
 
+    public void deletePreReservation(int id_planning) throws Exception {
+        conn.createStatement().execute("DELETE FROM plannings_prereservations WHERE id = " + id_planning + ";");
+    }
+
+    public void acceptPreReservation(int id_planning) throws Exception {
+        String query = "INSERT INTO plannings_reservations (id_utilisateur, id_offre, date_debut, date_fin) VALUES (?, ?, ?, ?)";
+        PreparedStatement preparedStatement = conn.prepareStatement(query);
+        ResultSet rs = conn.createStatement().executeQuery("SELECT id_utilisateur, id_offre, date_debut, date_fin FROM plannings_prereservations WHERE id = " + id_planning + ";");
+        preparedStatement.setInt(1, rs.getInt(1));
+        preparedStatement.setInt(2, rs.getInt(2));
+        preparedStatement.setInt(3, rs.getInt(3));
+        preparedStatement.setInt(4, rs.getInt(4));
+        preparedStatement.execute();
+        deletePreReservation(id_planning);
+    }
+
     public ArrayList<Integer> getDatePlaningServiceRestant(int offreid) throws Exception {
         // Sélectionne les ints de l'offre lorsqu'elle n'est pas réservée
         String query = "SELECT id FROM plannings_offres WHERE id_offre = ? AND date_debut NOT IN (SELECT date_debut FROM plannings_reservations WHERE id_offre = ?)";
