@@ -5,12 +5,15 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 
+import eu.telecomnancy.BDD_App.API;
+
 import eu.telecomnancy.Model.Date_M;
 
 public class element_reserver_serviceController {
 
     public int date_debut;
     public int date_fin;
+    public int id_offre;
 
     @FXML
     private HBox box_ponctuel;
@@ -29,7 +32,10 @@ public class element_reserver_serviceController {
     }
 
     @FXML
-    void rerserver(ActionEvent event) {
+    void rerserver(ActionEvent event) throws Exception {
+        int id_user = App.getUser().getId();
+        API.getInstance().addPreReservation(id_user, id_offre, date_debut, date_fin);
+        App.setRoot("hub");
     }
 
 }
