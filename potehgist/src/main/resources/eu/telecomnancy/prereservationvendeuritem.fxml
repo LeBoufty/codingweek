@@ -42,7 +42,7 @@
                         </GridPane>
                      </children>
                   </VBox>
-                  <Button mnemonicParsing="false" onAction="#Validate" styleClass="btngreen" text="V" />
+                  <Button fx:id="Button_validate" mnemonicParsing="false" onAction="#Validate" styleClass="btngreen" text="V" />
                   <Pane prefHeight="179.0" prefWidth="46.0" />
                   <Button mnemonicParsing="false" onAction="#Refuse" styleClass="btn" text="X" />
                </children>
