@@ -27,6 +27,11 @@ public class CreationAnnonce_Planning_Service {
     }
 
     @FXML
+    void create_annonce(ActionEvent event) {
+        System.out.println("Create annonce");
+    }
+
+    @FXML
     void select_planning_action(ActionEvent event) {
         System.out.println("Select planning");
         FXMLLoader loader = new FXMLLoader();

@@ -277,7 +277,7 @@ public class API {
         nom = Formater.format(nom);
         description = Formater.format(description);
         Instant now = Instant.now();
-        conn.createStatement().execute("INSERT INTO offres (nom, description, prix, id_vendeur, categorie, date_depot) VALUES ('" + nom + "', '" + description + "', " + prix + ", " + vendeur + ", '" + categorie + "', "+ now.getEpochSecond() + " );");
+        conn.createStatement().execute("INSERT INTO offres (nom, description, prix, id_vendeur, categorie, date_depot) VALUES ('" + nom + "', '" + description + "', " + prix + ", " + vendeur + ", '" + categorie + "', "+ (int)now.getEpochSecond() + " );");
     }
 
     public void addReservation(int userid, int offreid, int datedebut, int datefin) throws Exception {
@@ -299,7 +299,7 @@ public class API {
 
     public void addReclamation(int userid, String message) throws Exception {
         message = Formater.format(message);
-        conn.createStatement().execute("INSERT INTO reclamations (id_utilisateur, message, date) VALUES (" + userid + ", '" + message + "', strftime('%Y-%m-%d %H:%M:%S', datetime('now')) );");
+        conn.createStatement().execute("INSERT INTO reclamations (id_utilisateur, message, date) VALUES (" + userid + ", '" + message + "', "+(int)Instant.now().getEpochSecond()+" );");
     }
 
     public Date getdatedebut(int offreid) throws Exception {
@@ -376,12 +376,14 @@ public class API {
 
     public String[] getNotifInfos(int id) {
         try {
-            ResultSet rs = conn.createStatement().executeQuery("SELECT id_utilisateur, message, date, vue FROM notifications WHERE id = " + id + ";");
-            String[] infos = new String[4];
+            ResultSet rs = conn.createStatement().executeQuery("SELECT id_utilisateur, message, date, vue, type, iduser2 FROM notifications WHERE id = " + id + ";");
+            String[] infos = new String[6];
             infos[0] = rs.getString(1);
             infos[1] = rs.getString(2);
             infos[2] = rs.getString(3);
             infos[3] = rs.getString(4);
+            infos[4] = rs.getString(5);
+            infos[5] = rs.getString(6);
             return infos;
         } catch (Exception e) {
             return null;
@@ -666,10 +668,19 @@ public class API {
         }
     }
 
-    public void addnotif(int iduser, String message)
+    public void addnotif(int iduser, String message, int type, int iduser2)
     {
         try {
-            conn.createStatement().execute("INSERT INTO notifications (id_utilisateur, message, date, vue) VALUES (" + iduser + ", '" + message + "', "+(int)Instant.now().getEpochSecond()+", false);");
+            conn.createStatement().execute("INSERT INTO notifications (id_utilisateur, message, date, vue, type, iduser2) VALUES (" + iduser + ", '" + message + "', "+(int)Instant.now().getEpochSecond()+", false, "+ type +", "+iduser2+");");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void addnotif(int iduser, String message, int type)
+    {
+        try {
+            conn.createStatement().execute("INSERT INTO notifications (id_utilisateur, message, date, vue, type, iduser2) VALUES (" + iduser + ", '" + message + "', "+(int)Instant.now().getEpochSecond()+", false, "+ type +", "+ 0 +");");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

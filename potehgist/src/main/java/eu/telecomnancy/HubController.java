@@ -41,7 +41,7 @@ public class HubController {
             try{
                 HBox hbox = loader.load();
                 NotifItemController controller = loader.getController();
-                controller.setData(notifs.get(i).getMessage(), notifs.get(i).getdate());
+                controller.setData(notifs.get(i).getMessage(), notifs.get(i).getdate(), notifs.get(i).gettype(), notifs.get(i).getiduser2());
                 NotifVobx.getChildren().add(hbox);
             } catch (Exception e){
                 e.printStackTrace();
@@ -51,8 +51,8 @@ public class HubController {
 
     @FXML
     private void depot() throws IOException {
-        //App.setRoot("creationannonce");
-        App.setRoot("creationannonce_planning_service");
+        App.setRoot("creationannonce");
+        // App.setRoot("creationannonce_planning_service");
     }
 
     @FXML

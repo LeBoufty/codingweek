@@ -63,4 +63,8 @@ public class Message {
         return date;
     }
 
+    public int getAuthorID() {
+        return id_utilisateur_envoie;
+    }
+
 }

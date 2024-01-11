@@ -52,7 +52,7 @@ public class ChatController {
             for (int i=0; i<chats.size(); i++)
             {
                 FXMLLoader loader = new FXMLLoader();
-                if (chats.get(i).getAuthor() == App.getUser().getNom())
+                if (chats.get(i).getAuthorID() == App.getUser().getId())
                     loader.setLocation(getClass().getResource("chatitemuser.fxml"));
                 else
                     loader.setLocation(getClass().getResource("chatitem.fxml"));
@@ -72,7 +72,7 @@ public class ChatController {
     private void envoyermessage()
     {
         if(App.getUser2id() != 0) {
-            API.getInstance().addnotif(App.getUser2id(), "Vous avez reçu un message de " + App.getUser().getNom() + ".");
+            API.getInstance().addnotif(App.getUser2id(), "Vous avez reçu un message de " + App.getUser().getNom() + ".", 1,App.getUser().getId());
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("chatitemuser.fxml"));
             try{

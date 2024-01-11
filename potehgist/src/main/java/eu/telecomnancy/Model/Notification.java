@@ -8,16 +8,19 @@ public class Notification {
     private int id;
     private int date;
     private boolean vue;
+    private int type; // 1 = message
+    private int iduser2;
     private static int maxid = API.getInstance().getMaxNotificationID();
     
 
 
-    public Notification(int id, int id_utilisateur, String description, int date, boolean vue) {
+    public Notification(int id, int id_utilisateur, String description, int date, boolean vue, int type) {
         this.description = description;
         this.id_utilisateur = id_utilisateur;
         this.date = date;
         this.id = ++maxid;
         this.vue = vue;
+        this.type = type;
     }
 
     public Notification(){
@@ -38,6 +41,8 @@ public class Notification {
         {
             this.vue = false;
         }
+        this.type = Integer.parseInt(infos[4]);
+        this.iduser2 = Integer.parseInt(infos[5]);
     }
 
     public void save() {
@@ -50,7 +55,7 @@ public class Notification {
 
     public void saveAsNew() {
         try {
-            API.getInstance().addnotif(id, description);
+            API.getInstance().addnotif(id, description,type);
             this.id = API.getInstance().getMaxOffreID();
             maxid = id;
         } catch (Exception e) {
@@ -86,4 +91,11 @@ public class Notification {
         this.description = message;
     }
 
+    public int gettype() {
+        return type;
+    }
+
+    public int getiduser2() {
+        return iduser2;
+    }
 }

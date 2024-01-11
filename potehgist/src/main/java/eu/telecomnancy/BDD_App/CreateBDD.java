@@ -148,6 +148,8 @@ public class CreateBDD {
                         + " message text NOT NULL,\n"
                         + " date int NOT NULL,\n"
                         + " vue bool NOT NULL,\n"
+                        + " type int NOT NULL,\n" // 1 = message
+                        + " iduser2 int,\n" 
                         + "	FOREIGN KEY(id_utilisateur) REFERENCES utilisateurs(id)\n"
                         + ");";
                 conn.createStatement().execute(notifications); // Ajout dans la BDD
