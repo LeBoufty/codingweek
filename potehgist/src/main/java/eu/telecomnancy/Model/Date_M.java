@@ -99,4 +99,14 @@ public class Date_M {
         res += getMinute();
         return res;
     }
+
+    public static int getNbHours(Date_M date_debut, Date_M date_fin){
+        // I made this function to pay the hours of a reservation even if it's not a full hour
+        return (int)(Math.floor(((date_fin.date-1) - date_debut.date)/3600)+1);
+    }
+
+    public static int getNbHours(int date_debut, int date_fin){
+        // I made this function to pay the hours of a reservation even if it's not a full hour
+        return (int)(Math.floor(((date_fin-1) - date_debut)/3600)+1);
+    }
 }
