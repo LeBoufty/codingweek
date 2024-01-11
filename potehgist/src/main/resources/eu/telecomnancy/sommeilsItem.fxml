@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
-<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="110.0" prefWidth="707.0" styleClass="grisbg" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="110.0" prefWidth="707.0" styleClass="grisbg" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eu.telecomnancy.SommeilsItemController">
    <children>
       <GridPane prefHeight="110.0" prefWidth="505.0" styleClass="darkbg">
         <columnConstraints>
@@ -31,6 +30,6 @@
       </GridPane>
       <Pane prefHeight="110.0" prefWidth="81.0" styleClass="grisbg" />
       <Button mnemonicParsing="false" onAction="#delSommeils" prefHeight="38.0" prefWidth="127.0" text="Supprimer" />
-      <Pane prefHeight="110.0" prefWidth="56.0" />
+      <Pane prefHeight="110.0" prefWidth="26.0" />
    </children>
 </HBox>
