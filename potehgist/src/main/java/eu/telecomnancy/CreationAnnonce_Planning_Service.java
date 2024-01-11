@@ -47,6 +47,8 @@ public class CreationAnnonce_Planning_Service {
             App.annonce_en_creation.date_debut_service_ponctuel = dates;
             App.annonce_en_creation.nb_minute_service = nb_minutes;
             App.annonce_en_creation.create_annonce();
+
+            App.setRoot("hub");
         }
     }
 
