@@ -152,6 +152,9 @@ public class API {
         ResultSet rs;
         try {
             rs = conn.createStatement().executeQuery("SELECT mot_de_passe FROM utilisateurs WHERE nom = '" + username + "';");
+            if (!rs.next()) {
+                return false;
+            }
             return rs.getString(1).equals(password);
         } catch (SQLException e) {
             return false;
