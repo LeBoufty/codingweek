@@ -27,7 +27,7 @@ public class App extends Application {
     public static int idannonce;
     public static Annonce_Recherche annonce_recherche = new Annonce_Recherche();
     private static TypeRecherche type_recherche = TypeRecherche.ALL;
-    public static Annonce_en_creation annonce_en_création;
+    public static Annonce_en_creation annonce_en_creation;
     private static Stage popup; 
 
 

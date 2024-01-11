@@ -17,11 +17,11 @@ public class CreationAnnonce_Planning_Materiel {
     @FXML
     void create_annonce(ActionEvent event) throws Exception {
         System.out.println("Create annonce materiel");
-        App.annonce_en_création.date_debut_materiel = Date_M.getDate_FXML(date_debut.getValue());
-        App.annonce_en_création.date_fin_materiel = Date_M.getDate_FXML(date_fin.getValue());
-        API.getInstance().addOffre(App.annonce_en_création);
+        App.annonce_en_creation.date_debut_materiel = Date_M.getDate_FXML(date_debut.getValue());
+        App.annonce_en_creation.date_fin_materiel = Date_M.getDate_FXML(date_fin.getValue());
+        API.getInstance().addOffre(App.annonce_en_creation);
         System.out.println("Request sent to API to add annonce");
-        API.getInstance().addPlaningMateriel(App.annonce_en_création);
+        API.getInstance().addPlaningMateriel(App.annonce_en_creation);
         System.out.println("Request sent to API to add planning");
         App.setRoot("hub");
     }

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="CENTER_LEFT" prefHeight="300.0" prefWidth="300.0" styleClass="root" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eu.telecomnancy.PlanningreslistitemController">
+   <children>
+      <VBox prefHeight="200.0" prefWidth="100.0" styleClass="root">
+         <children>
+            <Label fx:id="Date" alignment="TOP_LEFT" prefHeight="0.0" prefWidth="100.0" style="-fx-font-size: 12;" styleClass="article-title" text="Date">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label fx:id="Acheteur" alignment="TOP_LEFT" prefHeight="2.0" prefWidth="100.0" styleClass="discrete" text="Reservé">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+   </children>
+</HBox>

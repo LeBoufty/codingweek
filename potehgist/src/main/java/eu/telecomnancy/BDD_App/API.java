@@ -271,6 +271,19 @@ public class API {
         preparedStatementInfo.executeUpdate();
     }
 
+    public void addPlaningService(Annonce_en_creation annonce) throws Exception {
+        for (int i = 0; i < annonce.date_debut_service_ponctuel.size(); i++) {
+            String insertInfoSQL = "INSERT INTO plannings_offres (id_offre, date_debut, date_fin) VALUES (?, ?, ?)";
+            PreparedStatement preparedStatementInfo = conn.prepareStatement(insertInfoSQL);
+            preparedStatementInfo.setInt(1, getMaxOffreID());
+            Long date_debut = annonce.date_debut_service_ponctuel.get(i);
+            preparedStatementInfo.setInt(2, date_debut.intValue());
+            Long date_fin = date_debut + annonce.nb_minute_service * 60;
+            preparedStatementInfo.setInt(3, date_fin.intValue());
+            preparedStatementInfo.executeUpdate();
+        }
+    }
+
     public void addOffre(Annonce_en_creation annonce) throws Exception {
         Utilisateur user = App.getUser();
         addOffre(annonce.titre, annonce.description, annonce.prix, user.getId(), annonce.categorie, annonce.photo);
@@ -739,6 +752,11 @@ public class API {
 
     public ResultSet getReservations(int iduser) throws Exception {
         return conn.createStatement().executeQuery("SELECT * FROM plannings_reservations WHERE id_utilisateur = " + iduser + ";");
+        
+    }
+
+    public ResultSet getReservationsparannonce(int idannonce) throws Exception {
+        return conn.createStatement().executeQuery("SELECT * FROM plannings_reservations WHERE id_offre = " + idannonce + ";");
         
     }
 
