@@ -40,7 +40,6 @@ public class ChatController {
         while(result.next())
         {
             Message msg = new Message(result.getInt("id"));
-            System.out.println(msg.getmessage());
             chats.add(msg);
         }
         return chats;

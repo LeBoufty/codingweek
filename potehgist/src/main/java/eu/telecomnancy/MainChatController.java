@@ -41,7 +41,7 @@ public class MainChatController {
             }
             else{
                 System.out.println("Pas de conversation");
-                App.setUser(0);
+                App.setUser2(0);
                 nomutilisateur.setText("");
             }
         }
@@ -53,8 +53,7 @@ public class MainChatController {
             }
             else{
                 System.out.println("Pas de conversation");
-                App.setUser(0);
-                nomutilisateur.setText("");
+                App.setUser2(0);
             }
         }
     } 
