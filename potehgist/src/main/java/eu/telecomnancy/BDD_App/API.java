@@ -290,6 +290,18 @@ public class API {
         return reservations;
     }
 
+    public ArrayList<Reservation> getPreReservationUser(int userid) throws Exception {
+        String query = "SELECT id, id_utilisateur, id_offre, date_debut, date_fin FROM plannings_prereservations WHERE id_utilisateur = ? ORDER BY id ASC;";
+        PreparedStatement preparedStatement = conn.prepareStatement(query);
+        preparedStatement.setInt(1, userid);
+        ResultSet rs = preparedStatement.executeQuery();
+        ArrayList<Reservation> reservations = new ArrayList<Reservation>();
+        while (rs.next()) {
+            reservations.add(new Reservation(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getInt(5)));
+        }
+        return reservations;
+    }
+
     public void deletePreReservation(int id_planning) throws Exception {
         conn.createStatement().execute("DELETE FROM plannings_prereservations WHERE id = " + id_planning + ";");
     }
