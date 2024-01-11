@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -13,7 +14,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1200.0" styleClass="container" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eu.telecomnancy.ReserverController">
    <center>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="200.0" prefWidth="100.0" styleClass="darkbg" BorderPane.alignment="CENTER">
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="70.0" prefWidth="642.0" styleClass="title" text="Réserver" />
             <HBox prefHeight="100.0" prefWidth="200.0">
@@ -44,6 +45,15 @@
                   </GridPane>
                </children>
             </HBox>
+            <ScrollPane prefHeight="367.0" prefWidth="1160.0" styleClass="darkbg">
+               <content>
+                  <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="darkbg">
+                     <children>
+                        <fx:include source="planningreservation.fxml" />
+                     </children>
+                  </VBox>
+               </content>
+            </ScrollPane>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Pane prefHeight="100.0" prefWidth="141.0" />
