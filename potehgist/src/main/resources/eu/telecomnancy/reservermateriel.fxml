@@ -31,12 +31,12 @@
                         <VBox prefHeight="100.0" prefWidth="701.0" styleClass="darkbg">
                            <children>
                               <Label styleClass="smalltitle" text="Détail de l'annonce :" />
-                              <Label fx:id="Titre" text="titre" />
-                              <Label fx:id="Prix" text="prix" />
-                              <Label fx:id="Description" text="description" />
+                              <Label fx:id="Titre" styleClass="article-title" text="titre" />
+                              <Label fx:id="Prix" styleClass="discrete" text="prix" />
+                              <Label fx:id="Description" styleClass="description" text="description" />
                            </children>
                         </VBox>
-                        <GridPane prefHeight="100.0" prefWidth="463.0">
+                        <GridPane prefHeight="108.0" prefWidth="576.0">
                           <columnConstraints>
                             <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="205.0" minWidth="10.0" prefWidth="144.0" />
                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="277.0" minWidth="10.0" prefWidth="277.0" />
@@ -46,10 +46,10 @@
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Label text="Disponible à partir du :" />
-                              <Label text="Jusqu'au :" GridPane.rowIndex="1" />
-                              <Label fx:id="debut_dispo" text="Début dispo" GridPane.columnIndex="1" />
-                              <Label fx:id="fin_dispo" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label styleClass="article-date" text="Disponible à partir du :" />
+                              <Label styleClass="article-date" text="Jusqu'au :" GridPane.rowIndex="1" />
+                              <Label fx:id="debut_dispo" styleClass="article-date" text="Début dispo" GridPane.columnIndex="1" />
+                              <Label fx:id="fin_dispo" styleClass="article-date" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                            </children>
                         </GridPane>
                      </children>
