@@ -45,7 +45,7 @@ public class MainChatController {
                 nomutilisateur.setText("");
             }
         }
-        if(!Boxnom.getValue().equals(null) && !Boxnom.getValue().equals("")){
+        if(Boxnom.getValue() != null){
             App.setUser2(API.getInstance().getUserid(Boxnom.getValue()));
             ResultSet messages = API.getInstance().getmessages(App.getUser2id(), App.getUser().getId());
             if(messages.next()){

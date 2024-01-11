@@ -51,7 +51,9 @@ public class Utilisateur {
             this.email = infos[2];
             this.argent = Integer.parseInt(infos[3]);
             this.code_postal = infos[4];
-            this.image = infos[5].getBytes();
+            if (infos[5] != null) {
+                this.image = infos[5].getBytes();
+            }
             this.admin = infos[6].equals("true");
             
         } catch (Exception e) {
