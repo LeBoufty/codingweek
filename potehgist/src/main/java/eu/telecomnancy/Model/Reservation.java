@@ -27,6 +27,9 @@ public class Reservation {
         this.date_fin = infos[3];
     }
 
+    public Reservation() {
+    }
+
     public void saveAsNew() {
         try {
             API.getInstance().addReservation(user.getId(), annonce.getId(), date_debut, date_fin);
