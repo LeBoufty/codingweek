@@ -2,7 +2,6 @@ package eu.telecomnancy.Model;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import javafx.embed.swing.SwingFXUtils;
