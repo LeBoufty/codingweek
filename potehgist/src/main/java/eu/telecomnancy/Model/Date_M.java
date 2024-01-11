@@ -26,6 +26,10 @@ public class Date_M {
         this.date = (java.time.LocalDate.of(date_FXML.getYear(), date_FXML.getMonthValue(), date_FXML.getDayOfMonth()).toEpochDay() * 24 * 60 * 60);
     }
 
+    public Date_M(LocalDate date_FXML, int heure, int minute) {
+        this.date = (java.time.LocalDateTime.of(date_FXML.getYear(), date_FXML.getMonthValue(), date_FXML.getDayOfMonth(), heure, minute).toEpochSecond(java.time.ZoneOffset.UTC));
+    }
+
     public static Date_M now() {
         return new Date_M(java.time.Instant.now().getEpochSecond());
     }

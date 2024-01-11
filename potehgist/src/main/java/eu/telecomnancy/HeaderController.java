@@ -4,10 +4,15 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import eu.telecomnancy.Outils.Formater;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 
 public class HeaderController {
+
+    @FXML
+    private Label price;
     
     @FXML
     private ChoiceBox<String> header_burger;
@@ -34,6 +39,9 @@ public class HeaderController {
             e.printStackTrace();
         }
     });
+
+    price.setText(Formater.shortenPrice(App.getUser().getArgent()));
+
     }
 
     @FXML
@@ -45,4 +53,5 @@ public class HeaderController {
     private void searchButton() throws IOException {
         App.setRoot("rechercheannonce");
     }
+
 }

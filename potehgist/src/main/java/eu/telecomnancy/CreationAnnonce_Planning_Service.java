@@ -5,13 +5,17 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
+import java.util.ArrayList;
+
 public class CreationAnnonce_Planning_Service {
 
-    private int type_planning_int = 0;
-
+    private int type_planning_int = 0; // 1 = ponctuel, 2 = recurrent
+    private ArrayList<element_planing_ponctuelController> ponctuels;
+    private ArrayList<element_planing_recurrentController> recurrents;
     @FXML
     private VBox layout_planning_service;
 
@@ -21,19 +25,37 @@ public class CreationAnnonce_Planning_Service {
     @FXML
     private Button button_planning_select;
 
-    public void initialize() {
-        type_planning.getItems().addAll("Ponctuel", "Récurrent");
+    @FXML
+    private TextField nb_minute_service;
 
+    public void initialize() {
+        //type_planning.getItems().addAll("Ponctuel", "Récurrent");
+        type_planning.getItems().add("Ponctuel");
     }
 
     @FXML
-    void create_annonce(ActionEvent event) {
-        System.out.println("Create annonce");
+    void create_annonce(ActionEvent event) throws Exception {
+        System.out.println("Create annonce service");
+        if (type_planning_int == 1) {
+            // Va chercher les infos des ponctuels
+            ArrayList<Long> dates = new ArrayList<Long>();
+            for (element_planing_ponctuelController ponctuel : ponctuels) {
+                System.out.println(ponctuel.get_date());
+                dates.add(ponctuel.get_date());
+            }
+            int nb_minutes = Integer.parseInt(nb_minute_service.getText());
+            App.annonce_en_creation.date_debut_service_ponctuel = dates;
+            App.annonce_en_creation.nb_minute_service = nb_minutes;
+            App.annonce_en_creation.create_annonce();
+        }
     }
 
     @FXML
     void select_planning_action(ActionEvent event) {
         System.out.println("Select planning");
+        ponctuels = new ArrayList<element_planing_ponctuelController>();
+        recurrents = new ArrayList<element_planing_recurrentController>();
+
         FXMLLoader loader = new FXMLLoader();
 
         try {
@@ -71,7 +93,7 @@ public class CreationAnnonce_Planning_Service {
                 HBox hbox = loader.load();
                 element_planing_ponctuelController controllerr = loader.getController();
                 controllerr.setParent_controller(this);
-
+                ponctuels.add(controllerr);
                 
                 layout_planning_service.getChildren().add(hbox);
 
@@ -85,6 +107,7 @@ public class CreationAnnonce_Planning_Service {
                 HBox hbox = loader.load();
                 element_planing_recurrentController controllerr = loader.getController();
                 controllerr.setParent_controller(this);
+                recurrents.add(controllerr);
 
                 layout_planning_service.getChildren().add(hbox);
             } catch (Exception e) {
@@ -108,6 +131,12 @@ public class CreationAnnonce_Planning_Service {
     public void notif_sup(int numero) {
         System.out.println("Notif sup" + numero);
         layout_planning_service.getChildren().remove(numero);
+
+        if (type_planning_int == 1) {
+            ponctuels.remove(numero);
+        } else {
+            recurrents.remove(numero);
+        }
     }
 
 
