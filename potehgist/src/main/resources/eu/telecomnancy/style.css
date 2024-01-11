@@ -5,6 +5,7 @@
   -text-color: #FFFAFB;
   -discrete-color: #aca7a8;
   -accent-color-1: #D4282A;
+  -accent-reverse-color-1: #3c773a;
   -accent-color-2: #BB342F;
   -accent-color-3: #CF5C36;
   -discord-color: #5865F2;
@@ -209,6 +210,15 @@ Button,
 
 .buttontransparent {
   -fx-background-color: -secondary-background-color;
+}
+
+.btngreen{
+  -fx-background-color: -accent-reverse-color-1;
+  -fx-text-fill: -text-color;
+  -fx-padding: 10px 20px;
+  -fx-cursor: pointer;
+  -fx-border-radius: 20px;
+  -fx-transition: -fx-background-image 1s;
 }
 
 Button:hover,
