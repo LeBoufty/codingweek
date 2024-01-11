@@ -51,8 +51,8 @@ public class HubController {
 
     @FXML
     private void depot() throws IOException {
-        App.setRoot("creationannonce");
-        //App.setRoot("creationannonce_planning_service");
+        //App.setRoot("creationannonce");
+        App.setRoot("creationannonce_planning_service");
     }
 
     @FXML

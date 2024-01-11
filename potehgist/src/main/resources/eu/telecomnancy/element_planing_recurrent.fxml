@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1158.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eu.telecomnancy.element_planing_recurrentController">
+<HBox fx:id="box_ponctuel" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1158.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eu.telecomnancy.element_planing_recurrentController">
    <children>
       <VBox alignment="TOP_RIGHT">
          <children>
@@ -26,10 +26,11 @@
                   <DatePicker fx:id="date_fin_rec" />
                </children>
             </HBox>
+            <Pane prefHeight="10.0" />
          </children>
       </VBox>
       <Pane prefHeight="68.0" prefWidth="39.0" />
-      <VBox alignment="TOP_RIGHT">
+      <VBox alignment="CENTER">
          <children>
             <HBox>
                <children>
@@ -50,6 +51,6 @@
          </children>
       </VBox>
       <Pane prefWidth="50.0" />
-      <Button mnemonicParsing="false" onAction="#minus_ponctuel" text="-" />
+      <Button mnemonicParsing="false" onAction="#minus_recurrent" text="-" />
    </children>
 </HBox>

@@ -431,7 +431,7 @@ public class API {
     }
 
     public ResultSet getmessages(int iduser1,int iduser2) throws Exception {
-        return conn.createStatement().executeQuery("SELECT message FROM messages WHERE ( id_utilisateur_envoie = " + iduser1 + " AND id_utilisateur_recoit = " + iduser2 + " ) OR ( id_utilisateur_envoie = " + iduser2 + " AND id_utilisateur_recoit = " + iduser1 + " ) ORDER BY date_envoi DESC;");
+        return conn.createStatement().executeQuery("SELECT * FROM messages WHERE ( id_utilisateur_envoie = " + iduser1 + " AND id_utilisateur_recoit = " + iduser2 + " ) OR ( id_utilisateur_envoie = " + iduser2 + " AND id_utilisateur_recoit = " + iduser1 + " ) ORDER BY date_envoi ASC;");
         
     }
 
@@ -462,7 +462,7 @@ public class API {
     public void addmessage(int iduser1,int iduser2,String message)
     {
         try {
-            conn.createStatement().execute("INSERT INTO messages (id_utilisateur_envoie,id_utilisateur_recoit,message,date_envoi) VALUES (" + iduser1 + "," + iduser2 + ",'" + message + "', "+(int)Instant.now().getEpochSecond()+";");
+            conn.createStatement().execute("INSERT INTO messages (id_utilisateur_envoie, id_utilisateur_recoit, message,date_envoi) VALUES (" + iduser1 + "," + iduser2 + ",'" + message + "', "+(int)Instant.now().getEpochSecond()+" );");
         } catch (Exception e) {
             System.out.println(e.getMessage());
 
