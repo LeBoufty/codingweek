@@ -34,4 +34,10 @@ public class ImageBlob {
             
             return imageData;
     }
+
+    public static byte[] pathtToByte(String path) throws Exception{
+        File imageFile = new File(path);
+        byte[] imageData = Files.readAllBytes(imageFile.toPath());
+        return imageData;
+    }
 }
