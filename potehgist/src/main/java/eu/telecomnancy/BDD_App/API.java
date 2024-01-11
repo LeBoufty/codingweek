@@ -262,6 +262,18 @@ public class API {
         return rs.getInt(1)!=0;
     }
 
+    public void addPreReservation(int userid, int offreid, int datedebut, int datefin) throws Exception {
+        String query = "INSERT INTO plannings_prereservations (id_utilisateur, id_offre, date_debut, date_fin) VALUES (?, ?, ?, ?)";
+        PreparedStatement preparedStatement = conn.prepareStatement(query);
+        
+        preparedStatement.setInt(1, userid);
+        preparedStatement.setInt(2, offreid);
+        preparedStatement.setInt(3, datedebut);
+        preparedStatement.setInt(4, datefin);
+
+        preparedStatement.execute();
+    }
+
     public void addPlaningMateriel(Annonce_en_creation annonce) throws Exception {
         String insertInfoSQL = "INSERT INTO plannings_offres (id_offre, date_debut, date_fin) VALUES (?, ?, ?)";
         PreparedStatement preparedStatementInfo = conn.prepareStatement(insertInfoSQL);
