@@ -20,31 +20,31 @@ JavaFX
 #### Jour 1
 
 ```bash
-java --module-path ${JAVAFX_HOME}/lib --add-modules=javafx.base,javafx.controls,javafx.fxml -jar REALEASE/codingweek-01-RELEASE_DAY_1.jar 
+java --module-path ${JAVAFX_HOME}/lib --add-modules=javafx.base,javafx.controls,javafx.fxml -jar RELEASE/codingweek-01-RELEASE_DAY_1.jar 
 ```
 
 #### Jour 2
 
 ```bash
-java --module-path ${JAVAFX_HOME}/lib --add-modules=javafx.base,javafx.controls,javafx.fxml -jar REALEASE/codingweek-01-RELEASE_DAY_2.jar 
+java --module-path ${JAVAFX_HOME}/lib --add-modules=javafx.base,javafx.controls,javafx.fxml -jar RELEASE/codingweek-01-RELEASE_DAY_2.jar 
 ```
 
 #### Jour 3
 
 ```bash
-java --module-path ${JAVAFX_HOME}/lib --add-modules=javafx.base,javafx.controls,javafx.fxml -jar REALEASE/codingweek-01-RELEASE_DAY_3.jar 
+java --module-path ${JAVAFX_HOME}/lib --add-modules=javafx.base,javafx.controls,javafx.fxml -jar RELEASE/codingweek-01-RELEASE_DAY_3.jar 
 ```
 
 #### Jour 4
 
 ```bash
-java --module-path ${JAVAFX_HOME}/lib --add-modules=javafx.base,javafx.controls,javafx.fxml -jar REALEASE/codingweek-01-RELEASE_DAY_4.jar 
+java --module-path ${JAVAFX_HOME}/lib --add-modules=javafx.base,javafx.controls,javafx.fxml -jar RELEASE/codingweek-01-RELEASE_DAY_4.jar 
 ```
 
 #### Jour 5
 
 ```bash
-java --module-path ${JAVAFX_HOME}/lib --add-modules=javafx.base,javafx.controls,javafx.fxml -jar REALEASE/codingweek-01-RELEASE_DAY_5.jar 
+java --module-path ${JAVAFX_HOME}/lib --add-modules=javafx.base,javafx.controls,javafx.fxml -jar RELEASE/codingweek-01-RELEASE_DAY_5.jar 
 ```
 
 **Voici différents scénarios :**
