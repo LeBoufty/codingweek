@@ -18,7 +18,7 @@ public class CreationAnnonce_Planning_Materiel {
     void create_annonce(ActionEvent event) throws Exception {
         if(date_debut.getValue() == null || date_fin.getValue() == null || Date_M.getDate_FXML(date_debut.getValue())>Date_M.getDate_FXML(date_fin.getValue()))
         {
-            System.out.println("Date non valide");
+            App.error("Dates non valides");
         }
         else
         {
