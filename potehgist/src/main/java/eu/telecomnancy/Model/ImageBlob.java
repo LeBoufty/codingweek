@@ -1,7 +1,10 @@
 package eu.telecomnancy.Model;
 
+import java.io.BufferedInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.nio.file.Files;
+import java.io.FileInputStream;
+//import java.nio.file.Files;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -15,8 +18,19 @@ public class ImageBlob {
 
     public static byte[] pathtToByte(String path) throws Exception{
         File imageFile = new File(path);
-        byte[] imageData = Files.readAllBytes(imageFile.toPath());
-        return imageData;
+
+        try (BufferedInputStream bis = new BufferedInputStream(new FileInputStream(imageFile));
+             ByteArrayOutputStream bos = new ByteArrayOutputStream()) {
+
+            byte[] buffer = new byte[1024];
+            int bytesRead;
+
+            while ((bytesRead = bis.read(buffer)) != -1) {
+                bos.write(buffer, 0, bytesRead);
+            }
+
+            return bos.toByteArray();
+        }
     }
 
     public static byte[] imageToByte(Image image) throws Exception{
@@ -41,7 +55,7 @@ public class ImageBlob {
         // Récupérer l'image depuis l'ImageView
         Image image = imageView.getImage();
 
-            // Convertir l'image en byte[]
+        // Convertir l'image en byte[]
         byte[] imageData = imageToByte(image);
             
         return imageData;
