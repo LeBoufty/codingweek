@@ -271,6 +271,7 @@ GridPane,
 }
 
 .date-picker > .text-field {
+  -fx-background-color: -secondary-background-color;
   -fx-text-fill: -text-color;
 }
 
