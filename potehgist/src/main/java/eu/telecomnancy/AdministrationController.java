@@ -57,7 +57,7 @@ public class AdministrationController {
                 int id = resultSet.getInt("id");
                 int id_utilisateur = resultSet.getInt("id_utilisateur");
                 String message = resultSet.getString("message");
-                LocalDateTime date = resultSet.getTimestamp("date").toLocalDateTime();
+                int date = resultSet.getInt("date");
 
                 Reclamation reclamation = new Reclamation(id, id_utilisateur, message, date);
                 reclamations.add(reclamation);
