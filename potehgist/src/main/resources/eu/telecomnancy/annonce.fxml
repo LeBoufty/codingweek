@@ -28,8 +28,8 @@
                                     </Label>
                                     <HBox prefHeight="100.0" prefWidth="200.0">
                                        <children>
-                                          <Label prefHeight="40.0" prefWidth="75.0" styleClass="article-date" text="Catégorie :" />
-                                          <Label fx:id="categorie" prefHeight="47.0" prefWidth="188.0" styleClass="article-date" text="Catégorie" />
+                                          <Label prefHeight="62.0" prefWidth="75.0" styleClass="article-date" text="Catégorie :" />
+                                          <Label fx:id="categorie" prefHeight="126.0" prefWidth="188.0" styleClass="article-date" text="Catégorie" />
                                        </children>
                                     </HBox>
                                  </children>
@@ -58,6 +58,13 @@
                                     <Label fx:id="date_depot" prefHeight="56.0" prefWidth="201.0" styleClass="article-date" text="date depot" />
                                  </children>
                               </HBox>
+                              <HBox prefHeight="10.0" prefWidth="789.0">
+                                 <children>
+                                    <Label prefHeight="30.0" prefWidth="33.0" styleClass="article-date" text="Par :" />
+                                    <Label fx:id="Nom_vendeur" styleClass="article-date" text="Label" />
+                                 </children>
+                              </HBox>
+                              <Pane prefHeight="26.0" prefWidth="789.0" />
                               <HBox prefHeight="100.0" prefWidth="200.0">
                                  <children>
                                     <Button fx:id="buttonchat" mnemonicParsing="false" onAction="#chat" prefHeight="38.0" prefWidth="84.0" text="Chat" />
