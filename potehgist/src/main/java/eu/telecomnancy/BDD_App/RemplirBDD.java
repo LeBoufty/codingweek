@@ -58,6 +58,9 @@ public class RemplirBDD {
             u = new Utilisateur("e", "e","e", "e");
             u.saveAsNew();
 
+            u = new Utilisateur("admin", "admin","admin@hotmail.fr", "10",1);
+            u.saveAsNew();
+
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
