@@ -20,16 +20,16 @@ public class RemplirBDD {
             // Supprime le fichier de la BDD
             java.io.File file = new java.io.File(url);
             if (file.delete()) {
-                System.out.println("[DEBUG] La base de données a été supprimée.");
+                //System.Out.println("[DEBUG] La base de données a été supprimée.");
             } else {
-                System.out.println("[DEBUG] La base de données n'a pas été supprimée.");
+                //System.Out.println("[DEBUG] La base de données n'a pas été supprimée.");
             }
             CreateBDD.createNewDatabase("/tmp/potehgist.db");
             url = "jdbc:sqlite:/tmp/potehgist.db";
             conn = DriverManager.getConnection(url);
             
         } catch (SQLException e) {
-            System.out.println("e.getMessage()");
+            //System.Out.println("e.getMessage()");
         }
 
 
@@ -238,8 +238,8 @@ public class RemplirBDD {
             pstmt.executeUpdate();
         }
         catch (Exception e) {
-            System.out.println(e.getMessage());
-            System.out.println("Erreur lors de l'ajout de la notification");
+            //System.Out.println(e.getMessage());
+            //System.Out.println("Erreur lors de l'ajout de la notification");
         }
     }
 
@@ -255,8 +255,8 @@ public class RemplirBDD {
             pstmt.executeUpdate();
         }
         catch (Exception e) {
-            System.out.println(e.getMessage());
-            System.out.println("Erreur lors de l'ajout de la réclamation");
+            //System.Out.println(e.getMessage());
+            //System.Out.println("Erreur lors de l'ajout de la réclamation");
         }
     }
 

@@ -18,7 +18,7 @@ public class ConnectController {
     @FXML
     private void connect() throws Exception {
         // Non
-        //System.out.println(username.getText()+" "+password.getText());
+        //System.Out.println(username.getText()+" "+password.getText());
         
         // On vérifie si le couple username/password est valide
         if (valide(username.getText(), password.getText())) {

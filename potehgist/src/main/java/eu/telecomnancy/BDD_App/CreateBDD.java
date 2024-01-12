@@ -15,8 +15,8 @@ public class CreateBDD {
         try (Connection conn = DriverManager.getConnection(url)) {
             if (conn != null) {
                 DatabaseMetaData meta = conn.getMetaData();
-                System.out.println("[DEBUG] Le nom du driver est " + meta.getDriverName());
-                System.out.println("[DEBUG] Une nouvelle base de données a été créée.");
+                //System.Out.println("[DEBUG] Le nom du driver est " + meta.getDriverName());
+                //System.Out.println("[DEBUG] Une nouvelle base de données a été créée.");
 
                 // Création de la table "utilisateurs"
                 String utilisateurs = "CREATE TABLE IF NOT EXISTS utilisateurs (\n"
@@ -30,7 +30,7 @@ public class CreateBDD {
                         + "	admin bool NOT NULL\n"
                         + ");";
                 conn.createStatement().execute(utilisateurs); // Ajout dans la BDD
-                System.out.println("[DEBUG] La table utilisateurs a été créée.");
+                //System.Out.println("[DEBUG] La table utilisateurs a été créée.");
 
                 // Création de la table "offre"
 
@@ -46,7 +46,7 @@ public class CreateBDD {
                         + "	FOREIGN KEY(id_vendeur) REFERENCES utilisateurs(id)\n"
                         + ");";
                 conn.createStatement().execute(offres); // Ajout dans la BDD
-                System.out.println("[DEBUG] La table offres a été créée.");
+                //System.Out.println("[DEBUG] La table offres a été créée.");
 
                 // Création de la table "évaluation"
 
@@ -57,7 +57,7 @@ public class CreateBDD {
                         + "	FOREIGN KEY(id_reservation) REFERENCES plannings_reservations(id)\n"
                         + ");";
                 conn.createStatement().execute(evaluations); // Ajout dans la BDD
-                System.out.println("[DEBUG] La table evaluations a été créée.");
+                //System.Out.println("[DEBUG] La table evaluations a été créée.");
 
                 // Création de la table "liste d'attente"
                 
@@ -70,7 +70,7 @@ public class CreateBDD {
                         + "	FOREIGN KEY(id_acheteur) REFERENCES utilisateurs(id)\n"
                         + ");";
                 conn.createStatement().execute(liste_attente); // Ajout dans la BDD
-                System.out.println("[DEBUG] La table liste_attente a été créée.");
+                //System.Out.println("[DEBUG] La table liste_attente a été créée.");
 
                 // Création de la table "messages"
 
@@ -84,7 +84,7 @@ public class CreateBDD {
                         + "	FOREIGN KEY(id_utilisateur_recoit) REFERENCES utilisateurs(id)\n"
                         + ");";
                 conn.createStatement().execute(messages); // Ajout dans la BDD
-                System.out.println("[DEBUG] La table messages a été créée.");
+                //System.Out.println("[DEBUG] La table messages a été créée.");
 
                 // Création de la table "sommeils"
 
@@ -96,7 +96,7 @@ public class CreateBDD {
                         + "	FOREIGN KEY(id_utilisateur) REFERENCES utilisateurs(id)\n"
                         + ");";
                 conn.createStatement().execute(sommeils); // Ajout dans la BDD
-                System.out.println("[DEBUG] La table sommeils a été créée.");
+                //System.Out.println("[DEBUG] La table sommeils a été créée.");
 
                 // Création de la table "plannings réservations"
 
@@ -110,7 +110,7 @@ public class CreateBDD {
                         + "	FOREIGN KEY(id_offre) REFERENCES offres(id)\n"
                         + ");";
                 conn.createStatement().execute(plannings_reservations); // Ajout dans la BDD
-                System.out.println("[DEBUG] La table plannings_reservations a été créée.");
+                //System.Out.println("[DEBUG] La table plannings_reservations a été créée.");
 
                 // Création de la table "plannings offres"
 
@@ -122,7 +122,7 @@ public class CreateBDD {
                         + "	FOREIGN KEY(id_offre) REFERENCES offres(id)\n"
                         + ");";
                 conn.createStatement().execute(plannings_offres); // Ajout dans la BDD
-                System.out.println("[DEBUG] La table plannings_offres a été créée.");
+                //System.Out.println("[DEBUG] La table plannings_offres a été créée.");
 
                 // Création de la table "plannings pré-réservations"
 
@@ -136,7 +136,7 @@ public class CreateBDD {
                         + "	FOREIGN KEY(id_offre) REFERENCES offres(id)\n"
                         + ");";
                 conn.createStatement().execute(plannings_prereservations); // Ajout dans la BDD
-                System.out.println("[DEBUG] La table plannings_prereservations a été créée.");
+                //System.Out.println("[DEBUG] La table plannings_prereservations a été créée.");
 
                 // Création de la table "notifications"
 
@@ -151,7 +151,7 @@ public class CreateBDD {
                         + "	FOREIGN KEY(id_utilisateur) REFERENCES utilisateurs(id)\n"
                         + ");";
                 conn.createStatement().execute(notifications); // Ajout dans la BDD
-                System.out.println("[DEBUG] La table notifications a été créée.");
+                //System.Out.println("[DEBUG] La table notifications a été créée.");
 
                 // Création de la table "reclamations"
 
@@ -164,7 +164,7 @@ public class CreateBDD {
                         + "	FOREIGN KEY(id_utilisateur) REFERENCES utilisateurs(id)\n"
                         + ");";
                 conn.createStatement().execute(reclamations); // Ajout dans la BDD
-                System.out.println("[DEBUG] La table reclamations a été créée.");
+                //System.Out.println("[DEBUG] La table reclamations a été créée.");
 
                 // Création de la table "test_images"
 
@@ -173,14 +173,14 @@ public class CreateBDD {
                         + "	image blob NOT NULL\n"
                         + ");";
                 conn.createStatement().execute(test_images); // Ajout dans la BDD
-                System.out.println("[DEBUG] La table test_images a été créée.");
+                //System.Out.println("[DEBUG] La table test_images a été créée.");
 
                 // fermeture de la connexion
                 conn.close();
             }
  
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            //System.Out.println(e.getMessage());
         }
     }
     

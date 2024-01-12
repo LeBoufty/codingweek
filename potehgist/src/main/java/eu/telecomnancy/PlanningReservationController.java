@@ -132,7 +132,7 @@ public class PlanningReservationController {
             resa = Reservation();
             if(resa.size() == 0)
             {
-                System.out.println("pas de resa");
+                //System.Out.println("pas de resa");
             }
             else
             {

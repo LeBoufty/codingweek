@@ -24,13 +24,13 @@ public class CreationAnnonce_Planning_Materiel {
         }
         else
         {
-            System.out.println("Create annonce materiel");
+            //System.Out.println("Create annonce materiel");
             App.annonce_en_creation.date_debut_materiel = Date_M.getDate_FXML(date_debut.getValue());
             App.annonce_en_creation.date_fin_materiel = Date_M.getDate_FXML(date_fin.getValue());
             API.getInstance().addOffre(App.annonce_en_creation);
-            System.out.println("Request sent to API to add annonce");
+            //System.Out.println("Request sent to API to add annonce");
             API.getInstance().addPlaningMateriel(App.annonce_en_creation);
-            System.out.println("Request sent to API to add planning");
+            //System.Out.println("Request sent to API to add planning");
             App.setRoot("hub");
         }
         

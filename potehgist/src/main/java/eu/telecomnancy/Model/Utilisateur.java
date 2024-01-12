@@ -79,7 +79,7 @@ public class Utilisateur {
             
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("[DEBUG] Utilisateur non trouvé");
+            //System.Out.println("[DEBUG] Utilisateur non trouvé");
         }
     }
 
@@ -100,7 +100,7 @@ public class Utilisateur {
             id_max = API.getInstance().getMaxID();
             save();
         } catch (Exception e) {
-            System.out.println("[DEBUG] Erreur lors de l'ajout de l'utilisateur");
+            //System.Out.println("[DEBUG] Erreur lors de l'ajout de l'utilisateur");
         }
     }
 
@@ -125,7 +125,7 @@ public class Utilisateur {
             API.getInstance().modifyadmin(id, admin);
             API.getInstance().modifyimage(id, image);
         } catch (Exception e) {
-            System.out.println("[DEBUG] Erreur lors de la modification de l'utilisateur");
+            //System.Out.println("[DEBUG] Erreur lors de la modification de l'utilisateur");
         }
     }
 
@@ -140,7 +140,7 @@ public class Utilisateur {
             user.save();
             save();
         } catch (Exception e) {
-            System.out.println("[DEBUG] Erreur lors du paiement");
+            //System.Out.println("[DEBUG] Erreur lors du paiement");
             return false;
         }
         return true;
@@ -154,7 +154,7 @@ public class Utilisateur {
                 annonces.add(new Annonce(id));
             }
         } catch (Exception e) {
-            System.out.println("[DEBUG] Erreur lors de la récupération des annonces");
+            //System.Out.println("[DEBUG] Erreur lors de la récupération des annonces");
         }
         return annonces;
     }
