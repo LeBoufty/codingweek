@@ -739,6 +739,7 @@ public class API {
         int florin_min = recherche.recherche_florin_min;
         int florin_max = recherche.recherche_florin_max;
         int note_min = recherche.recherche_note_min;
+        
 
         String query = "SELECT * FROM offres WHERE ";
         if (!code_postal.equals("")) {
@@ -769,6 +770,9 @@ public class API {
         if (note_min != -1) { // fait la moyenne des notes de l'utilisateur : si la moyenne est inférieure à note_min, on ne renvoie pas l'annonce
             query += "id_vendeur IN (SELECT id_vendeur FROM offres JOIN evaluations ON offres.id = evaluations.id_offre GROUP BY id_vendeur HAVING AVG(valeur_evaluation) >= " + note_min + ") AND ";
         }
+        // retire les utilisateurs en sommeil (si la date d'aujourd'hui est à l'intérieur de leur période de sommeil)
+        query += "id_vendeur NOT IN (SELECT id_utilisateur FROM sommeils WHERE date_debut <= " + (int) Date_M.now().getDate() + " AND date_fin >= " + (int) Date_M.now().getDate() + ") AND ";
+
         query += "1=1";
         query += " ORDER BY date_depot DESC;";
 
