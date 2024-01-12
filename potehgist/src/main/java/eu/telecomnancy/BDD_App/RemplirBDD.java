@@ -138,14 +138,19 @@ public class RemplirBDD {
         }
 
         // Ajout des évaluations
-        // API.getInstance().addEvaluation(3, 1, 5);
-        // API.getInstance().addEvaluation(3, 2, 5);
-        // API.getInstance().addEvaluation(3, 3, 5);
-        // API.getInstance().addEvaluation(3, 4, 5);
-        // API.getInstance().addEvaluation(3, 5, 5);
-        // API.getInstance().addEvaluation(1, 1, 3);
-        // API.getInstance().addEvaluation(1, 2, 3);
-        // API.getInstance().addEvaluation(1, 3, 3);
+        API.getInstance().addEvaluation(3, 5);
+        API.getInstance().addEvaluation(3, 5);
+        API.getInstance().addEvaluation(3, 1);
+        API.getInstance().addEvaluation(3, 5);
+        API.getInstance().addEvaluation(3, 1);
+        API.getInstance().addEvaluation(1,5);
+        API.getInstance().addEvaluation(1, 5);
+        API.getInstance().addEvaluation(1, 4);
+        API.getInstance().addEvaluation(3, 5);
+        API.getInstance().addEvaluation(1, 5);
+        API.getInstance().addEvaluation(5, 1);
+        API.getInstance().addEvaluation(2, 2);
+        API.getInstance().addEvaluation(2, 4);
 
         // Ajout des messages
         API.getInstance().addmessage(1, 2, "Salut");
