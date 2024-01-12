@@ -21,6 +21,14 @@ public class Formater {
         return s.replaceAll("'", "''");
     }
 
+    public static boolean checkCodePostal(String codePostal) {
+        return codePostal.matches("^[0-9AB]{5}$");
+    }
+
+    public static boolean checkMail(String mail) {
+        return mail.matches("^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\\.[a-z]{2,4}$");
+    }
+
     public static String addNewlines(String s, int n) {
         if (s == null) {
             return null;

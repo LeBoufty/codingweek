@@ -2,6 +2,7 @@ package eu.telecomnancy;
 
 import eu.telecomnancy.BDD_App.API;
 import eu.telecomnancy.Model.Utilisateur;
+import eu.telecomnancy.Outils.Formater;
 import javafx.fxml.FXML;
 
 public class CreationController {
@@ -50,7 +51,19 @@ public class CreationController {
         else{
             if (!password1.getText().equals(password2.getText())) {
                 App.error("Les mots de passe ne correspondent pas");
-            } 
+            }
+            else if (!Formater.checkPassword(password1.getText())) {
+                App.error("Mot de passe trop court");
+            }
+            else if (!Formater.checkUsername(username.getText())) {
+                App.error("Nom d'utilisateur invalide");
+            }
+            else if (!Formater.checkCodePostal(codepostal.getText())) {
+                App.error("Code postal invalide");
+            }
+            else if (!Formater.checkMail(email.getText())) {
+                App.error("E-mail invalide");
+            }
             
             else {
                 // Sinon on ajoute l'utilisateur à la base de données
