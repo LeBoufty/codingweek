@@ -767,9 +767,9 @@ public class API {
         if (florin_max != -1) {
             query += "prix <= " + florin_max + " AND ";
         }
-        if (note_min != -1) { // fait la moyenne des notes de l'utilisateur : si la moyenne est inférieure à note_min, on ne renvoie pas l'annonce
-            query += "id_vendeur IN (SELECT id_vendeur FROM offres JOIN evaluations ON offres.id = evaluations.id_offre GROUP BY id_vendeur HAVING AVG(valeur_evaluation) >= " + note_min + ") AND ";
-        }
+        // if (note_min != -1) { // fait la moyenne des notes de l'utilisateur : si la moyenne est inférieure à note_min, on ne renvoie pas l'annonce
+        //     query += "id_vendeur IN (SELECT id_vendeur FROM offres JOIN evaluations ON offres.id = evaluations.id_offre GROUP BY id_vendeur HAVING AVG(valeur_evaluation) >= " + note_min + ") AND ";
+        // }
         // retire les utilisateurs en sommeil (si la date d'aujourd'hui est à l'intérieur de leur période de sommeil)
         query += "id_vendeur NOT IN (SELECT id_utilisateur FROM sommeils WHERE date_debut <= " + (int) Date_M.now().getDate() + " AND date_fin >= " + (int) Date_M.now().getDate() + ") AND ";
 
@@ -781,6 +781,18 @@ public class API {
         while (rs.next()) {
             Annonce annonce = new Annonce(rs.getInt("id"));
             list_annonces.add(annonce);
+            int id_vendeur = rs.getInt("id_vendeur");
+            String query_Note = "SELECT AVG(valeur_evaluation) FROM evaluations WHERE id_reservation IN (SELECT id FROM plannings_reservations WHERE id_offre IN (SELECT id FROM offres WHERE id_vendeur = " + id_vendeur + "));";
+            ResultSet rs_Note = conn.createStatement().executeQuery(query_Note);
+            if (rs_Note.next()) {
+                annonce.note = rs_Note.getDouble(1);
+            }
+
+            if (note_min != -1) {
+                if (annonce.note < note_min) {
+                    list_annonces.remove(annonce);
+                }
+            }
         }
         
         return list_annonces;
