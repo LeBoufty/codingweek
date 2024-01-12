@@ -13,6 +13,9 @@ import javafx.scene.control.TextField;
 public class RechercheAnnoncesController {
 
     @FXML
+    private CheckBox Checkbox_Codepostal;
+
+    @FXML
     private TextField annonce_recherche;
 
     @FXML
@@ -40,6 +43,15 @@ public class RechercheAnnoncesController {
     private Slider recherche_note_min;
 
     @FXML
+    void checkbox_Codepostal(ActionEvent event) {
+        if (Checkbox_Codepostal.isSelected()){
+            recherche_code_postal.setDisable(true);
+        } else {
+            recherche_code_postal.setDisable(false);
+        }
+    }
+
+    @FXML
     void recherche_button(ActionEvent event) {
         System.out.println("recherche_button clicked");
         System.out.println("recherche_text: " + annonce_recherche.getText() + " recherche_code_postal: "
@@ -54,8 +66,10 @@ public class RechercheAnnoncesController {
         {
             recherche.recherche_text = annonce_recherche.getText();
         }
-        if(!recherche_code_postal.getText().equals(""))
-        {
+        if (Checkbox_Codepostal.isSelected()){
+            recherche.recherche_code_postal = App.getUser().getCode_postal();
+        }
+        else if (!recherche_code_postal.getText().equals("")){
             recherche.recherche_code_postal = recherche_code_postal.getText();
         }
         if(recherche_date_apres.getValue()!=null)
