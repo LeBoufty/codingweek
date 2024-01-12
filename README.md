@@ -50,37 +50,37 @@ java --module-path ${JAVAFX_HOME}/lib --add-modules=javafx.base,javafx.controls,
 **Voici différents scénarios :**
 * À l'écran de connexion :
   * *Vous avez un problème*
-    * Cliquer sur "Nous contacter"
-    * Remplir le formulaire : décrire le problème
-    * Envoyer le formulaire
+    * Cliquez sur "Nous contacter"
+    * Remplissez le formulaire : décrire le problème
+    * Envoyez le formulaire
     * Le formulaire sera envoyé à l'administration et vous serez redirigé.e sur la page de connexion
   * *Vous voulez créer un compte*
-    * Cliquer sur "Créer un compte"
-    * Renseigner ses informations
-    * Créer le compte : vous serez redirigéé.e sur la page de connexion
+    * Cliquez sur "Créer un compte"
+    * Renseignez ses informations
+    * Créez le compte : vous serez redirigéé.e sur la page de connexion
   * *Vous avez un compte*
     * Entrez vos informations comme sur n'importe quelle application.
 * Sur la page principale : "Hub"
   * *Vous voulez déposer une annonce*
-    * Cliquer sur "Déposer une offre"
-    * Remplir le formulaire
+    * Cliquez sur "Déposer une offre"
+    * Remplissez le formulaire
     * L'annonce sera ajoutée à la base de données
   * *Vous voulez trouver une annonce*
-    * Cliquer sur "Chercher une annonce"
-    * TODO
+    * Cliquez sur "Chercher une annonce" ou "liste des annonces"
+    * Indiquez vos préférences.
   * *Vous pouvez consulter vos notifications*
-* Utiliser le menu en haut à droite de la page pour accéder à différentes pages
+* Utilisez le menu en haut à droite de la page pour accéder à différentes pages
 * Sur la page "Profil"
-  * Consulter les différentes informations du compte
-  * Consulter son planning à l'aide du bouton "Mon Planning"
-  * Consulter ses offres à l'aide du bouton "Mes Offres"
-  * Modifier les informations du compte à l'aide du bouton "Modifier le profil"
+  * Consultez les différentes informations du compte
+  * Consultez son planning à l'aide du bouton "Mon Planning"
+  * Consultez ses offres à l'aide du bouton "Mes Offres"
+  * Modifiez les informations du compte à l'aide du bouton "Modifier le profil"
     * Il faut entrer toutes les informations à nouveau
 * Sur la page "Mes Chats"
   * TODO
 * Sur la page "Administration" (accessible uniquement si le compte est administrateur)
-  * Consulter les différentes réclamations faites par les utilisateurs
-  * Indiquer lesquelles sont résolues.
+  * Consultez les différentes réclamations faites par les utilisateurs
+  * Indiquez lesquelles sont résolues.
 
 ## Planning
 
@@ -108,12 +108,16 @@ java --module-path ${JAVAFX_HOME}/lib --add-modules=javafx.base,javafx.controls,
     + Ajout de photos de profil et d'offres.
 
 - 11/1/24
-    + Correction de bugs
-    + Ajout du système de réservation
+    + Correction de bugs.
+    + Ajout du système de réservation et de préréservation.
+    + Ajout du système de florins.
+    + Ajout du système de sommeils.
 
 - 12/1/24
-    + Debug
-    + Vidéo de présentation
+    + Debug.
+    + Vidéo de présentation.
+    + Barbecue.
+    + Post-mortem.
 
 ## Crédits
 
