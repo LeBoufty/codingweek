@@ -51,12 +51,10 @@ public class HubController {
         }
 
         List<Reservation> resa = Reservation();
-        //System.out.println(resa.get(0).getDate_debut()+" "+dates[0]+" "+resa.get(0).getDate_fin());
         for (int i=0; i<resa.size(); i++){
             envoyernotifresa(resa.get(i));
         }
         List<Notification> notifs = Notification();
-        System.out.println(notifs.size());
         for (int i=0; i<notifs.size(); i++){
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("notifitem.fxml"));
@@ -111,7 +109,6 @@ public class HubController {
     private List<Reservation> Reservation() throws Exception{
         List<Reservation> reservations = new ArrayList<>();
         ResultSet resultSet = API.getInstance().getReservations(App.getUser().getId());
-        System.out.println(resultSet);
         while (resultSet.next()) {
             Reservation resa = new Reservation(resultSet.getInt("id"));
 

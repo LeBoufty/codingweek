@@ -110,6 +110,27 @@ public class RemplirBDD {
             datefin = (int)Instant.now().getEpochSecond()+90000*3;
             API.getInstance().addPlaningLastOffre(datedebut, datefin);
 
+            path = getClass().getResource("/eu/telecomnancy/assets/").toExternalForm() + "farine.jpeg";
+            path = path.substring(5);
+            API.getInstance().addOffre("10g de pure....","...farine. C'est de la farine.", 1, 3, "Materiel", ImageBlob.pathtToByte(path));
+            datedebut = (int)Instant.now().getEpochSecond()+90000*1;
+            datefin = (int)Instant.now().getEpochSecond()+90000*3;
+            API.getInstance().addPlaningLastOffre(datedebut, datefin);
+
+            path = getClass().getResource("/eu/telecomnancy/assets/").toExternalForm() + "staff.png";
+            path = path.substring(5);
+            API.getInstance().addOffre("Bâton","Appartenait à une collègue.\nElle ne l'utilise plus.\nEn bon état.", 10, 2, "Materiel", ImageBlob.pathtToByte(path));
+            datedebut = (int)Instant.now().getEpochSecond()-90000*10;
+            datefin = (int)Instant.now().getEpochSecond()+90000*20;
+            API.getInstance().addPlaningLastOffre(datedebut, datefin);
+
+            path = getClass().getResource("/eu/telecomnancy/assets/").toExternalForm() + "boeing737.jpg";
+            path = path.substring(5);
+            API.getInstance().addOffre("Boeing 737","Avion en location.\nSans danger.\nPorte amovible.", 100,4, "Materiel", ImageBlob.pathtToByte(path));
+            datedebut = (int)Instant.now().getEpochSecond();
+            datefin = (int)Instant.now().getEpochSecond()+90000*70;
+            API.getInstance().addPlaningLastOffre(datedebut, datefin);
+
             
         } catch (Exception e) {
             // TODO Auto-generated catch block
