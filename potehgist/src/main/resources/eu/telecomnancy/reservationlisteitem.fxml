@@ -20,7 +20,7 @@
                   <Font size="10.0" />
                </font>
             </Label>
-            <Button mnemonicParsing="false" prefHeight="0.0" prefWidth="100.0" text="Voir" />
+            <Button mnemonicParsing="false" onAction="#voir" prefHeight="0.0" prefWidth="100.0" text="Voir" />
          </children>
       </VBox>
    </children>

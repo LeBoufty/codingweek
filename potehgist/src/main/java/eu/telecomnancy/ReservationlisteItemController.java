@@ -1,5 +1,6 @@
 package eu.telecomnancy;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -9,6 +10,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
 public class ReservationlisteItemController{
+
+    private int Idannonce;
 
     @FXML
     private Label Acheteur;
@@ -24,10 +27,19 @@ public class ReservationlisteItemController{
         String acheteur = offre.getVendeur().getNom();
         Acheteur.setText(acheteur);
         title.setText(titre);
+        Idannonce=resa.getId_offre();
+        
+        //System.out.println("Annonce n°" + App.idannonce);
 
     }
 
     public void initialize(URL location, ResourceBundle ressources) {
 
-    }    
+    }
+
+    @FXML
+    private void voir() throws IOException{
+        App.idannonce=Idannonce;
+        App.setRoot("annonce");
+    }
 }
