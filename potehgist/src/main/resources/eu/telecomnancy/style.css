@@ -328,7 +328,7 @@ ChoiceBox {
 /* Miscellaneous */
 BorderPane,
 .container {
-  -fx-max-width: 1200px;
+  -fx-max-width: 2000px;
   -fx-padding: 20px;
 }
 
