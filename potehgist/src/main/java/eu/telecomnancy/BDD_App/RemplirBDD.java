@@ -60,6 +60,9 @@ public class RemplirBDD {
             u = new Utilisateur("admin", "admin","admin@hotmail.fr", "10",1);
             u.saveAsNew();
 
+            u = new Utilisateur("Massi", "xora","Massimiliano.Mortaigne@telecomnancy.eu", "54000");
+            u.saveAsNew();
+
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -126,6 +129,13 @@ public class RemplirBDD {
             path = getClass().getResource("/eu/telecomnancy/assets/").toExternalForm() + "boeing737.jpg";
             path = path.substring(5);
             API.getInstance().addOffre("Boeing 737","Avion en location.\nSans danger.\nPorte amovible.", 100,4, "Materiel", ImageBlob.pathtToByte(path));
+            datedebut = (int)Instant.now().getEpochSecond();
+            datefin = (int)Instant.now().getEpochSecond()+90000*70;
+            API.getInstance().addPlaningLastOffre(datedebut, datefin);
+
+            path = getClass().getResource("/eu/telecomnancy/assets/").toExternalForm() + "Massi.jpg";
+            path = path.substring(5);
+            API.getInstance().addOffre("Moi","Bonjour\nC'est moi, Massimiliano Mortaigne.\nJe suis en vente\nVery cheap.", 1,4, "Materiel", ImageBlob.pathtToByte(path));
             datedebut = (int)Instant.now().getEpochSecond();
             datefin = (int)Instant.now().getEpochSecond()+90000*70;
             API.getInstance().addPlaningLastOffre(datedebut, datefin);
