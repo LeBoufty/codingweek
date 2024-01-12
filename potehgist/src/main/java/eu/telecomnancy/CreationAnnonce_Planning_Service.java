@@ -29,12 +29,13 @@ public class CreationAnnonce_Planning_Service {
     private TextField nb_minute_service;
 
     public void initialize() {
-        //type_planning.getItems().addAll("Ponctuel", "Récurrent");
-        type_planning.getItems().add("Ponctuel");
+        type_planning.getItems().addAll("Ponctuel", "Récurrent");
+        // type_planning.getItems().add("Ponctuel");
     }
 
     @FXML
     void create_annonce(ActionEvent event) throws Exception {
+        try {
         System.out.println("Create annonce service");
         if (type_planning_int == 1) {
             // Va chercher les infos des ponctuels
@@ -49,6 +50,31 @@ public class CreationAnnonce_Planning_Service {
             App.annonce_en_creation.create_annonce();
 
             App.setRoot("hub");
+        }
+        if (type_planning_int == 2) {
+            // Va chercher les infos des recurrents
+            ArrayList<Long> dates_debut = new ArrayList<Long>();
+            ArrayList<Long> dates_fin = new ArrayList<Long>();
+
+            for (element_planing_recurrentController recurrent : recurrents) {
+                ArrayList<Long> dates = recurrent.get_date_debut();
+                for (Long date : dates) {
+                    dates_debut.add(date);
+                    dates_fin.add(date + (Integer.parseInt(nb_minute_service.getText()) * 60 * 1000));
+                }
+            }
+
+            App.annonce_en_creation.date_debut_service_ponctuel = dates_debut;
+            App.annonce_en_creation.nb_minute_service = Integer.parseInt(nb_minute_service.getText());
+            App.annonce_en_creation.create_annonce();
+
+            App.setRoot("hub");
+
+        }
+
+        } catch (Exception e) {
+            App.error("Erreur lors de la création de l'annonce");
+            e.printStackTrace();
         }
     }
 

@@ -83,8 +83,8 @@ public class RechercheAnnoncesController {
             recherche.recherche_florin_max = Integer.parseInt(recherche_florin_max.getText());
         }
         if(recherche_note_min.getValue()!=0)
-        {
-            recherche.recherche_note_min = (int) recherche_note_min.getValue();
+        {   
+            recherche.recherche_note_min = (double) recherche_note_min.getValue();
         }
         App.setRecherche(recherche);
         App.setTypeRecherche(TypeRecherche.ALL);
