@@ -40,7 +40,8 @@ public class HubController {
 
     @FXML
     private void initialize() throws Exception
-    {
+    {   
+        App.annonce_recherche.setDefault();
         ResultSet result = API.getInstance().getNotif(App.getUser().getId());
         while(result.next())
         {

@@ -85,6 +85,7 @@ public class AnnoncelisteItemController{
     void showAnnonce(ActionEvent event) throws Exception{
         App.setidannonce(Integer.valueOf(idannonce.getText()));
         //System.out.println("Annonce n°" + App.idannonce);
+        App.annonce_recherche.setDefault();
         App.setRoot("annonce");
     }
 }
