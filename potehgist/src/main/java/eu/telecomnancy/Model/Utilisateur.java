@@ -42,6 +42,27 @@ public class Utilisateur {
         this.id = ++id_max;
     }
 
+    public Utilisateur(String nom, String mot_de_passe, String email, String code_postal, int admin) throws Exception {
+        this.nom = nom;
+        this.mot_de_passe = Formater.hash(mot_de_passe);
+        this.email = email;
+        this.argent = 100;
+        this.code_postal = code_postal;
+        if(admin == 1)
+            {
+            this.admin = true;
+            }
+        else
+            {
+        this.admin = false;
+            }
+        String path = getClass().getResource("/eu/telecomnancy/assets/").toExternalForm() + "logo.png";
+        path = path.substring(5);
+
+        this.image = ImageBlob.pathtToByte(path);
+        this.id = ++id_max;
+    }
+
     public Utilisateur(int id) {
         this.id = id;
         try {
