@@ -100,7 +100,7 @@ Text {
 }
 
 .hdrbtn {
-  -fx-background-color: -background-color;
+  -fx-background-color: -secondary-background-color;
   -fx-text-fill: -text-color;
   -fx-padding: 10px 20px;
   -fx-cursor: pointer;
@@ -328,7 +328,7 @@ ChoiceBox {
 /* Miscellaneous */
 BorderPane,
 .container {
-  -fx-max-width: 1200px;
+  -fx-max-width: 2000px;
   -fx-padding: 20px;
 }
 
