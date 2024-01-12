@@ -40,6 +40,7 @@ public class App extends Application {
         stage.setTitle("PotehGist");
         stage.getIcons().add(new Image(getClass().getResourceAsStream("assets/favicon.png")));
         scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+        
         Font.loadFont(getClass().getResource("fonts/RobotoLight.ttf").toExternalForm(), 10);
         Font.loadFont(getClass().getResource("fonts/RobotoBlack.ttf").toExternalForm(), 10);
         Font.loadFont(getClass().getResource("fonts/RobotoBold.ttf").toExternalForm(), 10);

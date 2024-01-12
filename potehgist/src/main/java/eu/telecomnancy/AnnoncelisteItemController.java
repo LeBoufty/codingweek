@@ -66,7 +66,8 @@ public class AnnoncelisteItemController{
         long noteround=Math.round(annonce.note*10);
         note_float.setText(String.valueOf((noteround/10.0)));
         API.getInstance().getImageAnnonce(annonce.getId());
-        Image image = new Image(getClass().getResource("/eu/telecomnancy/assets/annonce_image.png").toExternalForm());
+        //Image image = new Image(getClass().getResource("/eu/telecomnancy/assets/annonce_image.png").toExternalForm());
+        Image image = new Image("file:"+API.getInstance().ResourceJar("/eu/telecomnancy/assets/annonce_image.png"));
         img.setImage(image);
 
         if (annonce.getCategorie().equals("Service")){
