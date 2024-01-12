@@ -20,6 +20,7 @@ import eu.telecomnancy.Model.Date_M;
 import eu.telecomnancy.Model.Reservation;
 import eu.telecomnancy.Model.Utilisateur;
 import eu.telecomnancy.Outils.Formater;
+import javafx.scene.image.Image;
 
 public class API {
     private static API instance = null;
@@ -239,12 +240,12 @@ public class API {
             pstmt.setBoolean(5, false);
             pstmt.setString(6, code_postal);
             // //System.out.println(getClass().getResource("/eu/telecomnancy/assets/placeholder.png").toExternalForm());
-            String path = ResourceJar("/eu/telecomnancy/assets/placeholder.png");
+            //String path = ResourceJar("/eu/telecomnancy/assets/placeholder.png");
+            String path = getClass().getResource("/eu/telecomnancy/assets/placeholder.png").toExternalForm();
+            Image image = new Image(path);
+            byte[] imageData = new byte[(int) image.getHeight() * (int) image.getWidth() * 4];
+            
 
-            // //System.out.println(path);
-            File imageFile = new File(path);
-            // //System.out.println(imageFile.exists());
-            byte[] imageData = Files.readAllBytes(imageFile.toPath());
             pstmt.setBytes(7, imageData);
             pstmt.executeUpdate();
         }
@@ -259,7 +260,7 @@ public class API {
         byte[] imageBytes = rs.getBytes(1);
         // String outputpath = getClass().getResource("/eu/telecomnancy/assets/").toExternalForm() + "user_photo.png";
         // outputpath = outputpath.substring(5);
-        String outputpath = ResourceJar("/eu/telecomnancy/assets/user_photo.png");
+        String outputpath = "/tmp/user_photo.png";
         
         Files.write(new File(outputpath).toPath(), imageBytes);
     }
@@ -608,8 +609,9 @@ public class API {
         byte[] imageBytes = rs.getBytes(1);
         // String outputpath = getClass().getResource("/eu/telecomnancy/assets/").toExternalForm() + "annonce_image.png";
         // outputpath = outputpath.substring(5);
-        String outputpath = ResourceJar("/eu/telecomnancy/assets/annonce_image.png");
-        
+        // String outputpath = ResourceJar("/eu/telecomnancy/assets/annonce_image.png");
+        String outputpath = "/tmp/annonce_image.png";
+
         Files.write(new File(outputpath).toPath(), imageBytes);
     }
 
