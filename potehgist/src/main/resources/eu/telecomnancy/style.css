@@ -100,7 +100,7 @@ Text {
 }
 
 .hdrbtn {
-  -fx-background-color: -background-color;
+  -fx-background-color: -secondary-background-color;
   -fx-text-fill: -text-color;
   -fx-padding: 10px 20px;
   -fx-cursor: pointer;
