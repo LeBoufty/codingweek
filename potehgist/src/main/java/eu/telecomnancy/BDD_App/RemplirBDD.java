@@ -2,7 +2,6 @@ package eu.telecomnancy.BDD_App;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.time.Instant;
 
@@ -11,10 +10,11 @@ import eu.telecomnancy.Model.Utilisateur;
 
 public class RemplirBDD {
     
-    private Connection conn;
+    
 
     public void remplir() throws Exception
     {
+        Connection conn;
         try {
             String url =  CreateBDD.BDD_NAME;
             // Supprime le fichier de la BDD
@@ -36,7 +36,7 @@ public class RemplirBDD {
         // Ajout des utilisateurs
         try {
 
-            Utilisateur u = new Utilisateur("a", "a","a", "a");
+            Utilisateur u = new Utilisateur("a", "a","a", "54000");
             u.saveAsNew();
             
             u =new Utilisateur("Claude La Bagarre","Avalanche","Claude@Midgar.ff","54000");
@@ -108,6 +108,27 @@ public class RemplirBDD {
             API.getInstance().addOffre("Caractère speciaux","Shut up bozo, CURSE OF RA 𓀀 𓀁 𓀂 𓀃 𓀄 𓀅 𓀆 𓀇 𓀈 𓀉 𓀊 𓀋 𓀌 𓀍 𓀎 𓀏 𓀐 𓀑 𓀒 𓀓 𓀔 𓀕 𓀖 𓀗 𓀘 𓀙 𓀚 𓀛 𓀜 𓀝 𓀞 𓀟 𓀠 𓀡 𓀢 𓀣 𓀤 𓀥 𓀦 𓀧 𓀨 𓀩 𓀪 𓀫 𓀬 𓀭 𓀲 𓀳 𓀴 𓀵 𓀶 𓀷 𓀸 𓀹 𓀺 𓀻 𓀼 𓀽 𓀾 𓀿 𓁀 𓁁 𓁂 𓁃 𓁄 𓁅 𓁆 𓁇 𓁈 𓁉 𓁊 𓁋 𓁍 𓁎 𓁏 𓁐 𓁑", 1, 6, "Service", ImageBlob.pathtToByte(path));
             datedebut = (int)Instant.now().getEpochSecond()+90000*1;
             datefin = (int)Instant.now().getEpochSecond()+90000*3;
+            API.getInstance().addPlaningLastOffre(datedebut, datefin);
+
+            path = getClass().getResource("/eu/telecomnancy/assets/").toExternalForm() + "farine.jpeg";
+            path = path.substring(5);
+            API.getInstance().addOffre("10g de pure....","...farine. C'est de la farine.", 1, 3, "Materiel", ImageBlob.pathtToByte(path));
+            datedebut = (int)Instant.now().getEpochSecond()+90000*1;
+            datefin = (int)Instant.now().getEpochSecond()+90000*3;
+            API.getInstance().addPlaningLastOffre(datedebut, datefin);
+
+            path = getClass().getResource("/eu/telecomnancy/assets/").toExternalForm() + "staff.png";
+            path = path.substring(5);
+            API.getInstance().addOffre("Bâton","Appartenait à une collègue.\nElle ne l'utilise plus.\nEn bon état.", 10, 2, "Materiel", ImageBlob.pathtToByte(path));
+            datedebut = (int)Instant.now().getEpochSecond()-90000*10;
+            datefin = (int)Instant.now().getEpochSecond()+90000*20;
+            API.getInstance().addPlaningLastOffre(datedebut, datefin);
+
+            path = getClass().getResource("/eu/telecomnancy/assets/").toExternalForm() + "boeing737.jpg";
+            path = path.substring(5);
+            API.getInstance().addOffre("Boeing 737","Avion en location.\nSans danger.\nPorte amovible.", 100,4, "Materiel", ImageBlob.pathtToByte(path));
+            datedebut = (int)Instant.now().getEpochSecond();
+            datefin = (int)Instant.now().getEpochSecond()+90000*70;
             API.getInstance().addPlaningLastOffre(datedebut, datefin);
 
             
@@ -202,41 +223,6 @@ public class RemplirBDD {
         API.getInstance().addReclamation(4, "Je n'ai pas reçu mes missiles alors que je suis au pole Nord");
 
 
-    }
-
-
-    public void ajoutnotifications(int id_utilisateur, String message, int jour, int mois, int annee, int heure, int minute, boolean vu)
-    {
-        String date_envoi = ""+annee+"-"+mois+"-"+jour+" "+heure+":"+minute;
-        String query = "INSERT INTO notifications (id_utilisateur, message, date, vue) VALUES (?, ?, ?, ?);";
-        try (PreparedStatement pstmt = conn.prepareStatement(query)) {
-            pstmt.setInt(1, id_utilisateur);
-            pstmt.setString(2, message);
-            pstmt.setString(3, date_envoi);
-            pstmt.setBoolean(4, vu);
-            pstmt.executeUpdate();
-        }
-        catch (Exception e) {
-            System.out.println(e.getMessage());
-            System.out.println("Erreur lors de l'ajout de la notification");
-        }
-    }
-
-    public void ajoutreclamations(int id_utilisateur, String message, int jour, int mois, int annee, int heure, int minute, boolean resolu)
-    {
-        String date_envoi = ""+annee+"-"+mois+"-"+jour+" "+heure+":"+minute;
-        String query = "INSERT INTO reclamations (id_utilisateur, message, date, resolu) VALUES (?, ?, ?, ?);";
-        try (PreparedStatement pstmt = conn.prepareStatement(query)) {
-            pstmt.setInt(1, id_utilisateur);
-            pstmt.setString(2, message);
-            pstmt.setString(3, date_envoi);
-            pstmt.setBoolean(4, resolu);
-            pstmt.executeUpdate();
-        }
-        catch (Exception e) {
-            System.out.println(e.getMessage());
-            System.out.println("Erreur lors de l'ajout de la réclamation");
-        }
     }
 
     public static void main(String [] args) throws Exception {

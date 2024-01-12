@@ -106,7 +106,16 @@
                         <Slider fx:id="recherche_note_min" blockIncrement="1.0" majorTickUnit="1.0" max="5.0" minorTickCount="1" prefHeight="38.0" prefWidth="210.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
                      </children>
                   </HBox>
-                  <Pane prefHeight="39.0" prefWidth="1200.0" />
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label text="Près de chez moi : ">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <CheckBox fx:id="Checkbox_Codepostal" mnemonicParsing="false" onAction="#checkbox_Codepostal" />
+                     </children>
+                  </HBox>
                   <HBox alignment="CENTER">
                      <children>
                         <Label text="Code Postal : ">
@@ -114,7 +123,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="recherche_code_postal" prefHeight="24.0" prefWidth="353.0" promptText="54000" />
+                        <TextField fx:id="recherche_code_postal" prefHeight="26.0" prefWidth="93.0" promptText="54000" />
                      </children>
                   </HBox>
                   <Pane prefHeight="40.0" prefWidth="1200.0" />

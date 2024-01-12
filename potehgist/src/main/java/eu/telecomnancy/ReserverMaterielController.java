@@ -1,5 +1,6 @@
 package eu.telecomnancy;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import eu.telecomnancy.BDD_App.API;
@@ -12,7 +13,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-
 
 public class ReserverMaterielController {
 
@@ -85,6 +85,9 @@ public class ReserverMaterielController {
         //PlanningReservationController controller = loader.getController();
         
         planning.getChildren().add(hbox);
+
+        date_debut.setValue(LocalDate.now());
+        date_fin.setValue(LocalDate.now().plusDays(1));
     }
 
 
