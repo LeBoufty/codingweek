@@ -18,6 +18,9 @@ import javafx.scene.image.ImageView;
 public class AnnoncelisteItemController{
 
     @FXML
+    private Label note_float;
+
+    @FXML
     private Button button;
 
     @FXML
@@ -60,6 +63,7 @@ public class AnnoncelisteItemController{
         date_depot.setText(date.getAlldateJJMMAAAA());
         code_postal.setText(annonce.getCode_postal());
         idannonce.setText(String.valueOf(annonce.getId()));
+        note_float.setText(String.valueOf(annonce.note));
         API.getInstance().getImageAnnonce(annonce.getId());
         Image image = new Image(getClass().getResource("/eu/telecomnancy/assets/annonce_image.png").toExternalForm());
         img.setImage(image);
