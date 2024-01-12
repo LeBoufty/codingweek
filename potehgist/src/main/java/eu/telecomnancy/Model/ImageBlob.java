@@ -8,14 +8,36 @@ import javafx.scene.image.ImageView;
 import javax.imageio.ImageIO;
 import javax.imageio.ImageWriter;
 import javax.imageio.stream.ImageOutputStream;
+import java.awt.Graphics2D;
+import java.awt.geom.AffineTransform;
+import java.awt.image.BufferedImage;
 
 import javafx.embed.swing.SwingFXUtils;
 
 public class ImageBlob {
 
     public static byte[] pathtToByte(String path) throws Exception{
-        File imageFile = new File(path);
-        byte[] imageData = Files.readAllBytes(imageFile.toPath());
+        BufferedImage originalImage = ImageIO.read(new File(path));
+        int newWidth = 500;
+        int newHeight = 500;
+        BufferedImage resizedImage = new BufferedImage(newWidth, newHeight, originalImage.getType());
+        Graphics2D g = resizedImage.createGraphics();
+        
+        AffineTransform transform = AffineTransform.getScaleInstance((double)newWidth / originalImage.getWidth(),
+        (double)newHeight / originalImage.getHeight());
+        g.drawRenderedImage(originalImage, transform);
+
+        // Libérez les ressources graphiques
+        g.dispose();
+
+        // Spécifiez le chemin du fichier de sortie
+        String outputFilePath = "/tmp/image_resized.png";
+
+        // Écrivez l'image redimensionnée dans un nouveau fichier
+        ImageIO.write(resizedImage, "png", new File(outputFilePath));
+
+
+        byte[] imageData = Files.readAllBytes(new File(outputFilePath).toPath());
         return imageData;
     }
 
