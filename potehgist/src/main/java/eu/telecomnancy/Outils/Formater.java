@@ -26,7 +26,7 @@ public class Formater {
     }
 
     public static boolean checkMail(String mail) {
-        return mail.matches("^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\\.[a-z]{2,4}$");
+        return mail.matches("^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{1,}\\.[a-z]{2,4}$");
     }
 
     public static String addNewlines(String s, int n) {
