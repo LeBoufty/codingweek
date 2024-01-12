@@ -13,6 +13,7 @@
    <children>
       <VBox alignment="TOP_RIGHT">
          <children>
+            <Pane prefHeight="8.0" prefWidth="400.0" />
             <HBox alignment="TOP_RIGHT">
                <children>
                   <Label text="Date de début de récurrence : " />

@@ -685,14 +685,6 @@ public class API {
         return sortie;
     }
 
-    public void addEvaluation(int notant, int offre, int valeur) {
-        try {
-            conn.createStatement().execute("INSERT INTO evaluations (id_offre, id_evaluant, valeur_evaluation) VALUES (" + offre + ", " + notant + ", " + valeur + ");");
-        } catch (Exception e) {
-            //System.out.println("[DEBUG] Erreur lors de l'ajout de l'évaluation");
-        }
-    }
-
     public String[] getLastFiveChat(int iduser) {
         // Renvoie les 5 derniers utilisateurs avec qui l'utilisateur a discuté
         try {
@@ -758,7 +750,7 @@ public class API {
         boolean service = recherche.recherche_service;
         int florin_min = recherche.recherche_florin_min;
         int florin_max = recherche.recherche_florin_max;
-        int note_min = recherche.recherche_note_min;
+        double note_min = recherche.recherche_note_min;
         
 
         String query = "SELECT * FROM offres WHERE ";
