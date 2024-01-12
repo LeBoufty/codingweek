@@ -38,6 +38,18 @@ public class NotifItemController {
                     }
                 });
             }
+            else if(type==2)
+            {
+                voir.onActionProperty().set(event -> {
+                    try {
+                        App.idannonce=iduser2;
+                        System.out.println("Annonce n°" + App.idannonce);
+                        App.setRoot("annonce");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                });
+            }
         Description.setText(description);
         Date.setText(dateTime.format(formatter));
         this.idannonce = id;
