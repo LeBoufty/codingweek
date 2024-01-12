@@ -73,8 +73,9 @@ public class RemplirBDD {
 
         // Ajout des offres
         try {
-            String path = getClass().getResource("/eu/telecomnancy/assets/").toExternalForm() + "Cloud_Strife.png";
-            path = path.substring(5);
+            String path =API.getInstance().ResourceJar("/eu/telecomnancy/assets/Cloud_Strife.png");
+            // String path = getClass().getResource("/eu/telecomnancy/assets/").toExternalForm() + "Cloud_Strife.png";
+            // path = path.substring(5);
             API.getInstance().addOffre("Mercenaire à louer","Talents de mercenaire efficace à louer.\nPas cher.\nNe travaille pas pour les enfants", 7, 2, "Service", ImageBlob.pathtToByte(path));
             int datedebut = (int)Instant.now().getEpochSecond();
             int datefin = (int)Instant.now().getEpochSecond()+90000*4;
