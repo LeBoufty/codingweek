@@ -8,12 +8,13 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane StyleClass="header" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eu.telecomnancy.HeaderController">
+<BorderPane StyleClass="header" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eu.telecomnancy.HeaderController">
    <left>
     <Button blendMode="SRC_ATOP" cache="true" cacheShape="false" centerShape="false" contentDisplay="CENTER" focusTraversable="false" graphicTextGap="7.0" mnemonicParsing="false" onAction="#homeButton" scaleShape="false" textAlignment="CENTER" BorderPane.alignment="CENTER">
       <graphic>
-         <ImageView StyleClass="hdrimg" fitHeight="74.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+         <ImageView StyleClass="hdrimg" fitHeight="82.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
             <image>
                <Image url="@assets/homeicon.png" />
             </image>
@@ -32,13 +33,19 @@
          <children>
             <HBox alignment="CENTER_RIGHT" prefHeight="35.0" prefWidth="112.0">
                <children>
-                  <Label fx:id="price" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="35.0" prefWidth="52.0" styleClass="article-title" text="Prix" />
-                  <Label prefHeight="35.0" prefWidth="20.0" styleClass="article-title" text="₣" />
+                  <Label fx:id="price" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="35.0" prefWidth="52.0" styleClass="article-title" text="Prix">
+                     <font>
+                        <Font size="26.0" />
+                     </font></Label>
+                  <Label prefHeight="35.0" prefWidth="20.0" styleClass="article-title" text="₣">
+                     <font>
+                        <Font size="26.0" />
+                     </font></Label>
                </children>
             </HBox>
             <Button blendMode="SRC_ATOP" cache="true" cacheShape="false" centerShape="false" contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" onAction="#searchButton" scaleShape="false" style="&#10;        -fx-background-color: transparent;&#10;      " textAlignment="CENTER">
                <graphic>
-                  <ImageView StyleClass="hdrimg" fitHeight="25.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView StyleClass="hdrimg" fitHeight="49.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@assets/loupe.png" />
                      </image>
@@ -48,7 +55,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <ChoiceBox fx:id="header_burger" prefHeight="42.0" prefWidth="36.0">
+            <ChoiceBox fx:id="header_burger" prefHeight="60.0" prefWidth="46.0">
                <style>
                   -fx-background-color: transparent;
                </style>

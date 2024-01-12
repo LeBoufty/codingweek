@@ -27,7 +27,7 @@ public class CreationAnnonceController {
     @FXML
     private void initialize() {
     // Initialiser les éléments de la ChoiceBox
-    categorie.getItems().addAll("Matériel", "Service");
+    categorie.getItems().addAll("Materiel", "Service");
 }
 
     @FXML
@@ -87,7 +87,7 @@ public class CreationAnnonceController {
            if(checkbox(categorie))
             {
                 App.annonce_en_creation = new Annonce_en_creation(name.getText(), Description.getText(), Integer.parseInt(prix.getText()), ImageBlob.imageViewToBytes(imageView), categorie.getValue());
-            if (categorie.getValue().equals("Matériel")) {
+            if (categorie.getValue().equals("Materiel")) {
                 App.setRoot("creationannonce_planning_materiel");
             } else {
                 App.setRoot("creationannonce_planning_service");

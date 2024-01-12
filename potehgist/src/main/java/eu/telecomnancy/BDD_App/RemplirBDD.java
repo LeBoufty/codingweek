@@ -38,7 +38,7 @@ public class RemplirBDD {
             Utilisateur u = new Utilisateur("a", "a","a", "54000");
             u.saveAsNew();
             
-            u =new Utilisateur("Claude La Bagarre","Avalanche","Claude@Midgar.ff","54000");
+            u =new Utilisateur("Claude La Bagarre","Avalanche","Claude@Shinra.ff","77000");
             u.saveAsNew();
 
             u = new Utilisateur("JCVD", "J","JeanClaudeVanDame@gmail.fr", "30000");
@@ -61,6 +61,9 @@ public class RemplirBDD {
             u.saveAsNew();
 
             u = new Utilisateur("Massi", "xora","Massimiliano.Mortaigne@telecomnancy.eu", "54000");
+            u.saveAsNew();
+
+            u = new Utilisateur("Sephiroth", "jenova","Sephiroth.Hojo@Shinra.ff", "77000");
             u.saveAsNew();
 
         } catch (Exception e) {
@@ -221,6 +224,15 @@ public class RemplirBDD {
         API.getInstance().addmessage(4, 1, "Ok");
         API.getInstance().addmessage(1, 4, "A+");
         API.getInstance().addmessage(4, 1, "A+");
+        API.getInstance().addmessage(10, 2, "Claude.");
+        API.getInstance().addmessage(10, 2, "I know you can read this Claude.");
+        API.getInstance().addmessage(10, 2, "Come to me.");
+        API.getInstance().addmessage(10, 2, "I am waitting.");
+        API.getInstance().addmessage(10, 2, "The time for the reunion has come.");
+        API.getInstance().addmessage(10, 2, "Claude.");
+        API.getInstance().addmessage(10, 2, "You cannot postpone our meeting forever.");
+        API.getInstance().addmessage(10, 2, "6 weeks until Rebirth. PS5 is ready.");
+        API.getInstance().addmessage(10, 2, "Come Claude.");
         
 
         // Ajout des réservations
@@ -252,13 +264,13 @@ public class RemplirBDD {
         API.getInstance().addnotif(1, "Vous avez un nouveau chat",1,2);
         API.getInstance().addnotif(1, "Vous avez un nouveau chat",1,2);
         API.getInstance().addnotif(1, "Vous avez un nouveau chat",1,2);
-        API.getInstance().addnotif(2, "Sephiroth",1,1);
-        API.getInstance().addnotif(2, "Sephiroth",1,1);
-        API.getInstance().addnotif(2, "Sephiroth",1,1);
-        API.getInstance().addnotif(2, "Sephiroth",1,1);
-        API.getInstance().addnotif(2, "Sephiroth",1,1);
-        API.getInstance().addnotif(2, "Sephiroth",1,1);
-        API.getInstance().addnotif(2, "Sephiroth",1,1);
+        API.getInstance().addnotif(2, "Sephiroth",1,10);
+        API.getInstance().addnotif(2, "Sephiroth",1,10);
+        API.getInstance().addnotif(2, "Sephiroth",1,10);
+        API.getInstance().addnotif(2, "Sephiroth",1,10);
+        API.getInstance().addnotif(2, "Sephiroth",1,10);
+        API.getInstance().addnotif(2, "Sephiroth",1,10);
+        API.getInstance().addnotif(2, "Sephiroth",1,10);
 
 
         //ajout des reclamations
