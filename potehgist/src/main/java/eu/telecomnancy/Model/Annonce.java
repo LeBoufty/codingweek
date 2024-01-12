@@ -14,6 +14,8 @@ public class Annonce {
     private String code_postal;
     private static int maxid = API.getInstance().getMaxOffreID();
 
+    public double note = -1;
+
 
     public Annonce(String titre, String description, Integer prix, byte[] photo, Utilisateur vendeur, String categorie, String date_depot, String code_postal) {
         this.titre = titre;
