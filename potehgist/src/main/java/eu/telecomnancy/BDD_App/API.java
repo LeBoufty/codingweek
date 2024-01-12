@@ -764,14 +764,14 @@ public class API {
             query += "date_depot <= '" + date_avant + "' AND ";
         }
         if (!text.equals("")) {
-            query += "nom LIKE '%" + text + "%' AND ";
-            query += "description LIKE '%" + text + "%' AND ";
+            query += "(nom LIKE '%" + text + "%' OR ";
+            query += "description LIKE '%" + text + "%') AND ";
         }
         if (materiel && !service) {
-            query += "categorie = 'materiel' AND ";
+            query += "categorie = 'Materiel' AND ";
         }
         if (!materiel && service) {
-            query += "categorie = 'service' AND ";
+            query += "categorie = 'Service' AND ";
         }
         if (florin_min != -1) {
             query += "prix >= " + florin_min + " AND ";

@@ -80,14 +80,12 @@ public class RechercheAnnoncesController {
         {
             recherche.recherche_date_avant = (int)recherche_date_avant.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant().getEpochSecond();
         }
-        if(recherche_materiel.isSelected())
-        {
-            recherche.recherche_materiel = recherche_materiel.isSelected();
-        }
-        if(recherche_service.isSelected())
-        {
-            recherche.recherche_service = recherche_service.isSelected();
-        }
+        
+        
+        recherche.recherche_materiel = recherche_materiel.isSelected();
+        recherche.recherche_service = recherche_service.isSelected();
+        
+        
         if(!recherche_florin_min.getText().equals(""))
         {
             recherche.recherche_florin_min = Integer.parseInt(recherche_florin_min.getText());
