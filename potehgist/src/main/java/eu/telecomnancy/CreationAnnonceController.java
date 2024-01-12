@@ -63,12 +63,12 @@ public class CreationAnnonceController {
 
     @FXML
     private void create() throws Exception {
-        // System.out.println("Création de l'annonce");
-        // System.out.println("Nom : " + name.getText());
-        // System.out.println("Description : " + Description.getText());
-        // System.out.println("Prix : " + prix.getText());
-        // System.out.println("Catégorie : " + categorie.getValue());
-        // System.out.println("Vendeur : " + App.getUser().getId());
+        // //System.out.println("Création de l'annonce");
+        // //System.out.println("Nom : " + name.getText());
+        // //System.out.println("Description : " + Description.getText());
+        // //System.out.println("Prix : " + prix.getText());
+        // //System.out.println("Catégorie : " + categorie.getValue());
+        // //System.out.println("Vendeur : " + App.getUser().getId());
         //API.getInstance().addOffre(name.getText(), Description.getText(), Integer.parseInt(prix.getText()), App.getUser().getId(), categorie.getValue(), ImageBlob.imageViewToBytes(imageView)); 
 
 

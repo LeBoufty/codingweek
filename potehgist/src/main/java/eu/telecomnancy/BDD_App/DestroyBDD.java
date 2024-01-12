@@ -9,9 +9,9 @@ public class DestroyBDD {
         // Supprime le fichier de la BDD
         java.io.File file = new java.io.File(url);
         if (file.delete()) {
-            System.out.println("[DEBUG] La base de données a été supprimée.");
+            //System.out.println("[DEBUG] La base de données a été supprimée.");
         } else {
-            System.out.println("[DEBUG] La base de données n'a pas été supprimée.");
+            //System.out.println("[DEBUG] La base de données n'a pas été supprimée.");
         }
     }
     

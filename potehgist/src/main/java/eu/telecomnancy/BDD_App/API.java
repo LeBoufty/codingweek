@@ -225,20 +225,20 @@ public class API {
             pstmt.setInt(4, 0);
             pstmt.setBoolean(5, false);
             pstmt.setString(6, code_postal);
-            // System.out.println(getClass().getResource("/eu/telecomnancy/assets/placeholder.png").toExternalForm());
+            // //System.out.println(getClass().getResource("/eu/telecomnancy/assets/placeholder.png").toExternalForm());
             String path = getClass().getResource("/eu/telecomnancy/assets/placeholder.png").toExternalForm();
             // retire file: au début
             path = path.substring(5);
-            // System.out.println(path);
+            // //System.out.println(path);
             File imageFile = new File(path);
-            // System.out.println(imageFile.exists());
+            // //System.out.println(imageFile.exists());
             byte[] imageData = Files.readAllBytes(imageFile.toPath());
             pstmt.setBytes(7, imageData);
             pstmt.executeUpdate();
         }
         catch (Exception e) {
             System.out.println(e.getMessage());
-            System.out.println("Erreur lors de l'ajout de l'utilisateur");
+            //System.out.println("Erreur lors de l'ajout de l'utilisateur");
         }
     }
 
@@ -321,9 +321,9 @@ public class API {
         String query = "INSERT INTO plannings_reservations (id_utilisateur, id_offre, date_debut, date_fin) VALUES (?, ?, ?, ?)";
         PreparedStatement preparedStatement = conn.prepareStatement(query);
         ResultSet rs = conn.createStatement().executeQuery("SELECT id_utilisateur, id_offre, date_debut, date_fin FROM plannings_prereservations WHERE id = " + id_planning + ";");
-        System.out.println("On accepte la pré-réservation " + id_planning);
-        System.out.println("La requête a renvoyer cette taille : " + rs.getMetaData().getColumnCount());
-        System.out.println("Il y avait " + rs.getInt(1) + " " + rs.getInt(2) + " " + rs.getInt(3) + " " + rs.getInt(4));
+        //System.out.println("On accepte la pré-réservation " + id_planning);
+        //System.out.println("La requête a renvoyer cette taille : " + rs.getMetaData().getColumnCount());
+        //System.out.println("Il y avait " + rs.getInt(1) + " " + rs.getInt(2) + " " + rs.getInt(3) + " " + rs.getInt(4));
 
         preparedStatement.setInt(1, rs.getInt(1));
         preparedStatement.setInt(2, rs.getInt(2));
@@ -788,7 +788,7 @@ public class API {
         query += "1=1";
         query += " ORDER BY date_depot DESC;";
 
-        System.out.println(query);
+        //System.out.println(query);
         ResultSet rs = conn.createStatement().executeQuery(query);
         while (rs.next()) {
             Annonce annonce = new Annonce(rs.getInt("id"));

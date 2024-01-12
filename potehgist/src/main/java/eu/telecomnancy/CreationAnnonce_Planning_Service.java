@@ -41,7 +41,7 @@ public class CreationAnnonce_Planning_Service {
             // Va chercher les infos des ponctuels
             ArrayList<Long> dates = new ArrayList<Long>();
             for (element_planing_ponctuelController ponctuel : ponctuels) {
-                System.out.println(ponctuel.get_date());
+                //System.out.println(ponctuel.get_date());
                 dates.add(ponctuel.get_date());
             }
             int nb_minutes = Integer.parseInt(nb_minute_service.getText());
@@ -80,7 +80,7 @@ public class CreationAnnonce_Planning_Service {
 
     @FXML
     void select_planning_action(ActionEvent event) {
-        System.out.println("Select planning");
+        //System.out.println("Select planning");
         ponctuels = new ArrayList<element_planing_ponctuelController>();
         recurrents = new ArrayList<element_planing_recurrentController>();
 
@@ -111,7 +111,7 @@ public class CreationAnnonce_Planning_Service {
     }
 
     public void notif_add() {
-        System.out.println("Notif add");
+        //System.out.println("Notif add");
         layout_planning_service.getChildren().remove(layout_planning_service.getChildren().size()-1); // remove the add button
 
         if (type_planning_int == 1) {
@@ -157,7 +157,7 @@ public class CreationAnnonce_Planning_Service {
     }
 
     public void notif_sup(int numero) {
-        System.out.println("Notif sup" + numero);
+        //System.out.println("Notif sup" + numero);
         layout_planning_service.getChildren().remove(numero);
 
         if (type_planning_int == 1) {

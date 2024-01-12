@@ -40,9 +40,10 @@ public class MainChatController {
                 App.setRoot("chat");
             }
             else{
-                System.out.println("Pas de conversation");
+                //System.out.println("Pas de conversation");
                 App.setUser2(0);
                 nomutilisateur.setText("");
+                App.error("Pas de conversation avec cet utilisateur");
             }
         }
         if(Boxnom.getValue() != null){
@@ -52,8 +53,9 @@ public class MainChatController {
                 App.setRoot("chat");
             }
             else{
-                System.out.println("Pas de conversation");
+                //System.out.println("Pas de conversation");
                 App.setUser2(0);
+                App.error("Pas de conversation avec cet utilisateur");
             }
         }
     } 

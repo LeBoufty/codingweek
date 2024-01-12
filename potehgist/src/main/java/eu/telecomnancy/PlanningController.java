@@ -114,7 +114,7 @@ public class PlanningController {
             loader.setLocation(getClass().getResource("reservationlisteitem.fxml"));
 
             try{
-                System.out.println("try");
+                //System.out.println("try");
                 HBox hbox = loader.load();
                 ReservationlisteItemController controller = loader.getController();
                 controller.setData(resa);
@@ -129,7 +129,7 @@ public class PlanningController {
             loader.setLocation(getClass().getResource("reservationlisteitem.fxml"));
 
             try{
-                System.out.println("try");
+                //System.out.println("try");
                 HBox hbox = loader.load();
                 ReservationlisteItemController controller = loader.getController();
                 controller.setData(resa);
@@ -144,7 +144,7 @@ public class PlanningController {
             loader.setLocation(getClass().getResource("reservationlisteitem.fxml"));
 
             try{
-                System.out.println("try");
+                //System.out.println("try");
                 HBox hbox = loader.load();
                 ReservationlisteItemController controller = loader.getController();
                 controller.setData(resa);
@@ -159,7 +159,7 @@ public class PlanningController {
             loader.setLocation(getClass().getResource("reservationlisteitem.fxml"));
 
             try{
-                System.out.println("try");
+                //System.out.println("try");
                 HBox hbox = loader.load();
                 ReservationlisteItemController controller = loader.getController();
                 controller.setData(resa);
@@ -174,7 +174,7 @@ public class PlanningController {
             loader.setLocation(getClass().getResource("reservationlisteitem.fxml"));
 
             try{
-                System.out.println("try");
+                //System.out.println("try");
                 HBox hbox = loader.load();
                 ReservationlisteItemController controller = loader.getController();
                 controller.setData(resa);
@@ -189,7 +189,7 @@ public class PlanningController {
             loader.setLocation(getClass().getResource("reservationlisteitem.fxml"));
 
             try{
-                System.out.println("try");
+                //System.out.println("try");
                 HBox hbox = loader.load();
                 ReservationlisteItemController controller = loader.getController();
                 controller.setData(resa);
@@ -204,7 +204,7 @@ public class PlanningController {
             loader.setLocation(getClass().getResource("reservationlisteitem.fxml"));
 
             try{
-                System.out.println("try");
+                //System.out.println("try");
                 HBox hbox = loader.load();
                 ReservationlisteItemController controller = loader.getController();
                 controller.setData(resa);
@@ -218,7 +218,7 @@ public class PlanningController {
     private List<Reservation> Reservation() throws Exception{
         List<Reservation> reservations = new ArrayList<>();
         ResultSet resultSet = API.getInstance().getReservations(App.getUser().getId());
-        System.out.println(resultSet);
+        //System.out.println(resultSet);
         while (resultSet.next()) {
             Reservation resa = new Reservation(resultSet.getInt("id"));
 
