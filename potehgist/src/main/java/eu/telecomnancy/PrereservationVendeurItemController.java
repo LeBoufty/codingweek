@@ -58,7 +58,7 @@ public class PrereservationVendeurItemController {
             return;
         }
         int nb_hours = getNbHours();
-        App.getUser().addArgent(reservation.getAnnonce().getPrix()*nb_hours);
+        App.getUser().addArgent(reservation.getAnnonce().getPrix()*nb_hours+2);
         isVendeur = isVendeur();
         API.getInstance().acceptPreReservation(reservation.getId());
         if (isVendeur) {
