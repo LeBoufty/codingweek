@@ -27,7 +27,7 @@
                      </children>
                   </HBox>
                   <Pane prefHeight="43.0" prefWidth="1160.0" />
-                  <ScrollPane prefHeight="442.0" prefWidth="1336.0" styleClass="darkbg" stylesheets="@style.css">
+                  <ScrollPane prefHeight="525.0" prefWidth="1160.0" styleClass="darkbg" stylesheets="@style.css">
                      <content>
                         <VBox fx:id="annonceslayout" prefHeight="462.0" prefWidth="1160.0" styleClass="darkbg" stylesheets="@style.css" />
                      </content>
