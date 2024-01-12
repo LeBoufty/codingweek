@@ -45,13 +45,17 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button mnemonicParsing="false" onAction="#liste_annonce" prefHeight="128.0" prefWidth="580.0" style="-fx-font-size: 32;" styleClass="btn" text="Chercher une offre" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" onAction="#liste_annonce" prefHeight="128.0" prefWidth="580.0" style="-fx-font-size: 32;" styleClass="btn" text="Liste des offres" GridPane.rowIndex="1" />
                   <Button mnemonicParsing="false" onAction="#depot" prefHeight="128.0" prefWidth="585.0" style="-fx-font-size: 32;" text="Déposer une offre" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                </children>
             </GridPane>
          </center>
          <top>
-            <Label styleClass="big-title" text="Bienvenue" BorderPane.alignment="CENTER" />
+            <VBox alignment="CENTER" prefHeight="119.0" prefWidth="928.0" styleClass="darkbg" BorderPane.alignment="CENTER">
+               <children>
+                  <Label styleClass="ip" text="Bienvenue" />
+               </children>
+            </VBox>
          </top>
       </BorderPane>
    </center>
