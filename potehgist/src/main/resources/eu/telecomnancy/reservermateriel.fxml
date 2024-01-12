@@ -73,7 +73,7 @@
                               <HBox>
                                  <children>
                                     <Label text="Heure : " />
-                                    <TextField fx:id="heure_debut" prefHeight="24.0" prefWidth="65.0" />
+                                    <TextField fx:id="heure_debut" prefHeight="24.0" prefWidth="65.0" text="12" />
                                     <Pane prefWidth="44.0" />
                                     <Label text="Minute : " />
                                     <TextField fx:id="minute_debut" prefHeight="24.0" prefWidth="65.0" text="0" />
@@ -95,7 +95,7 @@
                               <HBox>
                                  <children>
                                     <Label text="Heure : " />
-                                    <TextField fx:id="heure_fin" prefHeight="24.0" prefWidth="65.0" />
+                                    <TextField fx:id="heure_fin" prefHeight="24.0" prefWidth="65.0" text="12" />
                                     <Pane prefWidth="44.0" />
                                     <Label text="Minute : " />
                                     <TextField fx:id="minute_fin" prefHeight="24.0" prefWidth="65.0" text="0" />
