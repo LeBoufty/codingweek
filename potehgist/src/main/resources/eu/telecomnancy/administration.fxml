@@ -38,7 +38,7 @@
                         <Button onAction="#resolu" text="Review" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
-                    <TableView fx:id="tableView" styleClass="table">
+                    <TableView fx:id="tableView" styleClass="table" stylesheets="@style.css">
                         <columns>
                             <TableColumn fx:id="idColumn" text="ID" />
                             <TableColumn fx:id="dateColumn" text="Date" />
