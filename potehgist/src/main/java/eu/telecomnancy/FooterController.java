@@ -14,6 +14,8 @@ public class FooterController {
     private void administration() throws IOException {
         if (App.getUser().isAdmin()){
            App.setRoot("administration");
+        } else {
+            App.error("Vous n'avez pas les droits pour accéder à cette page");
         }
     }
 
