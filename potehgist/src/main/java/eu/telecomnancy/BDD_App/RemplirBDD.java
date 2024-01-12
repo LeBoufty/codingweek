@@ -2,7 +2,6 @@ package eu.telecomnancy.BDD_App;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.time.Instant;
 
@@ -11,10 +10,11 @@ import eu.telecomnancy.Model.Utilisateur;
 
 public class RemplirBDD {
     
-    private Connection conn;
+    
 
     public void remplir() throws Exception
     {
+        Connection conn;
         try {
             String url =  CreateBDD.BDD_NAME;
             // Supprime le fichier de la BDD
@@ -223,41 +223,6 @@ public class RemplirBDD {
         API.getInstance().addReclamation(4, "Je n'ai pas reçu mes missiles alors que je suis au pole Nord");
 
 
-    }
-
-
-    public void ajoutnotifications(int id_utilisateur, String message, int jour, int mois, int annee, int heure, int minute, boolean vu)
-    {
-        String date_envoi = ""+annee+"-"+mois+"-"+jour+" "+heure+":"+minute;
-        String query = "INSERT INTO notifications (id_utilisateur, message, date, vue) VALUES (?, ?, ?, ?);";
-        try (PreparedStatement pstmt = conn.prepareStatement(query)) {
-            pstmt.setInt(1, id_utilisateur);
-            pstmt.setString(2, message);
-            pstmt.setString(3, date_envoi);
-            pstmt.setBoolean(4, vu);
-            pstmt.executeUpdate();
-        }
-        catch (Exception e) {
-            System.out.println(e.getMessage());
-            System.out.println("Erreur lors de l'ajout de la notification");
-        }
-    }
-
-    public void ajoutreclamations(int id_utilisateur, String message, int jour, int mois, int annee, int heure, int minute, boolean resolu)
-    {
-        String date_envoi = ""+annee+"-"+mois+"-"+jour+" "+heure+":"+minute;
-        String query = "INSERT INTO reclamations (id_utilisateur, message, date, resolu) VALUES (?, ?, ?, ?);";
-        try (PreparedStatement pstmt = conn.prepareStatement(query)) {
-            pstmt.setInt(1, id_utilisateur);
-            pstmt.setString(2, message);
-            pstmt.setString(3, date_envoi);
-            pstmt.setBoolean(4, resolu);
-            pstmt.executeUpdate();
-        }
-        catch (Exception e) {
-            System.out.println(e.getMessage());
-            System.out.println("Erreur lors de l'ajout de la réclamation");
-        }
     }
 
     public static void main(String [] args) throws Exception {
