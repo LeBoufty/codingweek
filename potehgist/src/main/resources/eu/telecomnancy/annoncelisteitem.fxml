@@ -31,7 +31,7 @@
                            <children>
                               <Label fx:id="price" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="95.0" prefWidth="187.0" styleClass="title" text="Prix" />
                               <Label prefHeight="91.0" prefWidth="4.0" styleClass="title" text="₣" />
-                              <Label fx:id="parheure" styleClass="title" text="/h" />
+                              <Label fx:id="parheure" prefHeight="104.0" prefWidth="52.0" styleClass="title" text="/h" />
                               <Label fx:id="idannonce" prefHeight="18.0" prefWidth="9.0" text="Label" visible="false" />
                            </children>
                         </HBox>
