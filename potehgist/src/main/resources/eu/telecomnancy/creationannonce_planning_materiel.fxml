@@ -20,7 +20,7 @@
          <center>
             <VBox alignment="TOP_CENTER" BorderPane.alignment="CENTER">
                <children>
-                  <Label text="Création Annonce - Planning Matériel">
+                  <Label styleClass="title" text="Création Annonce - Planning Matériel">
                      <font>
                         <Font size="28.0" />
                      </font>

@@ -1,5 +1,7 @@
 package eu.telecomnancy;
 
+import java.time.LocalDate;
+
 import eu.telecomnancy.BDD_App.API;
 import eu.telecomnancy.Model.Date_M;
 import javafx.event.ActionEvent;
@@ -32,6 +34,12 @@ public class CreationAnnonce_Planning_Materiel {
             App.setRoot("hub");
         }
         
+    }
+
+    @FXML
+    void initialize() {
+        date_debut.setValue(LocalDate.now());
+        date_fin.setValue(LocalDate.now());
     }
 
 }
