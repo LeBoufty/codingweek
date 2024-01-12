@@ -10,7 +10,7 @@ public class Annonce_Recherche {
     public boolean recherche_service;
     public int recherche_florin_min;
     public int recherche_florin_max;
-    public int recherche_note_min;
+    public double recherche_note_min;
 
     public Annonce_Recherche() {
         setDefault();

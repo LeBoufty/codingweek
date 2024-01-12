@@ -750,7 +750,7 @@ public class API {
         boolean service = recherche.recherche_service;
         int florin_min = recherche.recherche_florin_min;
         int florin_max = recherche.recherche_florin_max;
-        int note_min = recherche.recherche_note_min;
+        double note_min = recherche.recherche_note_min;
         
 
         String query = "SELECT * FROM offres WHERE ";
