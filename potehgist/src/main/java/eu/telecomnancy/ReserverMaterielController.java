@@ -59,7 +59,7 @@ public class ReserverMaterielController {
         Titre.setText(annonce.getTitre());
 
         List<Date_M> dates = API.getInstance().getDatePlaningOffre(annonce.getId());
-        //System.Out.println(dates.size());
+        //System.out.println(dates.size());
         if(dates.size() == 0)
         {
             debut_dispo.setText("Pas de date disponible");

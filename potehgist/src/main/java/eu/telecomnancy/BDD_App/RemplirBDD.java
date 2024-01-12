@@ -14,22 +14,21 @@ public class RemplirBDD {
 
     public void remplir() throws Exception
     {
-        Connection conn;
         try {
             String url =  CreateBDD.BDD_NAME;
             // Supprime le fichier de la BDD
             java.io.File file = new java.io.File(url);
             if (file.delete()) {
-                //System.Out.println("[DEBUG] La base de données a été supprimée.");
+                //System.out.println("[DEBUG] La base de données a été supprimée.");
             } else {
-                //System.Out.println("[DEBUG] La base de données n'a pas été supprimée.");
+                //System.out.println("[DEBUG] La base de données n'a pas été supprimée.");
             }
             CreateBDD.createNewDatabase("/tmp/potehgist.db");
             url = "jdbc:sqlite:/tmp/potehgist.db";
-            conn = DriverManager.getConnection(url);
+            Connection conn = DriverManager.getConnection(url);
             
         } catch (SQLException e) {
-            //System.Out.println("e.getMessage()");
+            System.out.println(e.getMessage());
         }
 
 

@@ -35,7 +35,7 @@ public class API {
             conn = DriverManager.getConnection(url);
             // meta = conn.getMetaData();
         } catch (SQLException e) {
-            //System.Out.println(e.getMessage());
+            System.out.println(e.getMessage());
         }
     }
 
@@ -225,20 +225,20 @@ public class API {
             pstmt.setInt(4, 0);
             pstmt.setBoolean(5, false);
             pstmt.setString(6, code_postal);
-            // //System.Out.println(getClass().getResource("/eu/telecomnancy/assets/placeholder.png").toExternalForm());
+            // //System.out.println(getClass().getResource("/eu/telecomnancy/assets/placeholder.png").toExternalForm());
             String path = getClass().getResource("/eu/telecomnancy/assets/placeholder.png").toExternalForm();
             // retire file: au début
             path = path.substring(5);
-            // //System.Out.println(path);
+            // //System.out.println(path);
             File imageFile = new File(path);
-            // //System.Out.println(imageFile.exists());
+            // //System.out.println(imageFile.exists());
             byte[] imageData = Files.readAllBytes(imageFile.toPath());
             pstmt.setBytes(7, imageData);
             pstmt.executeUpdate();
         }
         catch (Exception e) {
-            //System.Out.println(e.getMessage());
-            //System.Out.println("Erreur lors de l'ajout de l'utilisateur");
+            System.out.println(e.getMessage());
+            //System.out.println("Erreur lors de l'ajout de l'utilisateur");
         }
     }
 
@@ -321,9 +321,9 @@ public class API {
         String query = "INSERT INTO plannings_reservations (id_utilisateur, id_offre, date_debut, date_fin) VALUES (?, ?, ?, ?)";
         PreparedStatement preparedStatement = conn.prepareStatement(query);
         ResultSet rs = conn.createStatement().executeQuery("SELECT id_utilisateur, id_offre, date_debut, date_fin FROM plannings_prereservations WHERE id = " + id_planning + ";");
-        //System.Out.println("On accepte la pré-réservation " + id_planning);
-        //System.Out.println("La requête a renvoyer cette taille : " + rs.getMetaData().getColumnCount());
-        //System.Out.println("Il y avait " + rs.getInt(1) + " " + rs.getInt(2) + " " + rs.getInt(3) + " " + rs.getInt(4));
+        //System.out.println("On accepte la pré-réservation " + id_planning);
+        //System.out.println("La requête a renvoyer cette taille : " + rs.getMetaData().getColumnCount());
+        //System.out.println("Il y avait " + rs.getInt(1) + " " + rs.getInt(2) + " " + rs.getInt(3) + " " + rs.getInt(4));
 
         preparedStatement.setInt(1, rs.getInt(1));
         preparedStatement.setInt(2, rs.getInt(2));
@@ -666,7 +666,7 @@ public class API {
         try {
             conn.createStatement().execute("INSERT INTO messages (id_utilisateur_envoie, id_utilisateur_recoit, message,date_envoi) VALUES (" + iduser1 + "," + iduser2 + ",'" + message + "', "+(int)Instant.now().getEpochSecond()+" );");
         } catch (Exception e) {
-            //System.Out.println(e.getMessage());
+            System.out.println(e.getMessage());
 
         }
     }
@@ -689,7 +689,7 @@ public class API {
         try {
             conn.createStatement().execute("INSERT INTO evaluations (id_offre, id_evaluant, valeur_evaluation) VALUES (" + offre + ", " + notant + ", " + valeur + ");");
         } catch (Exception e) {
-            //System.Out.println("[DEBUG] Erreur lors de l'ajout de l'évaluation");
+            //System.out.println("[DEBUG] Erreur lors de l'ajout de l'évaluation");
         }
     }
 
@@ -796,7 +796,7 @@ public class API {
         query += "1=1";
         query += " ORDER BY date_depot DESC;";
 
-        //System.Out.println(query);
+        //System.out.println(query);
         ResultSet rs = conn.createStatement().executeQuery(query);
         while (rs.next()) {
             Annonce annonce = new Annonce(rs.getInt("id"));
@@ -881,7 +881,7 @@ public class API {
         try {
             conn.createStatement().execute("UPDATE notifications SET vue = true WHERE id = " + id+ " ;");
         } catch (Exception e) {
-            //System.Out.println(e.getMessage());
+            System.out.println(e.getMessage());
         }
     }
 
@@ -890,7 +890,7 @@ public class API {
         try {
             conn.createStatement().execute("INSERT INTO notifications (id_utilisateur, message, date, vue, type, iduser2) VALUES (" + iduser + ", '" + message + "', "+(int)Instant.now().getEpochSecond()+", false, "+ type +", "+iduser2+");");
         } catch (Exception e) {
-            //System.Out.println(e.getMessage());
+            System.out.println(e.getMessage());
         }
     }
 
@@ -899,7 +899,7 @@ public class API {
         try {
             conn.createStatement().execute("INSERT INTO notifications (id_utilisateur, message, date, vue, type, iduser2) VALUES (" + iduser + ", '" + message + "', "+(int)Instant.now().getEpochSecond()+", false, "+ type +", "+ 0 +");");
         } catch (Exception e) {
-            //System.Out.println(e.getMessage());
+            System.out.println(e.getMessage());
         }
     }
 
@@ -908,7 +908,7 @@ public class API {
         try {
             conn.createStatement().execute("DELETE FROM notifications WHERE id = " + id + ";");
         } catch (Exception e) {
-            //System.Out.println(e.getMessage());
+            System.out.println(e.getMessage());
         }
     }
 
@@ -918,7 +918,7 @@ public class API {
             ResultSet rs = conn.createStatement().executeQuery("SELECT vue FROM notifications WHERE id = " + id + ";");
                 return rs.getBoolean(1);
         } catch (Exception e) {
-            //System.Out.println(e.getMessage());
+            System.out.println(e.getMessage());
             return false;
         }
     }
@@ -951,7 +951,7 @@ public class API {
             preparedStatement.execute();
             preparedStatement.close();
         } catch (Exception e) {
-            //System.Out.println(e.getMessage());
+            System.out.println(e.getMessage());
         }
     }
     
@@ -967,7 +967,7 @@ public class API {
             preparedStatement.execute();
             preparedStatement.close();
         } catch (Exception e) {
-            //System.Out.println(e.getMessage());
+            System.out.println(e.getMessage());
         }
     }
 
@@ -981,7 +981,7 @@ public class API {
             preparedStatement.execute();
             preparedStatement.close();
         } catch (Exception e) {
-            //System.Out.println(e.getMessage());
+            System.out.println(e.getMessage());
         }
     }
 
@@ -990,7 +990,7 @@ public class API {
             ResultSet rs = conn.createStatement().executeQuery("SELECT id FROM sommeils WHERE id_utilisateur = " + id_utilisateur + " AND date_debut = " + date_debut + " AND date_fin = " + date_fin + ";");
             return rs.getInt(1);
         } catch (Exception e) {
-            //System.Out.println(e.getMessage());
+            System.out.println(e.getMessage());
             return 0;
         }
     }

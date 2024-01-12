@@ -27,10 +27,10 @@ public class Annonce_en_creation {
     
     public void create_annonce() throws Exception {
         if (categorie.equals("Materiel")) {
-            //System.Out.println("Non géré ici");
+            //System.out.println("Non géré ici");
         } else if (categorie.equals("Service")) {
             API.getInstance().addOffre(this);
-            //System.Out.println("Request sent to API to add annonce");
+            //System.out.println("Request sent to API to add annonce");
             API.getInstance().addPlaningService(this);
         }
     }

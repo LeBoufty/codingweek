@@ -53,8 +53,8 @@ public class RechercheAnnoncesController {
 
     @FXML
     void recherche_button(ActionEvent event) {
-        //System.Out.println("recherche_button clicked");
-        //System.Out.println("recherche_text: " + annonce_recherche.getText() + " recherche_code_postal: "
+        //System.out.println("recherche_button clicked");
+        //System.out.println("recherche_text: " + annonce_recherche.getText() + " recherche_code_postal: "
         // + recherche_code_postal.getText() + " recherche_date_apres: " + recherche_date_apres.getValue()
         // + " recherche_date_avant: " + recherche_date_avant.getValue() + " recherche_materiel: "
         // + recherche_materiel.isSelected() + " recherche_service: " + recherche_service.isSelected()

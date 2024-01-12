@@ -13,7 +13,7 @@ public class ReclamationController {
 
     @FXML
     private void send() throws Exception {
-        //System.Out.println(message.getText());
+        //System.out.println(message.getText());
         try {
             API.getInstance().addReclamation(App.getUser().getId(), message.getText());
             if (App.getUser().getId() == 0) {

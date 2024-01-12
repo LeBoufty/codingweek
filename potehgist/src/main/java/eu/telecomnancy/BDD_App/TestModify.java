@@ -20,28 +20,28 @@ public class TestModify {
 
 
 
-            //System.Out.println(imageFile.exists());
+            //System.out.println(imageFile.exists());
             // InputStream inputStream2 = new FileInputStream(imageFile);
             byte[] imageData = Files.readAllBytes(imageFile.toPath());
             
             preparedStatement.setBytes(1, imageData);
             preparedStatement.executeUpdate();
-            //System.Out.println("Image insérée");
+            //System.out.println("Image insérée");
 
 
             String selectQuery = "SELECT image FROM test_images WHERE id = ?";
             preparedStatement = connection.prepareStatement(selectQuery);
             preparedStatement.setInt(1, 1);
             byte[] imageBytes = preparedStatement.executeQuery().getBytes(1);
-            //System.Out.println(imageBytes.length);
+            //System.out.println(imageBytes.length);
             // InputStream inputStream = new ByteArrayInputStream(imageBytes);
             String outputpath = "/home/toyhugs/gitlab/codingweek-01/docu/michiru2.jpg";
             Files.write(new File(outputpath).toPath(), imageBytes);
-            //System.Out.println("Image extraite");                      
+            //System.out.println("Image extraite");                      
             
             
         } catch (Exception e) {
-            //System.Out.println(e.getMessage());
+            System.out.println(e.getMessage());
         }
 
         
