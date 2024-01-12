@@ -15,6 +15,9 @@ public class AnnonceController {
     private Label categorie;
 
     @FXML
+    private Label Nom_vendeur;
+
+    @FXML
     private Label code_postal;
 
     @FXML
@@ -54,6 +57,7 @@ public class AnnonceController {
         Date_M date = new Date_M(Date);
         date_depot.setText(date.getAlldateJJMMAAAA());
         code_postal.setText(annonce.getCode_postal());
+        Nom_vendeur.setText(annonce.getVendeur().getNom());
 
         API.getInstance().getImageAnnonce(annonce.getId());
         Image image = new Image(getClass().getResource("/eu/telecomnancy/assets/annonce_image.png").toExternalForm());
