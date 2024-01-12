@@ -1,18 +1,16 @@
 package eu.telecomnancy.Model;
 
-import java.time.LocalDateTime;
-
 public class Reclamation {
     private int id;
     private int id_utilisateur;
     private String message;
-    private LocalDateTime date;
+    private String date;
 
-    public Reclamation(int id, int id_utilisateur, String message, LocalDateTime date) {
-        this.id = id;
+    public Reclamation(int id, int id_utilisateur, String message, int date) {
         this.id_utilisateur = id_utilisateur;
         this.message = message;
-        this.date = date;
+        Date_M date_M = new Date_M(date);
+        this.date = date_M.getAlldateAAAAMMJJHHMM();
     }
 
     public int getId() {
@@ -39,12 +37,13 @@ public class Reclamation {
         this.message = message;
     }
 
-    public LocalDateTime getDate() {
+    public String getDate(){
         return date;
     }
 
-    public void setDate(LocalDateTime date) {
-        this.date = date;
+    public void setDate(int date){
+        Date_M date_M = new Date_M(date);
+        this.date = date_M.getAlldateAAAAMMJJHHMM();
     }
 
     // Additional methods, if needed
