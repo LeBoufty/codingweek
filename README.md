@@ -77,7 +77,8 @@ java --module-path ${JAVAFX_HOME}/lib --add-modules=javafx.base,javafx.controls,
   * Modifiez les informations du compte à l'aide du bouton "Modifier le profil"
     * Il faut entrer toutes les informations à nouveau
 * Sur la page "Mes Chats"
-  * TODO
+  * Choississez avec qui vous voulez parler, soit en utilisant le nom de la personne ou en choisissant dans vos contacts récents.
+  * Vous pouvez envoyer un message en bas et regarder les anciens messages.
 * Sur la page "Administration" (accessible uniquement si le compte est administrateur)
   * Consultez les différentes réclamations faites par les utilisateurs
   * Indiquez lesquelles sont résolues.
