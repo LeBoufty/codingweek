@@ -1,17 +1,18 @@
 package eu.telecomnancy;
 
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.control.DatePicker;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
 import eu.telecomnancy.BDD_App.API;
 import eu.telecomnancy.Model.Date_M;
 import eu.telecomnancy.Model.Sommeils;
-import java.util.ArrayList;
-import java.util.List;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import java.sql.ResultSet;
+import javafx.scene.control.DatePicker;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 public class SommeilsController {
 
@@ -26,8 +27,15 @@ public class SommeilsController {
 
     @FXML
     public void AddSommeils(ActionEvent event) throws Exception{
-        API.getInstance().addSommeils(App.getUser().getId(),(int)Date_M.getDate_FXML(Date_debut.getValue()),(int)Date_M.getDate_FXML(Date_fin.getValue()));
-        App.setRoot("sommeils");
+        if(Date_debut.getValue() == null || Date_fin.getValue() == null || Date_M.getDate_FXML(Date_debut.getValue())>Date_M.getDate_FXML(Date_fin.getValue()))
+        {
+            System.out.println("Date non valide");
+        }
+        else
+        {
+            API.getInstance().addSommeils(App.getUser().getId(),(int)Date_M.getDate_FXML(Date_debut.getValue()),(int)Date_M.getDate_FXML(Date_fin.getValue()));
+            App.setRoot("sommeils");
+        }
     }
 
     public void initialize() throws Exception{
