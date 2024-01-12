@@ -140,6 +140,41 @@ public class RemplirBDD {
             datefin = (int)Instant.now().getEpochSecond()+90000*70;
             API.getInstance().addPlaningLastOffre(datedebut, datefin);
 
+            path = getClass().getResource("/eu/telecomnancy/assets/").toExternalForm() + "titouan.png";
+            path = path.substring(5);
+            API.getInstance().addOffre("Président","Je loue mes services de président.\nJe peux présider toutes les conventions et évennements\nPrenez moi svp.", 1,4, "Materiel", ImageBlob.pathtToByte(path));
+            datedebut = (int)Instant.now().getEpochSecond();
+            datefin = (int)Instant.now().getEpochSecond()+90000*70;
+            API.getInstance().addPlaningLastOffre(datedebut, datefin);
+
+            path = getClass().getResource("/eu/telecomnancy/assets/").toExternalForm() + "PYJ.png";
+            path = path.substring(5);
+            API.getInstance().addOffre("Garde du corps","Loue talents de garde du corps.\nAttention je suis pas commode.", 1,4, "Service", ImageBlob.pathtToByte(path));
+            datedebut = (int)Instant.now().getEpochSecond();
+            datefin = (int)Instant.now().getEpochSecond()+90000*70;
+            API.getInstance().addPlaningLastOffre(datedebut, datefin);
+
+            path = getClass().getResource("/eu/telecomnancy/assets/").toExternalForm() + "pierre.jpg";
+            path = path.substring(5);
+            API.getInstance().addOffre("Trône de Ramen","Je propose la location de mon trône.\nDe bonne facture.\nPresque neuf.", 1,4, "Materiel", ImageBlob.pathtToByte(path));
+            datedebut = (int)Instant.now().getEpochSecond();
+            datefin = (int)Instant.now().getEpochSecond()+90000*70;
+            API.getInstance().addPlaningLastOffre(datedebut, datefin);
+
+            path = getClass().getResource("/eu/telecomnancy/assets/").toExternalForm() + "Arnaud.jpg";
+            path = path.substring(5);
+            API.getInstance().addOffre("Cours de cocktails","Je vous apprend comment faire des cocktails.\nJe sais faire, promis.\nC'est pas ma faute le shaker était pas verrouillé, OK ?!", 1,4, "Service", ImageBlob.pathtToByte(path));
+            datedebut = (int)Instant.now().getEpochSecond();
+            datefin = (int)Instant.now().getEpochSecond()+90000*70;
+            API.getInstance().addPlaningLastOffre(datedebut, datefin);
+
+            path = getClass().getResource("/eu/telecomnancy/assets/").toExternalForm() + "abomination.jpg";
+            path = path.substring(5);
+            API.getInstance().addOffre("okdjodgkfodg","J seifjs eigjris.\nBokhtlh thjfogkdr.\nfefndfn", 1,4, "Materiel", ImageBlob.pathtToByte(path));
+            datedebut = (int)Instant.now().getEpochSecond();
+            datefin = (int)Instant.now().getEpochSecond()+90000*70;
+            API.getInstance().addPlaningLastOffre(datedebut, datefin);
+
             
         } catch (Exception e) {
             // TODO Auto-generated catch block
