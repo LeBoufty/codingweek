@@ -39,7 +39,7 @@ public class CreationAnnonce_Planning_Materiel {
     @FXML
     void initialize() {
         date_debut.setValue(LocalDate.now());
-        date_fin.setValue(LocalDate.now());
+        date_fin.setValue(LocalDate.now().plusDays(7));
     }
 
 }
