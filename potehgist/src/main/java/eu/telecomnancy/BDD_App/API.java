@@ -214,6 +214,19 @@ public class API {
         }
     }
 
+    public String ResourceJar(String path) {
+        String newpath = getClass().getResource(path).toExternalForm();
+        if(newpath.startsWith("jar:"))
+        {
+            newpath = newpath.substring(9);
+        }
+        else
+        {
+            newpath = newpath.substring(5);
+        }
+        return newpath;
+    }
+
     public void addUser(String username, String password, String email, String code_postal) throws Exception {
         email = Formater.format(email);
         code_postal = Formater.format(code_postal);
@@ -226,9 +239,8 @@ public class API {
             pstmt.setBoolean(5, false);
             pstmt.setString(6, code_postal);
             // //System.out.println(getClass().getResource("/eu/telecomnancy/assets/placeholder.png").toExternalForm());
-            String path = getClass().getResource("/eu/telecomnancy/assets/placeholder.png").toExternalForm();
-            // retire file: au début
-            path = path.substring(5);
+            String path = ResourceJar("/eu/telecomnancy/assets/placeholder.png");
+
             // //System.out.println(path);
             File imageFile = new File(path);
             // //System.out.println(imageFile.exists());
@@ -245,8 +257,9 @@ public class API {
     public void getImageUser(int userid) throws Exception {
         ResultSet rs = conn.createStatement().executeQuery("SELECT image_profil FROM utilisateurs WHERE id = " + userid + ";");
         byte[] imageBytes = rs.getBytes(1);
-        String outputpath = getClass().getResource("/eu/telecomnancy/assets/").toExternalForm() + "user_photo.png";
-        outputpath = outputpath.substring(5);
+        // String outputpath = getClass().getResource("/eu/telecomnancy/assets/").toExternalForm() + "user_photo.png";
+        // outputpath = outputpath.substring(5);
+        String outputpath = ResourceJar("/eu/telecomnancy/assets/user_photo.png");
         
         Files.write(new File(outputpath).toPath(), imageBytes);
     }
@@ -593,8 +606,9 @@ public class API {
     public void getImageAnnonce(int annonce_id) throws Exception {
         ResultSet rs = conn.createStatement().executeQuery("SELECT photo FROM offres WHERE id = " + annonce_id + ";");
         byte[] imageBytes = rs.getBytes(1);
-        String outputpath = getClass().getResource("/eu/telecomnancy/assets/").toExternalForm() + "annonce_image.png";
-        outputpath = outputpath.substring(5);
+        // String outputpath = getClass().getResource("/eu/telecomnancy/assets/").toExternalForm() + "annonce_image.png";
+        // outputpath = outputpath.substring(5);
+        String outputpath = ResourceJar("/eu/telecomnancy/assets/annonce_image.png");
         
         Files.write(new File(outputpath).toPath(), imageBytes);
     }

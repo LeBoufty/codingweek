@@ -1,0 +1,481 @@
+@startuml "autoclasses"
+annotation java.lang.Override
+annotation javafx.fxml.FXML
+class eu.telecomnancy.AdministrationController
+class eu.telecomnancy.AnnonceController
+class eu.telecomnancy.AnnoncelisteItemController
+class eu.telecomnancy.App
+class eu.telecomnancy.BDD_App.API
+class eu.telecomnancy.BDD_App.CreateBDD
+class eu.telecomnancy.BDD_App.DestroyBDD
+class eu.telecomnancy.BDD_App.RemplirBDD
+class eu.telecomnancy.BDD_App.TestModify
+class eu.telecomnancy.ChatController
+class eu.telecomnancy.ChatItemController
+class eu.telecomnancy.ConnectController
+class eu.telecomnancy.CreationAnnonceController
+class eu.telecomnancy.CreationAnnonce_Planning_Materiel
+class eu.telecomnancy.CreationAnnonce_Planning_Service
+class eu.telecomnancy.CreationController
+class eu.telecomnancy.Element_EvaluationController
+class eu.telecomnancy.ErrorController
+class eu.telecomnancy.EvaluationController
+class eu.telecomnancy.FooterController
+class eu.telecomnancy.HeaderController
+class eu.telecomnancy.HubController
+class eu.telecomnancy.ListeAnnonceController
+class eu.telecomnancy.MainChatController
+class eu.telecomnancy.Model.Annonce
+class eu.telecomnancy.Model.Annonce_Recherche
+class eu.telecomnancy.Model.Annonce_en_creation
+class eu.telecomnancy.Model.Date_M
+class eu.telecomnancy.Model.ImageBlob
+class eu.telecomnancy.Model.Message
+class eu.telecomnancy.Model.Notification
+class eu.telecomnancy.Model.Reclamation
+class eu.telecomnancy.Model.Reservation
+class eu.telecomnancy.Model.Sommeils
+class eu.telecomnancy.Model.Utilisateur
+class eu.telecomnancy.NotifItemController
+class eu.telecomnancy.Outils.Formater
+class eu.telecomnancy.PlanningController
+class eu.telecomnancy.PlanningReservationController
+class eu.telecomnancy.PlanningreslistitemController
+class eu.telecomnancy.PrereservationUserController
+class eu.telecomnancy.PrereservationVendeurController
+class eu.telecomnancy.PrereservationVendeurItemController
+class eu.telecomnancy.ProfilController
+class eu.telecomnancy.RechercheAnnoncesController
+class eu.telecomnancy.ReclamationController
+class eu.telecomnancy.ReservationlisteItemController
+class eu.telecomnancy.ReserverMaterielController
+class eu.telecomnancy.ReserverServiceController
+class eu.telecomnancy.SommeilsController
+class eu.telecomnancy.SommeilsItemController
+class eu.telecomnancy.element_planing_addController
+class eu.telecomnancy.element_planing_ponctuelController
+class eu.telecomnancy.element_planing_recurrentController
+class eu.telecomnancy.element_reserver_serviceController
+class eu.telecomnancy.modprofilController
+class java.io.File
+class java.io.IOException
+class java.net.URL
+class java.nio.charset.StandardCharsets
+class java.nio.file.Files
+class java.security.MessageDigest
+class java.security.NoSuchAlgorithmException
+class java.sql.Connection
+class java.sql.DatabaseMetaData
+class java.sql.DriverManager
+class java.sql.PreparedStatement
+class java.sql.ResultSet
+class java.sql.SQLException
+class java.time.DayOfWeek
+class java.time.Instant
+class java.time.LocalDate
+class java.time.LocalDateTime
+class java.time.ZoneId
+class java.time.format.DateTimeFormatter
+class java.time.temporal.ChronoUnit
+class java.util.ArrayList
+class java.util.Date
+class java.util.HashMap
+class java.util.List
+class java.util.Map
+class java.util.ResourceBundle
+class javafx.application.Application
+class javafx.collections.FXCollections
+class javafx.collections.ObservableList
+class javafx.embed.swing.SwingFXUtils
+class javafx.event.ActionEvent
+class javafx.fxml.FXMLLoader
+class javafx.scene.Parent
+class javafx.scene.Scene
+class javafx.scene.control.Button
+class javafx.scene.control.CheckBox
+class javafx.scene.control.ChoiceBox
+class javafx.scene.control.DatePicker
+class javafx.scene.control.Label
+class javafx.scene.control.Slider
+class javafx.scene.control.TableColumn
+class javafx.scene.control.TableView
+class javafx.scene.control.TextArea
+class javafx.scene.control.TextField
+class javafx.scene.control.cell.PropertyValueFactory
+class javafx.scene.image.Image
+class javafx.scene.image.ImageView
+class javafx.scene.layout.HBox
+class javafx.scene.layout.VBox
+class javafx.scene.text.Font
+class javafx.scene.text.Text
+class javafx.stage.FileChooser
+class javafx.stage.Stage
+class javax.imageio.ImageIO
+class javax.imageio.ImageWriter
+class javax.imageio.stream.ImageOutputStream
+enum eu.telecomnancy.TypeRecherche
+eu.telecomnancy.AdministrationController ..> javafx.fxml.FXML
+eu.telecomnancy.AdministrationController ..> eu.telecomnancy.BDD_App.API
+eu.telecomnancy.AdministrationController ..> eu.telecomnancy.Model.Reclamation
+eu.telecomnancy.AdministrationController ..> java.sql.ResultSet
+eu.telecomnancy.AdministrationController ..> java.sql.SQLException
+eu.telecomnancy.AdministrationController ..> java.time.LocalDateTime
+eu.telecomnancy.AdministrationController ..> javafx.collections.FXCollections
+eu.telecomnancy.AdministrationController ..> javafx.collections.ObservableList
+eu.telecomnancy.AdministrationController ..> javafx.scene.control.TableColumn
+eu.telecomnancy.AdministrationController ..> javafx.scene.control.TableView
+eu.telecomnancy.AdministrationController ..> javafx.scene.control.cell.PropertyValueFactory
+eu.telecomnancy.AnnonceController ..> javafx.fxml.FXML
+eu.telecomnancy.AnnonceController ..> eu.telecomnancy.BDD_App.API
+eu.telecomnancy.AnnonceController ..> eu.telecomnancy.Model.Annonce
+eu.telecomnancy.AnnonceController ..> eu.telecomnancy.Model.Date_M
+eu.telecomnancy.AnnonceController ..> javafx.scene.control.Button
+eu.telecomnancy.AnnonceController ..> javafx.scene.control.Label
+eu.telecomnancy.AnnonceController ..> javafx.scene.image.Image
+eu.telecomnancy.AnnonceController ..> javafx.scene.image.ImageView
+eu.telecomnancy.AnnoncelisteItemController ..> javafx.fxml.FXML
+eu.telecomnancy.AnnoncelisteItemController ..> eu.telecomnancy.BDD_App.API
+eu.telecomnancy.AnnoncelisteItemController ..> eu.telecomnancy.Model.Annonce
+eu.telecomnancy.AnnoncelisteItemController ..> eu.telecomnancy.Model.Date_M
+eu.telecomnancy.AnnoncelisteItemController ..> eu.telecomnancy.Outils.Formater
+eu.telecomnancy.AnnoncelisteItemController ..> java.net.URL
+eu.telecomnancy.AnnoncelisteItemController ..> java.util.ResourceBundle
+eu.telecomnancy.AnnoncelisteItemController ..> javafx.event.ActionEvent
+eu.telecomnancy.AnnoncelisteItemController ..> javafx.scene.control.Button
+eu.telecomnancy.AnnoncelisteItemController ..> javafx.scene.control.Label
+eu.telecomnancy.AnnoncelisteItemController ..> javafx.scene.image.Image
+eu.telecomnancy.AnnoncelisteItemController ..> javafx.scene.image.ImageView
+eu.telecomnancy.App ..> java.lang.Override
+eu.telecomnancy.App ..> eu.telecomnancy.Model.Annonce
+eu.telecomnancy.App ..> eu.telecomnancy.Model.Annonce_Recherche
+eu.telecomnancy.App ..> eu.telecomnancy.Model.Annonce_en_creation
+eu.telecomnancy.App ..> eu.telecomnancy.Model.Utilisateur
+eu.telecomnancy.App ..> java.io.IOException
+eu.telecomnancy.App --|> javafx.application.Application
+eu.telecomnancy.App ..> javafx.fxml.FXMLLoader
+eu.telecomnancy.App ..> javafx.scene.Parent
+eu.telecomnancy.App ..> javafx.scene.Scene
+eu.telecomnancy.App ..> javafx.scene.image.Image
+eu.telecomnancy.App ..> javafx.scene.text.Font
+eu.telecomnancy.App ..> javafx.stage.Stage
+eu.telecomnancy.BDD_App.API ..> eu.telecomnancy.App
+eu.telecomnancy.BDD_App.API ..> eu.telecomnancy.Model.Annonce
+eu.telecomnancy.BDD_App.API ..> eu.telecomnancy.Model.Annonce_Recherche
+eu.telecomnancy.BDD_App.API ..> eu.telecomnancy.Model.Annonce_en_creation
+eu.telecomnancy.BDD_App.API ..> eu.telecomnancy.Model.Date_M
+eu.telecomnancy.BDD_App.API ..> eu.telecomnancy.Model.Reservation
+eu.telecomnancy.BDD_App.API ..> eu.telecomnancy.Model.Utilisateur
+eu.telecomnancy.BDD_App.API ..> eu.telecomnancy.Outils.Formater
+eu.telecomnancy.BDD_App.API ..> java.io.File
+eu.telecomnancy.BDD_App.API ..> java.nio.file.Files
+eu.telecomnancy.BDD_App.API ..> java.sql.Connection
+eu.telecomnancy.BDD_App.API ..> java.sql.DriverManager
+eu.telecomnancy.BDD_App.API ..> java.sql.PreparedStatement
+eu.telecomnancy.BDD_App.API ..> java.sql.ResultSet
+eu.telecomnancy.BDD_App.API ..> java.sql.SQLException
+eu.telecomnancy.BDD_App.API ..> java.time.Instant
+eu.telecomnancy.BDD_App.API ..> java.util.ArrayList
+eu.telecomnancy.BDD_App.API ..> java.util.Date
+eu.telecomnancy.BDD_App.CreateBDD ..> java.sql.Connection
+eu.telecomnancy.BDD_App.CreateBDD ..> java.sql.DatabaseMetaData
+eu.telecomnancy.BDD_App.CreateBDD ..> java.sql.DriverManager
+eu.telecomnancy.BDD_App.CreateBDD ..> java.sql.SQLException
+eu.telecomnancy.BDD_App.RemplirBDD ..> eu.telecomnancy.Model.ImageBlob
+eu.telecomnancy.BDD_App.RemplirBDD ..> eu.telecomnancy.Model.Utilisateur
+eu.telecomnancy.BDD_App.RemplirBDD ..> java.sql.Connection
+eu.telecomnancy.BDD_App.RemplirBDD ..> java.sql.DriverManager
+eu.telecomnancy.BDD_App.RemplirBDD ..> java.sql.SQLException
+eu.telecomnancy.BDD_App.RemplirBDD ..> java.time.Instant
+eu.telecomnancy.BDD_App.TestModify ..> java.io.File
+eu.telecomnancy.BDD_App.TestModify ..> java.nio.file.Files
+eu.telecomnancy.BDD_App.TestModify ..> java.sql.Connection
+eu.telecomnancy.BDD_App.TestModify ..> java.sql.DriverManager
+eu.telecomnancy.BDD_App.TestModify ..> java.sql.PreparedStatement
+eu.telecomnancy.ChatController ..> javafx.fxml.FXML
+eu.telecomnancy.ChatController ..> eu.telecomnancy.BDD_App.API
+eu.telecomnancy.ChatController ..> eu.telecomnancy.Model.Message
+eu.telecomnancy.ChatController ..> eu.telecomnancy.Outils.Formater
+eu.telecomnancy.ChatController ..> java.io.IOException
+eu.telecomnancy.ChatController ..> java.sql.ResultSet
+eu.telecomnancy.ChatController ..> java.time.Instant
+eu.telecomnancy.ChatController ..> java.util.ArrayList
+eu.telecomnancy.ChatController ..> java.util.List
+eu.telecomnancy.ChatController ..> javafx.fxml.FXMLLoader
+eu.telecomnancy.ChatController ..> javafx.scene.control.Label
+eu.telecomnancy.ChatController ..> javafx.scene.control.TextArea
+eu.telecomnancy.ChatController ..> javafx.scene.layout.HBox
+eu.telecomnancy.ChatController ..> javafx.scene.layout.VBox
+eu.telecomnancy.ChatItemController ..> javafx.fxml.FXML
+eu.telecomnancy.ChatItemController ..> eu.telecomnancy.Outils.Formater
+eu.telecomnancy.ChatItemController ..> java.net.URL
+eu.telecomnancy.ChatItemController ..> java.time.LocalDateTime
+eu.telecomnancy.ChatItemController ..> java.time.format.DateTimeFormatter
+eu.telecomnancy.ChatItemController ..> java.util.ResourceBundle
+eu.telecomnancy.ChatItemController ..> javafx.scene.control.Label
+eu.telecomnancy.ChatItemController ..> javafx.scene.text.Text
+eu.telecomnancy.ConnectController ..> javafx.fxml.FXML
+eu.telecomnancy.ConnectController ..> eu.telecomnancy.BDD_App.API
+eu.telecomnancy.ConnectController ..> eu.telecomnancy.BDD_App.RemplirBDD
+eu.telecomnancy.ConnectController ..> eu.telecomnancy.Outils.Formater
+eu.telecomnancy.ConnectController ..> java.io.IOException
+eu.telecomnancy.CreationAnnonceController ..> javafx.fxml.FXML
+eu.telecomnancy.CreationAnnonceController ..> eu.telecomnancy.Model.Annonce_en_creation
+eu.telecomnancy.CreationAnnonceController ..> eu.telecomnancy.Model.ImageBlob
+eu.telecomnancy.CreationAnnonceController ..> java.io.File
+eu.telecomnancy.CreationAnnonceController ..> javafx.scene.control.ChoiceBox
+eu.telecomnancy.CreationAnnonceController ..> javafx.scene.image.Image
+eu.telecomnancy.CreationAnnonceController ..> javafx.scene.image.ImageView
+eu.telecomnancy.CreationAnnonceController ..> javafx.stage.FileChooser
+eu.telecomnancy.CreationAnnonce_Planning_Materiel ..> javafx.fxml.FXML
+eu.telecomnancy.CreationAnnonce_Planning_Materiel ..> eu.telecomnancy.BDD_App.API
+eu.telecomnancy.CreationAnnonce_Planning_Materiel ..> eu.telecomnancy.Model.Date_M
+eu.telecomnancy.CreationAnnonce_Planning_Materiel ..> java.time.LocalDate
+eu.telecomnancy.CreationAnnonce_Planning_Materiel ..> javafx.event.ActionEvent
+eu.telecomnancy.CreationAnnonce_Planning_Materiel ..> javafx.scene.control.DatePicker
+eu.telecomnancy.CreationAnnonce_Planning_Service ..> javafx.fxml.FXML
+eu.telecomnancy.CreationAnnonce_Planning_Service ..> java.util.ArrayList
+eu.telecomnancy.CreationAnnonce_Planning_Service ..> javafx.event.ActionEvent
+eu.telecomnancy.CreationAnnonce_Planning_Service ..> javafx.fxml.FXMLLoader
+eu.telecomnancy.CreationAnnonce_Planning_Service ..> javafx.scene.control.Button
+eu.telecomnancy.CreationAnnonce_Planning_Service ..> javafx.scene.control.ChoiceBox
+eu.telecomnancy.CreationAnnonce_Planning_Service ..> javafx.scene.control.TextField
+eu.telecomnancy.CreationAnnonce_Planning_Service ..> javafx.scene.layout.HBox
+eu.telecomnancy.CreationAnnonce_Planning_Service ..> javafx.scene.layout.VBox
+eu.telecomnancy.CreationController ..> javafx.fxml.FXML
+eu.telecomnancy.CreationController ..> eu.telecomnancy.BDD_App.API
+eu.telecomnancy.CreationController ..> eu.telecomnancy.Model.Utilisateur
+eu.telecomnancy.CreationController ..> eu.telecomnancy.Outils.Formater
+eu.telecomnancy.Element_EvaluationController ..> javafx.fxml.FXML
+eu.telecomnancy.Element_EvaluationController ..> eu.telecomnancy.BDD_App.API
+eu.telecomnancy.Element_EvaluationController ..> eu.telecomnancy.Model.Reservation
+eu.telecomnancy.Element_EvaluationController ..> javafx.event.ActionEvent
+eu.telecomnancy.Element_EvaluationController ..> javafx.scene.control.Button
+eu.telecomnancy.Element_EvaluationController ..> javafx.scene.control.Label
+eu.telecomnancy.Element_EvaluationController ..> javafx.scene.control.Slider
+eu.telecomnancy.ErrorController ..> javafx.fxml.FXML
+eu.telecomnancy.ErrorController ..> javafx.scene.control.Label
+eu.telecomnancy.EvaluationController ..> javafx.fxml.FXML
+eu.telecomnancy.EvaluationController ..> eu.telecomnancy.BDD_App.API
+eu.telecomnancy.EvaluationController ..> eu.telecomnancy.Model.Reservation
+eu.telecomnancy.EvaluationController ..> java.util.ArrayList
+eu.telecomnancy.EvaluationController ..> javafx.fxml.FXMLLoader
+eu.telecomnancy.EvaluationController ..> javafx.scene.layout.HBox
+eu.telecomnancy.EvaluationController ..> javafx.scene.layout.VBox
+eu.telecomnancy.FooterController ..> javafx.fxml.FXML
+eu.telecomnancy.FooterController ..> java.io.IOException
+eu.telecomnancy.HeaderController ..> javafx.fxml.FXML
+eu.telecomnancy.HeaderController ..> eu.telecomnancy.Outils.Formater
+eu.telecomnancy.HeaderController ..> java.io.IOException
+eu.telecomnancy.HeaderController ..> java.util.HashMap
+eu.telecomnancy.HeaderController ..> java.util.Map
+eu.telecomnancy.HeaderController ..> javafx.scene.control.ChoiceBox
+eu.telecomnancy.HeaderController ..> javafx.scene.control.Label
+eu.telecomnancy.HubController ..> javafx.fxml.FXML
+eu.telecomnancy.HubController ..> eu.telecomnancy.BDD_App.API
+eu.telecomnancy.HubController ..> eu.telecomnancy.Model.Notification
+eu.telecomnancy.HubController ..> eu.telecomnancy.Model.Reservation
+eu.telecomnancy.HubController ..> java.io.IOException
+eu.telecomnancy.HubController ..> java.sql.ResultSet
+eu.telecomnancy.HubController ..> java.time.Instant
+eu.telecomnancy.HubController ..> java.util.ArrayList
+eu.telecomnancy.HubController ..> java.util.List
+eu.telecomnancy.HubController ..> javafx.fxml.FXMLLoader
+eu.telecomnancy.HubController ..> javafx.scene.layout.HBox
+eu.telecomnancy.HubController ..> javafx.scene.layout.VBox
+eu.telecomnancy.ListeAnnonceController ..> javafx.fxml.FXML
+eu.telecomnancy.ListeAnnonceController ..> eu.telecomnancy.BDD_App.API
+eu.telecomnancy.ListeAnnonceController ..> eu.telecomnancy.Model.Annonce
+eu.telecomnancy.ListeAnnonceController ..> java.util.ArrayList
+eu.telecomnancy.ListeAnnonceController ..> java.util.List
+eu.telecomnancy.ListeAnnonceController ..> javafx.fxml.FXMLLoader
+eu.telecomnancy.ListeAnnonceController ..> javafx.scene.layout.HBox
+eu.telecomnancy.ListeAnnonceController ..> javafx.scene.layout.VBox
+eu.telecomnancy.MainChatController ..> javafx.fxml.FXML
+eu.telecomnancy.MainChatController ..> eu.telecomnancy.BDD_App.API
+eu.telecomnancy.MainChatController ..> java.sql.ResultSet
+eu.telecomnancy.MainChatController ..> javafx.scene.control.ChoiceBox
+eu.telecomnancy.MainChatController ..> javafx.scene.control.TextField
+eu.telecomnancy.Model.Annonce ..> eu.telecomnancy.BDD_App.API
+eu.telecomnancy.Model.Annonce_en_creation ..> eu.telecomnancy.BDD_App.API
+eu.telecomnancy.Model.Annonce_en_creation ..> java.util.ArrayList
+eu.telecomnancy.Model.Date_M ..> java.time.LocalDate
+eu.telecomnancy.Model.ImageBlob ..> java.io.File
+eu.telecomnancy.Model.ImageBlob ..> java.nio.file.Files
+eu.telecomnancy.Model.ImageBlob ..> javafx.embed.swing.SwingFXUtils
+eu.telecomnancy.Model.ImageBlob ..> javafx.scene.image.Image
+eu.telecomnancy.Model.ImageBlob ..> javafx.scene.image.ImageView
+eu.telecomnancy.Model.ImageBlob ..> javax.imageio.ImageIO
+eu.telecomnancy.Model.ImageBlob ..> javax.imageio.ImageWriter
+eu.telecomnancy.Model.ImageBlob ..> javax.imageio.stream.ImageOutputStream
+eu.telecomnancy.Model.Message ..> eu.telecomnancy.BDD_App.API
+eu.telecomnancy.Model.Notification ..> eu.telecomnancy.BDD_App.API
+eu.telecomnancy.Model.Reservation ..> eu.telecomnancy.BDD_App.API
+eu.telecomnancy.Model.Utilisateur ..> eu.telecomnancy.BDD_App.API
+eu.telecomnancy.Model.Utilisateur ..> eu.telecomnancy.Outils.Formater
+eu.telecomnancy.Model.Utilisateur ..> java.util.ArrayList
+eu.telecomnancy.NotifItemController ..> javafx.fxml.FXML
+eu.telecomnancy.NotifItemController ..> eu.telecomnancy.BDD_App.API
+eu.telecomnancy.NotifItemController ..> java.io.IOException
+eu.telecomnancy.NotifItemController ..> java.net.URL
+eu.telecomnancy.NotifItemController ..> java.time.LocalDateTime
+eu.telecomnancy.NotifItemController ..> java.time.format.DateTimeFormatter
+eu.telecomnancy.NotifItemController ..> java.util.ResourceBundle
+eu.telecomnancy.NotifItemController ..> javafx.scene.control.Button
+eu.telecomnancy.NotifItemController ..> javafx.scene.control.Label
+eu.telecomnancy.Outils.Formater ..> java.nio.charset.StandardCharsets
+eu.telecomnancy.Outils.Formater ..> java.security.MessageDigest
+eu.telecomnancy.Outils.Formater ..> java.security.NoSuchAlgorithmException
+eu.telecomnancy.PlanningController ..> javafx.fxml.FXML
+eu.telecomnancy.PlanningController ..> eu.telecomnancy.BDD_App.API
+eu.telecomnancy.PlanningController ..> eu.telecomnancy.Model.Reservation
+eu.telecomnancy.PlanningController ..> java.sql.ResultSet
+eu.telecomnancy.PlanningController ..> java.time.Instant
+eu.telecomnancy.PlanningController ..> java.time.LocalDateTime
+eu.telecomnancy.PlanningController ..> java.time.format.DateTimeFormatter
+eu.telecomnancy.PlanningController ..> java.util.ArrayList
+eu.telecomnancy.PlanningController ..> java.util.List
+eu.telecomnancy.PlanningController ..> javafx.fxml.FXMLLoader
+eu.telecomnancy.PlanningController ..> javafx.scene.control.Label
+eu.telecomnancy.PlanningController ..> javafx.scene.layout.HBox
+eu.telecomnancy.PlanningController ..> javafx.scene.layout.VBox
+eu.telecomnancy.PlanningReservationController ..> javafx.fxml.FXML
+eu.telecomnancy.PlanningReservationController ..> eu.telecomnancy.BDD_App.API
+eu.telecomnancy.PlanningReservationController ..> eu.telecomnancy.Model.Date_M
+eu.telecomnancy.PlanningReservationController ..> eu.telecomnancy.Model.Reservation
+eu.telecomnancy.PlanningReservationController ..> java.sql.ResultSet
+eu.telecomnancy.PlanningReservationController ..> java.time.Instant
+eu.telecomnancy.PlanningReservationController ..> java.time.LocalDateTime
+eu.telecomnancy.PlanningReservationController ..> java.time.format.DateTimeFormatter
+eu.telecomnancy.PlanningReservationController ..> java.util.ArrayList
+eu.telecomnancy.PlanningReservationController ..> java.util.List
+eu.telecomnancy.PlanningReservationController ..> javafx.fxml.FXMLLoader
+eu.telecomnancy.PlanningReservationController ..> javafx.scene.control.Label
+eu.telecomnancy.PlanningReservationController ..> javafx.scene.layout.HBox
+eu.telecomnancy.PlanningReservationController ..> javafx.scene.layout.VBox
+eu.telecomnancy.PlanningreslistitemController ..> javafx.fxml.FXML
+eu.telecomnancy.PlanningreslistitemController ..> eu.telecomnancy.Model.Date_M
+eu.telecomnancy.PlanningreslistitemController ..> java.net.URL
+eu.telecomnancy.PlanningreslistitemController ..> java.util.ResourceBundle
+eu.telecomnancy.PlanningreslistitemController ..> javafx.scene.control.Label
+eu.telecomnancy.PrereservationUserController ..> javafx.fxml.FXML
+eu.telecomnancy.PrereservationUserController ..> eu.telecomnancy.BDD_App.API
+eu.telecomnancy.PrereservationUserController ..> eu.telecomnancy.Model.Reservation
+eu.telecomnancy.PrereservationUserController ..> java.util.ArrayList
+eu.telecomnancy.PrereservationUserController ..> java.util.List
+eu.telecomnancy.PrereservationUserController ..> javafx.fxml.FXMLLoader
+eu.telecomnancy.PrereservationUserController ..> javafx.scene.layout.HBox
+eu.telecomnancy.PrereservationUserController ..> javafx.scene.layout.VBox
+eu.telecomnancy.PrereservationVendeurController ..> javafx.fxml.FXML
+eu.telecomnancy.PrereservationVendeurController ..> eu.telecomnancy.BDD_App.API
+eu.telecomnancy.PrereservationVendeurController ..> eu.telecomnancy.Model.Reservation
+eu.telecomnancy.PrereservationVendeurController ..> java.util.ArrayList
+eu.telecomnancy.PrereservationVendeurController ..> java.util.List
+eu.telecomnancy.PrereservationVendeurController ..> javafx.fxml.FXMLLoader
+eu.telecomnancy.PrereservationVendeurController ..> javafx.scene.layout.HBox
+eu.telecomnancy.PrereservationVendeurController ..> javafx.scene.layout.VBox
+eu.telecomnancy.PrereservationVendeurItemController ..> javafx.fxml.FXML
+eu.telecomnancy.PrereservationVendeurItemController ..> eu.telecomnancy.BDD_App.API
+eu.telecomnancy.PrereservationVendeurItemController ..> eu.telecomnancy.Model.Date_M
+eu.telecomnancy.PrereservationVendeurItemController ..> eu.telecomnancy.Model.Reservation
+eu.telecomnancy.PrereservationVendeurItemController ..> eu.telecomnancy.Model.Utilisateur
+eu.telecomnancy.PrereservationVendeurItemController ..> javafx.event.ActionEvent
+eu.telecomnancy.PrereservationVendeurItemController ..> javafx.scene.control.Button
+eu.telecomnancy.PrereservationVendeurItemController ..> javafx.scene.control.Label
+eu.telecomnancy.ProfilController ..> javafx.fxml.FXML
+eu.telecomnancy.ProfilController ..> eu.telecomnancy.BDD_App.API
+eu.telecomnancy.ProfilController ..> eu.telecomnancy.Model.Utilisateur
+eu.telecomnancy.ProfilController ..> java.io.IOException
+eu.telecomnancy.ProfilController ..> javafx.scene.control.Label
+eu.telecomnancy.ProfilController ..> javafx.scene.image.Image
+eu.telecomnancy.ProfilController ..> javafx.scene.image.ImageView
+eu.telecomnancy.RechercheAnnoncesController ..> javafx.fxml.FXML
+eu.telecomnancy.RechercheAnnoncesController ..> eu.telecomnancy.Model.Annonce_Recherche
+eu.telecomnancy.RechercheAnnoncesController ..> java.time.ZoneId
+eu.telecomnancy.RechercheAnnoncesController ..> javafx.event.ActionEvent
+eu.telecomnancy.RechercheAnnoncesController ..> javafx.scene.control.CheckBox
+eu.telecomnancy.RechercheAnnoncesController ..> javafx.scene.control.DatePicker
+eu.telecomnancy.RechercheAnnoncesController ..> javafx.scene.control.Slider
+eu.telecomnancy.RechercheAnnoncesController ..> javafx.scene.control.TextField
+eu.telecomnancy.ReclamationController ..> javafx.fxml.FXML
+eu.telecomnancy.ReclamationController ..> eu.telecomnancy.BDD_App.API
+eu.telecomnancy.ReclamationController ..> java.io.IOException
+eu.telecomnancy.ReclamationController ..> javafx.scene.control.TextArea
+eu.telecomnancy.ReservationlisteItemController ..> javafx.fxml.FXML
+eu.telecomnancy.ReservationlisteItemController ..> eu.telecomnancy.Model.Annonce
+eu.telecomnancy.ReservationlisteItemController ..> eu.telecomnancy.Model.Reservation
+eu.telecomnancy.ReservationlisteItemController ..> java.io.IOException
+eu.telecomnancy.ReservationlisteItemController ..> java.net.URL
+eu.telecomnancy.ReservationlisteItemController ..> java.util.ResourceBundle
+eu.telecomnancy.ReservationlisteItemController ..> javafx.scene.control.Label
+eu.telecomnancy.ReserverMaterielController ..> javafx.fxml.FXML
+eu.telecomnancy.ReserverMaterielController ..> eu.telecomnancy.BDD_App.API
+eu.telecomnancy.ReserverMaterielController ..> eu.telecomnancy.Model.Annonce
+eu.telecomnancy.ReserverMaterielController ..> eu.telecomnancy.Model.Date_M
+eu.telecomnancy.ReserverMaterielController ..> java.time.LocalDate
+eu.telecomnancy.ReserverMaterielController ..> java.util.List
+eu.telecomnancy.ReserverMaterielController ..> javafx.fxml.FXMLLoader
+eu.telecomnancy.ReserverMaterielController ..> javafx.scene.control.DatePicker
+eu.telecomnancy.ReserverMaterielController ..> javafx.scene.control.Label
+eu.telecomnancy.ReserverMaterielController ..> javafx.scene.control.TextField
+eu.telecomnancy.ReserverMaterielController ..> javafx.scene.layout.HBox
+eu.telecomnancy.ReserverMaterielController ..> javafx.scene.layout.VBox
+eu.telecomnancy.ReserverServiceController ..> javafx.fxml.FXML
+eu.telecomnancy.ReserverServiceController ..> eu.telecomnancy.BDD_App.API
+eu.telecomnancy.ReserverServiceController ..> eu.telecomnancy.Model.Date_M
+eu.telecomnancy.ReserverServiceController ..> java.util.ArrayList
+eu.telecomnancy.ReserverServiceController ..> javafx.fxml.FXMLLoader
+eu.telecomnancy.ReserverServiceController ..> javafx.scene.control.Label
+eu.telecomnancy.ReserverServiceController ..> javafx.scene.layout.HBox
+eu.telecomnancy.ReserverServiceController ..> javafx.scene.layout.VBox
+eu.telecomnancy.SommeilsController ..> javafx.fxml.FXML
+eu.telecomnancy.SommeilsController ..> eu.telecomnancy.BDD_App.API
+eu.telecomnancy.SommeilsController ..> eu.telecomnancy.Model.Date_M
+eu.telecomnancy.SommeilsController ..> eu.telecomnancy.Model.Sommeils
+eu.telecomnancy.SommeilsController ..> java.sql.ResultSet
+eu.telecomnancy.SommeilsController ..> java.util.ArrayList
+eu.telecomnancy.SommeilsController ..> java.util.List
+eu.telecomnancy.SommeilsController ..> javafx.event.ActionEvent
+eu.telecomnancy.SommeilsController ..> javafx.fxml.FXMLLoader
+eu.telecomnancy.SommeilsController ..> javafx.scene.control.DatePicker
+eu.telecomnancy.SommeilsController ..> javafx.scene.layout.HBox
+eu.telecomnancy.SommeilsController ..> javafx.scene.layout.VBox
+eu.telecomnancy.SommeilsItemController ..> javafx.fxml.FXML
+eu.telecomnancy.SommeilsItemController ..> eu.telecomnancy.BDD_App.API
+eu.telecomnancy.SommeilsItemController ..> javafx.event.ActionEvent
+eu.telecomnancy.SommeilsItemController ..> javafx.scene.control.Label
+eu.telecomnancy.element_planing_addController ..> javafx.fxml.FXML
+eu.telecomnancy.element_planing_addController ..> javafx.event.ActionEvent
+eu.telecomnancy.element_planing_addController ..> javafx.scene.layout.HBox
+eu.telecomnancy.element_planing_ponctuelController ..> javafx.fxml.FXML
+eu.telecomnancy.element_planing_ponctuelController ..> eu.telecomnancy.Model.Date_M
+eu.telecomnancy.element_planing_ponctuelController ..> javafx.event.ActionEvent
+eu.telecomnancy.element_planing_ponctuelController ..> javafx.scene.control.DatePicker
+eu.telecomnancy.element_planing_ponctuelController ..> javafx.scene.control.TextField
+eu.telecomnancy.element_planing_ponctuelController ..> javafx.scene.layout.HBox
+eu.telecomnancy.element_planing_recurrentController ..> javafx.fxml.FXML
+eu.telecomnancy.element_planing_recurrentController ..> eu.telecomnancy.Model.Date_M
+eu.telecomnancy.element_planing_recurrentController ..> java.time.DayOfWeek
+eu.telecomnancy.element_planing_recurrentController ..> java.time.LocalDate
+eu.telecomnancy.element_planing_recurrentController ..> java.time.temporal.ChronoUnit
+eu.telecomnancy.element_planing_recurrentController ..> java.util.ArrayList
+eu.telecomnancy.element_planing_recurrentController ..> java.util.List
+eu.telecomnancy.element_planing_recurrentController ..> javafx.event.ActionEvent
+eu.telecomnancy.element_planing_recurrentController ..> javafx.scene.control.ChoiceBox
+eu.telecomnancy.element_planing_recurrentController ..> javafx.scene.control.DatePicker
+eu.telecomnancy.element_planing_recurrentController ..> javafx.scene.control.TextField
+eu.telecomnancy.element_planing_recurrentController ..> javafx.scene.layout.HBox
+eu.telecomnancy.element_reserver_serviceController ..> javafx.fxml.FXML
+eu.telecomnancy.element_reserver_serviceController ..> eu.telecomnancy.BDD_App.API
+eu.telecomnancy.element_reserver_serviceController ..> eu.telecomnancy.Model.Date_M
+eu.telecomnancy.element_reserver_serviceController ..> javafx.event.ActionEvent
+eu.telecomnancy.element_reserver_serviceController ..> javafx.scene.control.Label
+eu.telecomnancy.element_reserver_serviceController ..> javafx.scene.layout.HBox
+eu.telecomnancy.modprofilController ..> javafx.fxml.FXML
+eu.telecomnancy.modprofilController ..> eu.telecomnancy.BDD_App.API
+eu.telecomnancy.modprofilController ..> eu.telecomnancy.Model.ImageBlob
+eu.telecomnancy.modprofilController ..> eu.telecomnancy.Model.Utilisateur
+eu.telecomnancy.modprofilController ..> java.io.File
+eu.telecomnancy.modprofilController ..> javafx.scene.image.Image
+eu.telecomnancy.modprofilController ..> javafx.scene.image.ImageView
+eu.telecomnancy.modprofilController ..> javafx.stage.FileChooser
+@enduml
