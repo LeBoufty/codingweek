@@ -29,7 +29,7 @@ public class SommeilsController {
     public void AddSommeils(ActionEvent event) throws Exception{
         if(Date_debut.getValue() == null || Date_fin.getValue() == null || Date_M.getDate_FXML(Date_debut.getValue())>Date_M.getDate_FXML(Date_fin.getValue()))
         {
-            //System.out.println("Date non valide");
+            App.error("Dates non valides");
         }
         else
         {

@@ -15,7 +15,7 @@
       <graphic>
          <ImageView StyleClass="hdrimg" fitHeight="74.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
             <image>
-               <Image url="@assets/placeholder.png" />
+               <Image url="@assets/homeicon.png" />
             </image>
             <cursor>
                <Cursor fx:constant="CLOSED_HAND" />

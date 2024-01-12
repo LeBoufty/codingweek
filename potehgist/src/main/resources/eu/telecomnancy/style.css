@@ -270,6 +270,15 @@ GridPane,
   -fx-text-fill: -text-color;
 }
 
+.date-picker > .text-field {
+  -fx-text-fill: -text-color;
+}
+
+.date-picker-popup > .month-year-pane {
+  -fx-base: -secondary-background-color ;
+  /*-fx-mark-highlight-color: -fx-light-text-color ;*/
+}
+
 ChoiceBox {
   -fx-background-color: -background-color;
   -fx-text-fill: -text-color;
