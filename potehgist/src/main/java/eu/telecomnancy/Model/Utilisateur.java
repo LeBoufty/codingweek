@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import eu.telecomnancy.BDD_App.API;
 import eu.telecomnancy.Outils.Formater;
+import javafx.scene.image.Image;
+
 
 public class Utilisateur {
     private int id;
@@ -36,9 +38,9 @@ public class Utilisateur {
         this.admin = false;
 
         String path = getClass().getResource("/eu/telecomnancy/assets/").toExternalForm() + "logo.png";
-        path = path.substring(5);
-
-        this.image = ImageBlob.pathtToByte(path);
+        // path = path.substring(5);
+        Image image = new Image(path);
+        this.image = ImageBlob.imageToByte(image);
         this.id = ++id_max;
     }
 
@@ -57,9 +59,9 @@ public class Utilisateur {
         this.admin = false;
             }
         String path = getClass().getResource("/eu/telecomnancy/assets/").toExternalForm() + "logo.png";
-        path = path.substring(5);
-
-        this.image = ImageBlob.pathtToByte(path);
+        // path = path.substring(5);
+        Image image = new Image(path);
+        this.image = ImageBlob.imageToByte(image);
         this.id = ++id_max;
     }
 

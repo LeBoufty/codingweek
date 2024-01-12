@@ -30,7 +30,7 @@ public class ProfilController {
         email.setText(user.getEmail());
         codepostal.setText(user.getCode_postal());
         API.getInstance().getImageUser(user.getId());
-        Image image = new Image("/tmp/user_photo.png");
+        Image image = new Image("file:/tmp/user_photo.png");
         imageView.setImage(image);
         
     }

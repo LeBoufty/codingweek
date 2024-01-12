@@ -61,7 +61,7 @@ public class AnnonceController {
 
         API.getInstance().getImageAnnonce(annonce.getId());
         //Image image = new Image(getClass().getResource("/eu/telecomnancy/assets/annonce_image.png").toExternalForm());
-        Image image = new Image("/tmp/annonce_image.png");
+        Image image = new Image("file:/tmp/annonce_image.png");
         annonce_img.setImage(image);
 
         if(App.getUser().getId() == annonce.getVendeur().getId()){

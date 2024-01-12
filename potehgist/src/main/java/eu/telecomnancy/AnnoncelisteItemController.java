@@ -67,7 +67,7 @@ public class AnnoncelisteItemController{
         note_float.setText(String.valueOf((noteround/10.0)));
         API.getInstance().getImageAnnonce(annonce.getId());
         //Image image = new Image(getClass().getResource("/eu/telecomnancy/assets/annonce_image.png").toExternalForm());
-        Image image = new Image("/tmp/annonce_image.png");
+        Image image = new Image("file:/tmp/annonce_image.png");
         img.setImage(image);
 
         if (annonce.getCategorie().equals("Service")){

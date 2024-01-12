@@ -17,6 +17,7 @@ import eu.telecomnancy.Model.Annonce;
 import eu.telecomnancy.Model.Annonce_Recherche;
 import eu.telecomnancy.Model.Annonce_en_creation;
 import eu.telecomnancy.Model.Date_M;
+import eu.telecomnancy.Model.ImageBlob;
 import eu.telecomnancy.Model.Reservation;
 import eu.telecomnancy.Model.Utilisateur;
 import eu.telecomnancy.Outils.Formater;
@@ -243,7 +244,7 @@ public class API {
             //String path = ResourceJar("/eu/telecomnancy/assets/placeholder.png");
             String path = getClass().getResource("/eu/telecomnancy/assets/placeholder.png").toExternalForm();
             Image image = new Image(path);
-            byte[] imageData = new byte[(int) image.getHeight() * (int) image.getWidth() * 4];
+            byte[] imageData = ImageBlob.imageToByte(image);
             
 
             pstmt.setBytes(7, imageData);
