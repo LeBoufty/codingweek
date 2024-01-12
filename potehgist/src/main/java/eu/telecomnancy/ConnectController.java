@@ -3,6 +3,7 @@ package eu.telecomnancy;
 import java.io.IOException;
 
 import eu.telecomnancy.BDD_App.API;
+import eu.telecomnancy.BDD_App.RemplirBDD;
 import eu.telecomnancy.Outils.Formater;
 import javafx.fxml.FXML;
 
@@ -39,6 +40,14 @@ public class ConnectController {
 
     private int getUserid(String username) throws Exception {
         return API.getInstance().getUserid(username);
+    }
+    
+    @FXML
+    private void remplirBDD() throws Exception {
+        API.getInstance().closeAPI();
+        RemplirBDD remplirBDD = new RemplirBDD();
+        remplirBDD.remplir();
+        App.setRoot("connect");
     }
 
     @FXML
