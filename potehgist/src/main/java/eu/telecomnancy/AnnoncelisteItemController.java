@@ -21,6 +21,9 @@ public class AnnoncelisteItemController{
     private Button button;
 
     @FXML
+    private Label parheure;
+
+    @FXML
     private Label categorie;
 
     @FXML
@@ -60,6 +63,12 @@ public class AnnoncelisteItemController{
         API.getInstance().getImageAnnonce(annonce.getId());
         Image image = new Image(getClass().getResource("/eu/telecomnancy/assets/annonce_image.png").toExternalForm());
         img.setImage(image);
+
+        if (annonce.getCategorie().equals("Service")){
+            parheure.setVisible(false);
+        } else {
+            parheure.setVisible(true);
+        }
         
 
     }

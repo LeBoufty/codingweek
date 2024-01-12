@@ -25,12 +25,13 @@
                         <Label fx:id="description" prefHeight="55.0" prefWidth="671.0" styleClass="discrete" text="Description" />
                      </children>
                   </VBox>
-                  <VBox prefHeight="150.0" prefWidth="282.0">
+                  <VBox prefHeight="150.0" prefWidth="345.0">
                      <children>
-                        <HBox prefHeight="95.0" prefWidth="217.0">
+                        <HBox alignment="TOP_RIGHT" prefHeight="95.0" prefWidth="217.0">
                            <children>
                               <Label fx:id="price" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="95.0" prefWidth="187.0" styleClass="title" text="Prix" />
-                              <Label prefHeight="91.0" prefWidth="99.0" styleClass="title" text="₣/h" />
+                              <Label prefHeight="91.0" prefWidth="4.0" styleClass="title" text="₣" />
+                              <Label fx:id="parheure" styleClass="title" text="/h" />
                               <Label fx:id="idannonce" prefHeight="18.0" prefWidth="9.0" text="Label" visible="false" />
                            </children>
                         </HBox>
