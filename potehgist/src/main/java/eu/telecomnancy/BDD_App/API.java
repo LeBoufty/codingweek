@@ -387,6 +387,20 @@ public class API {
         preparedStatement.execute();
     }
 
+    public boolean isPreReservationOnTheSameDates(int date_debut, int date_fin, int offreid) throws Exception {
+        String query = "SELECT COUNT(*) FROM plannings_reservations WHERE id_offre = ? AND date_debut < ? AND date_fin > ?";
+        PreparedStatement preparedStatement = conn.prepareStatement(query);
+        preparedStatement.setInt(1, offreid);
+        preparedStatement.setInt(2, date_fin);
+        preparedStatement.setInt(3, date_debut);
+        ResultSet rs = preparedStatement.executeQuery();
+        return rs.getInt(1)!=0;
+    }
+
+    public boolean isPreReservationNotOnTheSameDates(int date_debut, int date_fin, int offreid) throws Exception{
+        return !isPreReservationOnTheSameDates(date_debut, date_fin, offreid);
+    }
+
     public void addPlaningLastOffre(int date_debut, int date_fin) throws Exception {
         String query = "INSERT INTO plannings_offres (id_offre, date_debut, date_fin) VALUES (?, ?, ?)";
         PreparedStatement preparedStatement = conn.prepareStatement(query);

@@ -53,6 +53,10 @@ public class PrereservationVendeurItemController {
 
     @FXML
     void Validate(ActionEvent event) throws Exception{
+        if (API.getInstance().isPreReservationOnTheSameDates(reservation.getDate_debut(), reservation.getDate_fin(), reservation.getId_offre())) {
+            App.error("Vous avez deja accepte une reservation sur cette periode");
+            return;
+        }
         int nb_hours = getNbHours();
         App.getUser().addArgent(reservation.getAnnonce().getPrix()*nb_hours);
         isVendeur = isVendeur();
