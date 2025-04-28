@@ -3,7 +3,7 @@
 
 ![](docu/logo.png)
 
-# [Vidéo de présentation](https://youtu.be/rXVmR2dskcU)
+# [Vidéo de présentation](https://youtu.be/bu_YK8puqXc)
 
 ## Description
 
