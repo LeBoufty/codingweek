@@ -122,4 +122,4 @@ java --module-path ${JAVAFX_HOME}/lib --add-modules=javafx.base,javafx.controls,
 
 ## Crédits
 
-Pierre GUYOT, Pierre-Yves JACQUIER, Arnaud KRAFFT, Titouan LANGLAIS.
+Pierre GUYOT, Pauline JACQUIER, Arnaud KRAFFT, Titouan LANGLAIS.
